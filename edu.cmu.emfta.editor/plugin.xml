@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated emfta -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="emfta.presentation.EmftaModelWizardID"
+            name="%_UI_EmftaModelWizard_label"
+            class="emfta.presentation.EmftaModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/EmftaModelFile.gif">
+         <description>%_UI_EmftaModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated emfta -->
+      <editor
+            id="emfta.presentation.EmftaEditorID"
+            name="%_UI_EmftaEditor_label"
+            icon="icons/full/obj16/EmftaModelFile.gif"
+            extensions="emfta"
+            class="emfta.presentation.EmftaEditor"
+            contributorClass="emfta.presentation.EmftaActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

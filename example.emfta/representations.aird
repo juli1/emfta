@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:emfta="http://cmu.edu/emfta" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description" xmi:id="_dIyGkPgxEeSDYr232azKOw" selectedViews="_YwctAPg0EeSk_99bYWeVlg" version="8.1.1">
+  <models xmi:type="emfta:Tree" href="example.emfta#/"/>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_ZcXCsPgyEeSDYr232azKOw" initialized="true">
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='tree']"/>
+  </ownedViews>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_-n_y4PgyEeSuDJkesuBmUA" initialized="true">
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='emfta_tree']"/>
+  </ownedViews>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_YwctAPg0EeSk_99bYWeVlg" initialized="true">
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree']"/>
+  </ownedViews>
+</viewpoint:DAnalysis>

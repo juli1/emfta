@@ -10,7 +10,7 @@
       <!-- @generated emfta -->
       <package
             uri="http://cmu.edu/emfta"
-            class="emfta.EmftaPackage"
+            class="edu.cmu.emfta.emfta.emftaPackage"
             genModel="model/emfta.genmodel"/>
    </extension>
 

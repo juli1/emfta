@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link emfta.Event#getType <em>Type</em>}</li>
  *   <li>{@link emfta.Event#getName <em>Name</em>}</li>
+ *   <li>{@link emfta.Event#getProbability <em>Probability</em>}</li>
+ *   <li>{@link emfta.Event#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,5 +79,57 @@ public interface Event extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Probability</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Probability</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Probability</em>' attribute.
+	 * @see #setProbability(double)
+	 * @see emfta.EmftaPackage#getEvent_Probability()
+	 * @model
+	 * @generated
+	 */
+	double getProbability();
+
+	/**
+	 * Sets the value of the '{@link emfta.Event#getProbability <em>Probability</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Probability</em>' attribute.
+	 * @see #getProbability()
+	 * @generated
+	 */
+	void setProbability(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see #setDescription(String)
+	 * @see emfta.EmftaPackage#getEvent_Description()
+	 * @model
+	 * @generated
+	 */
+	String getDescription();
+
+	/**
+	 * Sets the value of the '{@link emfta.Event#getDescription <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description</em>' attribute.
+	 * @see #getDescription()
+	 * @generated
+	 */
+	void setDescription(String value);
 
 } // Event

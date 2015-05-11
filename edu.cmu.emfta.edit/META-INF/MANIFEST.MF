@@ -4,7 +4,7 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: edu.cmu.emfta.edit;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: edu.cmu.emfta.emfta.provider.emftaEditPlugin$Implementation
+Bundle-Activator: emfta.provider.EmftaEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

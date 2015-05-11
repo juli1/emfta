@@ -10,7 +10,7 @@
       <!-- @generated emfta -->
       <factory
             uri="http://cmu.edu/emfta"
-            class="edu.cmu.emfta.emfta.provider.emftaItemProviderAdapterFactory"
+            class="emfta.provider.EmftaItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

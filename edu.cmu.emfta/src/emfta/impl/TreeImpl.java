@@ -8,6 +8,7 @@ import emfta.Tree;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -23,6 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link emfta.impl.TreeImpl#getName <em>Name</em>}</li>
  *   <li>{@link emfta.impl.TreeImpl#getGate <em>Gate</em>}</li>
+ *   <li>{@link emfta.impl.TreeImpl#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,7 +52,7 @@ public class TreeImpl extends MinimalEObjectImpl.Container implements Tree {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getGate() <em>Gate</em>}' reference.
+	 * The cached value of the '{@link #getGate() <em>Gate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getGate()
@@ -58,6 +60,26 @@ public class TreeImpl extends MinimalEObjectImpl.Container implements Tree {
 	 * @ordered
 	 */
 	protected Gate gate;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -105,14 +127,6 @@ public class TreeImpl extends MinimalEObjectImpl.Container implements Tree {
 	 * @generated
 	 */
 	public Gate getGate() {
-		if (gate != null && gate.eIsProxy()) {
-			InternalEObject oldGate = (InternalEObject)gate;
-			gate = (Gate)eResolveProxy(oldGate);
-			if (gate != oldGate) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EmftaPackage.TREE__GATE, oldGate, gate));
-			}
-		}
 		return gate;
 	}
 
@@ -121,8 +135,14 @@ public class TreeImpl extends MinimalEObjectImpl.Container implements Tree {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Gate basicGetGate() {
-		return gate;
+	public NotificationChain basicSetGate(Gate newGate, NotificationChain msgs) {
+		Gate oldGate = gate;
+		gate = newGate;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EmftaPackage.TREE__GATE, oldGate, newGate);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -131,10 +151,52 @@ public class TreeImpl extends MinimalEObjectImpl.Container implements Tree {
 	 * @generated
 	 */
 	public void setGate(Gate newGate) {
-		Gate oldGate = gate;
-		gate = newGate;
+		if (newGate != gate) {
+			NotificationChain msgs = null;
+			if (gate != null)
+				msgs = ((InternalEObject)gate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EmftaPackage.TREE__GATE, null, msgs);
+			if (newGate != null)
+				msgs = ((InternalEObject)newGate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EmftaPackage.TREE__GATE, null, msgs);
+			msgs = basicSetGate(newGate, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EmftaPackage.TREE__GATE, newGate, newGate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmftaPackage.TREE__GATE, oldGate, gate));
+			eNotify(new ENotificationImpl(this, Notification.SET, EmftaPackage.TREE__DESCRIPTION, oldDescription, description));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EmftaPackage.TREE__GATE:
+				return basicSetGate(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -148,8 +210,9 @@ public class TreeImpl extends MinimalEObjectImpl.Container implements Tree {
 			case EmftaPackage.TREE__NAME:
 				return getName();
 			case EmftaPackage.TREE__GATE:
-				if (resolve) return getGate();
-				return basicGetGate();
+				return getGate();
+			case EmftaPackage.TREE__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -167,6 +230,9 @@ public class TreeImpl extends MinimalEObjectImpl.Container implements Tree {
 				return;
 			case EmftaPackage.TREE__GATE:
 				setGate((Gate)newValue);
+				return;
+			case EmftaPackage.TREE__DESCRIPTION:
+				setDescription((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -186,6 +252,9 @@ public class TreeImpl extends MinimalEObjectImpl.Container implements Tree {
 			case EmftaPackage.TREE__GATE:
 				setGate((Gate)null);
 				return;
+			case EmftaPackage.TREE__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -202,6 +271,8 @@ public class TreeImpl extends MinimalEObjectImpl.Container implements Tree {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case EmftaPackage.TREE__GATE:
 				return gate != null;
+			case EmftaPackage.TREE__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -218,6 +289,8 @@ public class TreeImpl extends MinimalEObjectImpl.Container implements Tree {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", description: ");
+		result.append(description);
 		result.append(')');
 		return result.toString();
 	}

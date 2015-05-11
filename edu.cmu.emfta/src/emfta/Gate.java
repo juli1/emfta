@@ -55,7 +55,7 @@ public interface Gate extends EObject {
 	void setType(GateType value);
 
 	/**
-	 * Returns the value of the '<em><b>Gates</b></em>' reference list.
+	 * Returns the value of the '<em><b>Gates</b></em>' containment reference list.
 	 * The list contents are of type {@link emfta.Gate}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -63,15 +63,15 @@ public interface Gate extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Gates</em>' reference list.
+	 * @return the value of the '<em>Gates</em>' containment reference list.
 	 * @see emfta.EmftaPackage#getGate_Gates()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Gate> getGates();
 
 	/**
-	 * Returns the value of the '<em><b>Events</b></em>' reference list.
+	 * Returns the value of the '<em><b>Events</b></em>' containment reference list.
 	 * The list contents are of type {@link emfta.Event}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -79,9 +79,9 @@ public interface Gate extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Events</em>' reference list.
+	 * @return the value of the '<em>Events</em>' containment reference list.
 	 * @see emfta.EmftaPackage#getGate_Events()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Event> getEvents();

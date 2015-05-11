@@ -86,13 +86,31 @@ public interface EmftaPackage extends EPackage {
 	int EVENT__NAME = 1;
 
 	/**
+	 * The feature id for the '<em><b>Probability</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT__PROBABILITY = 2;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT__DESCRIPTION = 3;
+
+	/**
 	 * The number of structural features of the '<em>Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_FEATURE_COUNT = 2;
+	int EVENT_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Event</em>' class.
@@ -123,7 +141,7 @@ public interface EmftaPackage extends EPackage {
 	int GATE__TYPE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Gates</b></em>' reference list.
+	 * The feature id for the '<em><b>Gates</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -132,7 +150,7 @@ public interface EmftaPackage extends EPackage {
 	int GATE__GATES = 1;
 
 	/**
-	 * The feature id for the '<em><b>Events</b></em>' reference list.
+	 * The feature id for the '<em><b>Events</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -178,7 +196,7 @@ public interface EmftaPackage extends EPackage {
 	int TREE__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Gate</b></em>' reference.
+	 * The feature id for the '<em><b>Gate</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -187,13 +205,22 @@ public interface EmftaPackage extends EPackage {
 	int TREE__GATE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE__DESCRIPTION = 2;
+
+	/**
 	 * The number of structural features of the '<em>Tree</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_FEATURE_COUNT = 2;
+	int TREE_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Tree</em>' class.
@@ -258,6 +285,28 @@ public interface EmftaPackage extends EPackage {
 	EAttribute getEvent_Name();
 
 	/**
+	 * Returns the meta object for the attribute '{@link emfta.Event#getProbability <em>Probability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Probability</em>'.
+	 * @see emfta.Event#getProbability()
+	 * @see #getEvent()
+	 * @generated
+	 */
+	EAttribute getEvent_Probability();
+
+	/**
+	 * Returns the meta object for the attribute '{@link emfta.Event#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see emfta.Event#getDescription()
+	 * @see #getEvent()
+	 * @generated
+	 */
+	EAttribute getEvent_Description();
+
+	/**
 	 * Returns the meta object for class '{@link emfta.Gate <em>Gate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -279,10 +328,10 @@ public interface EmftaPackage extends EPackage {
 	EAttribute getGate_Type();
 
 	/**
-	 * Returns the meta object for the reference list '{@link emfta.Gate#getGates <em>Gates</em>}'.
+	 * Returns the meta object for the containment reference list '{@link emfta.Gate#getGates <em>Gates</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Gates</em>'.
+	 * @return the meta object for the containment reference list '<em>Gates</em>'.
 	 * @see emfta.Gate#getGates()
 	 * @see #getGate()
 	 * @generated
@@ -290,10 +339,10 @@ public interface EmftaPackage extends EPackage {
 	EReference getGate_Gates();
 
 	/**
-	 * Returns the meta object for the reference list '{@link emfta.Gate#getEvents <em>Events</em>}'.
+	 * Returns the meta object for the containment reference list '{@link emfta.Gate#getEvents <em>Events</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Events</em>'.
+	 * @return the meta object for the containment reference list '<em>Events</em>'.
 	 * @see emfta.Gate#getEvents()
 	 * @see #getGate()
 	 * @generated
@@ -322,15 +371,26 @@ public interface EmftaPackage extends EPackage {
 	EAttribute getTree_Name();
 
 	/**
-	 * Returns the meta object for the reference '{@link emfta.Tree#getGate <em>Gate</em>}'.
+	 * Returns the meta object for the containment reference '{@link emfta.Tree#getGate <em>Gate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Gate</em>'.
+	 * @return the meta object for the containment reference '<em>Gate</em>'.
 	 * @see emfta.Tree#getGate()
 	 * @see #getTree()
 	 * @generated
 	 */
 	EReference getTree_Gate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link emfta.Tree#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see emfta.Tree#getDescription()
+	 * @see #getTree()
+	 * @generated
+	 */
+	EAttribute getTree_Description();
 
 	/**
 	 * Returns the meta object for enum '{@link emfta.EventType <em>Event Type</em>}'.
@@ -402,6 +462,22 @@ public interface EmftaPackage extends EPackage {
 		EAttribute EVENT__NAME = eINSTANCE.getEvent_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Probability</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EVENT__PROBABILITY = eINSTANCE.getEvent_Probability();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EVENT__DESCRIPTION = eINSTANCE.getEvent_Description();
+
+		/**
 		 * The meta object literal for the '{@link emfta.impl.GateImpl <em>Gate</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -420,7 +496,7 @@ public interface EmftaPackage extends EPackage {
 		EAttribute GATE__TYPE = eINSTANCE.getGate_Type();
 
 		/**
-		 * The meta object literal for the '<em><b>Gates</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Gates</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -428,7 +504,7 @@ public interface EmftaPackage extends EPackage {
 		EReference GATE__GATES = eINSTANCE.getGate_Gates();
 
 		/**
-		 * The meta object literal for the '<em><b>Events</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Events</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -454,12 +530,20 @@ public interface EmftaPackage extends EPackage {
 		EAttribute TREE__NAME = eINSTANCE.getTree_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Gate</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Gate</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference TREE__GATE = eINSTANCE.getTree_Gate();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TREE__DESCRIPTION = eINSTANCE.getTree_Description();
 
 		/**
 		 * The meta object literal for the '{@link emfta.EventType <em>Event Type</em>}' enum.

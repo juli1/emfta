@@ -12,12 +12,12 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="edu.cmu.emfta.emfta.presentation.emftaModelWizardID"
-            name="%_UI_emftaModelWizard_label"
-            class="edu.cmu.emfta.emfta.presentation.emftaModelWizard"
+            id="emfta.presentation.EmftaModelWizardID"
+            name="%_UI_EmftaModelWizard_label"
+            class="emfta.presentation.EmftaModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/emftaModelFile.gif">
-         <description>%_UI_emftaModelWizard_description</description>
+            icon="icons/full/obj16/EmftaModelFile.gif">
+         <description>%_UI_EmftaModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
    </extension>
@@ -25,12 +25,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated emfta -->
       <editor
-            id="edu.cmu.emfta.emfta.presentation.emftaEditorID"
-            name="%_UI_emftaEditor_label"
-            icon="icons/full/obj16/emftaModelFile.gif"
+            id="emfta.presentation.EmftaEditorID"
+            name="%_UI_EmftaEditor_label"
+            icon="icons/full/obj16/EmftaModelFile.gif"
             extensions="emfta"
-            class="edu.cmu.emfta.emfta.presentation.emftaEditor"
-            contributorClass="edu.cmu.emfta.emfta.presentation.emftaActionBarContributor">
+            class="emfta.presentation.EmftaEditor"
+            contributorClass="emfta.presentation.EmftaActionBarContributor">
       </editor>
    </extension>
 </plugin>

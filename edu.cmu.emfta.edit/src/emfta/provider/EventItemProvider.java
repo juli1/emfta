@@ -62,6 +62,8 @@ public class EventItemProvider
 
 			addTypePropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addProbabilityPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -111,6 +113,50 @@ public class EventItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Probability feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProbabilityPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Event_probability_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Event_probability_feature", "_UI_Event_type"),
+				 EmftaPackage.Literals.EVENT__PROBABILITY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Event_description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Event_description_feature", "_UI_Event_type"),
+				 EmftaPackage.Literals.EVENT__DESCRIPTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Event.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -150,6 +196,8 @@ public class EventItemProvider
 		switch (notification.getFeatureID(Event.class)) {
 			case EmftaPackage.EVENT__TYPE:
 			case EmftaPackage.EVENT__NAME:
+			case EmftaPackage.EVENT__PROBABILITY:
+			case EmftaPackage.EVENT__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

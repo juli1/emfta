@@ -6,19 +6,16 @@ import emfta.EmftaPackage;
 import emfta.Event;
 import emfta.Gate;
 import emfta.GateType;
-
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,7 +54,7 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 	protected GateType type = TYPE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getGates() <em>Gates</em>}' reference list.
+	 * The cached value of the '{@link #getGates() <em>Gates</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getGates()
@@ -67,7 +64,7 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 	protected EList<Gate> gates;
 
 	/**
-	 * The cached value of the '{@link #getEvents() <em>Events</em>}' reference list.
+	 * The cached value of the '{@link #getEvents() <em>Events</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getEvents()
@@ -123,7 +120,7 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 	 */
 	public EList<Gate> getGates() {
 		if (gates == null) {
-			gates = new EObjectResolvingEList<Gate>(Gate.class, this, EmftaPackage.GATE__GATES);
+			gates = new EObjectContainmentEList<Gate>(Gate.class, this, EmftaPackage.GATE__GATES);
 		}
 		return gates;
 	}
@@ -135,9 +132,25 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 	 */
 	public EList<Event> getEvents() {
 		if (events == null) {
-			events = new EObjectResolvingEList<Event>(Event.class, this, EmftaPackage.GATE__EVENTS);
+			events = new EObjectContainmentEList<Event>(Event.class, this, EmftaPackage.GATE__EVENTS);
 		}
 		return events;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EmftaPackage.GATE__GATES:
+				return ((InternalEList<?>)getGates()).basicRemove(otherEnd, msgs);
+			case EmftaPackage.GATE__EVENTS:
+				return ((InternalEList<?>)getEvents()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

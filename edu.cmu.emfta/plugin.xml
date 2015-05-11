@@ -10,8 +10,8 @@
       <!-- @generated emfta -->
       <package
             uri="http://cmu.edu/emfta"
-            class="edu.cmu.emfta.emfta.emftaPackage"
-            genModel="model/emfta.genmodel"/>
+            class="emfta.EmftaPackage"
+            genModel="emfta.genmodel"/>
    </extension>
 
 </plugin>

@@ -1,13 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:emfta="http://cmu.edu/emfta" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description" xmi:id="_dIyGkPgxEeSDYr232azKOw" selectedViews="_YwctAPg0EeSk_99bYWeVlg" version="8.1.1">
-  <models xmi:type="emfta:Tree" href="example.emfta#/"/>
-  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_ZcXCsPgyEeSDYr232azKOw" initialized="true">
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:emfta="http://cmu.edu/emfta" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_dIyGkPgxEeSDYr232azKOw" selectedViews="_YwctAPg0EeSk_99bYWeVlg" version="11.0.0.201503202000">
+  <semanticResources>platform:/resource/example.emfta/example.emfta</semanticResources>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_ZcXCsPgyEeSDYr232azKOw">
     <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='tree']"/>
   </ownedViews>
-  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_-n_y4PgyEeSuDJkesuBmUA" initialized="true">
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_-n_y4PgyEeSuDJkesuBmUA">
     <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='emfta_tree']"/>
   </ownedViews>
-  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_YwctAPg0EeSk_99bYWeVlg" initialized="true">
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_YwctAPg0EeSk_99bYWeVlg">
+    <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_tacUYfh3EeSFTb-SSm4VKQ" name="new Tree.diagram">
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_tacUYvh3EeSFTb-SSm4VKQ" source="DANNOTATION_CUSTOMIZATION_KEY">
+        <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_tacUY_h3EeSFTb-SSm4VKQ"/>
+      </ownedAnnotationEntries>
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_tbLUMPh3EeSFTb-SSm4VKQ" source="GMF_DIAGRAMS">
+        <data xmi:type="notation:Diagram" xmi:id="_tbLUMfh3EeSFTb-SSm4VKQ" type="Sirius" element="_tacUYfh3EeSFTb-SSm4VKQ" measurementUnit="Pixel">
+          <children xmi:type="notation:Node" xmi:id="_tbjHoPh3EeSFTb-SSm4VKQ" type="2001" element="_tacUZPh3EeSFTb-SSm4VKQ">
+            <children xmi:type="notation:Node" xmi:id="_tcQSQPh3EeSFTb-SSm4VKQ" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_tcQSQfh3EeSFTb-SSm4VKQ" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_tceUsPh3EeSFTb-SSm4VKQ" type="3003" element="_tacUZfh3EeSFTb-SSm4VKQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_tceUsfh3EeSFTb-SSm4VKQ" fontName="Arial" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tceUsvh3EeSFTb-SSm4VKQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_tbjHofh3EeSFTb-SSm4VKQ" fontName="Arial" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tbjHovh3EeSFTb-SSm4VKQ" width="60" height="60"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_tccfgPh3EeSFTb-SSm4VKQ" type="2001" element="_tacUZvh3EeSFTb-SSm4VKQ">
+            <children xmi:type="notation:Node" xmi:id="_tcdGkPh3EeSFTb-SSm4VKQ" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_tcdGkfh3EeSFTb-SSm4VKQ" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_tce7wPh3EeSFTb-SSm4VKQ" type="3003" element="_tacUZ_h3EeSFTb-SSm4VKQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_tce7wfh3EeSFTb-SSm4VKQ" fontName="Arial" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tce7wvh3EeSFTb-SSm4VKQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_tccfgfh3EeSFTb-SSm4VKQ" fontName="Arial" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tccfgvh3EeSFTb-SSm4VKQ" x="120" width="60" height="60"/>
+          </children>
+          <styles xmi:type="notation:DiagramStyle" xmi:id="_tbLUMvh3EeSFTb-SSm4VKQ"/>
+        </data>
+      </ownedAnnotationEntries>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_tacUZPh3EeSFTb-SSm4VKQ" name="DBZ" width="6" height="6" resizeKind="NSEW">
+        <target xmi:type="emfta:Event" href="example.emfta#//@gate/@events.0"/>
+        <semanticElements xmi:type="emfta:Event" href="example.emfta#//@gate/@events.0"/>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_tacUZfh3EeSFTb-SSm4VKQ" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_tacUZvh3EeSFTb-SSm4VKQ" name="OVERFLOW" width="6" height="6" resizeKind="NSEW">
+        <target xmi:type="emfta:Event" href="example.emfta#//@gate/@events.1"/>
+        <semanticElements xmi:type="emfta:Event" href="example.emfta#//@gate/@events.1"/>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_tacUZ_h3EeSFTb-SSm4VKQ" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']"/>
+      </ownedDiagramElements>
+      <description xmi:type="description_1:DiagramDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree.diagram']"/>
+      <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_tacUaPh3EeSFTb-SSm4VKQ"/>
+      <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer"/>
+      <target xmi:type="emfta:Tree" href="example.emfta#/"/>
+    </ownedRepresentations>
     <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree']"/>
   </ownedViews>
 </viewpoint:DAnalysis>

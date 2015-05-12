@@ -7,6 +7,7 @@ Bundle-Activator: emfta.design.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.sirius,
- org.eclipse.sirius.common.acceleo.mtl
+ org.eclipse.sirius.common.acceleo.mtl,
+ org.eclipse.core.resources;bundle-version="3.9.1"
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

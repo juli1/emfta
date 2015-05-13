@@ -17,7 +17,7 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="GateOrNode" domainClass="emfta.Gate">
+        <nodeMappings name="GateOrNode" semanticCandidatesExpression="[self.eContents()->select(p|p.oclAsType(Gate).type.toString().equalsIgnoreCase('OR'))/]" domainClass="emfta.Gate">
           <style xsi:type="style:DotDescription" labelExpression="mygate1" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -38,7 +38,14 @@
             </style>
           </conditionnalStyles>
         </nodeMappings>
-        <edgeMappings name="GateToGateEdge" sourceMapping="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='GateOrNode']" targetMapping="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='GateOrNode']" targetFinderExpression="feature:gates">
+        <nodeMappings name="GateAndNode" semanticCandidatesExpression="[self.eContents()->select(p|p.oclAsType(Gate).type.toString().equalsIgnoreCase('AND'))/]" domainClass="emfta.Gate">
+          <style xsi:type="style:EllipseNodeDescription" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="GateToGateEdge" sourceMapping="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='GateOrNode'] //@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='GateAndNode']" targetMapping="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='GateOrNode'] //@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='GateAndNode']" targetFinderExpression="feature:gates">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
@@ -46,7 +53,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="GateToEventEdge" sourceMapping="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='GateOrNode']" targetMapping="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']" targetFinderExpression="feature:events">
+        <edgeMappings name="GateToEventEdge" sourceMapping="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='GateOrNode'] //@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='GateAndNode']" targetMapping="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']" targetFinderExpression="feature:events">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emfta:FTAModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:emfta="http://cmu.edu/emfta" name="myftamodel" description="">
+  <root name="rootnode">
+    <gate type="AND">
+      <gates>
+        <events name="event1" description=""/>
+        <events name="event2" description=""/>
+      </gates>
+      <gates>
+        <events name="event3"/>
+        <events name="event4"/>
+      </gates>
+    </gate>
+  </root>
+</emfta:FTAModel>

@@ -23,6 +23,12 @@ Package emfta <http://cmu.edu/emfta>
     Reference gate : Gate
     Attribute description : EString
 
+  Class FTAModel
+    Reference root : Tree
+    Attribute name : EString
+    Attribute description : EString
+    Attribute comments : EString
+
   Enum EventType
     Literal Basic = 0
     Literal External = 1

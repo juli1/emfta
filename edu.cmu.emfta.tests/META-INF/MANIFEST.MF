@@ -7,7 +7,8 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: emfta.tests
+Export-Package: emfta.tests,
+ edu.cmu.emfta.tests
 Require-Bundle: org.eclipse.core.runtime,
  edu.cmu.emfta;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,

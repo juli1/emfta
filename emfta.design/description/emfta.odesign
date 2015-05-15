@@ -1,8 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" name="emfta" version="10.0.0.201504091800">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="emfta" version="10.0.0.201504091800">
   <ownedViewpoints name="Tree.graphic">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Tree.diagram" domainClass="emfta.FTAModel">
       <defaultLayer name="Default">
+        <nodeMappings name="TreeRootNode" domainClass="emfta.Tree">
+          <style xsi:type="style:SquareDescription" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="GateNode" domainClass="emfta.Gate">
+          <style xsi:type="style:DotDescription" labelExpression="mygate1" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+          <conditionnalStyles predicateExpression="[self.type.toString().equalsIgnoreCase('OR')/]">
+            <style xsi:type="style:WorkspaceImageDescription" labelExpression="OR" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/emfta.design/imgs/or.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.type.toString().equalsIgnoreCase('AND')/]">
+            <style xsi:type="style:WorkspaceImageDescription" labelExpression="AND" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/emfta.design/imgs/and.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+        </nodeMappings>
         <nodeMappings name="EventNode" domainClass="emfta.Event">
           <style xsi:type="style:SquareDescription" sizeComputationExpression="6" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -40,32 +66,6 @@
             </style>
           </conditionnalStyles>
         </nodeMappings>
-        <nodeMappings name="TreeRootNode" domainClass="emfta.Tree">
-          <style xsi:type="style:SquareDescription" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings name="GateNode" domainClass="emfta.Gate">
-          <style xsi:type="style:DotDescription" labelExpression="mygate1" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-          </style>
-          <conditionnalStyles predicateExpression="[self.type.toString().equalsIgnoreCase('OR')/]">
-            <style xsi:type="style:WorkspaceImageDescription" labelExpression="OR" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/emfta.design/imgs/or.png">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </style>
-          </conditionnalStyles>
-          <conditionnalStyles predicateExpression="[self.type.toString().equalsIgnoreCase('AND')/]">
-            <style xsi:type="style:WorkspaceImageDescription" labelExpression="AND" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/emfta.design/imgs/and.png">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </style>
-          </conditionnalStyles>
-        </nodeMappings>
         <edgeMappings name="GateToGateEdge" sourceMapping="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='GateNode']" targetMapping="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='GateNode']" targetFinderExpression="feature:gates">
           <style targetArrow="NoDecoration" sizeComputationExpression="2" routingStyle="tree" foldingStyle="TARGET" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
@@ -90,12 +90,6 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <toolSections>
-          <ownedTools xsi:type="tool:NodeCreationDescription" nodeMappings="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-          </ownedTools>
-        </toolSections>
       </defaultLayer>
     </ownedRepresentations>
   </ownedViewpoints>

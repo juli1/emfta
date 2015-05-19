@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="emfta" version="10.0.0.201504091800">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="emfta" version="10.0.0.201504091800">
   <ownedViewpoints name="Tree.graphic">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Tree.diagram" domainClass="emfta.FTAModel">
       <layout xsi:type="description_1:CompositeLayout"/>
+      <diagramInitialisation>
+        <firstModelOperations xsi:type="tool:ChangeContext"/>
+      </diagramInitialisation>
       <defaultLayer name="Default">
         <nodeMappings name="TreeRootNode" domainClass="emfta.Tree">
-          <style xsi:type="style:SquareDescription" labelExpression="[name + '\n' + description /]" labelPosition="node" resizeKind="NSEW">
+          <style xsi:type="style:SquareDescription" labelExpression="[name + '\n' + description /]" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -18,7 +21,7 @@
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
           </style>
           <conditionnalStyles predicateExpression="[self.type.toString().equalsIgnoreCase('OR')/]">
-            <style xsi:type="style:WorkspaceImageDescription" labelExpression="OR" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/emfta.design/imgs/or.png">
+            <style xsi:type="style:WorkspaceImageDescription" labelExpression="OR" sizeComputationExpression="" labelPosition="node" resizeKind="NSEW" workspacePath="/emfta.design/imgs/or.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
@@ -94,9 +97,15 @@
       </defaultLayer>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="TreeTable" domainClass="emfta.FTAModel">
-      <ownedLineMappings name="EventLine" domainClass="emfta.Event"/>
-      <ownedLineMappings name="GateLine" domainClass="emfta.Gate"/>
-      <ownedLineMappings name="TreeLine" domainClass="emfta.Tree"/>
+      <ownedLineMappings name="TreeLine" domainClass="emfta.Tree">
+        <ownedSubLines name="FirstGateLine" domainClass="emfta.Gate" semanticCandidatesExpression="[gate/]">
+          <ownedSubLines name="TreeGateLine" domainClass="emfta.Gate" semanticCandidatesExpression="[gates/]">
+            <ownedSubLines name="SubEvents" domainClass="emfta.Event" semanticCandidatesExpression="[events/]"/>
+            <ownedSubLines name="SubGates" domainClass="emfta.Gate" semanticCandidatesExpression="[gates/]"/>
+          </ownedSubLines>
+          <ownedSubLines name="EventLine" domainClass="emfta.Event" semanticCandidatesExpression="[events/]"/>
+        </ownedSubLines>
+      </ownedLineMappings>
       <ownedColumnMappings name="NameColumn" label="Name" featureName="name"/>
       <ownedColumnMappings name="DescriptionColumn" label="Description" featureName="description"/>
       <ownedColumnMappings name="ProbabilityColumn" label="Probability" featureName="probability"/>

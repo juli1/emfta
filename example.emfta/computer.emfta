@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emfta:FTAModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:emfta="http://cmu.edu/emfta" name="computer crashes" description="The computer stops working">
+  <root name="crash" description="The computer crashes">
+    <gate>
+      <gates type="AND">
+        <events name="DBZ" description="Divide by zero"/>
+        <events name="RecoveryMissing" description="Exception recovery is missing"/>
+      </gates>
+      <events name="Interrupt" description="Unhandled interrupt is raised"/>
+      <events name="devicebroken" description="Faulty device continuously send interrupts"/>
+    </gate>
+  </root>
+</emfta:FTAModel>

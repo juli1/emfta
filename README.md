@@ -89,13 +89,14 @@ The following pictures show the tables (to edit the events/gates) as well as the
 ![Table of the Computer Example](https://github.com/juli1/emfta/raw/master/example.emfta/imgs/example2-table.png "Table for editing the Gates/Events of the computer example")
 
 ## Bugs and Features Requests
+If you find a bug, please report it on the issue tracker of the project.
+Also, if you have any suggestion/idea to improve the tool, please also add it
+on the issue tracker! Please also read the following section about the known
+limitations and future work on this project. Bug fixes and improvements
+will be considered according to my free time and the number of miles I run per day.
 
 ## Known Limitations and/or Future work
-* Interface with AADL (high priority)
+* Interface with AADL - especially the Error-Model Annex v2 (high priority)
 * Compute of minimal cutsets (high priority)
 * Use for security examples (medium priority)
 * Make Simulation (low priority)
-
-## How to find support
-You can try to drop me a line at <jdelange@andrew.cmu.edu>, time and likelyhood
-to get a reply depends on my availabilities and the number of miles I run per day.

@@ -7,7 +7,7 @@
         <firstModelOperations xsi:type="tool:ChangeContext"/>
       </diagramInitialisation>
       <defaultLayer name="Default">
-        <nodeMappings name="TreeRootNode" domainClass="emfta.Tree">
+        <nodeMappings name="TreeRootNode" semanticCandidatesExpression="[root/]" domainClass="emfta.Tree">
           <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" labelFormat="bold" labelExpression="[name + '\n' + description /]" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" width="25" height="5">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>

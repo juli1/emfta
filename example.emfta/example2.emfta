@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <emfta:FTAModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:emfta="http://cmu.edu/emfta" name="myftamodel" description="">
-  <root name="rootnode" description="mydesc from julien">
+  <root name="newevent" description="mydesc from julien">
     <gate type="AND">
       <gates>
         <events name="event1" probability="1.0" description=""/>
@@ -9,6 +9,10 @@
       <gates>
         <events name="event3" description="event3 description edited"/>
         <events name="event4" probability="3.0"/>
+      </gates>
+      <gates>
+        <events name="newevent"/>
+        <events name="newevent"/>
       </gates>
     </gate>
   </root>

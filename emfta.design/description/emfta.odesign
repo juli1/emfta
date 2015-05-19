@@ -98,12 +98,28 @@
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="TreeTable" domainClass="emfta.FTAModel">
       <ownedLineMappings name="TreeLine" domainClass="emfta.Tree">
-        <ownedSubLines name="FirstGateLine" domainClass="emfta.Gate" semanticCandidatesExpression="[gate/]">
-          <ownedSubLines name="TreeGateLine" domainClass="emfta.Gate" semanticCandidatesExpression="[gates/]">
-            <ownedSubLines name="SubEvents" domainClass="emfta.Event" semanticCandidatesExpression="[events/]"/>
-            <ownedSubLines name="SubGates" domainClass="emfta.Gate" semanticCandidatesExpression="[gates/]"/>
-          </ownedSubLines>
+        <ownedSubLines name="GateLine" reusedSubLines="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']/@ownedSubLines[name='GateLine']" reusedInMappings="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']/@ownedSubLines[name='GateLine']" domainClass="emfta.Gate" semanticCandidatesExpression="[eContents()/]">
           <ownedSubLines name="EventLine" domainClass="emfta.Event" semanticCandidatesExpression="[events/]"/>
+          <create name="CreateEvent" label="Add event" mapping="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']/@ownedSubLines[name='GateLine']/@ownedSubLines[name='EventLine']">
+            <variables name="root" documentation="The semantic element of the table."/>
+            <variables name="element" documentation="The semantic currently edited element."/>
+            <variables name="container" documentation="The semantic element corresponding to the view container."/>
+            <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="[element/]">
+              <subModelOperations xsi:type="tool:CreateInstance" typeName="emfta.Event" referenceName="events">
+                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="newevent"/>
+              </subModelOperations>
+            </firstModelOperation>
+          </create>
+          <create name="CreateGate" label="Add Gate" mapping="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']/@ownedSubLines[name='GateLine']">
+            <variables name="root" documentation="The semantic element of the table."/>
+            <variables name="element" documentation="The semantic currently edited element."/>
+            <variables name="container" documentation="The semantic element corresponding to the view container."/>
+            <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="[element/]">
+              <subModelOperations xsi:type="tool:CreateInstance" typeName="emfta.Gate" referenceName="gates">
+                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="newgate"/>
+              </subModelOperations>
+            </firstModelOperation>
+          </create>
         </ownedSubLines>
       </ownedLineMappings>
       <ownedColumnMappings name="NameColumn" label="Name" featureName="name"/>

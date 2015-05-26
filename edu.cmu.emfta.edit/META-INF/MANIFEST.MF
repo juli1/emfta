@@ -8,8 +8,7 @@ Bundle-Activator: edu.cmu.emfta.provider.EmftaEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: emfta.provider,
- edu.cmu.emfta.provider
+Export-Package: edu.cmu.emfta.provider
 Require-Bundle: org.eclipse.core.runtime,
  edu.cmu.emfta;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport

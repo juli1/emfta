@@ -3,7 +3,8 @@
   <root name="nolight" description="Suddenly, there is no more light in the room">
     <gate>
       <events name="nopower" description="There is no more power available"/>
-      <events name="bulbbroken" description="The bulb is broken"/>
+      <events name="bulbbroken" probability="2.0" description="The bulb is broken"/>
+      <events name="wefwef" description="wefwefwef"/>
     </gate>
   </root>
 </emfta:FTAModel>

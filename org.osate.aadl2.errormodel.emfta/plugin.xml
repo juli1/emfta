@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+
+       
+     <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="org.osate.analysis.fault.actionSet"
+            label="%actionSet.label"
+            visible="false">
+
+         <menu
+               id="menu.osate"
+               label="%menu.osate.label"
+               path="project">
+            <groupMarker name="file.grp"/>
+            <separator name="instance.grp"/>
+            <separator name="general.grp"/>
+         </menu>
+
+         <menu
+               id="menu.analyses"
+               label="%menu.analyses.label"
+               path="menu.osate">
+            <groupMarker name="top.grp"/>
+            <groupMarker name="bottom.grp"/>
+
+         </menu>
+
+         <menu
+               id="menu.fault"
+               label="%menu.fault.label"
+               path="menu.analyses/top.grp">
+            <groupMarker name="stuff.grp"/>
+
+         </menu>
+
+         <action
+               id="org.osate.aadl2.errormodel.analysis.actions.EMFTA.action"
+               label="Export to EMFTA"
+               tooltip="EMFTA export"
+               icon="icons/fta.png"
+               class="org.osate.aadl2.errormodel.emfta.actions.EMFTAAction"
+               menubarPath="menu.analyses/menu.fault/stuff.grp"
+               toolbarPath="fault.toolbar"
+               enablesFor="1">
+            <enablement>
+               <or>
+                  <and>
+                     <objectClass name="org.eclipse.core.resources.IFile"/>
+                     <objectState name="extension" value="aaxl2"/>
+                  </and>
+                   <objectClass name="org.osate.aadl2.instance.ComponentInstance"/>
+               </or>
+            </enablement>
+         </action>         
+
+         
+      </actionSet>
+   </extension>
+
+
+   <extension
+   	   point="org.eclipse.ui.perspectiveExtensions">
+   	   <perspectiveExtension
+   		   targetID="org.osate.ui.perspective.AadlPerspective">
+   		   <actionSet
+   		 	   id="org.osate.analysis.fault.actionSet"/>
+   	   </perspectiveExtension>
+   </extension>
+   
+   
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="org.osate.analysis.architecture.oc1"
+            objectClass="java.lang.Object">
+            
+         <visibility>
+         
+            <or>
+               <and>
+                  <objectClass name="org.eclipse.core.resources.IFile"/>
+                  <objectState name="extension" value="aaxl2"/>
+               </and>
+               <objectClass name="org.osate.aadl2.instance.SystemInstance"/>
+            </or>
+         </visibility> 
+
+         <menu
+               id="org.osate.ui.popupMenu.Analyses"
+               label="%popupMenu.analyses.label"
+               path="additions">
+            <groupMarker name="anal.grp"/>
+            <groupMarker name="subMenus.grp"/>
+
+         </menu>
+
+         <menu
+               id="org.osate.analysis.architecture.popupMenu.Fault"
+               label="%popupMenu.Fault.label"
+               path="org.osate.ui.popupMenu.Analyses/subMenus.grp">
+            <groupMarker name="anal.grp"/>
+
+         </menu>
+        
+         <action
+               id="org.osate.aadl2.errormodel.analysis.actions.EMFTA.popupAction"
+               label="EMFTA export"
+               tooltip="EMFTA export"
+               icon="icons/fta.png" 
+               class="org.osate.aadl2.errormodel.emfta.actions.EMFTAAction"
+               menubarPath="org.osate.ui.popupMenu.Analyses/org.osate.analysis.architecture.popupMenu.Fault/anal.grp"
+               enablesFor="1"/>
+
+              
+      </objectContribution>
+
+   </extension>
+
+</plugin>

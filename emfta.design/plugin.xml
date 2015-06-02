@@ -7,4 +7,13 @@
 	       name="My">
     </component>
   </extension>
+  
+  <extension
+        point="org.eclipse.sirius.externalJavaAction">
+     <javaActions
+           actionClass="emfta.design.CutsetAction"
+           id="emfta.actions.CutsetAction">
+     </javaActions>
+  </extension> 
 </plugin>
+  

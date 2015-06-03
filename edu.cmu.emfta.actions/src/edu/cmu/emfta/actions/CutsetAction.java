@@ -42,6 +42,10 @@ public class CutsetAction extends AbstractExternalJavaAction {
 	@Override
 	public boolean canExecute(Collection<? extends EObject> selections) {
 
+		/**
+		 * For now, we return true all the time. Might need to optimize
+		 * it to make it more user-friendly.
+		 */
 		System.out.println("[CutSetAction] calling canExecute");
 		for (EObject eo : selections) {
 			System.out.println("[CutSetAction] eobject = " + eo);

@@ -1,6 +1,7 @@
 package edu.cmu.emfta.actions;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
@@ -8,9 +9,9 @@ import org.eclipse.sirius.business.api.action.AbstractExternalJavaAction;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 
 import edu.cmu.emfta.Event;
-import edu.cmu.emfta.Gate;
 
 public class CutsetAction extends AbstractExternalJavaAction {
+	private List<Event> cutset;
 
 	@Override
 	public void execute(Collection<? extends EObject> selections, Map<String, Object> parameters) {
@@ -49,29 +50,10 @@ public class CutsetAction extends AbstractExternalJavaAction {
 		return true;
 	}
 
-	public static void generateCutSet(edu.cmu.emfta.Tree tree) {
-		System.out.println("[CutSetAction] calling generateCutSet");
-		System.out.println("[CutSetAction] tree = " + tree);
-
-		processGate(tree.getGate());
-	}
-
-	public static void processGate(edu.cmu.emfta.Gate gate) {
-		System.out.println("[CutSetAction] calling processGate");
-		System.out.println("[CutSetAction] gate = " + gate);
-
-		for (Gate g : gate.getGates()) {
-			processGate(g);
-		}
-
-		for (Event e : gate.getEvents()) {
-			processEvent(e);
-		}
-	}
-
-	public static void processEvent(edu.cmu.emfta.Event event) {
-		System.out.println("[CutSetAction] calling processEvent");
-		System.out.println("[CutSetAction] event = " + event.getName());
+	public void generateCutSet(edu.cmu.emfta.Tree tree) {
+		CutSet cs = new CutSet(tree);
+		cs.process();
+		System.out.println(cs);
 	}
 
 }

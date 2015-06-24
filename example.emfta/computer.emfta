@@ -6,7 +6,7 @@
         <events name="DBZ" description="Divide by zero"/>
         <events name="RecoveryMissing" description="Exception recovery is missing"/>
       </gates>
-      <events name="Interrupt" description="Unhandled interrupt is raised"/>
+      <events name="Interrupt" probability="3.0" description="Unhandled interrupt is raised"/>
       <events name="devicebroken" description="Faulty device continuously send interrupts"/>
     </gate>
   </root>

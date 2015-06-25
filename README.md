@@ -77,6 +77,14 @@ Select to install EMFTA and complete the installation.
 ![New Representation](https://raw.githubusercontent.com/juli1/emfta/master/doc/pics/new-representation.png "New Representation")
 
 
+### Cutset Generation
+You can generate the cutset of an FTA model. It generates a CSV file (called cutset.csv) at the top of your project.
+To generate the cutset, you have to select the top level error in the graphical view, right-click and select "Cutset"
+as shown below. Once the cutset is generated, a new file (*cutset.csv*) is generated.
+
+![Generating Cutset](https://raw.githubusercontent.com/juli1/emfta/master/doc/pics/cutset.png "Generating Cutset")
+
+
 ## Examples
 
 ### The lamp example

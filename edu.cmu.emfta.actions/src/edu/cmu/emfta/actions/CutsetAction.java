@@ -6,7 +6,8 @@ import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.business.api.action.AbstractExternalJavaAction;
-import org.eclipse.sirius.diagram.DSemanticDiagram;
+import org.eclipse.sirius.diagram.business.internal.metamodel.spec.DNodeSpec;
+import org.eclipse.sirius.diagram.business.internal.metamodel.spec.DSemanticDiagramSpec;
 
 import edu.cmu.emfta.Event;
 
@@ -18,13 +19,29 @@ public class CutsetAction extends AbstractExternalJavaAction {
 
 		System.out.println("[CutSetAction] calling execute");
 		for (EObject eo : selections) {
+			EObject target = null;
+
 			System.out.println("[CutSetAction] eobject = " + eo);
-			if (eo instanceof DSemanticDiagram) {
-				System.out.println("[CutSetAction] is diagram");
 
-				DSemanticDiagram dd = (DSemanticDiagram) eo;
-				EObject target = dd.getTarget();
+			if (eo instanceof DSemanticDiagramSpec) {
+				DSemanticDiagramSpec ds = (DSemanticDiagramSpec) eo;
+				target = ds.getTarget();
 
+				System.out.println("[CutSetAction] eobject class= " + eo.getClass());
+
+				System.out.println("[CutSetAction] target = " + target);
+			}
+
+			if (eo instanceof DNodeSpec) {
+				DNodeSpec ds = (DNodeSpec) eo;
+				target = ds.getTarget();
+
+				System.out.println("[CutSetAction] eobject class= " + eo.getClass());
+
+				System.out.println("[CutSetAction] target = " + target);
+			}
+
+			if (target != null) {
 				if (target instanceof edu.cmu.emfta.Tree) {
 					generateCutSet((edu.cmu.emfta.Tree) target);
 				}
@@ -32,9 +49,6 @@ public class CutsetAction extends AbstractExternalJavaAction {
 				if (target instanceof edu.cmu.emfta.FTAModel) {
 					generateCutSet(((edu.cmu.emfta.FTAModel) target).getRoot());
 				}
-			} else {
-				System.out.println("[CutSetAction] is NOT diagram");
-
 			}
 		}
 	}
@@ -48,7 +62,25 @@ public class CutsetAction extends AbstractExternalJavaAction {
 		 */
 		System.out.println("[CutSetAction] calling canExecute");
 		for (EObject eo : selections) {
-			System.out.println("[CutSetAction] eobject = " + eo);
+			System.out.println("[CutSetAction] eobject class= " + eo.getClass());
+
+			if (eo instanceof DSemanticDiagramSpec) {
+				DSemanticDiagramSpec ds = (DSemanticDiagramSpec) eo;
+				EObject target = ds.getTarget();
+
+				System.out.println("[CutSetAction] eobject class= " + eo.getClass());
+
+				System.out.println("[CutSetAction] target = " + target);
+			}
+
+			if (eo instanceof DNodeSpec) {
+				DNodeSpec ds = (DNodeSpec) eo;
+				EObject target = ds.getTarget();
+
+				System.out.println("[CutSetAction] eobject class= " + eo.getClass());
+
+				System.out.println("[CutSetAction] target = " + target);
+			}
 
 		}
 		return true;

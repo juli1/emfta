@@ -31,56 +31,28 @@ on the model and choose the appropriate representation (table
 or tree). Diagram and table examples are shown below (see examples).
 
 ## Requirements
-* An eclipse installation (tested on Luna, requires JavaSE-1.8)
-* Sirius (the install provided with Luna)
+* A machine with Linux or Windows 8
+* Java 8
 * Some time (or a lot if you are a newbie)
 * A brain (hard to find these days)
 
 
 ## Installation
-The repository contains several projects. You will then need to import the following
-projects into your environment:
-* edu.cmu.emfta
-* edu.cmu.emfta.edit
-* edu.cmu.emfta.editor
-* edu.cmu.emfta.tests
+### Download the latest OSATE testing release 
+Visit (http://www.aadl.info/aadl/osate/testing/products/) and download
+the last OSATE release for your architecture and OS. Basically,
+it consists of a big zip file to unzip on your machine.
 
-These first 4 files and Java projects, once imported they **should** build (almost) without any issue. If
-you have any issue and/or these projects do not build, there is something wrong,
-check your Eclipse installation.
+### Start OSATE and install EMFTA inside your installation
+Once you start OSATE, go in the Help menu and choose "Install New Software".
+![Installation Menu](https://github.com/juli1/emfta/raw/master/master/doc/pics/sirius-install.png "Installation Menu")
 
-Issue - Wrong version of Java: If the JRE System Library file in each of these projects is not followed by "[JavaSE1.8]", you will get a warning message along the lines of "Build path specifies...no JREs installed..strictly compatible with this environment" make the following changes in each of the 4 project files:
-* Right click on "JRE System Library", select "Properties", in the pop-up menu, ensure that "Execution environment" is set to "JavaSE-1.8".
-* Expand the "META-INF" folder, and open the "MANIFEST.MF" file, this file may open directly or open with a number of tabs, regardless find the "MAFIFEST.MF file and check the following line "Bundle-RequiredExecutionEnvironment: JavaSE-1.8". If the entry is not 1.8 change it to 1.8. 
-* Clean all projects and the build execution environment messages should be resolved.
-
-Continue to the next step ignoring any warning messages that are similar to the following:
-* "The value of the field CutsetAction...is not used"
-* "The folder "model/" does not exist in the workspace"
-
-Once the initial four project files are build with (almost) no error messages, import the following two files:
-* emfta.design
-* example.emfta
-
-Check to see that the "example.emfta" project is recognized as a Modeling Project file as designated by a small "M" symbol to the left of the folder name. If the symbol is not present, right-click  on the file name and select: "Configure -> Convert to Modeling Project".
-
-In the initial versions of this project if you import the package "org.osate.aadl2.errormodel.emfta" Eclipse will generate a large number of error messages. This file is part the project to create a bridge to fault tree data in OSATE. Don't import this package if you just want to use emFTA. 
+Select the last stable Sirius update site (http://download.eclipse.org/sirius/updates/releases/2.0.0/luna) and select to install Sirius.
+Complete the installation
+![Sirius Installation](https://github.com/juli1/emfta/raw/master/master/doc/pics/sirius-install-selection.png "Installation of Sirius")
 
 
-## Starting the Sirius perspective
 
-The initial versions of emFTA are using the Sirius nightly development build, if something goes wrong at this point, upgrading the Sirius version to the development build may help. The development build URL is: http://download.eclipse.org/sirius/updates/nightly/latest/luna
-
-Select (left-click) the emfta.design folder, and then from the main menu select "Run Configurations" in the pop-up menu select "Eclipse Application -> new application" At this point you can name the run configuration (hint emFTA) and then select run at the bottom of the window. If all of the defaults are correct, a new Eclipse window using the Sirius perspective will open.
-
-The first time the Sirius perspective opens the design and example files may not be present. If this is the case then import the following files:
-* emfta.design
-* example.emfta
-
-The **emfta.design** project contains everything to represent the Fault-Tree
-with Sirius and the **example.emfta** contains the two examples models. Once
-everything is imported, you should be able to open the examples in the navigator,
-make a right click on the FTA Model and choose the diagram or table representation.
 
 ## Examples
 
@@ -119,8 +91,9 @@ on the issue tracker! Please also read the following section about the known
 limitations and future work on this project. Bug fixes and improvements
 will be considered according to my free time and the number of miles I run per day.
 
+## Special Thanks
+To Bill Fletcher for his help and feedback! Much appreciated!
+
 ## Known Limitations and/or Future work
-* Interface with AADL - especially the Error-Model Annex v2 (high priority)
-* Compute of minimal cutsets (high priority)
 * Use for security examples (medium priority)
 * Make Simulation (low priority)

@@ -72,7 +72,7 @@
           </conditionnalStyles>
         </nodeMappings>
         <edgeMappings name="GateToGateEdge" sourceMapping="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='GateNode']" targetMapping="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='GateNode']" targetFinderExpression="feature:gates">
-          <style targetArrow="NoDecoration" sizeComputationExpression="2" routingStyle="tree" foldingStyle="TARGET" endsCentering="Both">
+          <style targetArrow="NoDecoration" sizeComputationExpression="2" routingStyle="manhattan" foldingStyle="TARGET" endsCentering="Source">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>

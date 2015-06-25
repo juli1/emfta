@@ -65,6 +65,26 @@ public class CutSet {
 		return sb.toString();
 	}
 
+	public String toCSV() {
+		StringBuffer sb = new StringBuffer();
+		int i;
+
+		sb.append("Generated Cutset\n");
+
+		i = 0;
+
+		for (List<Event> events : cutset) {
+			sb.append("#" + i + ",");
+			for (Event event : events) {
+				sb.append(event.getName().toString());
+				sb.append(",");
+			}
+			sb.append("\n");
+			i++;
+		}
+		return sb.toString();
+	}
+
 	/**
 	 * main method that trigger the process
 	 * of the FTA (generate everything)

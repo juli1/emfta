@@ -1,13 +1,25 @@
 package edu.cmu.emfta.actions;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.business.api.action.AbstractExternalJavaAction;
 import org.eclipse.sirius.diagram.business.internal.metamodel.spec.DNodeSpec;
 import org.eclipse.sirius.diagram.business.internal.metamodel.spec.DSemanticDiagramSpec;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.MessageBox;
 
 import edu.cmu.emfta.Event;
 
@@ -44,12 +56,21 @@ public class CutsetAction extends AbstractExternalJavaAction {
 			if (target != null) {
 				if (target instanceof edu.cmu.emfta.Tree) {
 					generateCutSet((edu.cmu.emfta.Tree) target);
+					return;
 				}
 
 				if (target instanceof edu.cmu.emfta.FTAModel) {
 					generateCutSet(((edu.cmu.emfta.FTAModel) target).getRoot());
+					return;
 				}
 			}
+
+			MessageBox dialog = new MessageBox(Display.getDefault().getActiveShell(), SWT.ERROR | SWT.ICON_ERROR);
+			dialog.setText("Error");
+			dialog.setMessage("Please select the root of the FTA tree");
+
+			dialog.open();
+
 		}
 	}
 
@@ -60,36 +81,62 @@ public class CutsetAction extends AbstractExternalJavaAction {
 		 * For now, we return true all the time. Might need to optimize
 		 * it to make it more user-friendly.
 		 */
-		System.out.println("[CutSetAction] calling canExecute");
+//		System.out.println("[CutSetAction] calling canExecute");
 		for (EObject eo : selections) {
-			System.out.println("[CutSetAction] eobject class= " + eo.getClass());
+//			System.out.println("[CutSetAction] eobject class= " + eo.getClass());
 
 			if (eo instanceof DSemanticDiagramSpec) {
 				DSemanticDiagramSpec ds = (DSemanticDiagramSpec) eo;
 				EObject target = ds.getTarget();
 
-				System.out.println("[CutSetAction] eobject class= " + eo.getClass());
-
-				System.out.println("[CutSetAction] target = " + target);
+//				System.out.println("[CutSetAction] eobject class= " + eo.getClass());
+//
+//				System.out.println("[CutSetAction] target = " + target);
 			}
 
 			if (eo instanceof DNodeSpec) {
 				DNodeSpec ds = (DNodeSpec) eo;
 				EObject target = ds.getTarget();
 
-				System.out.println("[CutSetAction] eobject class= " + eo.getClass());
+//				System.out.println("[CutSetAction] eobject class= " + eo.getClass());
+//
+//				System.out.println("[CutSetAction] target = " + target);
 
-				System.out.println("[CutSetAction] target = " + target);
+				if (target instanceof edu.cmu.emfta.Tree) {
+					return true;
+				}
+
+				if (target instanceof edu.cmu.emfta.FTAModel) {
+					return true;
+				}
 			}
 
 		}
-		return true;
+		return false;
 	}
 
 	public void generateCutSet(edu.cmu.emfta.Tree tree) {
 		CutSet cs = new CutSet(tree);
 		cs.process();
 		System.out.println(cs);
-	}
+		URI uri = EcoreUtil.getURI(tree);
+		System.out.println("directory=" + uri.toPlatformString(true));
+		System.out.println("uri string=" + uri.toString());
 
+		IPath path = new Path(uri.toPlatformString(true));
+
+		System.out.println("path=" + path.makeAbsolute().toOSString());
+		System.out.println("path2=" + Utils.getPath(tree.eResource().getURI()));
+		IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(path);
+		IFile toCreate = file.getProject().getFile("cutset.csv");
+		final InputStream input = new ByteArrayInputStream((cs.toCSV()).getBytes());
+		try {
+			toCreate.create(input, true, null);
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Utils.refreshWorkspace(null);
+
+	}
 }

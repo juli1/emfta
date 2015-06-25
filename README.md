@@ -3,7 +3,7 @@
                              Julien Delange <jdelange@andrew.cmu.edu>
 
 ## What it is?
-This is an EMF-based FTA editor/viauslzer. You can edit the content
+This is an EMF-based FTA editor/visualizer. You can edit the content
 in our FTA within Eclipse using a convenient representation (table)
 and visualize a graphical (diagram) version.
 
@@ -27,11 +27,11 @@ to see what I can do within two evenings while coding on my porch.
 ## How it works?
 Pretty simple: you create a modeling project, then, a basic FTA model
 (using the *New* -> *Examples* menu in Eclipse) and then, right click
-on the model ane choose the appropriate representation (table
+on the model and choose the appropriate representation (table
 or tree). Diagram and table examples are shown below (see examples).
 
 ## Requirements
-* An eclipse installation (tested on Luna)
+* An eclipse installation (tested on Luna, requires JavaSE-1.8)
 * Sirius (the install provided with Luna)
 * Some time (or a lot if you are a newbie)
 * A brain (hard to find these days)
@@ -45,11 +45,35 @@ projects into your environment:
 * edu.cmu.emfta.editor
 * edu.cmu.emfta.tests
 
-Once these projects are imported, they **should** build without any issue. If
+These first 4 files and Java projects, once imported they **should** build (almost) without any issue. If
 you have any issue and/or these projects do not build, there is something wrong,
-check your Eclipse installation. Once you have these projects built,
-start a new Eclipse installation (within Eclipse) and import
-the other projects of the repository:
+check your Eclipse installation.
+
+Issue - Wrong version of Java: If the JRE System Library file in each of these projects is not followed by "[JavaSE1.8]", you will get a warning message along the lines of "Build path specifies...no JREs installed..strictly compatible with this environment" make the following changes in each of the 4 project files:
+* Right click on "JRE System Library", select "Properties", in the pop-up menu, ensure that "Execution environment" is set to "JavaSE-1.8".
+* Expand the "META-INF" folder, and open the "MANIFEST.MF" file, this file may open directly or open with a number of tabs, regardless find the "MAFIFEST.MF file and check the following line "Bundle-RequiredExecutionEnvironment: JavaSE-1.8". If the entry is not 1.8 change it to 1.8. 
+* Clean all projects and the build execution environment messages should be resolved.
+
+Continue to the next step ignoring any warning messages that are similar to the following:
+* "The value of the field CutsetAction...is not used"
+* "The folder "model/" does not exist in the workspace"
+
+Once the initial four project files are build with (almost) no error messages, import the following two files:
+* emfta.design
+* example.emfta
+
+Check to see that the "example.emfta" project is recognized as a Modeling Project file as designated by a small "M" symbol to the left of the folder name. If the symbol is not present, right-click  on the file name and select: "Configure -> Convert to Modeling Project".
+
+In the initial versions of this project if you import the package "org.osate.aadl2.errormodel.emfta" Eclipse will generate a large number of error messages. This file is part the project to create a bridge to fault tree data in OSATE. Don't import this package if you just want to use emFTA. 
+
+
+## Starting the Sirius perspective
+
+The initial versions of emFTA are using the Sirius nightly development build, if something goes wrong at this point, upgrading the Sirius version to the development build may help. The development build URL is: http://download.eclipse.org/sirius/updates/nightly/latest/luna
+
+Select (left-click) the emfta.design folder, and then from the main menu select "Run Configurations" in the pop-up menu select "Eclipse Application -> new application" At this point you can name the run configuration (hint emFTA) and then select run at the bottom of the window. If all of the defaults are correct, a new Eclipse window using the Sirius perspective will open.
+
+The first time the Sirius perspective opens the design and example files may not be present. If this is the case then import the following files:
 * emfta.design
 * example.emfta
 

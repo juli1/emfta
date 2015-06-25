@@ -65,6 +65,10 @@ public class CutSet {
 		return sb.toString();
 	}
 
+	/**
+	 * Export into a string that represents a CSV file
+	 * @return - the string that represents the CSV file
+	 */
 	public String toCSV() {
 		StringBuffer sb = new StringBuffer();
 		int i;

@@ -118,15 +118,15 @@ public class CutsetAction extends AbstractExternalJavaAction {
 	public void generateCutSet(edu.cmu.emfta.Tree tree) {
 		CutSet cs = new CutSet(tree);
 		cs.process();
-		System.out.println(cs);
+//		System.out.println(cs);
 		URI uri = EcoreUtil.getURI(tree);
-		System.out.println("directory=" + uri.toPlatformString(true));
-		System.out.println("uri string=" + uri.toString());
+//		System.out.println("directory=" + uri.toPlatformString(true));
+//		System.out.println("uri string=" + uri.toString());
 
 		IPath path = new Path(uri.toPlatformString(true));
-
-		System.out.println("path=" + path.makeAbsolute().toOSString());
-		System.out.println("path2=" + Utils.getPath(tree.eResource().getURI()));
+//
+//		System.out.println("path=" + path.makeAbsolute().toOSString());
+//		System.out.println("path2=" + Utils.getPath(tree.eResource().getURI()));
 		IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(path);
 		IFile toCreate = file.getProject().getFile("cutset.csv");
 		final InputStream input = new ByteArrayInputStream((cs.toCSV()).getBytes());
@@ -137,6 +137,5 @@ public class CutsetAction extends AbstractExternalJavaAction {
 			e.printStackTrace();
 		}
 		Utils.refreshWorkspace(null);
-
 	}
 }

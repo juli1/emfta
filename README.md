@@ -39,19 +39,42 @@ or tree). Diagram and table examples are shown below (see examples).
 
 ## Installation
 ### Download the latest OSATE testing release 
-Visit (http://www.aadl.info/aadl/osate/testing/products/) and download
+Visit http://www.aadl.info/aadl/osate/testing/products/ and download
 the last OSATE release for your architecture and OS. Basically,
 it consists of a big zip file to unzip on your machine.
 
 ### Start OSATE and install EMFTA inside your installation
 Once you start OSATE, go in the Help menu and choose "Install New Software".
-![Installation Menu](https://github.com/juli1/emfta/raw/master/master/doc/pics/sirius-install.png "Installation Menu")
+![Installation Menu](https://raw.githubusercontent.com/juli1/emfta/master/doc/pics/sirius-install.png "Installation Menu")
 
 Select the last stable Sirius update site (http://download.eclipse.org/sirius/updates/releases/2.0.0/luna) and select to install Sirius.
-Complete the installation
-![Sirius Installation](https://github.com/juli1/emfta/raw/master/master/doc/pics/sirius-install-selection.png "Installation of Sirius")
+Complete the installation and restart Eclipse
+![Sirius Installation](https://raw.githubusercontent.com/juli1/emfta/master/doc/pics/sirius-install-selection.png "Installation of Sirius")
 
 
+### Install EMFTA
+Go to the install menu again and enter the following update site: https://raw.githubusercontent.com/juli1/emfta/master/edu.cmu.emfta.updatesite
+Select to install EMFTA and complete the installation.
+![EMFTA Installation](https://raw.githubusercontent.com/juli1/emfta/master/doc/pics/emfta-install.png "Installation of EMFTA")
+
+
+## How to use
+
+### Getting Started
+* Start a new modelling project (New->Modelling Project)
+* Create a new EMFTA inside the modeling project with the root object FTA Model (New->Emfta Model)
+* Make sure to be in the Sirius perspective, by selecting the Sirius perspective as shown below
+
+![Sirius perspective](https://raw.githubusercontent.com/juli1/emfta/master/doc/pics/sirius-perspective.png "Sirius Perspective")
+
+
+* Select the EMFTA viewpoint for the project by making a right click on the project and select EMFTA as shown below
+
+![Viewpoint Selection](https://raw.githubusercontent.com/juli1/emfta/master/doc/pics/viewpoint-selection.png "Viewpoint Selection")
+
+* Select the root object of the FTA model and choose the appropriate selection (Table or Tree) as shown below
+
+![New Representation](https://raw.githubusercontent.com/juli1/emfta/master/doc/pics/new-representation.png "New Representation")
 
 
 ## Examples

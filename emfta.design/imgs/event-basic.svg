@@ -15,7 +15,10 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="event-basic.svg">
+   sodipodi:docname="event-basic.svg"
+   inkscape:export-filename="/home/will/git/emfta/emfta.design/imgs/event-basic.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -26,7 +29,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="180.60054"
+     inkscape:cx="66.671969"
      inkscape:cy="-48.608546"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -35,10 +38,10 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="1680"
-     inkscape:window-height="1030"
-     inkscape:window-x="-2"
-     inkscape:window-y="-3"
+     inkscape:window-width="1366"
+     inkscape:window-height="747"
+     inkscape:window-x="0"
+     inkscape:window-y="21"
      inkscape:window-maximized="1">
     <inkscape:grid
        type="xygrid"
@@ -54,7 +57,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<emfta:FTAModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:emfta="http://cmu.edu/emfta" name="computer crashes" description="The computer stops working">
+<emfta:FTAModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:emfta="http://cmu.edu/emfta" name="newgate" description="The computer stops working">
   <root name="crash" description="The computer crashes">
     <gate>
       <gates type="AND">
@@ -8,6 +8,7 @@
       </gates>
       <events name="Interrupt" probability="3.0" description="Unhandled interrupt is raised"/>
       <events name="devicebroken" description="Faulty device continuously send interrupts"/>
+      <events name="newevent"/>
     </gate>
   </root>
 </emfta:FTAModel>

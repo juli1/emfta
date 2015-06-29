@@ -66,7 +66,15 @@ public enum GateType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	INHIBIT(4, "INHIBIT", "INHIBIT");
+	INHIBIT(4, "INHIBIT", "INHIBIT"), /**
+	 * The '<em><b>PRIORITY OR</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PRIORITY_OR_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	PRIORITY_OR(5, "PRIORITY_OR", "PRIORITY_OR");
 
 	/**
 	 * The '<em><b>OR</b></em>' literal value.
@@ -144,6 +152,21 @@ public enum GateType implements Enumerator {
 	public static final int INHIBIT_VALUE = 4;
 
 	/**
+	 * The '<em><b>PRIORITY OR</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>PRIORITY OR</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #PRIORITY_OR
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PRIORITY_OR_VALUE = 5;
+
+	/**
 	 * An array of all the '<em><b>Gate Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -156,6 +179,7 @@ public enum GateType implements Enumerator {
 			XOR,
 			PRIORITY_AND,
 			INHIBIT,
+			PRIORITY_OR,
 		};
 
 	/**
@@ -211,6 +235,7 @@ public enum GateType implements Enumerator {
 			case XOR_VALUE: return XOR;
 			case PRIORITY_AND_VALUE: return PRIORITY_AND;
 			case INHIBIT_VALUE: return INHIBIT;
+			case PRIORITY_OR_VALUE: return PRIORITY_OR;
 		}
 		return null;
 	}

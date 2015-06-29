@@ -28,6 +28,7 @@
     <eLiterals name="XOR" value="2"/>
     <eLiterals name="PRIORITY_AND" value="3"/>
     <eLiterals name="INHIBIT" value="4"/>
+    <eLiterals name="PRIORITY_OR" value="5" literal="PRIORITY_OR"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Tree">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

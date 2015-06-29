@@ -430,6 +430,7 @@ public class EmftaPackageImpl extends EPackageImpl implements EmftaPackage {
 		addEEnumLiteral(gateTypeEEnum, GateType.XOR);
 		addEEnumLiteral(gateTypeEEnum, GateType.PRIORITY_AND);
 		addEEnumLiteral(gateTypeEEnum, GateType.INHIBIT);
+		addEEnumLiteral(gateTypeEEnum, GateType.PRIORITY_OR);
 
 		// Create resource
 		createResource(eNS_URI);

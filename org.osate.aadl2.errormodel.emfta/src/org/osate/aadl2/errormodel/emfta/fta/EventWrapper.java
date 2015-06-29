@@ -1,5 +1,7 @@
 package org.osate.aadl2.errormodel.emfta.fta;
 
+import org.osate.aadl2.errormodel.analysis.fta.EventType;
+
 import edu.cmu.emfta.EmftaFactory;
 import edu.cmu.emfta.GateType;
 
@@ -30,7 +32,17 @@ public class EventWrapper {
 		for (org.osate.aadl2.errormodel.analysis.fta.Event e : event.getSubEvents()) {
 			if ((e.getEventType() == org.osate.aadl2.errormodel.analysis.fta.EventType.EVENT)
 					|| (e.getEventType() == org.osate.aadl2.errormodel.analysis.fta.EventType.NORMAL)) {
-				emftaGate.getEvents().add(toEmftaEvent(e));
+				if (e.getSubEvents().size() == 0) {
+					emftaGate.getEvents().add(toEmftaEvent(e));
+				} else {
+					for (org.osate.aadl2.errormodel.analysis.fta.Event subEvent : e.getSubEvents()) {
+						if ((subEvent.getType() == EventType.NORMAL) || (subEvent.getType() == EventType.EVENT)) {
+							emftaGate.getEvents().add(toEmftaEvent(subEvent));
+						} else {
+							emftaGate.getGates().add(toEmftaGate(subEvent));
+						}
+					}
+				}
 			}
 
 			if ((e.getEventType() == org.osate.aadl2.errormodel.analysis.fta.EventType.AND)

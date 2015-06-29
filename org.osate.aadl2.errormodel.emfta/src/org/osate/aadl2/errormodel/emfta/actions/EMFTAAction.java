@@ -53,7 +53,6 @@ import org.osate.aadl2.Element;
 import org.osate.aadl2.errormodel.emfta.fta.EventWrapper;
 import org.osate.aadl2.instance.InstanceObject;
 import org.osate.aadl2.instance.SystemInstance;
-import org.osate.aadl2.util.OsateDebug;
 import org.osate.ui.actions.AaxlReadOnlyActionAsJob;
 import org.osate.ui.dialogs.Dialog;
 import org.osate.xtext.aadl2.errormodel.errorModel.ErrorBehaviorState;
@@ -148,8 +147,8 @@ public final class EMFTAAction extends AaxlReadOnlyActionAsJob {
 				errorStateName = ERROR_STATE_NAME;
 			}
 
-			OsateDebug
-					.osateDebug("[EMFTAAction] error state=" + errorStateName + "|related type=" + errorStateTypeName);
+//			OsateDebug
+//					.osateDebug("[EMFTAAction] error state=" + errorStateName + "|related type=" + errorStateTypeName);
 
 			for (ErrorBehaviorState ebs : EMV2Util.getAllErrorBehaviorStates(si)) {
 				if (ebs.getName().equalsIgnoreCase(errorStateName)) {
@@ -177,7 +176,7 @@ public final class EMFTAAction extends AaxlReadOnlyActionAsJob {
 			if (ftaEvent != null) {
 
 				serializeEmftaModel(EventWrapper.toEmftaModel(ftaEvent), ResourceUtil.getFile(si.eResource())
-						.getProject(), "newfta.emfta");
+						.getProject(), si.getName().toLowerCase() + ".emfta");
 
 			} else {
 				Dialog.showInfo("Fault Tree Analysis",
@@ -190,14 +189,15 @@ public final class EMFTAAction extends AaxlReadOnlyActionAsJob {
 
 	public static void serializeEmftaModel(edu.cmu.emfta.FTAModel emftaModel, IProject activeProject, String filename) {
 
-		OsateDebug.osateDebug("[Utils]", "serializeReqSpecModel activeProject=" + activeProject);
+//		OsateDebug.osateDebug("[EMFTAAction]", "serializeReqSpecModel activeProject=" + activeProject);
 
 		IFile newFile = activeProject.getFile(filename);
+//		OsateDebug.osateDebug("[EMFTAAction]", "save in file=" + newFile.getName());
 
 		try {
 
 			ResourceSet set = new ResourceSetImpl();
-			Resource res = set.createResource(URI.createURI(activeProject.getFile("newfta.emfta").toString()));
+			Resource res = set.createResource(URI.createURI(newFile.toString()));
 
 			res.getContents().add(emftaModel);
 

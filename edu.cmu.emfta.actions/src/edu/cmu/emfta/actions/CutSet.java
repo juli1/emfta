@@ -3,6 +3,17 @@ package edu.cmu.emfta.actions;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.poi.ss.util.AreaReference;
+import org.apache.poi.ss.util.CellReference;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFTable;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openxmlformats.schemas.spreadsheetml.x2006.main.CTTable;
+import org.openxmlformats.schemas.spreadsheetml.x2006.main.CTTableColumn;
+import org.openxmlformats.schemas.spreadsheetml.x2006.main.CTTableColumns;
+
 import edu.cmu.emfta.Event;
 import edu.cmu.emfta.Gate;
 import edu.cmu.emfta.Tree;
@@ -187,4 +198,43 @@ public class CutSet {
 		return result;
 	}
 
+	public XSSFWorkbook toWorkbook() {
+		XSSFWorkbook workbook = new XSSFWorkbook();
+		XSSFSheet sheet = workbook.createSheet();
+		XSSFTable table = sheet.createTable();
+		table.setDisplayName("Test");
+		CTTable cttable = table.getCTTable();
+
+		// Set which area the table should be placed in
+		AreaReference reference = new AreaReference(new CellReference(0, 0), new CellReference(2, 2));
+		cttable.setRef(reference.formatAsString());
+		cttable.setId((long) 1);
+		cttable.setName("Test");
+		cttable.setTotalsRowCount((long) 1);
+
+		CTTableColumns columns = cttable.addNewTableColumns();
+		columns.setCount((long) 3);
+		CTTableColumn column;
+		XSSFRow row;
+		XSSFCell cell;
+		for (int i = 0; i < 3; i++) {
+			// Create column
+			column = columns.addNewTableColumn();
+			column.setName("Column");
+			column.setId((long) i + 1);
+			// Create row
+			row = sheet.createRow(i);
+			for (int j = 0; j < 3; j++) {
+				// Create cell
+				cell = row.createCell(j);
+				if (i == 0) {
+					cell.setCellValue("Column" + j);
+				} else {
+					cell.setCellValue("0");
+				}
+			}
+		}
+		return workbook;
+
+	}
 }

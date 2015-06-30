@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: edu.cmu.emfta.actions;singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Bundle-ClassPath: .
+Bundle-ClassPath: ., libs/poi-3.12-20150511.jar,  libs/poi-excelant-3.12-20150511.jar, libs/poi-ooxml-3.12-20150511.jar, libs/poi-ooxml-schemas-3.12-20150511.jar, libs/poi-scratchpad-3.12-20150511.jar
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
@@ -18,5 +18,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources
 Eclipse-LazyStart: true
 Bundle-ActivationPolicy: lazy
-Import-Package: org.eclipse.sirius.business.api.action
+Import-Package: org.eclipse.sirius.business.api.action,
+ org.eclipse.xtext.ui.util
 Export-Package: edu.cmu.emfta.actions

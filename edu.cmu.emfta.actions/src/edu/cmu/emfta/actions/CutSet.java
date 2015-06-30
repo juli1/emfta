@@ -95,10 +95,11 @@ public class CutSet {
 	 */
 	public void process() {
 		System.out.println("[CutSet] processing");
-		List<Event> current;
-		current = new ArrayList<Event>();
-
-		processGate(tree.getGate(), current);
+		List<List<Event>> allEvents = processGate(tree.getGate());
+		System.out.println("[CutSet] cutset size = " + allEvents.size());
+		for (List<Event> l : allEvents) {
+			cutset.add(l);
+		}
 	}
 
 	/**
@@ -120,56 +121,60 @@ public class CutSet {
 	}
 
 	/**
-	 * Process a gate object in the FTA. A gate is either
-	 * an AND or an OR. When hitting an AND, it means that
-	 * we mean all the gates/events attached to him to occur
-	 * to trigger the event. When this is an OR, we then create
-	 * separate cutset for each branch or the OR.
+	 * Return a list of events corresponding to the gate.
+	 * In case of an OR, we will then return a list that
+	 * contains the sub-cutset for each event/gate. For
+	 * an AND gate, we combined all events and then
+	 * combined them to all the sub-cutset from the sub-gates.
 	 * 
-	 * @param gate    - the actual gate to process
-	 * @param current - the current list of cutset that was
-	 *                  used when processing the parents of the gates.
+	 * @param gate - The initial gate of the cutset
+	 * @return     - The list of all cutsets
 	 */
-	public void processGate(Gate gate, List<Event> current) {
+	public List<List<Event>> processGate(Gate gate) {
+		List<List<Event>> result;
+		result = new ArrayList<List<Event>>();
+
 		System.out.println("[CutSetAction] calling processGate");
 		System.out.println("[CutSetAction] gate = " + gate);
 
 		switch (gate.getType()) {
 		case AND: {
-			/**
-			 * When we hit an AND, we just add
-			 * the events/gates to the current
-			 * cutset. No need to duplicate it.
-			 */
-			for (Gate g : gate.getGates()) {
-				processGate(g, current);
-			}
-			for (Event e : gate.getEvents()) {
-				processEvent(e, current);
+			List<Event> combined;
+			combined = new ArrayList<Event>();
 
+			for (Event e : gate.getEvents()) {
+				combined.add(e);
 			}
+
+			if (gate.getGates().size() == 0) {
+				result.add(combined);
+			} else {
+				for (Gate g : gate.getGates()) {
+					for (List<Event> l : processGate(g)) {
+						l.addAll(combined);
+						result.add(l);
+					}
+				}
+			}
+
 			break;
 		}
 
 		case OR: {
-			/**
-			 * When we hit an OR, we then copy the current list
-			 * of the FTA and continue to process each branch.
-			 * It then makes a separate cutset for each
-			 * branch of the OR gate.
-			 */
-			List<Event> tmpList;
+			List<Event> res;
+
+			for (Event e : gate.getEvents()) {
+				res = new ArrayList<Event>();
+				res.add(e);
+				result.add(res);
+			}
 
 			for (Gate g : gate.getGates()) {
-				tmpList = copyList(current);
-				processGate(g, tmpList);
-				cutset.add(tmpList);
+				for (List<Event> l : processGate(g)) {
+					result.add(l);
+				}
 			}
-			for (Event e : gate.getEvents()) {
-				tmpList = copyList(current);
-				processEvent(e, tmpList);
-				cutset.add(tmpList);
-			}
+
 			break;
 		}
 
@@ -178,19 +183,8 @@ public class CutSet {
 			break;
 		}
 		}
-	}
 
-	/**
-	 * Process an event from the FTA. Event are leaf nodes.
-	 * @param event    - the event to process
-	 * @param current  - the current cutset
-	 */
-	private void processEvent(Event event, List<Event> current) {
-
-		System.out.println("[CutSetAction] calling processEvent");
-		System.out.println("[CutSetAction] event = " + event.getName());
-		current.add(event);
-
+		return result;
 	}
 
 }

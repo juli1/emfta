@@ -117,6 +117,7 @@ public class CutsetAction extends AbstractExternalJavaAction {
 
 	public void generateCutSet(edu.cmu.emfta.Tree tree) {
 		CutSet cs = new CutSet(tree);
+
 		cs.process();
 //		System.out.println(cs);
 		URI uri = EcoreUtil.getURI(tree);

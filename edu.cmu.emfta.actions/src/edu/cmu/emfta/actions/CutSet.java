@@ -134,8 +134,8 @@ public class CutSet {
 		List<List<Event>> result;
 		result = new ArrayList<List<Event>>();
 
-		System.out.println("[CutSetAction] calling processGate");
-		System.out.println("[CutSetAction] gate = " + gate);
+//		System.out.println("[CutSetAction] calling processGate");
+//		System.out.println("[CutSetAction] gate = " + gate);
 
 		switch (gate.getType()) {
 		case AND: {

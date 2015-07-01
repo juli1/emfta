@@ -30,28 +30,28 @@ public class CutsetAction extends AbstractExternalJavaAction {
 	@Override
 	public void execute(Collection<? extends EObject> selections, Map<String, Object> parameters) {
 
-		System.out.println("[CutSetAction] calling execute");
+//		System.out.println("[CutSetAction] calling execute");
 		for (EObject eo : selections) {
 			EObject target = null;
 
-			System.out.println("[CutSetAction] eobject = " + eo);
+//			System.out.println("[CutSetAction] eobject = " + eo);
 
 			if (eo instanceof DSemanticDiagramSpec) {
 				DSemanticDiagramSpec ds = (DSemanticDiagramSpec) eo;
 				target = ds.getTarget();
-
-				System.out.println("[CutSetAction] eobject class= " + eo.getClass());
-
-				System.out.println("[CutSetAction] target = " + target);
+//
+//				System.out.println("[CutSetAction] eobject class= " + eo.getClass());
+//
+//				System.out.println("[CutSetAction] target = " + target);
 			}
 
 			if (eo instanceof DNodeSpec) {
 				DNodeSpec ds = (DNodeSpec) eo;
 				target = ds.getTarget();
-
-				System.out.println("[CutSetAction] eobject class= " + eo.getClass());
-
-				System.out.println("[CutSetAction] target = " + target);
+//
+//				System.out.println("[CutSetAction] eobject class= " + eo.getClass());
+//
+//				System.out.println("[CutSetAction] target = " + target);
 			}
 
 			if (target != null) {
@@ -123,7 +123,7 @@ public class CutsetAction extends AbstractExternalJavaAction {
 
 		fileName = ResourceUtil.getFile(tree.eResource()).getName();
 		fileName = fileName.replace(".emfta", "") + ".xlsx";
-		System.out.println("filename=" + fileName);
+//		System.out.println("filename=" + fileName);
 
 //		System.out.println(cs);
 		URI uri = EcoreUtil.getURI(tree);
@@ -135,10 +135,9 @@ public class CutsetAction extends AbstractExternalJavaAction {
 //		System.out.println("path=" + path.makeAbsolute().toOSString());
 //		System.out.println("path2=" + Utils.getPath(tree.eResource().getURI()));
 		IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(path);
-		IFile toCreate = file.getProject().getFile(fileName);
 		String path2 = file.getRawLocation().removeLastSegments(1).toOSString();
 		path2 = path2 + File.separator + fileName;
-		System.out.println("path2=" + path2);
+//		System.out.println("path2=" + path2);
 
 //		final InputStream input = new ByteArrayInputStream((cs.toCSV()).getBytes());
 		try {

@@ -7,8 +7,12 @@
         <events name="RecoveryMissing" description="Exception recovery is missing"/>
       </gates>
       <events name="Interrupt" probability="3.0" description="Unhandled interrupt is raised"/>
-      <events name="devicebroken" description="Faulty device continuously send interrupts"/>
-      <events name="newevent"/>
+      <events name="devicebroken" description="Faulty device continuously send interrupts">
+        <gate>
+          <events name="powerloss" description="Loss of power device"/>
+          <events name="boardcracked" description="The motherboard of the device is cracked"/>
+        </gate>
+      </events>
     </gate>
   </root>
 </emfta:FTAModel>

@@ -1,498 +1,617 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:emfta="http://cmu.edu/emfta" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_ZkaggBsmEeWHW4SZrUfnjQ" selectedViews="_bJiEMBsmEeWHW4SZrUfnjQ" version="8.1.1">
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:emfta="http://cmu.edu/emfta" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_vX7KMB-GEeW0TfgGV3Fjnw" selectedViews="_wtjgYB-GEeW0TfgGV3Fjnw" version="8.1.1">
   <models xmi:type="emfta:FTAModel" href="computer.emfta#/"/>
   <models xmi:type="emfta:FTAModel" href="lamp.emfta#/"/>
-  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_bJiEMBsmEeWHW4SZrUfnjQ" initialized="true">
-    <ownedRepresentations xmi:type="table:DTable" xmi:id="_nMdNcB3tEeW0Cb56eHcQ_Q" name="new FTA Table View" headerColumnWidth="239">
-      <target xmi:type="emfta:FTAModel" href="computer.emfta#/"/>
-      <lines xmi:type="table:DLine" xmi:id="_nMdNcR3tEeW0Cb56eHcQ_Q" label="Tree crash">
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_wtjgYB-GEeW0TfgGV3Fjnw" initialized="true">
+    <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_lVtgECqXEeW7ityAf_V6Cw" name="new FTA Tree">
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_lVv8UCqXEeW7ityAf_V6Cw" source="GMF_DIAGRAMS">
+        <data xmi:type="notation:Diagram" xmi:id="_lVv8USqXEeW7ityAf_V6Cw" type="Sirius" element="_lVtgECqXEeW7ityAf_V6Cw" measurementUnit="Pixel">
+          <children xmi:type="notation:Node" xmi:id="_lVv8UyqXEeW7ityAf_V6Cw" type="2001" element="_lVuHICqXEeW7ityAf_V6Cw">
+            <children xmi:type="notation:Node" xmi:id="_lVwjYCqXEeW7ityAf_V6Cw" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_lVwjYSqXEeW7ityAf_V6Cw" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_lV8woSqXEeW7ityAf_V6Cw" type="3003" element="_lVuHISqXEeW7ityAf_V6Cw">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_lV8woiqXEeW7ityAf_V6Cw" fontName="Sans"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lV8woyqXEeW7ityAf_V6Cw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_lVv8VCqXEeW7ityAf_V6Cw" fontName="Sans" fontHeight="8" bold="true"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lVv8VSqXEeW7ityAf_V6Cw" x="228" width="250" height="50"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_lVxKcCqXEeW7ityAf_V6Cw" type="2001" element="_lVuHJSqXEeW7ityAf_V6Cw">
+            <children xmi:type="notation:Node" xmi:id="_lVxKcyqXEeW7ityAf_V6Cw" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_lVxKdCqXEeW7ityAf_V6Cw" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_lV9XsCqXEeW7ityAf_V6Cw" type="3005" element="_lVuHJiqXEeW7ityAf_V6Cw">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_lV9XsSqXEeW7ityAf_V6Cw" fontName="Sans"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lV9XsiqXEeW7ityAf_V6Cw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_lVxKcSqXEeW7ityAf_V6Cw" fontName="Sans" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lVxKciqXEeW7ityAf_V6Cw" x="300" y="108" width="106" height="95"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_lVxxgCqXEeW7ityAf_V6Cw" type="2001" element="_lVuHKSqXEeW7ityAf_V6Cw">
+            <children xmi:type="notation:Node" xmi:id="_lVyYkCqXEeW7ityAf_V6Cw" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_lVyYkSqXEeW7ityAf_V6Cw" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_lV9-wCqXEeW7ityAf_V6Cw" type="3005" element="_lVuHKiqXEeW7ityAf_V6Cw">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_lV9-wSqXEeW7ityAf_V6Cw" fontName="Sans"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lV9-wiqXEeW7ityAf_V6Cw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_lVxxgSqXEeW7ityAf_V6Cw" fontName="Sans" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lVxxgiqXEeW7ityAf_V6Cw" x="120" y="264" width="106" height="95"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_lVzmsCqXEeW7ityAf_V6Cw" type="2001" element="_lVuHMSqXEeW7ityAf_V6Cw">
+            <children xmi:type="notation:Node" xmi:id="_lVzmsyqXEeW7ityAf_V6Cw" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_lVzmtCqXEeW7ityAf_V6Cw" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_lV-l0CqXEeW7ityAf_V6Cw" type="3005" element="_lVuHMiqXEeW7ityAf_V6Cw">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_lV-l0SqXEeW7ityAf_V6Cw" fontName="Sans"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lV-l0iqXEeW7ityAf_V6Cw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_lVzmsSqXEeW7ityAf_V6Cw" fontName="Sans" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lVzmsiqXEeW7ityAf_V6Cw" x="497" y="456" width="106" height="95"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_lV0NwCqXEeW7ityAf_V6Cw" type="2001" element="_lVuHNSqXEeW7ityAf_V6Cw">
+            <children xmi:type="notation:Node" xmi:id="_lV2C8CqXEeW7ityAf_V6Cw" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_lV2C8SqXEeW7ityAf_V6Cw" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_ho724CqYEeW7ityAf_V6Cw" type="3005" element="_hooU4CqYEeW7ityAf_V6Cw">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_ho724SqYEeW7ityAf_V6Cw" fontName="Sans"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ho724iqYEeW7ityAf_V6Cw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_lV0NwSqXEeW7ityAf_V6Cw" fontName="Sans" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lV0NwiqXEeW7ityAf_V6Cw" x="199" y="456" width="140" height="129"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_lV5GQCqXEeW7ityAf_V6Cw" type="2001" element="_lVuHOSqXEeW7ityAf_V6Cw">
+            <children xmi:type="notation:Node" xmi:id="_lV5tUCqXEeW7ityAf_V6Cw" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_lV5tUSqXEeW7ityAf_V6Cw" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_ho9FACqYEeW7ityAf_V6Cw" type="3005" element="_hoo78CqYEeW7ityAf_V6Cw">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_ho9FASqYEeW7ityAf_V6Cw" fontName="Sans"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ho9FAiqYEeW7ityAf_V6Cw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_lV5GQSqXEeW7ityAf_V6Cw" fontName="Sans" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lV5GQiqXEeW7ityAf_V6Cw" y="456" width="140" height="129"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_lV5tUiqXEeW7ityAf_V6Cw" type="2001" element="_lVuHPSqXEeW7ityAf_V6Cw">
+            <children xmi:type="notation:Node" xmi:id="_lV6UYCqXEeW7ityAf_V6Cw" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_lV6UYSqXEeW7ityAf_V6Cw" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_ho9sECqYEeW7ityAf_V6Cw" type="3005" element="_hoqKECqYEeW7ityAf_V6Cw">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_ho9sESqYEeW7ityAf_V6Cw" fontName="Sans"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ho9sEiqYEeW7ityAf_V6Cw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_lV5tUyqXEeW7ityAf_V6Cw" fontName="Sans" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lV5tVCqXEeW7ityAf_V6Cw" x="283" y="264" width="140" height="129"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_lV6UYiqXEeW7ityAf_V6Cw" type="2001" element="_lVuHQSqXEeW7ityAf_V6Cw">
+            <children xmi:type="notation:Node" xmi:id="_lV67cCqXEeW7ityAf_V6Cw" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_lV67cSqXEeW7ityAf_V6Cw" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Yw3qACqYEeW7ityAf_V6Cw" type="3003" element="_YwMUkCqYEeW7ityAf_V6Cw">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_Yw3qASqYEeW7ityAf_V6Cw" fontName="Sans"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Yw3qAiqYEeW7ityAf_V6Cw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_lV6UYyqXEeW7ityAf_V6Cw" fontName="Sans" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lV6UZCqXEeW7ityAf_V6Cw" x="487" y="264" width="186" height="61"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_lV67ciqXEeW7ityAf_V6Cw" type="2001" element="_lVuHRSqXEeW7ityAf_V6Cw">
+            <children xmi:type="notation:Node" xmi:id="_lV7igCqXEeW7ityAf_V6Cw" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_lV7igSqXEeW7ityAf_V6Cw" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_ho-6MCqYEeW7ityAf_V6Cw" type="3005" element="_ho0iICqYEeW7ityAf_V6Cw">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_ho-6MSqYEeW7ityAf_V6Cw" fontName="Sans"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ho-6MiqYEeW7ityAf_V6Cw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_lV67cyqXEeW7ityAf_V6Cw" fontName="Sans" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lV67dCqXEeW7ityAf_V6Cw" x="588" y="648" width="140" height="129"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_lV7igiqXEeW7ityAf_V6Cw" type="2001" element="_lVuHSSqXEeW7ityAf_V6Cw">
+            <children xmi:type="notation:Node" xmi:id="_lV8JkCqXEeW7ityAf_V6Cw" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_lV8woCqXEeW7ityAf_V6Cw" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_hpAIUCqYEeW7ityAf_V6Cw" type="3005" element="_ho1JMCqYEeW7ityAf_V6Cw">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_hpAIUSqYEeW7ityAf_V6Cw" fontName="Sans"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hpAIUiqYEeW7ityAf_V6Cw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_lV7igyqXEeW7ityAf_V6Cw" fontName="Sans" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lV7ihCqXEeW7ityAf_V6Cw" x="384" y="648" width="140" height="129"/>
+          </children>
+          <styles xmi:type="notation:DiagramStyle" xmi:id="_lVv8UiqXEeW7ityAf_V6Cw"/>
+          <edges xmi:type="notation:Edge" xmi:id="_lWBCECqXEeW7ityAf_V6Cw" type="4001" element="_lVuHTSqXEeW7ityAf_V6Cw" source="_lVxKcCqXEeW7ityAf_V6Cw" target="_lVxxgCqXEeW7ityAf_V6Cw">
+            <children xmi:type="notation:Node" xmi:id="_lWBpIiqXEeW7ityAf_V6Cw" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWBpIyqXEeW7ityAf_V6Cw" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_lWBpJCqXEeW7ityAf_V6Cw" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWBpJSqXEeW7ityAf_V6Cw" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_lWBpJiqXEeW7ityAf_V6Cw" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWBpJyqXEeW7ityAf_V6Cw" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_lWBCESqXEeW7ityAf_V6Cw" routing="Rectilinear"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_lWBpICqXEeW7ityAf_V6Cw" fontName="Sans" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lWBpISqXEeW7ityAf_V6Cw" points="[-53, 0, 127, -108]$[-180, 0, 0, -108]$[-180, 108, 0, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lc_MwCqXEeW7ityAf_V6Cw" id="(0.5,0.5)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lWCQMSqXEeW7ityAf_V6Cw" id="(0.5,0.0)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_lWCQMiqXEeW7ityAf_V6Cw" type="4001" element="_lVuHUiqXEeW7ityAf_V6Cw" source="_lVxKcCqXEeW7ityAf_V6Cw" target="_lV5tUiqXEeW7ityAf_V6Cw">
+            <children xmi:type="notation:Node" xmi:id="_lWC3QyqXEeW7ityAf_V6Cw" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWC3RCqXEeW7ityAf_V6Cw" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_lWC3RSqXEeW7ityAf_V6Cw" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWC3RiqXEeW7ityAf_V6Cw" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_lWC3RyqXEeW7ityAf_V6Cw" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWC3SCqXEeW7ityAf_V6Cw" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_lWC3QCqXEeW7ityAf_V6Cw" routing="Tree"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_lWC3QSqXEeW7ityAf_V6Cw" fontName="Sans" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lWC3QiqXEeW7ityAf_V6Cw" points="[0, -95, 0, -155]$[0, 44, 0, -16]$[0, 44, 0, -16]$[0, 200, 0, 140]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lWDeUCqXEeW7ityAf_V6Cw" id="(0.5,1.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lWDeUSqXEeW7ityAf_V6Cw" id="(0.2,0.0)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_lWDeUiqXEeW7ityAf_V6Cw" type="4001" element="_lVuHVyqXEeW7ityAf_V6Cw" source="_lVxKcCqXEeW7ityAf_V6Cw" target="_lV6UYiqXEeW7ityAf_V6Cw">
+            <children xmi:type="notation:Node" xmi:id="_lWEFYCqXEeW7ityAf_V6Cw" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWEFYSqXEeW7ityAf_V6Cw" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_lWEFYiqXEeW7ityAf_V6Cw" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWEFYyqXEeW7ityAf_V6Cw" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_lWEFZCqXEeW7ityAf_V6Cw" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWEFZSqXEeW7ityAf_V6Cw" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_lWDeUyqXEeW7ityAf_V6Cw" routing="Tree"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_lWDeVCqXEeW7ityAf_V6Cw" fontName="Sans" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lWDeVSqXEeW7ityAf_V6Cw" points="[0, 0, -200, -60]$[200, 60, 0, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lWEscCqXEeW7ityAf_V6Cw" id="(0.5,1.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lWEscSqXEeW7ityAf_V6Cw" id="(0.16129032258064516,0.0)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_lWEsciqXEeW7ityAf_V6Cw" type="4001" element="_lVuHXCqXEeW7ityAf_V6Cw" source="_lVxxgCqXEeW7ityAf_V6Cw" target="_lV0NwCqXEeW7ityAf_V6Cw">
+            <children xmi:type="notation:Node" xmi:id="_lWFTgCqXEeW7ityAf_V6Cw" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWFTgSqXEeW7ityAf_V6Cw" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_lWFTgiqXEeW7ityAf_V6Cw" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWFTgyqXEeW7ityAf_V6Cw" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_lWFThCqXEeW7ityAf_V6Cw" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWFThSqXEeW7ityAf_V6Cw" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_lWEscyqXEeW7ityAf_V6Cw" routing="Tree"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_lWEsdCqXEeW7ityAf_V6Cw" fontName="Sans" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lWEsdSqXEeW7ityAf_V6Cw" points="[0, 0, -100, -60]$[100, 60, 0, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lWFThiqXEeW7ityAf_V6Cw" id="(0.5,1.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lWFThyqXEeW7ityAf_V6Cw" id="(0.5,0.0)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_lWF6kCqXEeW7ityAf_V6Cw" type="4001" element="_lVuHYSqXEeW7ityAf_V6Cw" source="_lVxxgCqXEeW7ityAf_V6Cw" target="_lV5GQCqXEeW7ityAf_V6Cw">
+            <children xmi:type="notation:Node" xmi:id="_lWF6lCqXEeW7ityAf_V6Cw" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWF6lSqXEeW7ityAf_V6Cw" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_lWF6liqXEeW7ityAf_V6Cw" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWF6lyqXEeW7ityAf_V6Cw" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_lWF6mCqXEeW7ityAf_V6Cw" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWF6mSqXEeW7ityAf_V6Cw" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_lWF6kSqXEeW7ityAf_V6Cw" routing="Tree"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_lWF6kiqXEeW7ityAf_V6Cw" fontName="Sans" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lWF6kyqXEeW7ityAf_V6Cw" points="[0, -95, 100, -189]$[0, 78, 100, -16]$[-100, 78, 0, -16]$[-100, 234, 0, 140]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lWGhoCqXEeW7ityAf_V6Cw" id="(0.5,1.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lWGhoSqXEeW7ityAf_V6Cw" id="(0.5,0.0)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_lWGhoiqXEeW7ityAf_V6Cw" type="4001" element="_lVuHZiqXEeW7ityAf_V6Cw" source="_lVzmsCqXEeW7ityAf_V6Cw" target="_lV67ciqXEeW7ityAf_V6Cw">
+            <children xmi:type="notation:Node" xmi:id="_lWHIsCqXEeW7ityAf_V6Cw" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWHIsSqXEeW7ityAf_V6Cw" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_lWHIsiqXEeW7ityAf_V6Cw" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWHIsyqXEeW7ityAf_V6Cw" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_lWHItCqXEeW7ityAf_V6Cw" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWHItSqXEeW7ityAf_V6Cw" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_lWGhoyqXEeW7ityAf_V6Cw" routing="Tree"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_lWGhpCqXEeW7ityAf_V6Cw" fontName="Sans" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lWGhpSqXEeW7ityAf_V6Cw" points="[0, 0, -100, -60]$[100, 60, 0, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lWHvwCqXEeW7ityAf_V6Cw" id="(0.5,1.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lWHvwSqXEeW7ityAf_V6Cw" id="(0.5,0.0)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_lWHvwiqXEeW7ityAf_V6Cw" type="4001" element="_lVuHayqXEeW7ityAf_V6Cw" source="_lVzmsCqXEeW7ityAf_V6Cw" target="_lV7igiqXEeW7ityAf_V6Cw">
+            <children xmi:type="notation:Node" xmi:id="_lWIW0CqXEeW7ityAf_V6Cw" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWIW0SqXEeW7ityAf_V6Cw" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_lWIW0iqXEeW7ityAf_V6Cw" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWIW0yqXEeW7ityAf_V6Cw" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_lWIW1CqXEeW7ityAf_V6Cw" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWIW1SqXEeW7ityAf_V6Cw" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_lWHvwyqXEeW7ityAf_V6Cw" routing="Tree"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_lWHvxCqXEeW7ityAf_V6Cw" fontName="Sans" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lWHvxSqXEeW7ityAf_V6Cw" points="[0, -95, 100, -189]$[0, 78, 100, -16]$[-100, 78, 0, -16]$[-100, 234, 0, 140]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lWIW1iqXEeW7ityAf_V6Cw" id="(0.5,1.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lWIW1yqXEeW7ityAf_V6Cw" id="(0.5,0.0)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_lWI94CqXEeW7ityAf_V6Cw" type="4001" element="_lVuHcCqXEeW7ityAf_V6Cw" source="_lVv8UyqXEeW7ityAf_V6Cw" target="_lVxKcCqXEeW7ityAf_V6Cw">
+            <children xmi:type="notation:Node" xmi:id="_lWI95CqXEeW7ityAf_V6Cw" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWI95SqXEeW7ityAf_V6Cw" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_lWI95iqXEeW7ityAf_V6Cw" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWI95yqXEeW7ityAf_V6Cw" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_lWI96CqXEeW7ityAf_V6Cw" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWI96SqXEeW7ityAf_V6Cw" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_lWI94SqXEeW7ityAf_V6Cw" routing="Tree"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_lWI94iqXEeW7ityAf_V6Cw" fontName="Sans" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lWI94yqXEeW7ityAf_V6Cw" points="[0, 0, 0, -60]$[0, 60, 0, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lWJk8CqXEeW7ityAf_V6Cw" id="(0.5,1.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lWJk8SqXEeW7ityAf_V6Cw" id="(0.5,0.0)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_lWKMBCqXEeW7ityAf_V6Cw" type="4001" element="_lVuHeiqXEeW7ityAf_V6Cw" source="_lV6UYiqXEeW7ityAf_V6Cw" target="_lVzmsCqXEeW7ityAf_V6Cw">
+            <children xmi:type="notation:Node" xmi:id="_lWKzECqXEeW7ityAf_V6Cw" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWKzESqXEeW7ityAf_V6Cw" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_lWKzEiqXEeW7ityAf_V6Cw" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWKzEyqXEeW7ityAf_V6Cw" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_lWKzFCqXEeW7ityAf_V6Cw" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lWKzFSqXEeW7ityAf_V6Cw" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_lWKMBSqXEeW7ityAf_V6Cw"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_lWKMBiqXEeW7ityAf_V6Cw" fontName="Sans" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lWKMByqXEeW7ityAf_V6Cw" points="[0, 0, 0, -60]$[0, 60, 0, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lWKzFiqXEeW7ityAf_V6Cw" id="(0.16129032258064516,0.9836065573770492)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lWKzFyqXEeW7ityAf_V6Cw" id="(0.5,0.0)"/>
+          </edges>
+        </data>
+      </ownedAnnotationEntries>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_lVuHICqXEeW7ityAf_V6Cw" name="crash&#xA;The computer crashes" outgoingEdges="_lVuHcCqXEeW7ityAf_V6Cw" width="25" height="5" resizeKind="NSEW">
         <target xmi:type="emfta:Tree" href="computer.emfta#//@root"/>
-        <lines xmi:type="table:DLine" xmi:id="_nMdNch3tEeW0Cb56eHcQ_Q" label="Gate OR">
+        <semanticElements xmi:type="emfta:Tree" href="computer.emfta#//@root"/>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_lVuHISqXEeW7ityAf_V6Cw" labelFormat="bold" borderSize="1" borderSizeComputationExpression="1" labelPosition="node" width="25" height="5">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_lVuHIiqXEeW7ityAf_V6Cw"/>
+          <description xmi:type="style:SquareDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='TreeRootNode']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_lVuHIyqXEeW7ityAf_V6Cw"/>
+          <color xmi:type="viewpoint:RGBValues" xmi:id="_lVuHJCqXEeW7ityAf_V6Cw" red="255" green="255" blue="255"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='TreeRootNode']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_lVuHJSqXEeW7ityAf_V6Cw" name="OR" outgoingEdges="_lVuHTSqXEeW7ityAf_V6Cw _lVuHUiqXEeW7ityAf_V6Cw _lVuHVyqXEeW7ityAf_V6Cw" incomingEdges="_lVuHcCqXEeW7ityAf_V6Cw" width="-1" height="-1" resizeKind="NSEW">
+        <target xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate"/>
+        <semanticElements xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate"/>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_lVuHJiqXEeW7ityAf_V6Cw" labelPosition="node" workspacePath="/emfta.design/imgs/or.png">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_lVuHJyqXEeW7ityAf_V6Cw"/>
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='GateNode']/@conditionnalStyles.0/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_lVuHKCqXEeW7ityAf_V6Cw"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='GateNode']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_lVuHKSqXEeW7ityAf_V6Cw" name="AND" outgoingEdges="_lVuHXCqXEeW7ityAf_V6Cw _lVuHYSqXEeW7ityAf_V6Cw" incomingEdges="_lVuHTSqXEeW7ityAf_V6Cw" width="-1" height="-1" resizeKind="NSEW">
+        <target xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate/@gates.0"/>
+        <semanticElements xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate/@gates.0"/>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_lVuHKiqXEeW7ityAf_V6Cw" labelPosition="node" workspacePath="/emfta.design/imgs/and.png">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_lVuHKyqXEeW7ityAf_V6Cw"/>
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='GateNode']/@conditionnalStyles.1/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_lVuHLCqXEeW7ityAf_V6Cw"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='GateNode']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_lVuHMSqXEeW7ityAf_V6Cw" name="OR" outgoingEdges="_lVuHZiqXEeW7ityAf_V6Cw _lVuHayqXEeW7ityAf_V6Cw" incomingEdges="_lVuHeiqXEeW7ityAf_V6Cw" width="-1" height="-1" resizeKind="NSEW">
+        <target xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate/@events.1/@gate.0"/>
+        <semanticElements xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate/@events.1/@gate.0"/>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_lVuHMiqXEeW7ityAf_V6Cw" labelPosition="node" workspacePath="/emfta.design/imgs/or.png">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_lVuHMyqXEeW7ityAf_V6Cw"/>
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='GateNode']/@conditionnalStyles.0/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_lVuHNCqXEeW7ityAf_V6Cw"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='GateNode']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_lVuHNSqXEeW7ityAf_V6Cw" name="DBZ (0.0)&#xA;Divide by zero" incomingEdges="_lVuHXCqXEeW7ityAf_V6Cw" width="-1" height="-1" resizeKind="NSEW">
+        <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@gates.0/@events.0"/>
+        <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@gates.0/@events.0"/>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_hooU4CqYEeW7ityAf_V6Cw" labelPosition="node" workspacePath="/emfta.design/imgs/event-basic.svg">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_hooU4SqYEeW7ityAf_V6Cw"/>
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']/@conditionnalStyles.0/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_hooU4iqYEeW7ityAf_V6Cw"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_lVuHOSqXEeW7ityAf_V6Cw" name="RecoveryMissing (0.0)&#xA;Exception recovery is missing" incomingEdges="_lVuHYSqXEeW7ityAf_V6Cw" width="-1" height="-1" resizeKind="NSEW">
+        <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@gates.0/@events.1"/>
+        <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@gates.0/@events.1"/>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_hoo78CqYEeW7ityAf_V6Cw" labelPosition="node" workspacePath="/emfta.design/imgs/event-basic.svg">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_hoo78SqYEeW7ityAf_V6Cw"/>
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']/@conditionnalStyles.0/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_hoo78iqYEeW7ityAf_V6Cw"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_lVuHPSqXEeW7ityAf_V6Cw" name="Interrupt (3.0)&#xA;Unhandled interrupt is raised" incomingEdges="_lVuHUiqXEeW7ityAf_V6Cw" width="-1" height="-1" resizeKind="NSEW">
+        <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.0"/>
+        <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.0"/>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_hoqKECqYEeW7ityAf_V6Cw" labelPosition="node" workspacePath="/emfta.design/imgs/event-basic.svg">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_hoqKESqYEeW7ityAf_V6Cw"/>
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']/@conditionnalStyles.0/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_hoqKEiqYEeW7ityAf_V6Cw"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_lVuHQSqXEeW7ityAf_V6Cw" name="devicebroken" outgoingEdges="_lVuHeiqXEeW7ityAf_V6Cw" incomingEdges="_lVuHVyqXEeW7ityAf_V6Cw" width="6" height="6" resizeKind="NSEW">
+        <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1"/>
+        <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1"/>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_YwMUkCqYEeW7ityAf_V6Cw" borderSize="1" borderSizeComputationExpression="1" labelPosition="node">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_YwMUkSqYEeW7ityAf_V6Cw"/>
+          <description xmi:type="style:SquareDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_YwMUkiqYEeW7ityAf_V6Cw"/>
+          <color xmi:type="viewpoint:RGBValues" xmi:id="_umst0CqYEeW7ityAf_V6Cw" red="255" green="255" blue="255"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_lVuHRSqXEeW7ityAf_V6Cw" name="powerloss (0.0)&#xA;Loss of power device" incomingEdges="_lVuHZiqXEeW7ityAf_V6Cw" width="-1" height="-1" resizeKind="NSEW">
+        <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1/@gate.0/@events.0"/>
+        <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1/@gate.0/@events.0"/>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_ho0iICqYEeW7ityAf_V6Cw" labelPosition="node" workspacePath="/emfta.design/imgs/event-basic.svg">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_ho0iISqYEeW7ityAf_V6Cw"/>
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']/@conditionnalStyles.0/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_ho0iIiqYEeW7ityAf_V6Cw"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_lVuHSSqXEeW7ityAf_V6Cw" name="boardcracked (0.0)&#xA;The motherboard of the device is cracked" incomingEdges="_lVuHayqXEeW7ityAf_V6Cw" width="-1" height="-1" resizeKind="NSEW">
+        <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1/@gate.0/@events.1"/>
+        <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1/@gate.0/@events.1"/>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_ho1JMCqYEeW7ityAf_V6Cw" labelPosition="node" workspacePath="/emfta.design/imgs/event-basic.svg">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_ho1JMSqYEeW7ityAf_V6Cw"/>
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']/@conditionnalStyles.0/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_ho1JMiqYEeW7ityAf_V6Cw"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_lVuHTSqXEeW7ityAf_V6Cw" sourceNode="_lVuHJSqXEeW7ityAf_V6Cw" targetNode="_lVuHKSqXEeW7ityAf_V6Cw">
+        <target xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_lVuHTiqXEeW7ityAf_V6Cw" targetArrow="NoDecoration" foldingStyle="TARGET" size="2" routingStyle="manhattan" centered="Source">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToGateEdge']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_lVuHTyqXEeW7ityAf_V6Cw" red="136" green="136" blue="136"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_lVuHUCqXEeW7ityAf_V6Cw">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_lVuHUSqXEeW7ityAf_V6Cw"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToGateEdge']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_lVuHUiqXEeW7ityAf_V6Cw" sourceNode="_lVuHJSqXEeW7ityAf_V6Cw" targetNode="_lVuHPSqXEeW7ityAf_V6Cw">
+        <target xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_lVuHUyqXEeW7ityAf_V6Cw" targetArrow="NoDecoration" size="2" routingStyle="tree">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToEventEdge']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_lVuHVCqXEeW7ityAf_V6Cw" red="136" green="136" blue="136"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_lVuHVSqXEeW7ityAf_V6Cw">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_lVuHViqXEeW7ityAf_V6Cw"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToEventEdge']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_lVuHVyqXEeW7ityAf_V6Cw" sourceNode="_lVuHJSqXEeW7ityAf_V6Cw" targetNode="_lVuHQSqXEeW7ityAf_V6Cw">
+        <target xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_lVuHWCqXEeW7ityAf_V6Cw" targetArrow="NoDecoration" size="2" routingStyle="tree">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToEventEdge']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_lVuHWSqXEeW7ityAf_V6Cw" red="136" green="136" blue="136"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_lVuHWiqXEeW7ityAf_V6Cw">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_lVuHWyqXEeW7ityAf_V6Cw"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToEventEdge']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_lVuHXCqXEeW7ityAf_V6Cw" sourceNode="_lVuHKSqXEeW7ityAf_V6Cw" targetNode="_lVuHNSqXEeW7ityAf_V6Cw">
+        <target xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate/@gates.0"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_lVuHXSqXEeW7ityAf_V6Cw" targetArrow="NoDecoration" size="2" routingStyle="tree">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToEventEdge']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_lVuHXiqXEeW7ityAf_V6Cw" red="136" green="136" blue="136"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_lVuHXyqXEeW7ityAf_V6Cw">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_lVuHYCqXEeW7ityAf_V6Cw"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToEventEdge']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_lVuHYSqXEeW7ityAf_V6Cw" sourceNode="_lVuHKSqXEeW7ityAf_V6Cw" targetNode="_lVuHOSqXEeW7ityAf_V6Cw">
+        <target xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate/@gates.0"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_lVuHYiqXEeW7ityAf_V6Cw" targetArrow="NoDecoration" size="2" routingStyle="tree">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToEventEdge']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_lVuHYyqXEeW7ityAf_V6Cw" red="136" green="136" blue="136"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_lVuHZCqXEeW7ityAf_V6Cw">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_lVuHZSqXEeW7ityAf_V6Cw"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToEventEdge']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_lVuHZiqXEeW7ityAf_V6Cw" sourceNode="_lVuHMSqXEeW7ityAf_V6Cw" targetNode="_lVuHRSqXEeW7ityAf_V6Cw">
+        <target xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate/@events.1/@gate.0"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_lVuHZyqXEeW7ityAf_V6Cw" targetArrow="NoDecoration" size="2" routingStyle="tree">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToEventEdge']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_lVuHaCqXEeW7ityAf_V6Cw" red="136" green="136" blue="136"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_lVuHaSqXEeW7ityAf_V6Cw">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_lVuHaiqXEeW7ityAf_V6Cw"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToEventEdge']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_lVuHayqXEeW7ityAf_V6Cw" sourceNode="_lVuHMSqXEeW7ityAf_V6Cw" targetNode="_lVuHSSqXEeW7ityAf_V6Cw">
+        <target xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate/@events.1/@gate.0"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_lVuHbCqXEeW7ityAf_V6Cw" targetArrow="NoDecoration" size="2" routingStyle="tree">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToEventEdge']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_lVuHbSqXEeW7ityAf_V6Cw" red="136" green="136" blue="136"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_lVuHbiqXEeW7ityAf_V6Cw">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_lVuHbyqXEeW7ityAf_V6Cw"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToEventEdge']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_lVuHcCqXEeW7ityAf_V6Cw" sourceNode="_lVuHICqXEeW7ityAf_V6Cw" targetNode="_lVuHJSqXEeW7ityAf_V6Cw">
+        <target xmi:type="emfta:Tree" href="computer.emfta#//@root"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_lVuHcSqXEeW7ityAf_V6Cw" targetArrow="NoDecoration" size="2" routingStyle="tree">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToTreeRootEdge']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_lVuHciqXEeW7ityAf_V6Cw"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_lVuHcyqXEeW7ityAf_V6Cw">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_lVuHdCqXEeW7ityAf_V6Cw"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToTreeRootEdge']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_lVuHeiqXEeW7ityAf_V6Cw" sourceNode="_lVuHQSqXEeW7ityAf_V6Cw" targetNode="_lVuHMSqXEeW7ityAf_V6Cw">
+        <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_lVuHeyqXEeW7ityAf_V6Cw" targetArrow="NoDecoration" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='EventToGate']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_lVuHfCqXEeW7ityAf_V6Cw" red="136" green="136" blue="136"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_lVuHfSqXEeW7ityAf_V6Cw">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_lVuHfiqXEeW7ityAf_V6Cw"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='EventToGate']"/>
+      </ownedDiagramElements>
+      <description xmi:type="description_1:DiagramDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']"/>
+      <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_lVuHfyqXEeW7ityAf_V6Cw"/>
+      <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer"/>
+      <target xmi:type="emfta:FTAModel" href="computer.emfta#/"/>
+    </ownedRepresentations>
+    <ownedRepresentations xmi:type="table:DTable" xmi:id="_msu9YCqXEeW7ityAf_V6Cw" name="new FTA Table View" headerColumnWidth="240">
+      <target xmi:type="emfta:FTAModel" href="computer.emfta#/"/>
+      <lines xmi:type="table:DLine" xmi:id="_msu9YSqXEeW7ityAf_V6Cw" label="Tree crash">
+        <target xmi:type="emfta:Tree" href="computer.emfta#//@root"/>
+        <lines xmi:type="table:DLine" xmi:id="_msu9YiqXEeW7ityAf_V6Cw" label="Gate OR">
           <target xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate"/>
-          <lines xmi:type="table:DLine" xmi:id="_nMdNcx3tEeW0Cb56eHcQ_Q" label="Event Interrupt">
+          <lines xmi:type="table:DLine" xmi:id="_msu9YyqXEeW7ityAf_V6Cw" label="Event Interrupt">
             <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.0"/>
             <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.0"/>
-            <originMapping xmi:type="description:LineMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']/@ownedSubLines[name='GateLine']/@ownedSubLines[name='EventLine']"/>
-            <cells xmi:type="table:DCell" xmi:id="_nMdNdB3tEeW0Cb56eHcQ_Q" label="Interrupt" column="_nMd0hx3tEeW0Cb56eHcQ_Q">
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']/@ownedSubLines[name='GateLine']/@ownedSubLines[name='EventLine']"/>
+            <cells xmi:type="table:DCell" xmi:id="_msu9ZCqXEeW7ityAf_V6Cw" label="Interrupt" column="_msu9gCqXEeW7ityAf_V6Cw">
               <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.0"/>
               <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.0"/>
             </cells>
-            <cells xmi:type="table:DCell" xmi:id="_nMdNdR3tEeW0Cb56eHcQ_Q" label="Unhandled interrupt is raised" column="_nMd0iB3tEeW0Cb56eHcQ_Q">
+            <cells xmi:type="table:DCell" xmi:id="_msu9ZSqXEeW7ityAf_V6Cw" label="Unhandled interrupt is raised" column="_msu9gSqXEeW7ityAf_V6Cw">
               <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.0"/>
               <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.0"/>
             </cells>
-            <cells xmi:type="table:DCell" xmi:id="_nMdNdh3tEeW0Cb56eHcQ_Q" label="3.0" column="_nMd0iR3tEeW0Cb56eHcQ_Q">
+            <cells xmi:type="table:DCell" xmi:id="_msu9ZiqXEeW7ityAf_V6Cw" label="3.0" column="_msu9giqXEeW7ityAf_V6Cw">
               <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.0"/>
               <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.0"/>
             </cells>
           </lines>
-          <lines xmi:type="table:DLine" xmi:id="_nMdNdx3tEeW0Cb56eHcQ_Q" label="Event devicebroken">
+          <lines xmi:type="table:DLine" xmi:id="_msu9ZyqXEeW7ityAf_V6Cw" label="Event devicebroken">
             <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1"/>
+            <lines xmi:type="table:DLine" xmi:id="_msu9aCqXEeW7ityAf_V6Cw" label="Gate OR">
+              <target xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate/@events.1/@gate.0"/>
+              <lines xmi:type="table:DLine" xmi:id="_msu9aSqXEeW7ityAf_V6Cw" label="Event powerloss">
+                <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1/@gate.0/@events.0"/>
+                <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1/@gate.0/@events.0"/>
+                <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']/@ownedSubLines[name='GateLine']/@ownedSubLines[name='EventLine']"/>
+                <cells xmi:type="table:DCell" xmi:id="_msu9aiqXEeW7ityAf_V6Cw" label="powerloss" column="_msu9gCqXEeW7ityAf_V6Cw">
+                  <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1/@gate.0/@events.0"/>
+                  <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1/@gate.0/@events.0"/>
+                </cells>
+                <cells xmi:type="table:DCell" xmi:id="_msu9ayqXEeW7ityAf_V6Cw" label="Loss of power device" column="_msu9gSqXEeW7ityAf_V6Cw">
+                  <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1/@gate.0/@events.0"/>
+                  <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1/@gate.0/@events.0"/>
+                </cells>
+                <cells xmi:type="table:DCell" xmi:id="_msu9bCqXEeW7ityAf_V6Cw" label="0.0" column="_msu9giqXEeW7ityAf_V6Cw">
+                  <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1/@gate.0/@events.0"/>
+                  <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1/@gate.0/@events.0"/>
+                </cells>
+              </lines>
+              <lines xmi:type="table:DLine" xmi:id="_msu9bSqXEeW7ityAf_V6Cw" label="Event boardcracked">
+                <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1/@gate.0/@events.1"/>
+                <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1/@gate.0/@events.1"/>
+                <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']/@ownedSubLines[name='GateLine']/@ownedSubLines[name='EventLine']"/>
+                <cells xmi:type="table:DCell" xmi:id="_msu9biqXEeW7ityAf_V6Cw" label="boardcracked" column="_msu9gCqXEeW7ityAf_V6Cw">
+                  <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1/@gate.0/@events.1"/>
+                  <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1/@gate.0/@events.1"/>
+                </cells>
+                <cells xmi:type="table:DCell" xmi:id="_msu9byqXEeW7ityAf_V6Cw" label="The motherboard of the device is cracked" column="_msu9gSqXEeW7ityAf_V6Cw">
+                  <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1/@gate.0/@events.1"/>
+                  <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1/@gate.0/@events.1"/>
+                </cells>
+                <cells xmi:type="table:DCell" xmi:id="_msu9cCqXEeW7ityAf_V6Cw" label="0.0" column="_msu9giqXEeW7ityAf_V6Cw">
+                  <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1/@gate.0/@events.1"/>
+                  <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1/@gate.0/@events.1"/>
+                </cells>
+              </lines>
+              <semanticElements xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate/@events.1/@gate.0"/>
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']/@ownedSubLines[name='GateLine']"/>
+            </lines>
             <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1"/>
-            <originMapping xmi:type="description:LineMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']/@ownedSubLines[name='GateLine']/@ownedSubLines[name='EventLine']"/>
-            <cells xmi:type="table:DCell" xmi:id="_nMdNeB3tEeW0Cb56eHcQ_Q" label="devicebroken" column="_nMd0hx3tEeW0Cb56eHcQ_Q">
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']/@ownedSubLines[name='GateLine']/@ownedSubLines[name='EventLine']"/>
+            <cells xmi:type="table:DCell" xmi:id="_msu9cSqXEeW7ityAf_V6Cw" label="devicebroken" column="_msu9gCqXEeW7ityAf_V6Cw">
               <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1"/>
               <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1"/>
             </cells>
-            <cells xmi:type="table:DCell" xmi:id="_nMdNeR3tEeW0Cb56eHcQ_Q" label="Faulty device continuously send interrupts" column="_nMd0iB3tEeW0Cb56eHcQ_Q">
+            <cells xmi:type="table:DCell" xmi:id="_msu9ciqXEeW7ityAf_V6Cw" label="Faulty device continuously send interrupts" column="_msu9gSqXEeW7ityAf_V6Cw">
               <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1"/>
               <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1"/>
             </cells>
-            <cells xmi:type="table:DCell" xmi:id="_nMdNeh3tEeW0Cb56eHcQ_Q" label="0.0" column="_nMd0iR3tEeW0Cb56eHcQ_Q">
+            <cells xmi:type="table:DCell" xmi:id="_msu9cyqXEeW7ityAf_V6Cw" label="0.0" column="_msu9giqXEeW7ityAf_V6Cw">
               <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1"/>
               <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1"/>
             </cells>
           </lines>
-          <lines xmi:type="table:DLine" xmi:id="_2eBTAB3tEeW0Cb56eHcQ_Q" label="Event newevent">
-            <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.2"/>
-            <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.2"/>
-            <originMapping xmi:type="description:LineMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']/@ownedSubLines[name='GateLine']/@ownedSubLines[name='EventLine']"/>
-            <cells xmi:type="table:DCell" xmi:id="_2eJ14B3tEeW0Cb56eHcQ_Q" label="newevent" column="_nMd0hx3tEeW0Cb56eHcQ_Q">
-              <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.2"/>
-              <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.2"/>
-            </cells>
-            <cells xmi:type="table:DCell" xmi:id="_2eJ14R3tEeW0Cb56eHcQ_Q" label="" column="_nMd0iB3tEeW0Cb56eHcQ_Q">
-              <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.2"/>
-              <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.2"/>
-            </cells>
-            <cells xmi:type="table:DCell" xmi:id="_2eKc8B3tEeW0Cb56eHcQ_Q" label="0.0" column="_nMd0iR3tEeW0Cb56eHcQ_Q">
-              <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.2"/>
-              <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.2"/>
-            </cells>
-          </lines>
-          <lines xmi:type="table:DLine" xmi:id="_nMdNex3tEeW0Cb56eHcQ_Q" label="Gate AND">
+          <lines xmi:type="table:DLine" xmi:id="_msu9dCqXEeW7ityAf_V6Cw" label="Gate AND">
             <target xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate/@gates.0"/>
-            <lines xmi:type="table:DLine" xmi:id="_nMdNfB3tEeW0Cb56eHcQ_Q" label="Event DBZ">
+            <lines xmi:type="table:DLine" xmi:id="_msu9dSqXEeW7ityAf_V6Cw" label="Event DBZ">
               <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@gates.0/@events.0"/>
               <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@gates.0/@events.0"/>
-              <originMapping xmi:type="description:LineMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']/@ownedSubLines[name='GateLine']/@ownedSubLines[name='EventLine']"/>
-              <cells xmi:type="table:DCell" xmi:id="_nMdNfR3tEeW0Cb56eHcQ_Q" label="DBZ" column="_nMd0hx3tEeW0Cb56eHcQ_Q">
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']/@ownedSubLines[name='GateLine']/@ownedSubLines[name='EventLine']"/>
+              <cells xmi:type="table:DCell" xmi:id="_msu9dyqXEeW7ityAf_V6Cw" label="DBZ" column="_msu9gCqXEeW7ityAf_V6Cw">
                 <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@gates.0/@events.0"/>
                 <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@gates.0/@events.0"/>
               </cells>
-              <cells xmi:type="table:DCell" xmi:id="_nMdNfh3tEeW0Cb56eHcQ_Q" label="Divide by zero" column="_nMd0iB3tEeW0Cb56eHcQ_Q">
+              <cells xmi:type="table:DCell" xmi:id="_msu9eCqXEeW7ityAf_V6Cw" label="Divide by zero" column="_msu9gSqXEeW7ityAf_V6Cw">
                 <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@gates.0/@events.0"/>
                 <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@gates.0/@events.0"/>
               </cells>
-              <cells xmi:type="table:DCell" xmi:id="_nMd0gB3tEeW0Cb56eHcQ_Q" label="0.0" column="_nMd0iR3tEeW0Cb56eHcQ_Q">
+              <cells xmi:type="table:DCell" xmi:id="_msu9eSqXEeW7ityAf_V6Cw" label="0.0" column="_msu9giqXEeW7ityAf_V6Cw">
                 <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@gates.0/@events.0"/>
                 <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@gates.0/@events.0"/>
               </cells>
             </lines>
-            <lines xmi:type="table:DLine" xmi:id="_nMd0gR3tEeW0Cb56eHcQ_Q" label="Event RecoveryMissing">
+            <lines xmi:type="table:DLine" xmi:id="_msu9eiqXEeW7ityAf_V6Cw" label="Event RecoveryMissing">
               <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@gates.0/@events.1"/>
               <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@gates.0/@events.1"/>
-              <originMapping xmi:type="description:LineMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']/@ownedSubLines[name='GateLine']/@ownedSubLines[name='EventLine']"/>
-              <cells xmi:type="table:DCell" xmi:id="_nMd0gh3tEeW0Cb56eHcQ_Q" label="RecoveryMissing" column="_nMd0hx3tEeW0Cb56eHcQ_Q">
+              <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']/@ownedSubLines[name='GateLine']/@ownedSubLines[name='EventLine']"/>
+              <cells xmi:type="table:DCell" xmi:id="_msu9eyqXEeW7ityAf_V6Cw" label="RecoveryMissing" column="_msu9gCqXEeW7ityAf_V6Cw">
                 <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@gates.0/@events.1"/>
                 <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@gates.0/@events.1"/>
               </cells>
-              <cells xmi:type="table:DCell" xmi:id="_nMd0gx3tEeW0Cb56eHcQ_Q" label="Exception recovery is missing" column="_nMd0iB3tEeW0Cb56eHcQ_Q">
+              <cells xmi:type="table:DCell" xmi:id="_msu9fCqXEeW7ityAf_V6Cw" label="Exception recovery is missing" column="_msu9gSqXEeW7ityAf_V6Cw">
                 <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@gates.0/@events.1"/>
                 <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@gates.0/@events.1"/>
               </cells>
-              <cells xmi:type="table:DCell" xmi:id="_nMd0hB3tEeW0Cb56eHcQ_Q" label="0.0" column="_nMd0iR3tEeW0Cb56eHcQ_Q">
+              <cells xmi:type="table:DCell" xmi:id="_msu9fSqXEeW7ityAf_V6Cw" label="0.0" column="_msu9giqXEeW7ityAf_V6Cw">
                 <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@gates.0/@events.1"/>
                 <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@gates.0/@events.1"/>
               </cells>
             </lines>
             <semanticElements xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate/@gates.0"/>
-            <originMapping xmi:type="description:LineMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']/@ownedSubLines[name='GateLine']"/>
+            <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']/@ownedSubLines[name='GateLine']"/>
           </lines>
           <semanticElements xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate"/>
-          <originMapping xmi:type="description:LineMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']/@ownedSubLines[name='GateLine']"/>
+          <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']/@ownedSubLines[name='GateLine']"/>
         </lines>
         <semanticElements xmi:type="emfta:Tree" href="computer.emfta#//@root"/>
-        <originMapping xmi:type="description:LineMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']"/>
-        <cells xmi:type="table:DCell" xmi:id="_nMd0hR3tEeW0Cb56eHcQ_Q" label="crash" column="_nMd0hx3tEeW0Cb56eHcQ_Q">
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']"/>
+        <cells xmi:type="table:DCell" xmi:id="_msu9fiqXEeW7ityAf_V6Cw" label="crash" column="_msu9gCqXEeW7ityAf_V6Cw">
           <target xmi:type="emfta:Tree" href="computer.emfta#//@root"/>
           <semanticElements xmi:type="emfta:Tree" href="computer.emfta#//@root"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_nMd0hh3tEeW0Cb56eHcQ_Q" label="The computer crashes" column="_nMd0iB3tEeW0Cb56eHcQ_Q">
+        <cells xmi:type="table:DCell" xmi:id="_msu9fyqXEeW7ityAf_V6Cw" label="The computer crashes" column="_msu9gSqXEeW7ityAf_V6Cw">
           <target xmi:type="emfta:Tree" href="computer.emfta#//@root"/>
           <semanticElements xmi:type="emfta:Tree" href="computer.emfta#//@root"/>
         </cells>
       </lines>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_nMd0hx3tEeW0Cb56eHcQ_Q" label="Name" cells="_nMd0hR3tEeW0Cb56eHcQ_Q _nMdNdB3tEeW0Cb56eHcQ_Q _nMdNeB3tEeW0Cb56eHcQ_Q _nMdNfR3tEeW0Cb56eHcQ_Q _nMd0gh3tEeW0Cb56eHcQ_Q _2eJ14B3tEeW0Cb56eHcQ_Q" width="97" featureName="name">
-        <originMapping xmi:type="description:FeatureColumnMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedColumnMappings[name='NameColumn']"/>
+      <columns xmi:type="table:DFeatureColumn" xmi:id="_msu9gCqXEeW7ityAf_V6Cw" label="Name" cells="_msu9fiqXEeW7ityAf_V6Cw _msu9ZCqXEeW7ityAf_V6Cw _msu9cSqXEeW7ityAf_V6Cw _msu9aiqXEeW7ityAf_V6Cw _msu9biqXEeW7ityAf_V6Cw _msu9dyqXEeW7ityAf_V6Cw _msu9eyqXEeW7ityAf_V6Cw" width="97" featureName="name">
+        <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedColumnMappings[name='NameColumn']"/>
       </columns>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_nMd0iB3tEeW0Cb56eHcQ_Q" label="Description" cells="_nMd0hh3tEeW0Cb56eHcQ_Q _nMdNdR3tEeW0Cb56eHcQ_Q _nMdNeR3tEeW0Cb56eHcQ_Q _nMdNfh3tEeW0Cb56eHcQ_Q _nMd0gx3tEeW0Cb56eHcQ_Q _2eJ14R3tEeW0Cb56eHcQ_Q" width="216" featureName="description">
-        <originMapping xmi:type="description:FeatureColumnMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedColumnMappings[name='DescriptionColumn']"/>
+      <columns xmi:type="table:DFeatureColumn" xmi:id="_msu9gSqXEeW7ityAf_V6Cw" label="Description" cells="_msu9fyqXEeW7ityAf_V6Cw _msu9ZSqXEeW7ityAf_V6Cw _msu9ciqXEeW7ityAf_V6Cw _msu9ayqXEeW7ityAf_V6Cw _msu9byqXEeW7ityAf_V6Cw _msu9eCqXEeW7ityAf_V6Cw _msu9fCqXEeW7ityAf_V6Cw" width="217" featureName="description">
+        <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedColumnMappings[name='DescriptionColumn']"/>
       </columns>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_nMd0iR3tEeW0Cb56eHcQ_Q" label="Probability" cells="_nMdNdh3tEeW0Cb56eHcQ_Q _nMdNeh3tEeW0Cb56eHcQ_Q _nMd0gB3tEeW0Cb56eHcQ_Q _nMd0hB3tEeW0Cb56eHcQ_Q _2eKc8B3tEeW0Cb56eHcQ_Q" featureName="probability">
-        <originMapping xmi:type="description:FeatureColumnMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedColumnMappings[name='ProbabilityColumn']"/>
+      <columns xmi:type="table:DFeatureColumn" xmi:id="_msu9giqXEeW7ityAf_V6Cw" label="Probability" cells="_msu9ZiqXEeW7ityAf_V6Cw _msu9cyqXEeW7ityAf_V6Cw _msu9bCqXEeW7ityAf_V6Cw _msu9cCqXEeW7ityAf_V6Cw _msu9eSqXEeW7ityAf_V6Cw _msu9fSqXEeW7ityAf_V6Cw" featureName="probability">
+        <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedColumnMappings[name='ProbabilityColumn']"/>
       </columns>
-      <description xmi:type="description:EditionTableDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']"/>
+      <description xmi:type="description_2:EditionTableDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']"/>
     </ownedRepresentations>
-    <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_k7V3sB3zEeW0Cb56eHcQ_Q" name="new FTA Tree">
-      <ownedAnnotationEntries xmi:type="description_1:AnnotationEntry" xmi:id="_k7ZiEB3zEeW0Cb56eHcQ_Q" source="GMF_DIAGRAMS">
-        <data xmi:type="notation:Diagram" xmi:id="_k7ZiER3zEeW0Cb56eHcQ_Q" type="Sirius" element="_k7V3sB3zEeW0Cb56eHcQ_Q" measurementUnit="Pixel">
-          <children xmi:type="notation:Node" xmi:id="_k7aJIB3zEeW0Cb56eHcQ_Q" type="2001" element="_k7V3sR3zEeW0Cb56eHcQ_Q">
-            <children xmi:type="notation:Node" xmi:id="_k7aJIx3zEeW0Cb56eHcQ_Q" type="5002">
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_k7aJJB3zEeW0Cb56eHcQ_Q" y="5"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_k7fosB3zEeW0Cb56eHcQ_Q" type="3003" element="_k7V3sh3zEeW0Cb56eHcQ_Q">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_k7fosR3zEeW0Cb56eHcQ_Q" fontName="Sans"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7fosh3zEeW0Cb56eHcQ_Q"/>
-            </children>
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_k7aJIR3zEeW0Cb56eHcQ_Q" fontName="Sans" fontHeight="8" bold="true"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7aJIh3zEeW0Cb56eHcQ_Q" width="250" height="50"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_k7awMB3zEeW0Cb56eHcQ_Q" type="2001" element="_k7V3th3zEeW0Cb56eHcQ_Q">
-            <children xmi:type="notation:Node" xmi:id="_k7awMx3zEeW0Cb56eHcQ_Q" type="5002">
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_k7awNB3zEeW0Cb56eHcQ_Q" y="5"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_k7gPwB3zEeW0Cb56eHcQ_Q" type="3005" element="_k7V3tx3zEeW0Cb56eHcQ_Q">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_k7gPwR3zEeW0Cb56eHcQ_Q" fontName="Sans"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7gPwh3zEeW0Cb56eHcQ_Q"/>
-            </children>
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_k7awMR3zEeW0Cb56eHcQ_Q" fontName="Sans" fontHeight="8"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7awMh3zEeW0Cb56eHcQ_Q" width="106" height="95"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_k7bXQB3zEeW0Cb56eHcQ_Q" type="2001" element="_k7V3uh3zEeW0Cb56eHcQ_Q">
-            <children xmi:type="notation:Node" xmi:id="_k7bXQx3zEeW0Cb56eHcQ_Q" type="5002">
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_k7bXRB3zEeW0Cb56eHcQ_Q" y="5"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_k7gPwx3zEeW0Cb56eHcQ_Q" type="3005" element="_k7V3ux3zEeW0Cb56eHcQ_Q">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_k7gPxB3zEeW0Cb56eHcQ_Q" fontName="Sans"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7gPxR3zEeW0Cb56eHcQ_Q"/>
-            </children>
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_k7bXQR3zEeW0Cb56eHcQ_Q" fontName="Sans" fontHeight="8"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7bXQh3zEeW0Cb56eHcQ_Q" width="106" height="95"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_k7b-UB3zEeW0Cb56eHcQ_Q" type="2001" element="_k7V3vh3zEeW0Cb56eHcQ_Q">
-            <children xmi:type="notation:Node" xmi:id="_k7b-Ux3zEeW0Cb56eHcQ_Q" type="5002">
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_k7b-VB3zEeW0Cb56eHcQ_Q" y="5"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_k7gPxh3zEeW0Cb56eHcQ_Q" type="3005" element="_k7V3vx3zEeW0Cb56eHcQ_Q">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_k7gPxx3zEeW0Cb56eHcQ_Q" fontName="Sans"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7gPyB3zEeW0Cb56eHcQ_Q"/>
-            </children>
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_k7b-UR3zEeW0Cb56eHcQ_Q" fontName="Sans" fontHeight="8"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7b-Uh3zEeW0Cb56eHcQ_Q" width="140" height="129"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_k7b-VR3zEeW0Cb56eHcQ_Q" type="2001" element="_k7V3wh3zEeW0Cb56eHcQ_Q">
-            <children xmi:type="notation:Node" xmi:id="_k7clYB3zEeW0Cb56eHcQ_Q" type="5002">
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_k7clYR3zEeW0Cb56eHcQ_Q" y="5"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_k7g20B3zEeW0Cb56eHcQ_Q" type="3005" element="_k7V3wx3zEeW0Cb56eHcQ_Q">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_k7g20R3zEeW0Cb56eHcQ_Q" fontName="Sans"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7g20h3zEeW0Cb56eHcQ_Q"/>
-            </children>
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_k7b-Vh3zEeW0Cb56eHcQ_Q" fontName="Sans" fontHeight="8"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7b-Vx3zEeW0Cb56eHcQ_Q" width="140" height="129"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_k7clYh3zEeW0Cb56eHcQ_Q" type="2001" element="_k7V3xh3zEeW0Cb56eHcQ_Q">
-            <children xmi:type="notation:Node" xmi:id="_k7dMcB3zEeW0Cb56eHcQ_Q" type="5002">
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_k7dMcR3zEeW0Cb56eHcQ_Q" y="5"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_k7g20x3zEeW0Cb56eHcQ_Q" type="3005" element="_k7V3xx3zEeW0Cb56eHcQ_Q">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_k7g21B3zEeW0Cb56eHcQ_Q" fontName="Sans"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7g21R3zEeW0Cb56eHcQ_Q"/>
-            </children>
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_k7clYx3zEeW0Cb56eHcQ_Q" fontName="Sans" fontHeight="8"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7clZB3zEeW0Cb56eHcQ_Q" width="140" height="129"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_k7dMch3zEeW0Cb56eHcQ_Q" type="2001" element="_k7V3yh3zEeW0Cb56eHcQ_Q">
-            <children xmi:type="notation:Node" xmi:id="_k7dzgB3zEeW0Cb56eHcQ_Q" type="5002">
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_k7dzgR3zEeW0Cb56eHcQ_Q" y="5"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_k7hd4B3zEeW0Cb56eHcQ_Q" type="3005" element="_k7V3yx3zEeW0Cb56eHcQ_Q">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_k7hd4R3zEeW0Cb56eHcQ_Q" fontName="Sans"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7hd4h3zEeW0Cb56eHcQ_Q"/>
-            </children>
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_k7dMcx3zEeW0Cb56eHcQ_Q" fontName="Sans" fontHeight="8"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7dMdB3zEeW0Cb56eHcQ_Q" width="140" height="129"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_k7eakB3zEeW0Cb56eHcQ_Q" type="2001" element="_k7V3zh3zEeW0Cb56eHcQ_Q">
-            <children xmi:type="notation:Node" xmi:id="_k7fBoB3zEeW0Cb56eHcQ_Q" type="5002">
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_k7fBoR3zEeW0Cb56eHcQ_Q" y="5"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_k7iE8B3zEeW0Cb56eHcQ_Q" type="3005" element="_k7V3zx3zEeW0Cb56eHcQ_Q">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_k7iE8R3zEeW0Cb56eHcQ_Q" fontName="Sans"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7iE8h3zEeW0Cb56eHcQ_Q"/>
-            </children>
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_k7eakR3zEeW0Cb56eHcQ_Q" fontName="Sans" fontHeight="8"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7eakh3zEeW0Cb56eHcQ_Q" width="140" height="129"/>
-          </children>
-          <styles xmi:type="notation:DiagramStyle" xmi:id="_k7ZiEh3zEeW0Cb56eHcQ_Q"/>
-          <edges xmi:type="notation:Edge" xmi:id="_k7isAB3zEeW0Cb56eHcQ_Q" type="4001" element="_k7V30h3zEeW0Cb56eHcQ_Q" source="_k7awMB3zEeW0Cb56eHcQ_Q" target="_k7bXQB3zEeW0Cb56eHcQ_Q">
-            <children xmi:type="notation:Node" xmi:id="_k7isBB3zEeW0Cb56eHcQ_Q" type="6001">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7isBR3zEeW0Cb56eHcQ_Q" y="-10"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_k7isBh3zEeW0Cb56eHcQ_Q" type="6002">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7isBx3zEeW0Cb56eHcQ_Q" y="10"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_k7isCB3zEeW0Cb56eHcQ_Q" type="6003">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7isCR3zEeW0Cb56eHcQ_Q" y="10"/>
-            </children>
-            <styles xmi:type="notation:ConnectorStyle" xmi:id="_k7isAR3zEeW0Cb56eHcQ_Q" routing="Rectilinear"/>
-            <styles xmi:type="notation:FontStyle" xmi:id="_k7isAh3zEeW0Cb56eHcQ_Q" fontName="Sans" fontHeight="8"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_k7isAx3zEeW0Cb56eHcQ_Q" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_k7jTEB3zEeW0Cb56eHcQ_Q" id="(0.5,0.49473684210526314)"/>
-            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_k7jTER3zEeW0Cb56eHcQ_Q" id="(0.5,0.49473684210526314)"/>
-          </edges>
-          <edges xmi:type="notation:Edge" xmi:id="_k7jTEh3zEeW0Cb56eHcQ_Q" type="4001" element="_k7V31x3zEeW0Cb56eHcQ_Q" source="_k7awMB3zEeW0Cb56eHcQ_Q" target="_k7clYh3zEeW0Cb56eHcQ_Q">
-            <children xmi:type="notation:Node" xmi:id="_k7j6IB3zEeW0Cb56eHcQ_Q" type="6001">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7j6IR3zEeW0Cb56eHcQ_Q" y="-10"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_k7j6Ih3zEeW0Cb56eHcQ_Q" type="6002">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7j6Ix3zEeW0Cb56eHcQ_Q" y="10"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_k7j6JB3zEeW0Cb56eHcQ_Q" type="6003">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7j6JR3zEeW0Cb56eHcQ_Q" y="10"/>
-            </children>
-            <styles xmi:type="notation:ConnectorStyle" xmi:id="_k7jTEx3zEeW0Cb56eHcQ_Q" routing="Tree"/>
-            <styles xmi:type="notation:FontStyle" xmi:id="_k7jTFB3zEeW0Cb56eHcQ_Q" fontName="Sans" fontHeight="8"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_k7jTFR3zEeW0Cb56eHcQ_Q" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_k7j6Jh3zEeW0Cb56eHcQ_Q" id="(0.5,0.49473684210526314)"/>
-            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_k7khMB3zEeW0Cb56eHcQ_Q" id="(0.5,0.5)"/>
-          </edges>
-          <edges xmi:type="notation:Edge" xmi:id="_k7khMR3zEeW0Cb56eHcQ_Q" type="4001" element="_k7V33B3zEeW0Cb56eHcQ_Q" source="_k7awMB3zEeW0Cb56eHcQ_Q" target="_k7dMch3zEeW0Cb56eHcQ_Q">
-            <children xmi:type="notation:Node" xmi:id="_k7khNR3zEeW0Cb56eHcQ_Q" type="6001">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7khNh3zEeW0Cb56eHcQ_Q" y="-10"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_k7khNx3zEeW0Cb56eHcQ_Q" type="6002">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7khOB3zEeW0Cb56eHcQ_Q" y="10"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_k7khOR3zEeW0Cb56eHcQ_Q" type="6003">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7khOh3zEeW0Cb56eHcQ_Q" y="10"/>
-            </children>
-            <styles xmi:type="notation:ConnectorStyle" xmi:id="_k7khMh3zEeW0Cb56eHcQ_Q" routing="Tree"/>
-            <styles xmi:type="notation:FontStyle" xmi:id="_k7khMx3zEeW0Cb56eHcQ_Q" fontName="Sans" fontHeight="8"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_k7khNB3zEeW0Cb56eHcQ_Q" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_k7lIQB3zEeW0Cb56eHcQ_Q" id="(0.5,0.49473684210526314)"/>
-            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_k7lIQR3zEeW0Cb56eHcQ_Q" id="(0.5,0.5)"/>
-          </edges>
-          <edges xmi:type="notation:Edge" xmi:id="_k7lIQh3zEeW0Cb56eHcQ_Q" type="4001" element="_k7V34R3zEeW0Cb56eHcQ_Q" source="_k7awMB3zEeW0Cb56eHcQ_Q" target="_k7eakB3zEeW0Cb56eHcQ_Q">
-            <children xmi:type="notation:Node" xmi:id="_k7lIRh3zEeW0Cb56eHcQ_Q" type="6001">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7lIRx3zEeW0Cb56eHcQ_Q" y="-10"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_k7lvUB3zEeW0Cb56eHcQ_Q" type="6002">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7lvUR3zEeW0Cb56eHcQ_Q" y="10"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_k7lvUh3zEeW0Cb56eHcQ_Q" type="6003">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7lvUx3zEeW0Cb56eHcQ_Q" y="10"/>
-            </children>
-            <styles xmi:type="notation:ConnectorStyle" xmi:id="_k7lIQx3zEeW0Cb56eHcQ_Q" routing="Tree"/>
-            <styles xmi:type="notation:FontStyle" xmi:id="_k7lIRB3zEeW0Cb56eHcQ_Q" fontName="Sans" fontHeight="8"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_k7lIRR3zEeW0Cb56eHcQ_Q" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_k7lvVB3zEeW0Cb56eHcQ_Q" id="(0.5,0.49473684210526314)"/>
-            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_k7mWYB3zEeW0Cb56eHcQ_Q" id="(0.5,0.5)"/>
-          </edges>
-          <edges xmi:type="notation:Edge" xmi:id="_k7mWYR3zEeW0Cb56eHcQ_Q" type="4001" element="_k7V35h3zEeW0Cb56eHcQ_Q" source="_k7bXQB3zEeW0Cb56eHcQ_Q" target="_k7b-UB3zEeW0Cb56eHcQ_Q">
-            <children xmi:type="notation:Node" xmi:id="_k7mWZR3zEeW0Cb56eHcQ_Q" type="6001">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7mWZh3zEeW0Cb56eHcQ_Q" y="-10"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_k7mWZx3zEeW0Cb56eHcQ_Q" type="6002">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7mWaB3zEeW0Cb56eHcQ_Q" y="10"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_k7mWaR3zEeW0Cb56eHcQ_Q" type="6003">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7mWah3zEeW0Cb56eHcQ_Q" y="10"/>
-            </children>
-            <styles xmi:type="notation:ConnectorStyle" xmi:id="_k7mWYh3zEeW0Cb56eHcQ_Q" routing="Tree"/>
-            <styles xmi:type="notation:FontStyle" xmi:id="_k7mWYx3zEeW0Cb56eHcQ_Q" fontName="Sans" fontHeight="8"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_k7mWZB3zEeW0Cb56eHcQ_Q" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_k7mWax3zEeW0Cb56eHcQ_Q" id="(0.5,0.49473684210526314)"/>
-            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_k7mWbB3zEeW0Cb56eHcQ_Q" id="(0.5,0.5)"/>
-          </edges>
-          <edges xmi:type="notation:Edge" xmi:id="_k7m9cB3zEeW0Cb56eHcQ_Q" type="4001" element="_k7V36x3zEeW0Cb56eHcQ_Q" source="_k7bXQB3zEeW0Cb56eHcQ_Q" target="_k7b-VR3zEeW0Cb56eHcQ_Q">
-            <children xmi:type="notation:Node" xmi:id="_k7m9dB3zEeW0Cb56eHcQ_Q" type="6001">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7m9dR3zEeW0Cb56eHcQ_Q" y="-10"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_k7m9dh3zEeW0Cb56eHcQ_Q" type="6002">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7m9dx3zEeW0Cb56eHcQ_Q" y="10"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_k7m9eB3zEeW0Cb56eHcQ_Q" type="6003">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7m9eR3zEeW0Cb56eHcQ_Q" y="10"/>
-            </children>
-            <styles xmi:type="notation:ConnectorStyle" xmi:id="_k7m9cR3zEeW0Cb56eHcQ_Q" routing="Tree"/>
-            <styles xmi:type="notation:FontStyle" xmi:id="_k7m9ch3zEeW0Cb56eHcQ_Q" fontName="Sans" fontHeight="8"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_k7m9cx3zEeW0Cb56eHcQ_Q" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_k7m9eh3zEeW0Cb56eHcQ_Q" id="(0.5,0.49473684210526314)"/>
-            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_k7m9ex3zEeW0Cb56eHcQ_Q" id="(0.5,0.5)"/>
-          </edges>
-          <edges xmi:type="notation:Edge" xmi:id="_k7m9fB3zEeW0Cb56eHcQ_Q" type="4001" element="_k7V38B3zEeW0Cb56eHcQ_Q" source="_k7aJIB3zEeW0Cb56eHcQ_Q" target="_k7awMB3zEeW0Cb56eHcQ_Q">
-            <children xmi:type="notation:Node" xmi:id="_k7m9gB3zEeW0Cb56eHcQ_Q" type="6001">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7m9gR3zEeW0Cb56eHcQ_Q" y="-10"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_k7nkgB3zEeW0Cb56eHcQ_Q" type="6002">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7nkgR3zEeW0Cb56eHcQ_Q" y="10"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_k7nkgh3zEeW0Cb56eHcQ_Q" type="6003">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7nkgx3zEeW0Cb56eHcQ_Q" y="10"/>
-            </children>
-            <styles xmi:type="notation:ConnectorStyle" xmi:id="_k7m9fR3zEeW0Cb56eHcQ_Q" routing="Tree"/>
-            <styles xmi:type="notation:FontStyle" xmi:id="_k7m9fh3zEeW0Cb56eHcQ_Q" fontName="Sans" fontHeight="8"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_k7m9fx3zEeW0Cb56eHcQ_Q" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_k7nkhB3zEeW0Cb56eHcQ_Q" id="(0.5,0.5)"/>
-            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_k7nkhR3zEeW0Cb56eHcQ_Q" id="(0.5,0.5)"/>
-          </edges>
-        </data>
-      </ownedAnnotationEntries>
-      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_k7V3sR3zEeW0Cb56eHcQ_Q" name="crash&#xA;The computer crashes" outgoingEdges="_k7V38B3zEeW0Cb56eHcQ_Q" width="25" height="5" resizeKind="NSEW">
-        <target xmi:type="emfta:Tree" href="computer.emfta#//@root"/>
-        <semanticElements xmi:type="emfta:Tree" href="computer.emfta#//@root"/>
-        <ownedStyle xmi:type="diagram:Square" xmi:id="_k7V3sh3zEeW0Cb56eHcQ_Q" labelFormat="bold" borderSize="1" borderSizeComputationExpression="1" labelPosition="node" width="25" height="5">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V3sx3zEeW0Cb56eHcQ_Q"/>
-          <description xmi:type="style:SquareDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='TreeRootNode']/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V3tB3zEeW0Cb56eHcQ_Q"/>
-          <color xmi:type="viewpoint:RGBValues" xmi:id="_k7V3tR3zEeW0Cb56eHcQ_Q" red="255" green="255" blue="255"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='TreeRootNode']"/>
-      </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_k7V3th3zEeW0Cb56eHcQ_Q" name="OR" outgoingEdges="_k7V30h3zEeW0Cb56eHcQ_Q _k7V31x3zEeW0Cb56eHcQ_Q _k7V33B3zEeW0Cb56eHcQ_Q _k7V34R3zEeW0Cb56eHcQ_Q" incomingEdges="_k7V38B3zEeW0Cb56eHcQ_Q" width="-1" height="-1" resizeKind="NSEW">
-        <target xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate"/>
-        <semanticElements xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate"/>
-        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_k7V3tx3zEeW0Cb56eHcQ_Q" labelPosition="node" workspacePath="/emfta.design/imgs/or.png">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V3uB3zEeW0Cb56eHcQ_Q"/>
-          <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='GateNode']/@conditionnalStyles.0/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V3uR3zEeW0Cb56eHcQ_Q"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='GateNode']"/>
-      </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_k7V3uh3zEeW0Cb56eHcQ_Q" name="AND" outgoingEdges="_k7V35h3zEeW0Cb56eHcQ_Q _k7V36x3zEeW0Cb56eHcQ_Q" incomingEdges="_k7V30h3zEeW0Cb56eHcQ_Q" width="-1" height="-1" resizeKind="NSEW">
-        <target xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate/@gates.0"/>
-        <semanticElements xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate/@gates.0"/>
-        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_k7V3ux3zEeW0Cb56eHcQ_Q" labelPosition="node" workspacePath="/emfta.design/imgs/and.png">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V3vB3zEeW0Cb56eHcQ_Q"/>
-          <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='GateNode']/@conditionnalStyles.1/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V3vR3zEeW0Cb56eHcQ_Q"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='GateNode']"/>
-      </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_k7V3vh3zEeW0Cb56eHcQ_Q" name="DBZ (0.0)&#xA;Divide by zero" incomingEdges="_k7V35h3zEeW0Cb56eHcQ_Q" width="-1" height="-1" resizeKind="NSEW">
-        <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@gates.0/@events.0"/>
-        <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@gates.0/@events.0"/>
-        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_k7V3vx3zEeW0Cb56eHcQ_Q" labelPosition="node" workspacePath="/emfta.design/imgs/event-basic.svg">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V3wB3zEeW0Cb56eHcQ_Q"/>
-          <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']/@conditionnalStyles.0/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V3wR3zEeW0Cb56eHcQ_Q"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']"/>
-      </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_k7V3wh3zEeW0Cb56eHcQ_Q" name="RecoveryMissing (0.0)&#xA;Exception recovery is missing" incomingEdges="_k7V36x3zEeW0Cb56eHcQ_Q" width="-1" height="-1" resizeKind="NSEW">
-        <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@gates.0/@events.1"/>
-        <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@gates.0/@events.1"/>
-        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_k7V3wx3zEeW0Cb56eHcQ_Q" labelPosition="node" workspacePath="/emfta.design/imgs/event-basic.svg">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V3xB3zEeW0Cb56eHcQ_Q"/>
-          <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']/@conditionnalStyles.0/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V3xR3zEeW0Cb56eHcQ_Q"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']"/>
-      </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_k7V3xh3zEeW0Cb56eHcQ_Q" name="Interrupt (3.0)&#xA;Unhandled interrupt is raised" incomingEdges="_k7V31x3zEeW0Cb56eHcQ_Q" width="-1" height="-1" resizeKind="NSEW">
-        <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.0"/>
-        <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.0"/>
-        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_k7V3xx3zEeW0Cb56eHcQ_Q" labelPosition="node" workspacePath="/emfta.design/imgs/event-basic.svg">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V3yB3zEeW0Cb56eHcQ_Q"/>
-          <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']/@conditionnalStyles.0/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V3yR3zEeW0Cb56eHcQ_Q"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']"/>
-      </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_k7V3yh3zEeW0Cb56eHcQ_Q" name="devicebroken (0.0)&#xA;Faulty device continuously send interrupts" incomingEdges="_k7V33B3zEeW0Cb56eHcQ_Q" width="-1" height="-1" resizeKind="NSEW">
-        <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1"/>
-        <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.1"/>
-        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_k7V3yx3zEeW0Cb56eHcQ_Q" labelPosition="node" workspacePath="/emfta.design/imgs/event-basic.svg">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V3zB3zEeW0Cb56eHcQ_Q"/>
-          <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']/@conditionnalStyles.0/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V3zR3zEeW0Cb56eHcQ_Q"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']"/>
-      </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_k7V3zh3zEeW0Cb56eHcQ_Q" name="newevent (0.0)&#xA;" incomingEdges="_k7V34R3zEeW0Cb56eHcQ_Q" width="-1" height="-1" resizeKind="NSEW">
-        <target xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.2"/>
-        <semanticElements xmi:type="emfta:Event" href="computer.emfta#//@root/@gate/@events.2"/>
-        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_k7V3zx3zEeW0Cb56eHcQ_Q" labelPosition="node" workspacePath="/emfta.design/imgs/event-basic.svg">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V30B3zEeW0Cb56eHcQ_Q"/>
-          <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']/@conditionnalStyles.0/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V30R3zEeW0Cb56eHcQ_Q"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_2:NodeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='EventNode']"/>
-      </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_k7V30h3zEeW0Cb56eHcQ_Q" sourceNode="_k7V3th3zEeW0Cb56eHcQ_Q" targetNode="_k7V3uh3zEeW0Cb56eHcQ_Q">
-        <target xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate"/>
-        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_k7V30x3zEeW0Cb56eHcQ_Q" targetArrow="NoDecoration" foldingStyle="TARGET" size="2" routingStyle="manhattan" centered="Source">
-          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToGateEdge']/@style"/>
-          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V31B3zEeW0Cb56eHcQ_Q" red="136" green="136" blue="136"/>
-          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_k7V31R3zEeW0Cb56eHcQ_Q">
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V31h3zEeW0Cb56eHcQ_Q"/>
-          </centerLabelStyle>
-        </ownedStyle>
-        <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToGateEdge']"/>
-      </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_k7V31x3zEeW0Cb56eHcQ_Q" sourceNode="_k7V3th3zEeW0Cb56eHcQ_Q" targetNode="_k7V3xh3zEeW0Cb56eHcQ_Q">
-        <target xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate"/>
-        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_k7V32B3zEeW0Cb56eHcQ_Q" targetArrow="NoDecoration" size="2" routingStyle="tree">
-          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToEventEdge']/@style"/>
-          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V32R3zEeW0Cb56eHcQ_Q" red="136" green="136" blue="136"/>
-          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_k7V32h3zEeW0Cb56eHcQ_Q">
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V32x3zEeW0Cb56eHcQ_Q"/>
-          </centerLabelStyle>
-        </ownedStyle>
-        <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToEventEdge']"/>
-      </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_k7V33B3zEeW0Cb56eHcQ_Q" sourceNode="_k7V3th3zEeW0Cb56eHcQ_Q" targetNode="_k7V3yh3zEeW0Cb56eHcQ_Q">
-        <target xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate"/>
-        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_k7V33R3zEeW0Cb56eHcQ_Q" targetArrow="NoDecoration" size="2" routingStyle="tree">
-          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToEventEdge']/@style"/>
-          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V33h3zEeW0Cb56eHcQ_Q" red="136" green="136" blue="136"/>
-          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_k7V33x3zEeW0Cb56eHcQ_Q">
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V34B3zEeW0Cb56eHcQ_Q"/>
-          </centerLabelStyle>
-        </ownedStyle>
-        <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToEventEdge']"/>
-      </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_k7V34R3zEeW0Cb56eHcQ_Q" sourceNode="_k7V3th3zEeW0Cb56eHcQ_Q" targetNode="_k7V3zh3zEeW0Cb56eHcQ_Q">
-        <target xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate"/>
-        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_k7V34h3zEeW0Cb56eHcQ_Q" targetArrow="NoDecoration" size="2" routingStyle="tree">
-          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToEventEdge']/@style"/>
-          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V34x3zEeW0Cb56eHcQ_Q" red="136" green="136" blue="136"/>
-          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_k7V35B3zEeW0Cb56eHcQ_Q">
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V35R3zEeW0Cb56eHcQ_Q"/>
-          </centerLabelStyle>
-        </ownedStyle>
-        <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToEventEdge']"/>
-      </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_k7V35h3zEeW0Cb56eHcQ_Q" sourceNode="_k7V3uh3zEeW0Cb56eHcQ_Q" targetNode="_k7V3vh3zEeW0Cb56eHcQ_Q">
-        <target xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate/@gates.0"/>
-        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_k7V35x3zEeW0Cb56eHcQ_Q" targetArrow="NoDecoration" size="2" routingStyle="tree">
-          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToEventEdge']/@style"/>
-          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V36B3zEeW0Cb56eHcQ_Q" red="136" green="136" blue="136"/>
-          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_k7V36R3zEeW0Cb56eHcQ_Q">
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V36h3zEeW0Cb56eHcQ_Q"/>
-          </centerLabelStyle>
-        </ownedStyle>
-        <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToEventEdge']"/>
-      </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_k7V36x3zEeW0Cb56eHcQ_Q" sourceNode="_k7V3uh3zEeW0Cb56eHcQ_Q" targetNode="_k7V3wh3zEeW0Cb56eHcQ_Q">
-        <target xmi:type="emfta:Gate" href="computer.emfta#//@root/@gate/@gates.0"/>
-        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_k7V37B3zEeW0Cb56eHcQ_Q" targetArrow="NoDecoration" size="2" routingStyle="tree">
-          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToEventEdge']/@style"/>
-          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V37R3zEeW0Cb56eHcQ_Q" red="136" green="136" blue="136"/>
-          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_k7V37h3zEeW0Cb56eHcQ_Q">
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V37x3zEeW0Cb56eHcQ_Q"/>
-          </centerLabelStyle>
-        </ownedStyle>
-        <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToEventEdge']"/>
-      </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_k7V38B3zEeW0Cb56eHcQ_Q" sourceNode="_k7V3sR3zEeW0Cb56eHcQ_Q" targetNode="_k7V3th3zEeW0Cb56eHcQ_Q">
-        <target xmi:type="emfta:Tree" href="computer.emfta#//@root"/>
-        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_k7V38R3zEeW0Cb56eHcQ_Q" targetArrow="NoDecoration" size="2" routingStyle="tree">
-          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToTreeRootEdge']/@style"/>
-          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V38h3zEeW0Cb56eHcQ_Q"/>
-          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_k7V38x3zEeW0Cb56eHcQ_Q">
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_k7V39B3zEeW0Cb56eHcQ_Q"/>
-          </centerLabelStyle>
-        </ownedStyle>
-        <actualMapping xmi:type="description_2:EdgeMapping" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@edgeMappings[name='GateToTreeRootEdge']"/>
-      </ownedDiagramElements>
-      <description xmi:type="description_2:DiagramDescription" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']"/>
-      <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_k7V39R3zEeW0Cb56eHcQ_Q"/>
-      <activatedLayers xmi:type="description_2:Layer" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer"/>
-      <target xmi:type="emfta:FTAModel" href="computer.emfta#/"/>
-    </ownedRepresentations>
-    <viewpoint xmi:type="description_1:Viewpoint" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']"/>
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/emfta.design/description/emfta.odesign#//@ownedViewpoints[name='Tree.graphic']"/>
   </ownedViews>
 </viewpoint:DAnalysis>

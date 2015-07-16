@@ -42,7 +42,7 @@ public class CutsetAction extends AbstractExternalJavaAction {
 //
 //				System.out.println("[CutSetAction] eobject class= " + eo.getClass());
 //
-//				System.out.println("[CutSetAction] target = " + target);
+				System.out.println("[CutSetAction] target = " + target);
 			}
 
 			if (eo instanceof DNodeSpec) {
@@ -51,20 +51,20 @@ public class CutsetAction extends AbstractExternalJavaAction {
 //
 //				System.out.println("[CutSetAction] eobject class= " + eo.getClass());
 //
-//				System.out.println("[CutSetAction] target = " + target);
+				System.out.println("[CutSetAction] target = " + target);
 			}
 
 			if (target != null) {
 
-				if (target instanceof edu.cmu.emfta.FTAModel) {
-					generateCutSet(((edu.cmu.emfta.FTAModel) target).getRoot());
+				if (target instanceof edu.cmu.emfta.Event) {
+					generateCutSet(((edu.cmu.emfta.Event) target));
 					return;
 				}
 			}
 
 			MessageBox dialog = new MessageBox(Display.getDefault().getActiveShell(), SWT.ERROR | SWT.ICON_ERROR);
 			dialog.setText("Error");
-			dialog.setMessage("Please select the root of the FTA tree");
+			dialog.setMessage("Please select an event in the FTA tree");
 
 			dialog.open();
 
@@ -98,6 +98,10 @@ public class CutsetAction extends AbstractExternalJavaAction {
 //				System.out.println("[CutSetAction] eobject class= " + eo.getClass());
 //
 //				System.out.println("[CutSetAction] target = " + target);
+
+				if (target instanceof edu.cmu.emfta.Event) {
+					return true;
+				}
 
 				if (target instanceof edu.cmu.emfta.Tree) {
 					return true;

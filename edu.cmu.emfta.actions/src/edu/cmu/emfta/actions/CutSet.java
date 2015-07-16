@@ -107,10 +107,17 @@ public class CutSet {
 	 */
 	public void process() {
 		System.out.println("[CutSet] processing");
-		List<List<Event>> allEvents = processGate(topEvent.getGate());
+		List<List<Event>> allEvents = processEvent(topEvent);
 		System.out.println("[CutSet] cutset size = " + allEvents.size());
+		int n = 0;
 		for (List<Event> l : allEvents) {
-			cutset.add(l);
+			System.out.print("[CutSet] " + n + ":");
+			for (Event e : l) {
+				System.out.print(" " + e.getName());
+
+			}
+			System.out.print("\n");
+			n++;
 		}
 	}
 
@@ -142,58 +149,49 @@ public class CutSet {
 	 * @param gate - The initial gate of the cutset
 	 * @return     - The list of all cutsets
 	 */
-	public List<List<Event>> processGate(Gate gate) {
+	public List<List<Event>> processEvent(Event event) {
 		List<List<Event>> result;
 		result = new ArrayList<List<Event>>();
 
 //		System.out.println("[CutSetAction] calling processGate");
 //		System.out.println("[CutSetAction] gate = " + gate);
 
-		switch (gate.getType()) {
-		case AND: {
-			List<Event> combined;
-			combined = new ArrayList<Event>();
+		if (event.getGate() == null) {
+			List<Event> tmp = new ArrayList<Event>();
+			tmp.add(event);
+			result.add(tmp);
+		} else {
+			Gate gate = event.getGate();
+			switch (gate.getType()) {
+			case AND: {
+				List<Event> combined;
+				combined = new ArrayList<Event>();
 
-			for (Event e : gate.getEvents()) {
-				combined.add(e);
-			}
-
-			if (gate.getGates().size() == 0) {
-				result.add(combined);
-			} else {
-				for (Gate g : gate.getGates()) {
-					for (List<Event> l : processGate(g)) {
+				for (Event e : gate.getEvents()) {
+					for (List<Event> l : processEvent(e)) {
 						l.addAll(combined);
 						result.add(l);
 					}
 				}
+
+				break;
 			}
 
-			break;
-		}
-
-		case OR: {
-			List<Event> res;
-
-			for (Event e : gate.getEvents()) {
-				res = new ArrayList<Event>();
-				res.add(e);
-				result.add(res);
-			}
-
-			for (Gate g : gate.getGates()) {
-				for (List<Event> l : processGate(g)) {
-					result.add(l);
+			case OR: {
+				for (Event e : gate.getEvents()) {
+					for (List<Event> l : processEvent(e)) {
+						result.add(l);
+					}
 				}
+
+				break;
 			}
 
-			break;
-		}
-
-		default: {
-			System.out.println("[CutSetAction] default choice not implemented");
-			break;
-		}
+			default: {
+				System.out.println("[CutSetAction] default choice not implemented");
+				break;
+			}
+			}
 		}
 
 		return result;

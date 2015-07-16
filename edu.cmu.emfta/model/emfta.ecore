@@ -18,8 +18,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Gate">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//GateType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="gates" upperBound="-1"
-        eType="#//Gate" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
         eType="#//Event" containment="true"/>
   </eClassifiers>

@@ -196,17 +196,8 @@ public class EmftaPackageImpl extends EPackageImpl implements EmftaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGate_Gates() {
-		return (EReference)gateEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getGate_Events() {
-		return (EReference)gateEClass.getEStructuralFeatures().get(2);
+		return (EReference)gateEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -309,7 +300,6 @@ public class EmftaPackageImpl extends EPackageImpl implements EmftaPackage {
 
 		gateEClass = createEClass(GATE);
 		createEAttribute(gateEClass, GATE__TYPE);
-		createEReference(gateEClass, GATE__GATES);
 		createEReference(gateEClass, GATE__EVENTS);
 
 		ftaModelEClass = createEClass(FTA_MODEL);
@@ -362,7 +352,6 @@ public class EmftaPackageImpl extends EPackageImpl implements EmftaPackage {
 
 		initEClass(gateEClass, Gate.class, "Gate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGate_Type(), this.getGateType(), "type", null, 0, 1, Gate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGate_Gates(), this.getGate(), null, "gates", null, 0, -1, Gate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGate_Events(), this.getEvent(), null, "events", null, 0, -1, Gate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ftaModelEClass, FTAModel.class, "FTAModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

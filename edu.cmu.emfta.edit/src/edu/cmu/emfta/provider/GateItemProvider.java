@@ -103,7 +103,6 @@ public class GateItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EmftaPackage.Literals.GATE__GATES);
 			childrenFeatures.add(EmftaPackage.Literals.GATE__EVENTS);
 		}
 		return childrenFeatures;
@@ -164,7 +163,6 @@ public class GateItemProvider
 			case EmftaPackage.GATE__TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case EmftaPackage.GATE__GATES:
 			case EmftaPackage.GATE__EVENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -182,11 +180,6 @@ public class GateItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EmftaPackage.Literals.GATE__GATES,
-				 EmftaFactory.eINSTANCE.createGate()));
 
 		newChildDescriptors.add
 			(createChildParameter

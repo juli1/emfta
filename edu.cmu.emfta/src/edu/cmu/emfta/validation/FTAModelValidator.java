@@ -4,6 +4,7 @@
  */
 package edu.cmu.emfta.validation;
 
+import edu.cmu.emfta.Event;
 import edu.cmu.emfta.Tree;
 
 /**
@@ -14,6 +15,8 @@ import edu.cmu.emfta.Tree;
  */
 public interface FTAModelValidator {
 	boolean validate();
+
+	boolean validateRoot(Event value);
 
 	boolean validateRoot(Tree value);
 	boolean validateName(String value);

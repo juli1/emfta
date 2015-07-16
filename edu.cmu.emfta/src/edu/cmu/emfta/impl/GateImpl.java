@@ -31,7 +31,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link edu.cmu.emfta.impl.GateImpl#getType <em>Type</em>}</li>
- *   <li>{@link edu.cmu.emfta.impl.GateImpl#getGates <em>Gates</em>}</li>
  *   <li>{@link edu.cmu.emfta.impl.GateImpl#getEvents <em>Events</em>}</li>
  * </ul>
  * </p>
@@ -58,16 +57,6 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 	 * @ordered
 	 */
 	protected GateType type = TYPE_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getGates() <em>Gates</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGates()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Gate> gates;
 
 	/**
 	 * The cached value of the '{@link #getEvents() <em>Events</em>}' containment reference list.
@@ -124,18 +113,6 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Gate> getGates() {
-		if (gates == null) {
-			gates = new EObjectContainmentEList<Gate>(Gate.class, this, EmftaPackage.GATE__GATES);
-		}
-		return gates;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Event> getEvents() {
 		if (events == null) {
 			events = new EObjectContainmentEList<Event>(Event.class, this, EmftaPackage.GATE__EVENTS);
@@ -151,8 +128,6 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmftaPackage.GATE__GATES:
-				return ((InternalEList<?>)getGates()).basicRemove(otherEnd, msgs);
 			case EmftaPackage.GATE__EVENTS:
 				return ((InternalEList<?>)getEvents()).basicRemove(otherEnd, msgs);
 		}
@@ -169,8 +144,6 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 		switch (featureID) {
 			case EmftaPackage.GATE__TYPE:
 				return getType();
-			case EmftaPackage.GATE__GATES:
-				return getGates();
 			case EmftaPackage.GATE__EVENTS:
 				return getEvents();
 		}
@@ -188,10 +161,6 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 		switch (featureID) {
 			case EmftaPackage.GATE__TYPE:
 				setType((GateType)newValue);
-				return;
-			case EmftaPackage.GATE__GATES:
-				getGates().clear();
-				getGates().addAll((Collection<? extends Gate>)newValue);
 				return;
 			case EmftaPackage.GATE__EVENTS:
 				getEvents().clear();
@@ -212,9 +181,6 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 			case EmftaPackage.GATE__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
-			case EmftaPackage.GATE__GATES:
-				getGates().clear();
-				return;
 			case EmftaPackage.GATE__EVENTS:
 				getEvents().clear();
 				return;
@@ -232,8 +198,6 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 		switch (featureID) {
 			case EmftaPackage.GATE__TYPE:
 				return type != TYPE_EDEFAULT;
-			case EmftaPackage.GATE__GATES:
-				return gates != null && !gates.isEmpty();
 			case EmftaPackage.GATE__EVENTS:
 				return events != null && !events.isEmpty();
 		}

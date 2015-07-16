@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link edu.cmu.emfta.Gate#getType <em>Type</em>}</li>
- *   <li>{@link edu.cmu.emfta.Gate#getGates <em>Gates</em>}</li>
  *   <li>{@link edu.cmu.emfta.Gate#getEvents <em>Events</em>}</li>
  * </ul>
  * </p>
@@ -53,22 +52,6 @@ public interface Gate extends EObject {
 	 * @generated
 	 */
 	void setType(GateType value);
-
-	/**
-	 * Returns the value of the '<em><b>Gates</b></em>' containment reference list.
-	 * The list contents are of type {@link edu.cmu.emfta.Gate}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Gates</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Gates</em>' containment reference list.
-	 * @see edu.cmu.emfta.EmftaPackage#getGate_Gates()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Gate> getGates();
 
 	/**
 	 * Returns the value of the '<em><b>Events</b></em>' containment reference list.

@@ -150,22 +150,13 @@ public interface EmftaPackage extends EPackage {
 	int GATE__TYPE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Gates</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GATE__GATES = 1;
-
-	/**
 	 * The feature id for the '<em><b>Events</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GATE__EVENTS = 2;
+	int GATE__EVENTS = 1;
 
 	/**
 	 * The number of structural features of the '<em>Gate</em>' class.
@@ -174,7 +165,7 @@ public interface EmftaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GATE_FEATURE_COUNT = 3;
+	int GATE_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Gate</em>' class.
@@ -357,17 +348,6 @@ public interface EmftaPackage extends EPackage {
 	EAttribute getGate_Type();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.cmu.emfta.Gate#getGates <em>Gates</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Gates</em>'.
-	 * @see edu.cmu.emfta.Gate#getGates()
-	 * @see #getGate()
-	 * @generated
-	 */
-	EReference getGate_Gates();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link edu.cmu.emfta.Gate#getEvents <em>Events</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -542,14 +522,6 @@ public interface EmftaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GATE__TYPE = eINSTANCE.getGate_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Gates</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GATE__GATES = eINSTANCE.getGate_Gates();
 
 		/**
 		 * The meta object literal for the '<em><b>Events</b></em>' containment reference list feature.

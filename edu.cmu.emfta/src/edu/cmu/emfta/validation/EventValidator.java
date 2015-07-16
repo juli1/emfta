@@ -5,6 +5,7 @@
 package edu.cmu.emfta.validation;
 
 import edu.cmu.emfta.EventType;
+import edu.cmu.emfta.Gate;
 
 /**
  * A sample validator interface for {@link edu.cmu.emfta.Event}.
@@ -19,4 +20,6 @@ public interface EventValidator {
 	boolean validateName(String value);
 	boolean validateProbability(double value);
 	boolean validateDescription(String value);
+
+	boolean validateGate(Gate value);
 }

@@ -18,7 +18,6 @@ import org.openxmlformats.schemas.spreadsheetml.x2006.main.CTTableColumns;
 
 import edu.cmu.emfta.Event;
 import edu.cmu.emfta.Gate;
-import edu.cmu.emfta.Tree;
 
 /**
  * This class represents the cutset for an FTA
@@ -31,16 +30,16 @@ import edu.cmu.emfta.Tree;
 public class CutSet {
 	private List<List<Event>> cutset;
 
-	private Tree tree;
+	private Event topEvent;
 
 	/**
 	 * Constructor - just pass the FTA as parameter
 	 * @param ftaTree
 	 */
-	public CutSet(Tree ftaTree) {
+	public CutSet(Event ftaEvent) {
 		System.out.println("[CutSet] constructor");
 		cutset = new ArrayList<List<Event>>();
-		tree = ftaTree;
+		topEvent = ftaEvent;
 	}
 
 	/**
@@ -108,7 +107,7 @@ public class CutSet {
 	 */
 	public void process() {
 		System.out.println("[CutSet] processing");
-		List<List<Event>> allEvents = processGate(tree.getGate());
+		List<List<Event>> allEvents = processGate(topEvent.getGate());
 		System.out.println("[CutSet] cutset size = " + allEvents.size());
 		for (List<Event> l : allEvents) {
 			cutset.add(l);

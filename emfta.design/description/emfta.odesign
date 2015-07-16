@@ -152,19 +152,9 @@
       </defaultLayer>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="TreeTable" label="FTA Table View" domainClass="emfta.FTAModel">
-      <ownedLineMappings name="TreeLine" domainClass="emfta.Tree">
-        <ownedSubLines name="GateLine" reusedSubLines="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']/@ownedSubLines[name='GateLine']" reusedInMappings="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']/@ownedSubLines[name='GateLine'] //@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']/@ownedSubLines[name='GateLine']/@ownedSubLines[name='EventLine']" domainClass="emfta.Gate" semanticCandidatesExpression="[eContents()/]">
-          <ownedSubLines name="EventLine" reusedSubLines="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']/@ownedSubLines[name='GateLine']" domainClass="emfta.Event" semanticCandidatesExpression="[events/]">
-            <create name="CreateGateInEvent" label="Add Gate To Event" mapping="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']/@ownedSubLines[name='GateLine']/@ownedSubLines[name='EventLine']">
-              <variables name="root" documentation="The semantic element of the table."/>
-              <variables name="element" documentation="The semantic currently edited element."/>
-              <variables name="container" documentation="The semantic element corresponding to the view container."/>
-              <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="[element/]">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="emfta.Gate" referenceName="gate"/>
-              </firstModelOperation>
-            </create>
-          </ownedSubLines>
-          <create name="CreateEvent" label="Add event" mapping="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='TreeLine']/@ownedSubLines[name='GateLine']/@ownedSubLines[name='EventLine']">
+      <ownedLineMappings name="EventLine" reusedInMappings="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='EventLine']/@ownedSubLines[name='GateLine']" domainClass="emfta.Event" semanticCandidatesExpression="[eContents()/]">
+        <ownedSubLines name="GateLine" reusedSubLines="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='EventLine']" domainClass="emfta.Gate" semanticCandidatesExpression="[gate/]">
+          <create name="CreateEvent" label="Add event" mapping="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='EventLine']">
             <variables name="root" documentation="The semantic element of the table."/>
             <variables name="element" documentation="The semantic currently edited element."/>
             <variables name="container" documentation="The semantic element corresponding to the view container."/>
@@ -175,6 +165,14 @@
             </firstModelOperation>
           </create>
         </ownedSubLines>
+        <create name="CreateGateInEvent" label="Add Gate To Event" mapping="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='TreeTable']/@ownedLineMappings[name='EventLine']">
+          <variables name="root" documentation="The semantic element of the table."/>
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="container" documentation="The semantic element corresponding to the view container."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="[element/]">
+            <subModelOperations xsi:type="tool:CreateInstance" typeName="emfta.Gate" referenceName="gate"/>
+          </firstModelOperation>
+        </create>
       </ownedLineMappings>
       <ownedColumnMappings name="NameColumn" label="Name" headerLabelExpression="Name" featureName="name"/>
       <ownedColumnMappings name="DescriptionColumn" label="Description" headerLabelExpression="Description" featureName="description"/>

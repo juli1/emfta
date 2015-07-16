@@ -59,7 +59,6 @@ public class EmftaFactoryImpl extends EFactoryImpl implements EmftaFactory {
 		switch (eClass.getClassifierID()) {
 			case EmftaPackage.EVENT: return createEvent();
 			case EmftaPackage.GATE: return createGate();
-			case EmftaPackage.TREE: return createTree();
 			case EmftaPackage.FTA_MODEL: return createFTAModel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -118,16 +117,6 @@ public class EmftaFactoryImpl extends EFactoryImpl implements EmftaFactory {
 	public Gate createGate() {
 		GateImpl gate = new GateImpl();
 		return gate;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Tree createTree() {
-		TreeImpl tree = new TreeImpl();
-		return tree;
 	}
 
 	/**

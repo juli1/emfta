@@ -118,29 +118,6 @@ public class EmftaItemProviderAdapterFactory extends EmftaAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.cmu.emfta.Tree} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TreeItemProvider treeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link edu.cmu.emfta.Tree}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTreeAdapter() {
-		if (treeItemProvider == null) {
-			treeItemProvider = new TreeItemProvider(this);
-		}
-
-		return treeItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link edu.cmu.emfta.FTAModel} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -264,7 +241,6 @@ public class EmftaItemProviderAdapterFactory extends EmftaAdapterFactory impleme
 	public void dispose() {
 		if (eventItemProvider != null) eventItemProvider.dispose();
 		if (gateItemProvider != null) gateItemProvider.dispose();
-		if (treeItemProvider != null) treeItemProvider.dispose();
 		if (ftaModelItemProvider != null) ftaModelItemProvider.dispose();
 	}
 

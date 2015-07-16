@@ -5,20 +5,13 @@ package edu.cmu.emfta.impl;
 import edu.cmu.emfta.EmftaPackage;
 import edu.cmu.emfta.Event;
 import edu.cmu.emfta.EventType;
-
 import edu.cmu.emfta.Gate;
-import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -119,14 +112,14 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event {
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getGate() <em>Gate</em>}' containment reference list.
+	 * The cached value of the '{@link #getGate() <em>Gate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getGate()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Gate> gate;
+	protected Gate gate;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -236,11 +229,42 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Gate> getGate() {
-		if (gate == null) {
-			gate = new EObjectContainmentEList<Gate>(Gate.class, this, EmftaPackage.EVENT__GATE);
-		}
+	public Gate getGate() {
 		return gate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetGate(Gate newGate, NotificationChain msgs) {
+		Gate oldGate = gate;
+		gate = newGate;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EmftaPackage.EVENT__GATE, oldGate, newGate);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGate(Gate newGate) {
+		if (newGate != gate) {
+			NotificationChain msgs = null;
+			if (gate != null)
+				msgs = ((InternalEObject)gate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EmftaPackage.EVENT__GATE, null, msgs);
+			if (newGate != null)
+				msgs = ((InternalEObject)newGate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EmftaPackage.EVENT__GATE, null, msgs);
+			msgs = basicSetGate(newGate, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EmftaPackage.EVENT__GATE, newGate, newGate));
 	}
 
 	/**
@@ -252,7 +276,7 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EmftaPackage.EVENT__GATE:
-				return ((InternalEList<?>)getGate()).basicRemove(otherEnd, msgs);
+				return basicSetGate(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -301,8 +325,7 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event {
 				setDescription((String)newValue);
 				return;
 			case EmftaPackage.EVENT__GATE:
-				getGate().clear();
-				getGate().addAll((Collection<? extends Gate>)newValue);
+				setGate((Gate)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -329,7 +352,7 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event {
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
 			case EmftaPackage.EVENT__GATE:
-				getGate().clear();
+				setGate((Gate)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -352,7 +375,7 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event {
 			case EmftaPackage.EVENT__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case EmftaPackage.EVENT__GATE:
-				return gate != null && !gate.isEmpty();
+				return gate != null;
 		}
 		return super.eIsSet(featureID);
 	}

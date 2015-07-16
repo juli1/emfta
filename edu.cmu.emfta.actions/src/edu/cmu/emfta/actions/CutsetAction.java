@@ -55,10 +55,6 @@ public class CutsetAction extends AbstractExternalJavaAction {
 			}
 
 			if (target != null) {
-				if (target instanceof edu.cmu.emfta.Tree) {
-					generateCutSet((edu.cmu.emfta.Tree) target);
-					return;
-				}
 
 				if (target instanceof edu.cmu.emfta.FTAModel) {
 					generateCutSet(((edu.cmu.emfta.FTAModel) target).getRoot());
@@ -116,17 +112,17 @@ public class CutsetAction extends AbstractExternalJavaAction {
 		return false;
 	}
 
-	public void generateCutSet(edu.cmu.emfta.Tree tree) {
+	public void generateCutSet(edu.cmu.emfta.Event event) {
 		String fileName;
-		CutSet cs = new CutSet(tree);
+		CutSet cs = new CutSet(event);
 		cs.process();
 
-		fileName = ResourceUtil.getFile(tree.eResource()).getName();
+		fileName = ResourceUtil.getFile(event.eResource()).getName();
 		fileName = fileName.replace(".emfta", "") + ".xlsx";
 //		System.out.println("filename=" + fileName);
 
 //		System.out.println(cs);
-		URI uri = EcoreUtil.getURI(tree);
+		URI uri = EcoreUtil.getURI(event);
 //		System.out.println("directory=" + uri.toPlatformString(true));
 //		System.out.println("uri string=" + uri.toString());
 

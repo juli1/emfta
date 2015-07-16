@@ -2,7 +2,6 @@
  */
 package edu.cmu.emfta;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -135,19 +134,29 @@ public interface Event extends EObject {
 	void setDescription(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Gate</b></em>' containment reference list.
-	 * The list contents are of type {@link edu.cmu.emfta.Gate}.
+	 * Returns the value of the '<em><b>Gate</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Gate</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Gate</em>' containment reference list.
+	 * @return the value of the '<em>Gate</em>' containment reference.
+	 * @see #setGate(Gate)
 	 * @see edu.cmu.emfta.EmftaPackage#getEvent_Gate()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Gate> getGate();
+	Gate getGate();
+
+	/**
+	 * Sets the value of the '{@link edu.cmu.emfta.Event#getGate <em>Gate</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Gate</em>' containment reference.
+	 * @see #getGate()
+	 * @generated
+	 */
+	void setGate(Gate value);
 
 } // Event

@@ -76,10 +76,6 @@ public class EmftaAdapterFactory extends AdapterFactoryImpl {
 				return createGateAdapter();
 			}
 			@Override
-			public Adapter caseTree(Tree object) {
-				return createTreeAdapter();
-			}
-			@Override
 			public Adapter caseFTAModel(FTAModel object) {
 				return createFTAModelAdapter();
 			}
@@ -128,20 +124,6 @@ public class EmftaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGateAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link edu.cmu.emfta.Tree <em>Tree</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see edu.cmu.emfta.Tree
-	 * @generated
-	 */
-	public Adapter createTreeAdapter() {
 		return null;
 	}
 

@@ -3,15 +3,12 @@
 package edu.cmu.emfta.impl;
 
 import edu.cmu.emfta.EmftaPackage;
+import edu.cmu.emfta.Event;
 import edu.cmu.emfta.FTAModel;
-import edu.cmu.emfta.Tree;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -40,7 +37,7 @@ public class FTAModelImpl extends MinimalEObjectImpl.Container implements FTAMod
 	 * @generated
 	 * @ordered
 	 */
-	protected Tree root;
+	protected Event root;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -126,7 +123,7 @@ public class FTAModelImpl extends MinimalEObjectImpl.Container implements FTAMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Tree getRoot() {
+	public Event getRoot() {
 		return root;
 	}
 
@@ -135,8 +132,8 @@ public class FTAModelImpl extends MinimalEObjectImpl.Container implements FTAMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRoot(Tree newRoot, NotificationChain msgs) {
-		Tree oldRoot = root;
+	public NotificationChain basicSetRoot(Event newRoot, NotificationChain msgs) {
+		Event oldRoot = root;
 		root = newRoot;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EmftaPackage.FTA_MODEL__ROOT, oldRoot, newRoot);
@@ -150,7 +147,7 @@ public class FTAModelImpl extends MinimalEObjectImpl.Container implements FTAMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRoot(Tree newRoot) {
+	public void setRoot(Event newRoot) {
 		if (newRoot != root) {
 			NotificationChain msgs = null;
 			if (root != null)
@@ -270,7 +267,7 @@ public class FTAModelImpl extends MinimalEObjectImpl.Container implements FTAMod
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EmftaPackage.FTA_MODEL__ROOT:
-				setRoot((Tree)newValue);
+				setRoot((Event)newValue);
 				return;
 			case EmftaPackage.FTA_MODEL__NAME:
 				setName((String)newValue);
@@ -294,7 +291,7 @@ public class FTAModelImpl extends MinimalEObjectImpl.Container implements FTAMod
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EmftaPackage.FTA_MODEL__ROOT:
-				setRoot((Tree)null);
+				setRoot((Event)null);
 				return;
 			case EmftaPackage.FTA_MODEL__NAME:
 				setName(NAME_EDEFAULT);

@@ -104,7 +104,7 @@ public interface EmftaPackage extends EPackage {
 	int EVENT__DESCRIPTION = 3;
 
 	/**
-	 * The feature id for the '<em><b>Gate</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Gate</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -186,61 +186,6 @@ public interface EmftaPackage extends EPackage {
 	int GATE_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link edu.cmu.emfta.impl.TreeImpl <em>Tree</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see edu.cmu.emfta.impl.TreeImpl
-	 * @see edu.cmu.emfta.impl.EmftaPackageImpl#getTree()
-	 * @generated
-	 */
-	int TREE = 2;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TREE__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Gate</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TREE__GATE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TREE__DESCRIPTION = 2;
-
-	/**
-	 * The number of structural features of the '<em>Tree</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TREE_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Tree</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TREE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link edu.cmu.emfta.impl.FTAModelImpl <em>FTA Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -248,7 +193,7 @@ public interface EmftaPackage extends EPackage {
 	 * @see edu.cmu.emfta.impl.EmftaPackageImpl#getFTAModel()
 	 * @generated
 	 */
-	int FTA_MODEL = 3;
+	int FTA_MODEL = 2;
 
 	/**
 	 * The feature id for the '<em><b>Root</b></em>' containment reference.
@@ -312,7 +257,7 @@ public interface EmftaPackage extends EPackage {
 	 * @see edu.cmu.emfta.impl.EmftaPackageImpl#getEventType()
 	 * @generated
 	 */
-	int EVENT_TYPE = 4;
+	int EVENT_TYPE = 3;
 
 	/**
 	 * The meta object id for the '{@link edu.cmu.emfta.GateType <em>Gate Type</em>}' enum.
@@ -322,7 +267,7 @@ public interface EmftaPackage extends EPackage {
 	 * @see edu.cmu.emfta.impl.EmftaPackageImpl#getGateType()
 	 * @generated
 	 */
-	int GATE_TYPE = 5;
+	int GATE_TYPE = 4;
 
 
 	/**
@@ -380,10 +325,10 @@ public interface EmftaPackage extends EPackage {
 	EAttribute getEvent_Description();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.cmu.emfta.Event#getGate <em>Gate</em>}'.
+	 * Returns the meta object for the containment reference '{@link edu.cmu.emfta.Event#getGate <em>Gate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Gate</em>'.
+	 * @return the meta object for the containment reference '<em>Gate</em>'.
 	 * @see edu.cmu.emfta.Event#getGate()
 	 * @see #getEvent()
 	 * @generated
@@ -432,49 +377,6 @@ public interface EmftaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGate_Events();
-
-	/**
-	 * Returns the meta object for class '{@link edu.cmu.emfta.Tree <em>Tree</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Tree</em>'.
-	 * @see edu.cmu.emfta.Tree
-	 * @generated
-	 */
-	EClass getTree();
-
-	/**
-	 * Returns the meta object for the attribute '{@link edu.cmu.emfta.Tree#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see edu.cmu.emfta.Tree#getName()
-	 * @see #getTree()
-	 * @generated
-	 */
-	EAttribute getTree_Name();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link edu.cmu.emfta.Tree#getGate <em>Gate</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Gate</em>'.
-	 * @see edu.cmu.emfta.Tree#getGate()
-	 * @see #getTree()
-	 * @generated
-	 */
-	EReference getTree_Gate();
-
-	/**
-	 * Returns the meta object for the attribute '{@link edu.cmu.emfta.Tree#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see edu.cmu.emfta.Tree#getDescription()
-	 * @see #getTree()
-	 * @generated
-	 */
-	EAttribute getTree_Description();
 
 	/**
 	 * Returns the meta object for class '{@link edu.cmu.emfta.FTAModel <em>FTA Model</em>}'.
@@ -616,7 +518,7 @@ public interface EmftaPackage extends EPackage {
 		EAttribute EVENT__DESCRIPTION = eINSTANCE.getEvent_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Gate</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Gate</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -656,40 +558,6 @@ public interface EmftaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GATE__EVENTS = eINSTANCE.getGate_Events();
-
-		/**
-		 * The meta object literal for the '{@link edu.cmu.emfta.impl.TreeImpl <em>Tree</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see edu.cmu.emfta.impl.TreeImpl
-		 * @see edu.cmu.emfta.impl.EmftaPackageImpl#getTree()
-		 * @generated
-		 */
-		EClass TREE = eINSTANCE.getTree();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TREE__NAME = eINSTANCE.getTree_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Gate</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TREE__GATE = eINSTANCE.getTree_Gate();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TREE__DESCRIPTION = eINSTANCE.getTree_Description();
 
 		/**
 		 * The meta object literal for the '{@link edu.cmu.emfta.impl.FTAModelImpl <em>FTA Model</em>}' class.

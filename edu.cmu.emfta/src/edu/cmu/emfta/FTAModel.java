@@ -33,12 +33,12 @@ public interface FTAModel extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Root</em>' containment reference.
-	 * @see #setRoot(Tree)
+	 * @see #setRoot(Event)
 	 * @see edu.cmu.emfta.EmftaPackage#getFTAModel_Root()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Tree getRoot();
+	Event getRoot();
 
 	/**
 	 * Sets the value of the '{@link edu.cmu.emfta.FTAModel#getRoot <em>Root</em>}' containment reference.
@@ -48,7 +48,7 @@ public interface FTAModel extends EObject {
 	 * @see #getRoot()
 	 * @generated
 	 */
-	void setRoot(Tree value);
+	void setRoot(Event value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

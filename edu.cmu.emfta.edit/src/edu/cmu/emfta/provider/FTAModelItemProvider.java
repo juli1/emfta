@@ -230,7 +230,7 @@ public class FTAModelItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EmftaPackage.Literals.FTA_MODEL__ROOT,
-				 EmftaFactory.eINSTANCE.createTree()));
+				 EmftaFactory.eINSTANCE.createEvent()));
 	}
 
 	/**

@@ -119,6 +119,7 @@ public class CutSet {
 			System.out.print("\n");
 			n++;
 		}
+		cutset = allEvents;
 	}
 
 	/**
@@ -202,6 +203,8 @@ public class CutSet {
 		int cutSetIdentifier = 0;
 
 		for (List<Event> events : cutset) {
+
+			System.out.println("[CutSet] cutset id=" + cutSetIdentifier);
 			XSSFSheet sheet = workbook.createSheet();
 
 			XSSFTable table = sheet.createTable();
@@ -259,6 +262,8 @@ public class CutSet {
 
 			for (int i = 0; i < events.size(); i++) {
 				Event e = events.get(i);
+
+				System.out.println("[CutSet] event name=" + e.getName());
 				// Create column
 				column = columns.addNewTableColumn();
 				column.setName("Column");

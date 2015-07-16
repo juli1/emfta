@@ -137,7 +137,7 @@ public class CutsetAction extends AbstractExternalJavaAction {
 		IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(path);
 		String path2 = file.getRawLocation().removeLastSegments(1).toOSString();
 		path2 = path2 + File.separator + fileName;
-//		System.out.println("path2=" + path2);
+		System.out.println("path2=" + path2);
 
 //		final InputStream input = new ByteArrayInputStream((cs.toCSV()).getBytes());
 		try {

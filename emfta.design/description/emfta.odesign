@@ -52,7 +52,7 @@
           </conditionnalStyles>
         </nodeMappings>
         <nodeMappings name="EventNode" semanticCandidatesExpression="[eAllContents()/]" domainClass="emfta.Event">
-          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" sizeComputationExpression="6" labelPosition="node" resizeKind="NSEW">
+          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" sizeComputationExpression="6" labelPosition="node" resizeKind="NSEW" width="20" height="5">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>

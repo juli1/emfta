@@ -20,6 +20,7 @@ public class EventWrapper {
 		switch (event.getEventType()) {
 		case NORMAL: {
 			if (event.getSubEvents().size() == 1) {
+				emftaEvent.setName(event.getDescription());
 				org.osate.aadl2.errormodel.analysis.fta.Event subEvent = event.getSubEvents().get(0);
 				edu.cmu.emfta.Gate emftaGate;
 				emftaGate = EmftaFactory.eINSTANCE.createGate();

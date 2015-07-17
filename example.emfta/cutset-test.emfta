@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emfta:FTAModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:emfta="http://cmu.edu/emfta" name="cutsettest" description="" comments="">
+  <root>
+    <gate type="AND">
+      <events>
+        <gate>
+          <events name="e1" description=""/>
+          <events name="e2"/>
+        </gate>
+      </events>
+      <events>
+        <gate>
+          <events name="e3"/>
+          <events name="e4"/>
+        </gate>
+      </events>
+    </gate>
+  </root>
+</emfta:FTAModel>

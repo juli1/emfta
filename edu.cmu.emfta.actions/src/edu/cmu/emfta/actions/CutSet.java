@@ -1,6 +1,7 @@
 package edu.cmu.emfta.actions;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import org.apache.poi.ss.usermodel.CellStyle;
@@ -28,6 +29,15 @@ import edu.cmu.emfta.Gate;
  *
  */
 public class CutSet {
+
+	class EventComparator implements Comparator<Event> {
+
+		@Override
+		public int compare(Event e1, Event e2) {
+			return e1.getName().hashCode() - e2.getName().hashCode();
+		}
+	}
+
 	private List<List<Event>> cutset;
 
 	private Event topEvent;
@@ -169,12 +179,33 @@ public class CutSet {
 				combined = new ArrayList<Event>();
 
 				for (Event e : gate.getEvents()) {
-					for (List<Event> l : processEvent(e)) {
-						l.addAll(combined);
-						result.add(l);
+					for (Event e2 : gate.getEvents()) {
+						if (e == e2) {
+							continue;
+						}
+
+						for (List<Event> l : processEvent(e)) {
+
+							for (List<Event> l2 : processEvent(e2)) {
+								combined = new ArrayList<Event>();
+
+								combined.addAll(l);
+								combined.addAll(l2);
+								combined.sort(new EventComparator());
+								boolean found = false;
+								for (List<Event> tmpResult : result) {
+									if (tmpResult.containsAll(combined)) {
+										found = true;
+									}
+								}
+
+								if (found == false) {
+									result.add(combined);
+								}
+							}
+						}
 					}
 				}
-
 				break;
 			}
 

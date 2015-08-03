@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.osate.aadl2.errormodel.emfta.feature"
+      label="EMFTA Bridge with OSATE"
+      version="1.0.0.qualifier"
+      provider-name="SEI/CMU">
+
+   <description url="https://github.com/juli1/emfta">
+      EMFTA Fault-Tree Analysis Tool Bridge with OSATE
+   </description>
+
+   <copyright>
+      Copyright (c) 2015 Julien Delange
+   </copyright>
+
+   <license url="https://www.eclipse.org/legal/epl-v10.html">
+      Eclipse Public License
+   </license>
+
+   <plugin
+         id="org.osate.aadl2.errormodel.emfta"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

@@ -9,16 +9,16 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="42.615555mm"
-   height="15.602858mm"
-   viewBox="0 0 151 55.285717"
+   width="120.8pt"
+   height="66.385239pt"
+   viewBox="0 0 151 82.981544"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
    sodipodi:docname="event-conditioning.svg"
-   inkscape:export-filename="/home/will/Desktop/event-conditioning"
-   inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90">
+   inkscape:export-filename="/home/julien/git/emfta/emfta.design/imgs/event-conditioning.png"
+   inkscape:export-xdpi="89.403976"
+   inkscape:export-ydpi="89.403976">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -28,9 +28,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="196.3148"
-     inkscape:cy="-104.32282"
+     inkscape:zoom="2.43"
+     inkscape:cx="11.259267"
+     inkscape:cy="-32.510226"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -38,16 +38,17 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="721"
-     inkscape:window-height="616"
-     inkscape:window-x="483"
-     inkscape:window-y="31"
-     inkscape:window-maximized="0">
+     inkscape:window-width="1366"
+     inkscape:window-height="720"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     units="pt">
     <inkscape:grid
        type="xygrid"
        id="grid3336"
-       originx="-69.500025"
-       originy="-715.21426" />
+       originx="-70.734568"
+       originy="-733.75287" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -65,13 +66,20 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-69.500029,-281.86221)">
+     transform="translate(-70.734573,-235.62763)">
     <ellipse
-       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.63438714;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path3468"
-       cx="145.00003"
-       cy="309.50507"
-       rx="74.682808"
-       ry="26.825665" />
+       cx="149.11526"
+       cy="300.04007"
+       rx="44.938591"
+       ry="18.069103" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect3335"
+       width="150"
+       height="45"
+       x="71.234573"
+       y="236.12762" />
   </g>
 </svg>

@@ -117,9 +117,9 @@ public class CutSet {
 	 * of the FTA (generate everything)
 	 */
 	public void process() {
-		System.out.println("[CutSet] processing");
+//		System.out.println("[CutSet] processing");
 		List<List<Event>> allEvents = processEvent(topEvent);
-		System.out.println("[CutSet] cutset size = " + allEvents.size());
+//		System.out.println("[CutSet] cutset size = " + allEvents.size());
 		int n = 0;
 		for (List<Event> l : allEvents) {
 			System.out.print("[CutSet] " + n + ":");
@@ -307,12 +307,12 @@ public class CutSet {
 			cell = row.createCell(0);
 			cell.setCellValue("Cutset #" + cutSetIdentifier);
 
-			System.out.println("[CutSet] cutset id=" + cutSetIdentifier);
+//			System.out.println("[CutSet] cutset id=" + cutSetIdentifier);
 
 			for (int i = 0; i < events.size(); i++) {
 				Event e = events.get(i);
 
-				System.out.println("[CutSet] event name=" + e.getName());
+//				System.out.println("[CutSet] event name=" + e.getName());
 
 				// Create row
 				row = sheet.createRow(rowId++);
@@ -351,7 +351,7 @@ public class CutSet {
 
 		for (List<Event> events : cutset) {
 
-			System.out.println("[CutSet] cutset id=" + cutSetIdentifier);
+//			System.out.println("[CutSet] cutset id=" + cutSetIdentifier);
 			XSSFSheet sheet = workbook.createSheet();
 
 			XSSFTable table = sheet.createTable();

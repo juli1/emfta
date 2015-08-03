@@ -19,6 +19,7 @@ import org.openxmlformats.schemas.spreadsheetml.x2006.main.CTTableColumns;
 
 import edu.cmu.emfta.Event;
 import edu.cmu.emfta.Gate;
+import edu.cmu.emfta.preferences.PreferencesValues;
 
 /**
  * This class represents the cutset for an FTA
@@ -230,6 +231,121 @@ public class CutSet {
 	}
 
 	public XSSFWorkbook toWorkbook() {
+		if (PreferencesValues.useReportMultiPages()) {
+			return toMultiSheetsWorkbook();
+		} else {
+			return toSingleSheetWorkbook();
+		}
+
+	}
+
+	public XSSFWorkbook toSingleSheetWorkbook() {
+		XSSFWorkbook workbook = new XSSFWorkbook();
+		int cutSetIdentifier = 0;
+		XSSFSheet sheet = workbook.createSheet();
+
+		XSSFTable table = sheet.createTable();
+		table.setDisplayName("Cutsets");
+		CTTable cttable = table.getCTTable();
+
+		// Set which area the table should be placed in
+		AreaReference reference = new AreaReference(new CellReference(0, 0), new CellReference(2, 2));
+		cttable.setRef(reference.formatAsString());
+		cttable.setId((long) 1);
+		cttable.setName("Cutsets");
+		cttable.setTotalsRowCount((long) 1);
+
+		CTTableColumns columns = cttable.addNewTableColumns();
+		columns.setCount((long) 3);
+		CTTableColumn column;
+		XSSFRow row;
+		XSSFCell cell;
+
+		column = columns.addNewTableColumn();
+
+		// Create row
+		row = sheet.createRow(0);
+		CellStyle headingCellStyle = workbook.createCellStyle();
+		XSSFFont headingFont = workbook.createFont();
+		headingFont.setBold(true);
+		headingCellStyle.setFont(headingFont);
+		row.setRowStyle(headingCellStyle);
+
+		CellStyle normalCellStyle = workbook.createCellStyle();
+		XSSFFont normalFont = workbook.createFont();
+		normalFont.setBold(false);
+		normalCellStyle.setFont(normalFont);
+
+		for (int j = 0; j < 3; j++) {
+			// Create cell
+			cell = row.createCell(j);
+
+			switch (j) {
+			case 0: {
+				cell.setCellValue("Identifier");
+				break;
+			}
+			case 1: {
+				cell.setCellValue("Description");
+				break;
+			}
+			case 2: {
+				cell.setCellValue("Probability");
+				break;
+			}
+
+			}
+		}
+
+		int rowId = 1;
+
+		for (List<Event> events : cutset) {
+			row = sheet.createRow(rowId++);
+			row = sheet.createRow(rowId++);
+			row.setRowStyle(normalCellStyle);
+
+			cell = row.createCell(0);
+			cell.setCellValue("Cutset #" + cutSetIdentifier);
+
+			System.out.println("[CutSet] cutset id=" + cutSetIdentifier);
+
+			for (int i = 0; i < events.size(); i++) {
+				Event e = events.get(i);
+
+				System.out.println("[CutSet] event name=" + e.getName());
+
+				// Create row
+				row = sheet.createRow(rowId++);
+				row.setRowStyle(normalCellStyle);
+				for (int j = 0; j < 3; j++) {
+					// Create cell
+					cell = row.createCell(j);
+
+					switch (j) {
+					case 0: {
+						cell.setCellValue(e.getName());
+						break;
+					}
+					case 1: {
+						cell.setCellValue(e.getDescription());
+						break;
+					}
+					case 2: {
+						cell.setCellValue(e.getProbability());
+						break;
+					}
+
+					}
+				}
+			}
+			cutSetIdentifier = cutSetIdentifier + 1;
+		}
+
+		return workbook;
+
+	}
+
+	public XSSFWorkbook toMultiSheetsWorkbook() {
 		XSSFWorkbook workbook = new XSSFWorkbook();
 		int cutSetIdentifier = 0;
 

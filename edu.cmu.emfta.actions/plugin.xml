@@ -13,5 +13,37 @@
            id="edu.cmu.emfta.actions.CutsetAction">
      </javaActions>
   </extension> 
-
+  
+      <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            
+            class="edu.cmu.emfta.preferences.PreferencePage"
+            id="edu.cmu.emfta.preferences.PreferencePage"
+            name="EMFTA">
+      </page>
+   </extension>
+   
+   
+       <extension
+         id="edu.cmu.emfta.AnalysisType"
+         name="Analysis Type"
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="edu.cmu.emfta.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   
+   
+    <extension
+         id="edu.cmu.emfta.ReportType"
+         name="Report Type"
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="edu.cmu.emfta.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   
+   
+   
 </plugin>

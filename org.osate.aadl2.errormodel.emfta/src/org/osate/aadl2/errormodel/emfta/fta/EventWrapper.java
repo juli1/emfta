@@ -25,6 +25,9 @@ public class EventWrapper {
 				edu.cmu.emfta.Gate emftaGate;
 				emftaGate = EmftaFactory.eINSTANCE.createGate();
 				if (subEvent.getType() == EventType.OR) {
+					if (subEvent.getSubEvents().size() == 1) {
+						return toEmftaEvent(subEvent.getSubEvents().get(0));
+					}
 					emftaGate.setType(GateType.OR);
 				}
 				if (subEvent.getType() == EventType.AND) {
@@ -32,7 +35,7 @@ public class EventWrapper {
 				}
 
 				emftaEvent.setGate(emftaGate);
-				for (org.osate.aadl2.errormodel.analysis.fta.Event e : event.getSubEvents()) {
+				for (org.osate.aadl2.errormodel.analysis.fta.Event e : subEvent.getSubEvents()) {
 					emftaGate.getEvents().add(toEmftaEvent(e));
 				}
 			}

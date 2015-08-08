@@ -136,7 +136,7 @@
           </style>
         </edgeMappings>
         <toolSections name="TreeSection">
-          <ownedTools xsi:type="tool:ExternalJavaAction" name="CutSet" id="edu.cmu.emfta.actions.CutsetAction"/>
+          <ownedTools xsi:type="tool:ExternalJavaAction" name="CutSet" label="Generate Cutset" id="edu.cmu.emfta.actions.CutsetAction"/>
           <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CreateGate" nodeMappings="//@ownedViewpoints[name='Tree.graphic']/@ownedRepresentations[name='Tree.diagram']/@defaultLayer/@nodeMappings[name='GateNode']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -148,6 +148,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:ExternalJavaAction" name="Consistency" label="Check Probability Consistency" id="edu.cmu.emfta.actions.ProbabilityConsistencyAction"/>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>

@@ -45,9 +45,9 @@ public class PreferencePage extends FieldEditorPreferencePage implements IWorkbe
 		addField(new RadioGroupFieldEditor(PreferenceConstants.REPORT_TYPE, "Report Type", 1, new String[][] {
 				{ "&Single Page", PreferenceConstants.REPORT_TYPE_SINGLEPAGE },
 				{ "M&ulti Pages", PreferenceConstants.REPORT_TYPE_MULTIPAGES } }, getFieldEditorParent()));
-		addField(new RadioGroupFieldEditor(PreferenceConstants.ANALYSIS_TYPE, "Analysis Type", 1, new String[][] {
-				{ "&Qualitative", PreferenceConstants.ANALYSIS_TYPE_QUALITATIVE },
-				{ "Quantitative", PreferenceConstants.ANALYSIS_TYPE_QUANTITATIVE } }, getFieldEditorParent()));
+//		addField(new RadioGroupFieldEditor(PreferenceConstants.ANALYSIS_TYPE, "Analysis Type", 1, new String[][] {
+//				{ "&Qualitative", PreferenceConstants.ANALYSIS_TYPE_QUALITATIVE },
+//				{ "Quantitative", PreferenceConstants.ANALYSIS_TYPE_QUANTITATIVE } }, getFieldEditorParent()));
 
 	}
 

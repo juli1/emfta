@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="EMFTA help"  topic="html/overview.html">
+    <topic href="html/overview.html" label="Overview">
+    </topic>
+    
+    <topic href="html/design.html" label="Designing a Fault-Tree">
+    </topic>
+    
+    <topic href="html/cutset.html" label="Cutset Generation">
+    </topic>
+    
+    <topic href="html/probability.html" label="Probability Consistency and Computation">
+    </topic>
+
+    <topic href="html/faq.html" label="FAQ">
+    </topic>
+    
+    <topic href="html/feedback.html" label="Feedback and Bug Report">
+    </topic>
+</toc>

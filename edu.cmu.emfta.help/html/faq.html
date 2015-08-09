@@ -8,15 +8,44 @@
 <body>
 
 <h1>What is EMFTA?</h1>
+<p>
+EMFTA is an EMF implementation of a Fault-Tree Analysis
+tool. It uses the Sirius framework for the representation.
+It includes some basic analysis tools.
+</p>
 
 <h1>What is a Fault-Tree?</h1>
+<p>
+Wikipedia is magical and has all the answers! You
+can read a <a href="https://en.wikipedia.org/wiki/Fault_tree_analysis">description here</a>.
+</p>
 
+<h1>Where can I find examples?</h1>
+<p>
+You can find examples on our github repository,
+under the 
+<a target="blank" href="https://github.com/juli1/emfta/tree/master/example.emfta">example.emfta</a> project.
+</p>
 
 <h1>What is a Cutset?</h1>
-
+<p>
+A cutset is the list of events that are required to raise an error.
+Each model has one or several cutset, each of them
+identifies the combination of errors that will trigger
+an error in the system.
+</p>
 
 <h1>What is AADL and OSATE?</h1>
-
+<p>
+AADL stands for Architecture Analysis and Design Language.
+This is a modeling language to capture software and system
+architectures. OSATE is the modeling framework that
+supports the AADL language. As EMFTA, 
+it is implemented within Eclipse.
+The AADL has an extension to specify errors
+and failures. We then add a bridge between EMFTA and OSATE
+to automatically generate Fault-Tree from AADL models.
+</p>
 
 
 

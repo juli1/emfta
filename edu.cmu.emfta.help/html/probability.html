@@ -8,12 +8,57 @@
 <body>
 
 <h1>Specifying Events Probability</h1>
+<p>
+The events probability can be specified using the table view (see below).
+Once you specify all probabilities, you can perform two types
+of analysis:
+</p>
+<ol>
+	<li><strong>Probability Computation</strong>: automatically
+	    compute the probability of intermediate events using
+	    the probabilities of the leaf nodes.
+	</li>
+	<li>
+		<strong>Probability Consistency</strong>: verify
+		that the probability of the intermediate events 
+		are consistent with the values of their leaves nodes.
+	</li>
+</ol>
+<img src="pics/emfta-table.png"/>
+
 
 <h1>Compute Events Probability</h1>
+<p>
+To compute the probability of error events, select
+the event in the graphical representation and select
+<em>Generate Events Probability</em> menu. 
+</p>
+<img src="pics/emfta-menu.png"/>
 
+<p>
+The tool then
+creates a new file at the root directory of the project
+with a <em>CSV</em> file that contains the probability
+for all intermediate events.
+</p>
+
+<img src="pics/emfta-probability-files.png"/>
 
 <h1>Check Probability Consistency</h1>
+<p>
+To compute the probability of error events, select
+the event in the graphical representation and select
+<em>Check Probability Consistency</em> menu. 
+</p>
+<img src="pics/emfta-menu.png"/>
 
+<p>
+Probability inconsistencies are then shown in the
+<em>Problem view</em> with markers associated with
+the model, as shown below.
+</p>
+
+<img src="pics/emfta-consistency-markers.png"/>
 
 </body>
 </html>

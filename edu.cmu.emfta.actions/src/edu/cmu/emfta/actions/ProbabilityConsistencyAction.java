@@ -12,7 +12,6 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.MessageBox;
 
 import edu.cmu.emfta.Event;
-import edu.cmu.emfta.Gate;
 
 public class ProbabilityConsistencyAction extends AbstractExternalJavaAction {
 
@@ -41,7 +40,7 @@ public class ProbabilityConsistencyAction extends AbstractExternalJavaAction {
 
 			if (target != null) {
 				System.out.println("[ProbabilityConsistencyAction] Check Probability for event = " + target);
-				checkProbability((Event) target);
+				Utils.checkProbability((Event) target);
 				return;
 			}
 
@@ -52,76 +51,6 @@ public class ProbabilityConsistencyAction extends AbstractExternalJavaAction {
 			dialog.open();
 
 		}
-	}
-
-	public static void checkProbability(Event event) {
-		Gate gate = event.getGate();
-		double result = 0;
-
-		if (gate == null) {
-			return;
-		}
-		switch (gate.getType()) {
-		case AND: {
-			result = 1;
-			for (Event subEvent : gate.getEvents()) {
-				result = result * getProbability(subEvent);
-				checkProbability(subEvent);
-			}
-			break;
-		}
-		case OR: {
-			result = 1;
-			for (Event subEvent : gate.getEvents()) {
-				result = result + getProbability(subEvent);
-				checkProbability(subEvent);
-			}
-			break;
-		}
-		default: {
-			System.out.println("[ProbabilityConsistencyAction] Unsupported for now");
-			result = -1;
-			break;
-		}
-
-		}
-
-		if (result != event.getProbability()) {
-			System.out.println("[ProbabilityConsistencyAction] probability mismatch declared=" + event.getProbability()
-					+ ";actual=" + result);
-		}
-	}
-
-	public static double getProbability(Event event) {
-		Gate gate = event.getGate();
-		double result;
-
-		if (gate != null) {
-			switch (gate.getType()) {
-			case AND: {
-				result = 1;
-				for (Event subEvent : gate.getEvents()) {
-					result = result * getProbability(subEvent);
-				}
-				break;
-			}
-			case OR: {
-				result = 1;
-				for (Event subEvent : gate.getEvents()) {
-					result = result + getProbability(subEvent);
-				}
-				break;
-			}
-			default: {
-				System.out.println("Unsupported for now");
-				result = -1;
-				break;
-			}
-			}
-		} else {
-			result = event.getProbability();
-		}
-		return result;
 	}
 
 	@Override

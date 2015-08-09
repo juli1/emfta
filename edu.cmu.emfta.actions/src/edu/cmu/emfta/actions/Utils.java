@@ -9,6 +9,9 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
 
+import edu.cmu.emfta.Event;
+import edu.cmu.emfta.Gate;
+
 public class Utils {
 	public static void refreshWorkspace(IProgressMonitor monitor) {
 		for (IProject ip : ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
@@ -55,5 +58,76 @@ public class Utils {
 		} else {
 			throw new IllegalArgumentException("Cannot decode URI protocol: " + resourceURI.scheme());
 		}
+	}
+
+	public static void checkProbability(Event event) {
+		Gate gate = event.getGate();
+		double result = 0;
+
+		if (gate == null) {
+			return;
+		}
+		switch (gate.getType()) {
+		case AND: {
+			result = 1;
+			for (Event subEvent : gate.getEvents()) {
+				result = result * getProbability(subEvent);
+				checkProbability(subEvent);
+			}
+			break;
+		}
+		case OR: {
+			result = 0;
+			for (Event subEvent : gate.getEvents()) {
+				result = result + getProbability(subEvent);
+				checkProbability(subEvent);
+			}
+			break;
+		}
+		default: {
+			System.out.println("[Utils] Unsupported for now");
+			result = -1;
+			break;
+		}
+
+		}
+
+		if (result != event.getProbability()) {
+			System.out.println("[Utils] probability mismatch declared=" + event.getProbability() + ";actual=" + result);
+		}
+	}
+
+	public static double getProbability(Event event) {
+		Gate gate = event.getGate();
+		double result;
+
+		if (gate != null) {
+			switch (gate.getType()) {
+			case AND: {
+				result = 1;
+				for (Event subEvent : gate.getEvents()) {
+					result = result * getProbability(subEvent);
+				}
+				break;
+			}
+			case OR: {
+				result = 0;
+				for (Event subEvent : gate.getEvents()) {
+					result = result + getProbability(subEvent);
+				}
+				break;
+			}
+			default: {
+				System.out.println("[Utils] Unsupported for now");
+				result = -1;
+				break;
+			}
+			}
+			System.out.println("[Utils] Probability for " + event.getName() + ":" + result);
+
+		} else {
+			result = event.getProbability();
+		}
+		return result;
 	}
 }

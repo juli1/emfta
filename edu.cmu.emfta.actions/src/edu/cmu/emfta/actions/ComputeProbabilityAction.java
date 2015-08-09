@@ -12,11 +12,14 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.MessageBox;
 
 import edu.cmu.emfta.Event;
+import edu.cmu.emfta.Gate;
 
 public class ComputeProbabilityAction extends AbstractExternalJavaAction {
+	private StringBuffer report;
 
 	@Override
 	public void execute(Collection<? extends EObject> selections, Map<String, Object> parameters) {
+		report = new StringBuffer();
 
 //		System.out.println("[CutSetAction] calling execute");
 		for (EObject eo : selections) {
@@ -40,7 +43,10 @@ public class ComputeProbabilityAction extends AbstractExternalJavaAction {
 
 			if (target != null) {
 				System.out.println("[ProbabilityConsistencyAction] Check Probability for event = " + target);
-				Utils.getProbability((Event) target);
+				report.append("Event,declared,computed\n");
+				performComputation((Event) target);
+				Utils.writeFile(report, target);
+				Utils.refreshProject(target);
 				return;
 			}
 
@@ -49,6 +55,24 @@ public class ComputeProbabilityAction extends AbstractExternalJavaAction {
 			dialog.setMessage("Please select an event in the FTA tree");
 
 			dialog.open();
+
+		}
+	}
+
+	public void performComputation(Event event) {
+		Gate gate = event.getGate();
+		double computed;
+		double declared;
+
+		if (gate != null) {
+
+			computed = Utils.getProbability(event);
+			declared = event.getProbability();
+			report.append(event.getName() + "," + declared + "," + computed + "\n");
+
+			for (Event subEvent : gate.getEvents()) {
+				performComputation(subEvent);
+			}
 
 		}
 	}

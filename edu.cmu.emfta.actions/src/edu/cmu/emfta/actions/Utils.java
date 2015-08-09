@@ -1,5 +1,8 @@
 package edu.cmu.emfta.actions;
 
+import java.io.PrintWriter;
+
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
@@ -10,6 +13,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.ui.util.ResourceUtil;
 
 import edu.cmu.emfta.Event;
 import edu.cmu.emfta.Gate;
@@ -165,6 +169,24 @@ public class Utils {
 	}
 
 	/**
+	 * Refresh project associated with the eobject given as parameter
+	 * @param obj - the eobject associated with the project
+	 */
+	public static void refreshProject(EObject obj) {
+		URI uri = obj.eResource().getURI();
+		// assuming platform://resource/project/path/to/file
+		String project = uri.segment(1);
+		IPath path = new Path(uri.path()).removeFirstSegments(2);
+		IProject activeProject = ResourcesPlugin.getWorkspace().getRoot().getProject(project);
+		try {
+			activeProject.refreshLocal(IResource.DEPTH_INFINITE, null);
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	/**
 	 * Remove all Markers for the eobject passed as parameter
 	 * @param obj - the object associated with all the markers
 	 */
@@ -175,6 +197,46 @@ public class Utils {
 		} catch (CoreException e) {
 			System.out.println("[Utils] Try to delete marker for object " + obj);
 
+			e.printStackTrace();
+		}
+	}
+
+	public static void writeFile(StringBuffer sb, EObject eobj) {
+//		OsateDebug.osateDebug("[EMFTAAction]", "serializeReqSpecModel activeProject=" + activeProject);
+		IProject activeProject = ResourceUtil.getFile(eobj.eResource()).getProject();
+		String filename;
+
+		filename = eobj.eResource().getURI().lastSegment();
+		filename = filename.replaceAll("emfta", "");
+		filename = filename + "-probability.csv";
+
+		IFile newFile = activeProject.getFile(filename);
+//		OsateDebug.osateDebug("[EMFTAAction]", "save in file=" + newFile.getName());
+
+		try {
+
+//			ResourceSet set = new ResourceSetImpl();
+//			Resource res = set.createResource(URI.createURI(newFile.toString()));
+			PrintWriter out = new PrintWriter(newFile.getRawLocation().toOSString());
+
+			out.write(sb.toString());
+			out.close();
+
+			//
+//			java.io.File file = newFile.getRawLocation().toFile();
+//			InputStream stream = new ByteArrayInputStream(sb.toString().getBytes(StandardCharsets.UTF_8));
+//			
+//			file.createNewFile();
+//			file.
+//			file.create(stream, true, null);
+//			res.getContents().add(emftaModel);
+
+//			FileOutputStream fos = new FileOutputStream(newFile.getRawLocation().toFile());
+
+//			fos.write(sb.toString().getBytes(), 0, sb.toString().getBytes().length);
+//			res.save(fos, null);
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

@@ -40,6 +40,7 @@ public class ProbabilityConsistencyAction extends AbstractExternalJavaAction {
 
 			if (target != null) {
 				System.out.println("[ProbabilityConsistencyAction] Check Probability for event = " + target);
+				Utils.removeAllMarkers((Event) target);
 				Utils.checkProbability((Event) target);
 				return;
 			}

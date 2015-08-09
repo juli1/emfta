@@ -1,5 +1,6 @@
 package edu.cmu.emfta.actions;
 
+import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -8,6 +9,7 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 
 import edu.cmu.emfta.Event;
 import edu.cmu.emfta.Gate;
@@ -62,6 +64,8 @@ public class Utils {
 
 	public static void checkProbability(Event event) {
 		Gate gate = event.getGate();
+		IResource res = getResourceForModel(event);
+
 		double result = 0;
 
 		if (gate == null) {
@@ -93,7 +97,23 @@ public class Utils {
 		}
 
 		if (result != event.getProbability()) {
-			System.out.println("[Utils] probability mismatch declared=" + event.getProbability() + ";actual=" + result);
+
+			IMarker marker;
+
+			System.out.println("[Utils] here");
+
+			String msg = "Probability mismatch for event " + event.getName() + "declared=" + event.getProbability()
+					+ ";actual=" + result;
+			try {
+				marker = res.createMarker(IMarker.PROBLEM);
+				marker.setAttribute(IMarker.MESSAGE, msg);
+				marker.setAttribute(IMarker.SEVERITY, new Integer(IMarker.SEVERITY_ERROR));
+				marker.setAttribute(Activator.EMFTA_MARKER, "true");
+			} catch (CoreException e) {
+				throw new RuntimeException(e);
+			}
+
+			System.out.println("[Utils] " + msg);
 		}
 	}
 
@@ -129,5 +149,33 @@ public class Utils {
 			result = event.getProbability();
 		}
 		return result;
+	}
+
+	/**
+	 * Get the IResource object associated with the EObject
+	 * @param obj
+	 * @return - the IResource associated with this EObject
+	 */
+	public static IResource getResourceForModel(EObject obj) {
+		URI uri = obj.eResource().getURI();
+		// assuming platform://resource/project/path/to/file
+		String project = uri.segment(1);
+		IPath path = new Path(uri.path()).removeFirstSegments(2);
+		return ResourcesPlugin.getWorkspace().getRoot().getProject(project).findMember(path);
+	}
+
+	/**
+	 * Remove all Markers for the eobject passed as parameter
+	 * @param obj - the object associated with all the markers
+	 */
+	public static void removeAllMarkers(EObject obj) {
+		IResource res = getResourceForModel(obj);
+		try {
+			res.deleteMarkers(IMarker.PROBLEM, true, IResource.DEPTH_ZERO);
+		} catch (CoreException e) {
+			System.out.println("[Utils] Try to delete marker for object " + obj);
+
+			e.printStackTrace();
+		}
 	}
 }

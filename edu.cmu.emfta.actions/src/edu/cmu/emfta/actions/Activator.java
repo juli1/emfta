@@ -15,6 +15,7 @@ public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "Emfta";
+	public static final String EMFTA_MARKER = "EmftaMarker";
 
 	// The shared instance
 	private static Activator plugin;
@@ -38,7 +39,8 @@ public class Activator extends AbstractUIPlugin {
 		super.start(context);
 		plugin = this;
 
-		// Call the preference initializer manually because eclipse will not call it if the preference page uses a scoped preference store
+		// Call the preference initializer manually because eclipse will not call it if the preference page uses a
+// scoped preference store
 		new PreferenceInitializer().initializeDefaultPreferences();
 	}
 

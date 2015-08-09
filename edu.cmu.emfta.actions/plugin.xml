@@ -14,6 +14,22 @@
      </javaActions>
   </extension> 
   
+    <extension
+        point="org.eclipse.sirius.externalJavaAction">
+     <javaActions
+           actionClass="edu.cmu.emfta.actions.ProbabilityConsistencyAction"
+           id="edu.cmu.emfta.actions.ProbabilityConsistencyAction">
+     </javaActions>
+  </extension> 
+  
+      <extension
+        point="org.eclipse.sirius.externalJavaAction">
+     <javaActions
+           actionClass="edu.cmu.emfta.actions.ComputeProbabilityAction"
+           id="edu.cmu.emfta.actions.ComputeProbabilityAction">
+     </javaActions>
+  </extension> 
+  
       <extension
          point="org.eclipse.ui.preferencePages">
       <page
@@ -44,6 +60,12 @@
       </initializer>
    </extension>
    
-   
+   <extension
+         id="edu.cmu.emfta.marker"
+         name="EMFTA Marker"
+         point="org.eclipse.core.resources.markers">
+      	<persistent value="true">
+        </persistent>
+   </extension>
    
 </plugin>

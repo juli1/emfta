@@ -13,7 +13,10 @@
     
     <topic href="html/probability.html" label="Probability Consistency and Computation">
     </topic>
-
+    
+    <topic href="html/osate.html" label="AADL/OSATE bridge">
+    </topic>
+    
     <topic href="html/faq.html" label="FAQ">
     </topic>
     

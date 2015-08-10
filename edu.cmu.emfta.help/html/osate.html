@@ -1,0 +1,47 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <LINK REL="STYLESHEET" HREF="style.css" CHARSET="ISO-8859-1" TYPE="text/css">
+   <title>AADL/OSATE bridge</title>
+</head>
+<body>
+
+
+
+<h1>Export from AADL to EMFTA</h1>
+<p>
+The AADL modeling language has a capability to specify errors and
+failures in an architecture model. It already has a bridge
+to several fault-tree analysis tools, either commercial or open-source.
+The EMFTA bridge adds the capability to export the safety
+information from AADL to EMFTA.
+</p>
+<p>
+The big advantage of such an approach is that everything resides
+in Eclipse: the architecture (AADL) model but also the FTA model.
+It makes the tool usage more easy and consistent and avoid to switch
+from one tool to another.
+</p>
+
+
+<h1>Export from AADL to EMFTA</h1>
+<p>
+To generate the EMFTA model from the AADL model, proceed as follow:
+</p>
+<ol>
+	<li>Select the instance model you would like to use to generate the EMFTA model</li>
+	<li>Right click and select the OSATE analysis submenu and finally select the EMFTA export</li>
+	<li>Enter the name of the AADL error state that is the top-level error state of your FTA</li>
+</ol>
+<p>
+Once complete, a file with the <em>emfta</em> is generated at the root of
+the Eclipse project. You can then open it with EMFTA. Do not forget to 
+switch to the <em>Sirius</em> perspective in your environment, convert
+the project to a modeling project but also use the appropriate representation.
+</p>
+
+<img src="pics/emfta-osate.png"/>
+
+</body>
+</html>

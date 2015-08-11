@@ -115,6 +115,11 @@ The following pictures show the tables (to edit the events/gates) as well as the
 
 ![Table of the Computer Example](https://github.com/juli1/emfta/raw/master/example.emfta/imgs/example2-table.png "Table for editing the Gates/Events of the computer example")
 
+
+## Documentation
+There is a documentation included into Eclipse. After installing EMFTA,
+go into the Eclipse documentation, there is a dedicated section for EMFTA.
+
 ## Bugs and Features Requests
 If you find a bug, please report it on the issue tracker of the project.
 Also, if you have any suggestion/idea to improve the tool, please also add it

@@ -25,24 +25,24 @@ public class ComputeProbabilityAction extends AbstractExternalJavaAction {
 		for (EObject eo : selections) {
 			EObject target = null;
 
-			System.out.println("[ProbabilityConsistencyAction] eobject = " + eo);
+			System.out.println("[ComputeProbabilityAction] eobject = " + eo);
 
 			if (eo instanceof DSemanticDiagramSpec) {
 				DSemanticDiagramSpec ds = (DSemanticDiagramSpec) eo;
 				target = ds.getTarget();
 
-				System.out.println("[ProbabilityConsistencyAction] target = " + target);
+				System.out.println("[ComputeProbabilityAction] target = " + target);
 			}
 
 			if (eo instanceof DNodeSpec) {
 				DNodeSpec ds = (DNodeSpec) eo;
 				target = ds.getTarget();
 
-				System.out.println("[ProbabilityConsistencyAction] target = " + target);
+				System.out.println("[ComputeProbabilityAction] target = " + target);
 			}
 
 			if (target != null) {
-				System.out.println("[ProbabilityConsistencyAction] Check Probability for event = " + target);
+				System.out.println("[ComputeProbabilityAction] Check Probability for event = " + target);
 				report.append("Event,declared,computed\n");
 				performComputation((Event) target);
 				Utils.writeFile(report, target);
@@ -73,7 +73,9 @@ public class ComputeProbabilityAction extends AbstractExternalJavaAction {
 			for (Event subEvent : gate.getEvents()) {
 				performComputation(subEvent);
 			}
-
+		} else {
+			declared = event.getProbability();
+			report.append(event.getName() + "," + declared + "," + "n/a" + "\n");
 		}
 	}
 

@@ -42,7 +42,7 @@ public class CutsetAction extends AbstractExternalJavaAction {
 //
 //				System.out.println("[CutSetAction] eobject class= " + eo.getClass());
 //
-				System.out.println("[CutSetAction] target = " + target);
+//				System.out.println("[CutSetAction] target = " + target);
 			}
 
 			if (eo instanceof DNodeSpec) {
@@ -51,7 +51,7 @@ public class CutsetAction extends AbstractExternalJavaAction {
 //
 //				System.out.println("[CutSetAction] eobject class= " + eo.getClass());
 //
-				System.out.println("[CutSetAction] target = " + target);
+//				System.out.println("[CutSetAction] target = " + target);
 			}
 
 			if (target != null) {
@@ -122,7 +122,7 @@ public class CutsetAction extends AbstractExternalJavaAction {
 		cs.process();
 
 		fileName = ResourceUtil.getFile(event.eResource()).getName();
-		fileName = fileName.replace(".emfta", "") + ".xlsx";
+		fileName = fileName.replace(".emfta", "") + "-cutset.xlsx";
 //		System.out.println("filename=" + fileName);
 
 //		System.out.println(cs);

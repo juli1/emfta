@@ -20,10 +20,12 @@ public class EventWrapper {
 		switch (event.getEventType()) {
 		case NORMAL: {
 			if (event.getSubEvents().size() == 1) {
-				emftaEvent.setName(event.getDescription());
 				org.osate.aadl2.errormodel.analysis.fta.Event subEvent = event.getSubEvents().get(0);
-				edu.cmu.emfta.Gate emftaGate;
-				emftaGate = EmftaFactory.eINSTANCE.createGate();
+				emftaEvent.setName(event.getDescription());
+
+				edu.cmu.emfta.Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
+				emftaEvent.setGate(emftaGate);
+
 				if (subEvent.getType() == EventType.OR) {
 					if (subEvent.getSubEvents().size() == 1) {
 						return toEmftaEvent(subEvent.getSubEvents().get(0));
@@ -31,17 +33,30 @@ public class EventWrapper {
 					emftaGate.setType(GateType.OR);
 				}
 				if (subEvent.getType() == EventType.AND) {
+					if (subEvent.getSubEvents().size() == 1) {
+						return toEmftaEvent(subEvent.getSubEvents().get(0));
+					}
 					emftaGate.setType(GateType.AND);
 				}
 
-				emftaEvent.setGate(emftaGate);
+				/**
+				 * This is to handle a buggy case: if the gate has no child,
+				 * we do not add this. This avoid a bad/erroneous FTA.
+				 */
+				if (subEvent.getSubEvents().size() == 0) {
+					emftaEvent.setGate(null);
+				}
+
 				for (org.osate.aadl2.errormodel.analysis.fta.Event e : subEvent.getSubEvents()) {
 					emftaGate.getEvents().add(toEmftaEvent(e));
 				}
+			} else {
+				System.out.println("[EventWrapper] not handled now");
 			}
 
 			break;
 		}
+
 		case EVENT: {
 			emftaEvent.setType(edu.cmu.emfta.EventType.BASIC);
 			break;

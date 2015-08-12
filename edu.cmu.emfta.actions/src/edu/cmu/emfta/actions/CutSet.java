@@ -194,6 +194,10 @@ public class CutSet {
 								combined.addAll(l2);
 								combined.sort(new EventComparator());
 								boolean found = false;
+
+								/**
+								 * This is done to avoid duplicates.
+								 */
 								for (List<Event> tmpResult : result) {
 									if (tmpResult.containsAll(combined)) {
 										found = true;
@@ -214,6 +218,12 @@ public class CutSet {
 				for (Event e : gate.getEvents()) {
 					for (List<Event> l : processEvent(e)) {
 						result.add(l);
+//						System.out.println("[CutSetAction] OR gate discovered, adding following events");
+//						for (Event etmp : l) {
+//							System.out.println("[CutSetAction]    -> " + etmp.getName());
+//
+//						}
+
 					}
 				}
 
@@ -225,6 +235,11 @@ public class CutSet {
 				break;
 			}
 			}
+		}
+
+		if (result.size() == 0) {
+			System.out.println("[CutSetAction] result is null");
+
 		}
 
 		return result;

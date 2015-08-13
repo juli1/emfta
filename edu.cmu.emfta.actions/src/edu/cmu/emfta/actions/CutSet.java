@@ -257,6 +257,8 @@ public class CutSet {
 	public XSSFWorkbook toSingleSheetWorkbook() {
 		XSSFWorkbook workbook = new XSSFWorkbook();
 		int cutSetIdentifier = 0;
+		double cutsetProbability;
+
 		XSSFSheet sheet = workbook.createSheet();
 
 		XSSFTable table = sheet.createTable();
@@ -322,6 +324,17 @@ public class CutSet {
 			cell = row.createCell(0);
 			cell.setCellValue("Cutset #" + cutSetIdentifier);
 
+			cutsetProbability = 1;
+			for (int i = 0; i < events.size(); i++) {
+				cutsetProbability = cutsetProbability * events.get(i).getProbability();
+			}
+
+			cell = row.createCell(2);
+			if (cutsetProbability != 1) {
+				cell.setCellValue("" + cutsetProbability);
+			} else {
+				cell.setCellValue("" + cutsetProbability);
+			}
 //			System.out.println("[CutSet] cutset id=" + cutSetIdentifier);
 
 			for (int i = 0; i < events.size(); i++) {
@@ -363,8 +376,14 @@ public class CutSet {
 	public XSSFWorkbook toMultiSheetsWorkbook() {
 		XSSFWorkbook workbook = new XSSFWorkbook();
 		int cutSetIdentifier = 0;
+		double cutsetProbability;
 
 		for (List<Event> events : cutset) {
+
+			cutsetProbability = 1;
+			for (int i = 0; i < events.size(); i++) {
+				cutsetProbability = cutsetProbability * events.get(i).getProbability();
+			}
 
 //			System.out.println("[CutSet] cutset id=" + cutSetIdentifier);
 			XSSFSheet sheet = workbook.createSheet();
@@ -415,7 +434,11 @@ public class CutSet {
 					break;
 				}
 				case 2: {
-					cell.setCellValue("Probability");
+					if (cutsetProbability == 1) {
+						cell.setCellValue("Probability");
+					} else {
+						cell.setCellValue("Probability (" + cutsetProbability + ")");
+					}
 					break;
 				}
 

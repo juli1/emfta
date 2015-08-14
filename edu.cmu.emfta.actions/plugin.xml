@@ -29,7 +29,13 @@
            id="edu.cmu.emfta.actions.ComputeProbabilityAction">
      </javaActions>
   </extension> 
-  
+      <extension
+        point="org.eclipse.sirius.externalJavaAction">
+     <javaActions
+           actionClass="edu.cmu.emfta.actions.UpdateProbabilityAction"
+           id="edu.cmu.emfta.actions.UpdateProbabilityAction">
+     </javaActions>
+  </extension>   
       <extension
          point="org.eclipse.ui.preferencePages">
       <page

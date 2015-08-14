@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emfta:FTAModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:emfta="http://cmu.edu/emfta" name="newgate" description="Both " comments="Primary and standby are failed">
+  <root type="Intermediate" name="Loss of system control functions" description="Both the primary and standby are failed">
+    <gate>
+      <events type="Intermediate" name="Loss of primary and standby" description="Both the primary and the standby channels are failed">
+        <gate type="AND">
+          <events name="Standby fails" probability="1.4E-5" description="The standby channel failure rate"/>
+          <events name="Primary fails" probability="1.0E-5" description="The primary channel failure rate"/>
+        </gate>
+      </events>
+      <events type="Intermediate" name="Switch fails before primary" description="The combination of the switch failing and the primary failing prevents control by the standby">
+        <gate type="AND">
+          <events name="Primary fails" probability="1.0E-5" description="The primary channel failure rate"/>
+          <events name="Switch fails" probability="2.5E-6" description="The switch failure rate"/>
+        </gate>
+      </events>
+    </gate>
+  </root>
+</emfta:FTAModel>

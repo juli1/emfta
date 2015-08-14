@@ -33,7 +33,7 @@ public class EmftaWizardNewfilePage extends org.eclipse.ui.dialogs.WizardNewFile
 	public EmftaWizardNewfilePage(IWorkbench workbench, IStructuredSelection selection) {
 		super("EMFTA New File", selection);
 		this.setMessage("Select the model you want to copy and the output directory");
-		this.setDescription("description");
+		this.setDescription("Select the model you want to copy and the output directory");
 		this.setTitle("EMFTA Model example");
 
 	}

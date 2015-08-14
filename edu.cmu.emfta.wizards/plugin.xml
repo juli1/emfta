@@ -16,6 +16,7 @@
 	 	   project="true"
 		   id = "edu.cmu.emfta.wizards.newfile"
 	       name = "New EMFTA file"
+	       icon="imgs/logo.png"
 		   class="edu.cmu.emfta.wizards.EmftaWizardNewfile"
 		   category="edu.cmu.emfta.wizards">
 		</wizard>

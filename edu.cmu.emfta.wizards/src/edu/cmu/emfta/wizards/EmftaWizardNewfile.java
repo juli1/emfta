@@ -14,7 +14,7 @@ public class EmftaWizardNewfile extends Wizard implements INewWizard {
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		setWindowTitle("bla");
+		setWindowTitle("New EMFTA File");
 	}
 
 	public void addPages() {

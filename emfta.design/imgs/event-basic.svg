@@ -9,14 +9,14 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="46.400017mm"
-   height="26.466587mm"
-   viewBox="0 0 164.40951 93.779249"
+   width="43.731609mm"
+   height="35.749592mm"
+   viewBox="0 0 154.95452 126.67179"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
    sodipodi:docname="event-basic.svg"
-   inkscape:export-filename="C:\Users\Will\Documents\GitRepos\emfta\emfta.design\imgs\event-basic.png"
+   inkscape:export-filename="/home/julien/git/emfta/emfta.design/imgs/event-basic.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -29,8 +29,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="3.4403928"
-     inkscape:cx="86.820835"
-     inkscape:cy="54.188848"
+     inkscape:cx="42.058507"
+     inkscape:cy="54.971364"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -38,16 +38,16 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="1366"
-     inkscape:window-height="705"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:window-width="1600"
+     inkscape:window-height="852"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1">
     <inkscape:grid
        type="xygrid"
        id="grid3336"
-       originx="-310"
-       originy="-726.7208" />
+       originx="-310.00002"
+       originy="-725.93829" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -57,7 +57,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -65,7 +65,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-310.00001,-231.86221)">
+     transform="translate(-310.00001,-199.75224)">
     <ellipse
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2.02401137;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path3338"

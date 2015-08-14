@@ -1,12 +1,7 @@
-package edu.cmu.emfta.actions;
+package edu.cmu.emfta.wizards;
 
-import org.eclipse.core.runtime.preferences.ConfigurationScope;
-import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
-import org.eclipse.ui.preferences.ScopedPreferenceStore;
 import org.osgi.framework.BundleContext;
-
-import edu.cmu.emfta.preferences.PreferenceInitializer;
 
 /** 
  * The activator class controls the plug-in life cycle
@@ -14,20 +9,15 @@ import edu.cmu.emfta.preferences.PreferenceInitializer;
 public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "edu.cmu.emfta.actions";
-	public static final String EMFTA_MARKER = "EmftaMarker";
+	public static final String PLUGIN_ID = "edu.cmu.emfta.wizards";
 
 	// The shared instance
 	private static Activator plugin;
-
-	private IPreferenceStore preferenceStore = new ScopedPreferenceStore(ConfigurationScope.INSTANCE,
-			Activator.PLUGIN_ID);
 
 	/**
 	 * The constructor
 	 */
 	public Activator() {
-		System.out.println("starts plugin");
 	}
 
 	/*
@@ -38,10 +28,6 @@ public class Activator extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
-
-		// Call the preference initializer manually because eclipse will not call it if the preference page uses a
-// scoped preference store
-		new PreferenceInitializer().initializeDefaultPreferences();
 	}
 
 	/*
@@ -52,11 +38,6 @@ public class Activator extends AbstractUIPlugin {
 	public void stop(BundleContext context) throws Exception {
 		plugin = null;
 		super.stop(context);
-	}
-
-	@Override
-	public IPreferenceStore getPreferenceStore() {
-		return preferenceStore;
 	}
 
 	/**

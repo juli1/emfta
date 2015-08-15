@@ -64,25 +64,25 @@
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="[self.type.toString().equalsIgnoreCase('conditioning')  and (self.gate->size() = 0)/]">
-            <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/emfta.design/imgs/event-conditioning.png">
+            <style xsi:type="style:WorkspaceImageDescription" labelExpression="[name + ' (' + probability +')\n' + description/]" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/emfta.design/imgs/event-conditioning.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="[self.type.toString().equalsIgnoreCase('intermediate')  and (self.gate->size() = 0)/]">
-            <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/emfta.design/imgs/event-intermediate.png">
+            <style xsi:type="style:WorkspaceImageDescription" labelExpression="[name + ' (' + probability +')\n' + description/]" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/emfta.design/imgs/event-intermediate.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="[self.type.toString().equalsIgnoreCase('undevelopped')  and (self.gate->size() = 0)/]">
-            <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/emfta.design/imgs/event-undeveloped.png">
+            <style xsi:type="style:WorkspaceImageDescription" labelExpression="[name + ' (' + probability +')\n' + description/]" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/emfta.design/imgs/event-undeveloped.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="[self.type.toString().equalsIgnoreCase('external')  and (self.gate->size() = 0) /]">
-            <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/emfta.design/imgs/event-external.png">
+            <style xsi:type="style:WorkspaceImageDescription" labelExpression="[name + ' (' + probability +')\n' + description/]" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/emfta.design/imgs/event-external.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>

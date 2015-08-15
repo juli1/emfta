@@ -60,6 +60,16 @@ Select to install EMFTA and complete the installation.
 
 ## How to use
 
+### Using the example wizard
+Start eclipse and choose **File** and then **Others**. Then, select **EMFTA Wizards** and **EMFTA New File**.
+You should have a window similar to the following then.
+![Wizard Selection](https://raw.githubusercontent.com/juli1/emfta/master/doc/pics/wizard-selection.png "Wizard Selection")
+
+The wizard let you select the target project, the target file name as well as the template you want to import, as shown in the following picture.
+![New File Wizard](https://raw.githubusercontent.com/juli1/emfta/master/doc/pics/wizard-page2.png "New File Wizard")
+
+Once completed, the new file is available in the target directory. Please note that you still need to add the **Modeling Nature** to the project that contains the file to enable the graphical and table representations.
+
 ### Getting Started
 * Start a new modelling project (New->Modelling Project)
 * Create a new EMFTA inside the modeling project with the root object FTA Model (New->Emfta Model)

@@ -64,7 +64,7 @@ public class EmftaWizardNewfilePage extends org.eclipse.ui.dialogs.WizardNewFile
 	}
 
 	public boolean canFinish() {
-		System.out.println("[EmftaWizardNewfilePage] canFinish() invoked");
+//		System.out.println("[EmftaWizardNewfilePage] canFinish() invoked");
 
 		return (useComputer.isEnabled() || useIsolette.isEnabled());
 	}

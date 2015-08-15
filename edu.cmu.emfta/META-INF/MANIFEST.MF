@@ -12,7 +12,8 @@ Export-Package: edu.cmu.emfta,
  edu.cmu.emfta.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.emf.ecore.xmi;visibility:=reexport
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ edu.cmu.emfta.help;bundle-version="1.0.0"
 Eclipse-LazyStart: true
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.jface.preference,

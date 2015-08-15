@@ -73,8 +73,21 @@ public class Utils {
 		double result = 0;
 
 		if (gate == null) {
+			if (event.getProbability() == 0) {
+				IMarker marker;
+				String msg = "Probability for leaf event " + event.getName() + " is zero";
+				try {
+					marker = res.createMarker(IMarker.PROBLEM);
+					marker.setAttribute(IMarker.MESSAGE, msg);
+					marker.setAttribute(IMarker.SEVERITY, new Integer(IMarker.SEVERITY_ERROR));
+					marker.setAttribute(Activator.EMFTA_MARKER, "true");
+				} catch (CoreException e) {
+					throw new RuntimeException(e);
+				}
+			}
 			return;
 		}
+
 		switch (gate.getType()) {
 		case AND: {
 			result = 1;
@@ -102,10 +115,8 @@ public class Utils {
 
 		if (result != event.getProbability()) {
 
+//			System.out.println("[Utils] here");
 			IMarker marker;
-
-			System.out.println("[Utils] here");
-
 			String msg = "Probability mismatch for event " + event.getName() + "declared=" + event.getProbability()
 					+ ";actual=" + result;
 			try {
@@ -117,7 +128,7 @@ public class Utils {
 				throw new RuntimeException(e);
 			}
 
-			System.out.println("[Utils] " + msg);
+//			System.out.println("[Utils] " + msg);
 		}
 	}
 

@@ -72,7 +72,7 @@ public class EmftaWizardNewfilePage extends org.eclipse.ui.dialogs.WizardNewFile
 	public boolean finish() {
 
 		if (canFinish()) {
-			System.out.println("[EmftaWizardNewfilePage] finishing");
+//			System.out.println("[EmftaWizardNewfilePage] finishing");
 			try {
 				copyFile();
 				return true;
@@ -119,12 +119,15 @@ public class EmftaWizardNewfilePage extends org.eclipse.ui.dialogs.WizardNewFile
 		IProject relatedProject;
 		if (targetPath.segmentCount() == 1) {
 			relatedProject = ws.getRoot().getProject(targetPath.lastSegment());
-			destinationFile = relatedProject.getRawLocation().toOSString() + File.separator + this.getFileName();
+//			System.out.println("[EmftaWizardNewfilePage] get raw location" + relatedProject.getLocation());
+
+			destinationFile = relatedProject.getLocation().toOSString() + File.separator + this.getFileName();
 
 		} else {
 			IFile ifile;
 			ifile = ws.getRoot().getFile(targetPath);
 			relatedProject = ws.getRoot().getProject(targetPath.segment(0));
+			
 			destinationFile = ifile.getLocation().toOSString() + File.separator + this.getFileName();
 
 		}

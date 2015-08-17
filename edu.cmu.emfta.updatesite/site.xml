@@ -3,6 +3,11 @@
    <description name="EMFTA" url="https://raw.githubusercontent.com/juli1/emfta/master/edu.cmu.emfta.updatesite">
       EMFTA Update site
    </description>
-   <feature url="features/edu.cmu.emfta.feature_1.0.0.201508142104.jar" id="edu.cmu.emfta.feature" version="1.0.0.201508142104"/>
-   <feature url="features/org.osate.aadl2.errormodel.emfta.feature_1.0.0.201508142104.jar" id="org.osate.aadl2.errormodel.emfta.feature" version="1.0.0.201508142104"/>
+   <feature url="features/edu.cmu.emfta.feature_1.0.0.201508171250.jar" id="edu.cmu.emfta.feature" version="1.0.0.201508171250">
+      <category name="EMFTA"/>
+   </feature>
+   <feature url="features/org.osate.aadl2.errormodel.emfta.feature_1.0.0.201508171250.jar" id="org.osate.aadl2.errormodel.emfta.feature" version="1.0.0.201508171250" os="linux,macosx,win32" ws="carbon,cocoa,gtk,win32" arch="x86,x86_64">
+      <category name="EMFTA"/>
+   </feature>
+   <category-def name="EMFTA" label="EMFTA Tools"/>
 </site>

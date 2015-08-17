@@ -14,8 +14,14 @@
    </copyright>
 
    <license url="https://www.eclipse.org/legal/epl-v10.html">
-      Eclipse Public License
+      Eclipse Public License (EPL1)
    </license>
+
+   <url>
+      <discovery label="EMFTA website" url="https://github.com/juli1/emfta"/>
+      <discovery label="AADL home" url="http://www.aadl.info"/>
+      <discovery label="OSATE 2 information page" url="https://wiki.sei.cmu.edu/aadl/index.php/Osate_2"/>
+   </url>
 
    <plugin
          id="org.osate.aadl2.errormodel.emfta"

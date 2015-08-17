@@ -14,8 +14,37 @@
    </copyright>
 
    <license url="https://www.eclipse.org/legal/epl-v10.html">
-      Eclipse Public License
+      Eclipse Public License (EPL)
    </license>
+
+   <url>
+      <update label="EMFTA github update site" url="https://raw.githubusercontent.com/juli1/emfta/master/edu.cmu.emfta.updatesite"/>
+      <discovery label="EMFTA home page" url="https://github.com/juli1/emfta"/>
+   </url>
+
+   <requires>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="edu.cmu.emfta.help" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jface"/>
+      <import plugin="org.eclipse.sirius"/>
+      <import plugin="org.eclipse.swt"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.ui.workbench"/>
+      <import plugin="org.eclipse.emf.edit"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="edu.cmu.emfta" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.diagram" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.diagram.ui" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.sirius.common" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.ui"/>
+      <import plugin="org.eclipse.emf.edit.ui"/>
+      <import plugin="org.junit"/>
+      <import plugin="org.eclipse.core.resources" version="3.9.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.help"/>
+   </requires>
 
    <plugin
          id="edu.cmu.emfta"

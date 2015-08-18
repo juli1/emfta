@@ -28,7 +28,6 @@
       <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="edu.cmu.emfta.help" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.jface"/>
-      <import plugin="org.eclipse.sirius"/>
       <import plugin="org.eclipse.swt"/>
       <import plugin="org.eclipse.ui.ide"/>
       <import plugin="org.eclipse.ui.workbench"/>
@@ -36,16 +35,15 @@
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.core.resources"/>
       <import plugin="edu.cmu.emfta" version="0.1.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.sirius.diagram" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.sirius.diagram.ui" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.sirius.common" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.ui"/>
       <import plugin="org.eclipse.emf.edit.ui"/>
       <import plugin="org.junit"/>
       <import plugin="org.eclipse.core.resources" version="3.9.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.help"/>
       <import plugin="com.google.guava" version="12.0.0" match="greaterOrEqual"/>
-      <import feature="org.eclipse.sirius.specifier" version="3.0.0.201506090807"/>
+      <import feature="org.eclipse.sirius.runtime" version="3.0.0.201506090809"/>
+      <import feature="org.eclipse.sirius.runtime.ide.ui" version="3.0.0.201506090809"/>
+      <import feature="org.eclipse.sirius.specifier.ide.ui" version="3.0.0.201506090809"/>
    </requires>
 
    <plugin

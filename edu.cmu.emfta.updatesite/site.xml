@@ -9,5 +9,5 @@
    <feature url="features/org.osate.aadl2.errormodel.emfta.feature_1.0.0.201508180937.jar" id="org.osate.aadl2.errormodel.emfta.feature" version="1.0.0.201508180937">
       <category name="EMFTA"/>
    </feature>
-   <category-def name="EMFTA" label="EMFTA"/>
+   <category-def name="EMFTA" label="EMFTA Fault-Tree Analysis"/>
 </site>

@@ -19,7 +19,7 @@
 
    <url>
       <update label="EMFTA github update site for Luna" url="https://raw.githubusercontent.com/juli1/emfta/luna/edu.cmu.emfta.updatesite"/>
-      <discovery label="EMFTA home page" url="https://github.com/juli1/emfta"/>
+      <discovery label="Sirius Update site for Luna" url="http://download.eclipse.org/sirius/updates/releases/2.0.0/luna/"/>
    </url>
 
    <requires>

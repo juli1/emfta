@@ -2,6 +2,11 @@
 (An FTA editor/visualizer that uses EMF)
                              Julien Delange <jdelange@andrew.cmu.edu>
 
+##In a Nutshell
+* Latest build : https://raw.githubusercontent.com/juli1/emfta/master/edu.cmu.emfta.updatesite
+* Mars update site: https://raw.githubusercontent.com/juli1/emfta/mars/edu.cmu.emfta.updatesite
+* Luna update site: https://raw.githubusercontent.com/juli1/emfta/luna/edu.cmu.emfta.updatesite
+
 ## What it is?
 This is an EMF-based FTA editor/visualizer. You can edit the content
 in our FTA within Eclipse using a convenient representation (table)
@@ -36,24 +41,22 @@ or tree). Diagram and table examples are shown below (see examples).
 * Some time (or a lot if you are a newbie)
 * A brain (hard to find these days)
 
+## Installation with Eclipse
+* Download Eclipse Mars on http://www.eclipse.org - choose the modeling package
+* Once you start, go in the Help menu and choose "Install New Software"
+* Go to the install menu again and enter the following update site: https://raw.githubusercontent.com/juli1/emfta/mars/edu.cmu.emfta.updatesite
 
-## Installation
+
+## Installation with OSATE
 ### Download the latest OSATE testing release 
 Visit http://www.aadl.info/aadl/osate/testing/products/ and download
 the last OSATE release for your architecture and OS. Basically,
 it consists of a big zip file to unzip on your machine.
 
 ### Start OSATE and install EMFTA inside your installation
-Once you start OSATE, go in the Help menu and choose "Install New Software".
-![Installation Menu](https://raw.githubusercontent.com/juli1/emfta/master/doc/pics/sirius-install.png "Installation Menu")
+Once you start OSATE, go in the install menu again and enter the 
+following update site: https://raw.githubusercontent.com/juli1/emfta/luna/edu.cmu.emfta.updatesite
 
-Select the last stable Sirius update site (http://download.eclipse.org/sirius/updates/releases/2.0.0/luna) and select to install Sirius.
-Complete the installation and restart Eclipse
-![Sirius Installation](https://raw.githubusercontent.com/juli1/emfta/master/doc/pics/sirius-install-selection.png "Installation of Sirius")
-
-
-### Install EMFTA
-Go to the install menu again and enter the following update site: https://raw.githubusercontent.com/juli1/emfta/master/edu.cmu.emfta.updatesite
 Select to install EMFTA and complete the installation.
 ![EMFTA Installation](https://raw.githubusercontent.com/juli1/emfta/master/doc/pics/emfta-install.png "Installation of EMFTA")
 

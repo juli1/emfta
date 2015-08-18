@@ -3,11 +3,6 @@
    <description name="EMFTA Update site for Luna" url="https://raw.githubusercontent.com/juli1/emfta/luna/edu.cmu.emfta.updatesite">
       EMFTA Update site
    </description>
-   <feature url="features/edu.cmu.emfta.feature_1.0.0.201508180937.jar" id="edu.cmu.emfta.feature" version="1.0.0.201508180937">
-      <category name="EMFTA"/>
-   </feature>
-   <feature url="features/org.osate.aadl2.errormodel.emfta.feature_1.0.0.201508180937.jar" id="org.osate.aadl2.errormodel.emfta.feature" version="1.0.0.201508180937">
-      <category name="EMFTA"/>
-   </feature>
-   <category-def name="EMFTA" label="EMFTA Fault-Tree Analysis"/>
+   <feature url="features/edu.cmu.emfta.feature_1.0.0.201508180937.jar" id="edu.cmu.emfta.feature" version="1.0.0.201508180937"/>
+   <feature url="features/org.osate.aadl2.errormodel.emfta.feature_1.0.0.201508180937.jar" id="org.osate.aadl2.errormodel.emfta.feature" version="1.0.0.201508180937"/>
 </site>

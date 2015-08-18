@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="ASCII"?>
+<emfta:FTAModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:emfta="http://cmu.edu/emfta" name="event115" description="Total Loss of Wheel Braking">
+  <root name="Total Loss of Wheel Braking" description="Total Loss of Wheel Braking">
+    <gate>
+      <events name="event171" description="Occurrence of one of the following events">
+        <gate>
+          <events name="event116" description="Occurrence of all the following events">
+            <gate type="AND">
+              <events name="event117" description="Occurrence of all the following events">
+                <gate type="AND">
+                  <events name="component bscu in state Failed" description="component bscu in state Failed">
+                    <gate>
+                      <events name="event155" description="Occurrence of one of the following events">
+                        <gate>
+                          <events name="event119" description="Occurrence of all the following events">
+                            <gate type="AND">
+                              <events name="event120" description="Error Propagation on unknown propagation pointtypes {NoPower}"/>
+                              <events name="event121" description="Error Propagation on unknown propagation pointtypes {NoPower}"/>
+                            </gate>
+                          </events>
+                          <events name="event122" description="Occurrence of all the following events">
+                            <gate type="AND">
+                              <events name="Failure of a BSCU" probability="3.3E-5" description="Failure of a BSCU">
+                                <gate>
+                                  <events name="event138" description="Occurrence of one of the following events">
+                                    <gate>
+                                      <events name="event124" probability="1.35E-5" description="Loss of Electrical Power to BSCU"/>
+                                      <events name="event125" description="Occurrence of one of the following events">
+                                        <gate>
+                                          <events name="component mon in state Failed" description="component mon in state Failed">
+                                            <gate>
+                                              <events name="event132" description="Occurrence of one of the following events">
+                                                <gate>
+                                                  <events name="event127" description="Error from component cmd on skid with types {NoValue}"/>
+                                                  <events name="event128" description="Processor error with types {HardwareFailure}"/>
+                                                  <events name="event129" description="Error from component cmd on brake with types {NoValue}"/>
+                                                  <events name="event130" description="Processor error with types {SoftwareFailure}"/>
+                                                  <events name="event131" description="Report from a Monitor that causes an invalid switch to the alternate mode"/>
+                                                </gate>
+                                              </events>
+                                            </gate>
+                                          </events>
+                                          <events name="component cmd in state Failed" description="component cmd in state Failed">
+                                            <gate>
+                                              <events name="event137" description="Occurrence of one of the following events">
+                                                <gate>
+                                                  <events name="event134" description="No signal from the pedals"/>
+                                                  <events name="event135" description="Processor error with types {HardwareFailure}"/>
+                                                  <events name="event136" description="Processor error with types {SoftwareFailure}"/>
+                                                </gate>
+                                              </events>
+                                            </gate>
+                                          </events>
+                                        </gate>
+                                      </events>
+                                    </gate>
+                                  </events>
+                                </gate>
+                              </events>
+                              <events name="Failure of a BSCU" probability="3.3E-5" description="Failure of a BSCU">
+                                <gate>
+                                  <events name="event154" description="Occurrence of one of the following events">
+                                    <gate>
+                                      <events name="event140" probability="1.35E-5" description="Loss of Electrical Power to BSCU"/>
+                                      <events name="event141" description="Occurrence of one of the following events">
+                                        <gate>
+                                          <events name="component mon in state Failed" description="component mon in state Failed">
+                                            <gate>
+                                              <events name="event148" description="Occurrence of one of the following events">
+                                                <gate>
+                                                  <events name="event143" description="Error from component cmd on skid with types {NoValue}"/>
+                                                  <events name="event144" description="Processor error with types {HardwareFailure}"/>
+                                                  <events name="event145" description="Error from component cmd on brake with types {NoValue}"/>
+                                                  <events name="event146" description="Processor error with types {SoftwareFailure}"/>
+                                                  <events name="event147" description="Report from a Monitor that causes an invalid switch to the alternate mode"/>
+                                                </gate>
+                                              </events>
+                                            </gate>
+                                          </events>
+                                          <events name="component cmd in state Failed" description="component cmd in state Failed">
+                                            <gate>
+                                              <events name="event153" description="Occurrence of one of the following events">
+                                                <gate>
+                                                  <events name="event150" description="No signal from the pedals"/>
+                                                  <events name="event151" description="Processor error with types {HardwareFailure}"/>
+                                                  <events name="event152" description="Processor error with types {SoftwareFailure}"/>
+                                                </gate>
+                                              </events>
+                                            </gate>
+                                          </events>
+                                        </gate>
+                                      </events>
+                                    </gate>
+                                  </events>
+                                </gate>
+                              </events>
+                            </gate>
+                          </events>
+                        </gate>
+                      </events>
+                    </gate>
+                  </events>
+                  <events name="component accumulator in state Failed" description="component accumulator in state Failed">
+                    <gate>
+                      <events name="event157" probability="2.5E-5" description="Loss of one pump"/>
+                    </gate>
+                  </events>
+                </gate>
+              </events>
+              <events name="component annunciation in state Failed" description="component annunciation in state Failed">
+                <gate>
+                  <events name="event159" probability="1.0" description="The system cannot annunce an error"/>
+                </gate>
+              </events>
+            </gate>
+          </events>
+          <events name="event160" description="Occurrence of all the following events">
+            <gate type="AND">
+              <events name="event161" description="Occurrence of all the following events">
+                <gate type="AND">
+                  <events name="event162" description="Occurrence of all the following events">
+                    <gate type="AND">
+                      <events name="component blue_pump in state Failed" description="component blue_pump in state Failed">
+                        <gate>
+                          <events name="event164" probability="2.5E-5" description="Loss of one pump"/>
+                        </gate>
+                      </events>
+                      <events name="component green_pump in state Failed" description="component green_pump in state Failed">
+                        <gate>
+                          <events name="event166" probability="2.5E-5" description="Loss of one pump"/>
+                        </gate>
+                      </events>
+                    </gate>
+                  </events>
+                  <events name="component accumulator in state Failed" description="component accumulator in state Failed">
+                    <gate>
+                      <events name="event168" probability="2.5E-5" description="Loss of one pump"/>
+                    </gate>
+                  </events>
+                </gate>
+              </events>
+              <events name="component annunciation in state Failed" description="component annunciation in state Failed">
+                <gate>
+                  <events name="event170" probability="1.0" description="The system cannot annunce an error"/>
+                </gate>
+              </events>
+            </gate>
+          </events>
+        </gate>
+      </events>
+    </gate>
+  </root>
+</emfta:FTAModel>

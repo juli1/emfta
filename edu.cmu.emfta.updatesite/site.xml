@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <description name="EMFTA Update site for Luna" url="https://raw.githubusercontent.com/juli1/emfta/luna/edu.cmu.emfta.updatesite">
+   <description name="EMFTA Update site for Mars" url="https://raw.githubusercontent.com/juli1/emfta/mars/edu.cmu.emfta.updatesite">
       EMFTA Update site
    </description>
    <feature url="features/edu.cmu.emfta.feature_1.0.0.201508181012.jar" id="edu.cmu.emfta.feature" version="1.0.0.201508181012"/>

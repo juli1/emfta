@@ -18,8 +18,8 @@
    </license>
 
    <url>
-      <update label="EMFTA Update site for Luna" url="https://raw.githubusercontent.com/juli1/emfta/luna/edu.cmu.emfta.updatesite"/>
-      <discovery label="Sirius update site for Luna" url="http://download.eclipse.org/sirius/updates/releases/2.0.0/luna/"/>
+      <update label="EMFTA Update site for Mars" url="https://raw.githubusercontent.com/juli1/emfta/mars/edu.cmu.emfta.updatesite"/>
+      <discovery label="Sirius update site for Mars" url="http://download.eclipse.org/sirius/updates/releases/3.0.0/mars/"/>
    </url>
 
    <requires>

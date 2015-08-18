@@ -18,6 +18,7 @@
    </license>
 
    <url>
+      <update label="EMFTA Update site for Luna" url="https://raw.githubusercontent.com/juli1/emfta/luna/edu.cmu.emfta.updatesite"/>
       <discovery label="EMFTA website" url="https://github.com/juli1/emfta"/>
       <discovery label="AADL home" url="http://www.aadl.info"/>
       <discovery label="OSATE 2 information page" url="https://wiki.sei.cmu.edu/aadl/index.php/Osate_2"/>

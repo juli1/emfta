@@ -18,7 +18,7 @@
    </license>
 
    <url>
-      <update label="EMFTA github update site" url="https://raw.githubusercontent.com/juli1/emfta/master/edu.cmu.emfta.updatesite"/>
+      <update label="EMFTA github update site for Luna" url="https://raw.githubusercontent.com/juli1/emfta/luna/edu.cmu.emfta.updatesite"/>
       <discovery label="EMFTA home page" url="https://github.com/juli1/emfta"/>
    </url>
 

@@ -8,8 +8,9 @@
       </diagramInitialisation>
       <defaultLayer name="Default">
         <nodeMappings name="TreeRootNode" semanticCandidatesExpression="[eAllContents()/]" domainClass="emfta.Tree">
-          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" labelFormat="bold" labelExpression="[name + '\n' + description /]" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" width="25" height="5">
+          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" labelExpression="[name + '\n' + description /]" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" width="25" height="5">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
@@ -48,6 +49,13 @@
             <style xsi:type="style:WorkspaceImageDescription" labelExpression="OR" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/emfta.design/imgs/inhibit.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.type.toString().equalsIgnoreCase('INTERMEDIATE')/]">
+            <style xsi:type="style:SquareDescription" borderSizeComputationExpression="2" labelExpression="[' Intermediate Gate\n' + description/]" labelPosition="node" resizeKind="NSEW" width="15" height="6">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </conditionnalStyles>
         </nodeMappings>

@@ -29,11 +29,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link edu.cmu.emfta.impl.GateImpl#getType <em>Type</em>}</li>
  *   <li>{@link edu.cmu.emfta.impl.GateImpl#getEvents <em>Events</em>}</li>
+ *   <li>{@link edu.cmu.emfta.impl.GateImpl#getDescription <em>Description</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -67,6 +68,26 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 	 * @ordered
 	 */
 	protected EList<Event> events;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -125,6 +146,27 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EmftaPackage.GATE__DESCRIPTION, oldDescription, description));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -146,6 +188,8 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 				return getType();
 			case EmftaPackage.GATE__EVENTS:
 				return getEvents();
+			case EmftaPackage.GATE__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -166,6 +210,9 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 				getEvents().clear();
 				getEvents().addAll((Collection<? extends Event>)newValue);
 				return;
+			case EmftaPackage.GATE__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -184,6 +231,9 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 			case EmftaPackage.GATE__EVENTS:
 				getEvents().clear();
 				return;
+			case EmftaPackage.GATE__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -200,6 +250,8 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 				return type != TYPE_EDEFAULT;
 			case EmftaPackage.GATE__EVENTS:
 				return events != null && !events.isEmpty();
+			case EmftaPackage.GATE__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -216,6 +268,8 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (type: ");
 		result.append(type);
+		result.append(", description: ");
+		result.append(description);
 		result.append(')');
 		return result.toString();
 	}

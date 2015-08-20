@@ -11,13 +11,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link edu.cmu.emfta.FTAModel#getRoot <em>Root</em>}</li>
  *   <li>{@link edu.cmu.emfta.FTAModel#getName <em>Name</em>}</li>
  *   <li>{@link edu.cmu.emfta.FTAModel#getDescription <em>Description</em>}</li>
  *   <li>{@link edu.cmu.emfta.FTAModel#getComments <em>Comments</em>}</li>
  * </ul>
- * </p>
  *
  * @see edu.cmu.emfta.EmftaPackage#getFTAModel()
  * @model

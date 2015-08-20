@@ -159,13 +159,22 @@ public interface EmftaPackage extends EPackage {
 	int GATE__EVENTS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GATE__DESCRIPTION = 2;
+
+	/**
 	 * The number of structural features of the '<em>Gate</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GATE_FEATURE_COUNT = 2;
+	int GATE_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Gate</em>' class.
@@ -359,6 +368,17 @@ public interface EmftaPackage extends EPackage {
 	EReference getGate_Events();
 
 	/**
+	 * Returns the meta object for the attribute '{@link edu.cmu.emfta.Gate#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see edu.cmu.emfta.Gate#getDescription()
+	 * @see #getGate()
+	 * @generated
+	 */
+	EAttribute getGate_Description();
+
+	/**
 	 * Returns the meta object for class '{@link edu.cmu.emfta.FTAModel <em>FTA Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -530,6 +550,14 @@ public interface EmftaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GATE__EVENTS = eINSTANCE.getGate_Events();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GATE__DESCRIPTION = eINSTANCE.getGate_Description();
 
 		/**
 		 * The meta object literal for the '{@link edu.cmu.emfta.impl.FTAModelImpl <em>FTA Model</em>}' class.

@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link edu.cmu.emfta.impl.EventImpl#getType <em>Type</em>}</li>
  *   <li>{@link edu.cmu.emfta.impl.EventImpl#getName <em>Name</em>}</li>
@@ -26,7 +27,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link edu.cmu.emfta.impl.EventImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link edu.cmu.emfta.impl.EventImpl#getGate <em>Gate</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

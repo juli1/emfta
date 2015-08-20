@@ -20,6 +20,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//GateType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
         eType="#//Event" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="GateType">
     <eLiterals name="OR"/>
@@ -28,6 +29,7 @@
     <eLiterals name="PRIORITY_AND" value="3"/>
     <eLiterals name="INHIBIT" value="4"/>
     <eLiterals name="PRIORITY_OR" value="5" literal="PRIORITY_OR"/>
+    <eLiterals name="INTERMEDIATE" value="6" literal="INTERMEDIATE"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FTAModel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="root" eType="#//Event"

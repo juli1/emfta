@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link edu.cmu.emfta.Event#getType <em>Type</em>}</li>
  *   <li>{@link edu.cmu.emfta.Event#getName <em>Name</em>}</li>
@@ -18,7 +19,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link edu.cmu.emfta.Event#getDescription <em>Description</em>}</li>
  *   <li>{@link edu.cmu.emfta.Event#getGate <em>Gate</em>}</li>
  * </ul>
- * </p>
  *
  * @see edu.cmu.emfta.EmftaPackage#getEvent()
  * @model

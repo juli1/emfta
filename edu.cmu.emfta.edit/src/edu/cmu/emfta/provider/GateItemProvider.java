@@ -65,6 +65,7 @@ public class GateItemProvider
 			super.getPropertyDescriptors(object);
 
 			addTypePropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -83,6 +84,28 @@ public class GateItemProvider
 				 getString("_UI_Gate_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Gate_type_feature", "_UI_Gate_type"),
 				 EmftaPackage.Literals.GATE__TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Gate_description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Gate_description_feature", "_UI_Gate_type"),
+				 EmftaPackage.Literals.GATE__DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -161,6 +184,7 @@ public class GateItemProvider
 
 		switch (notification.getFeatureID(Gate.class)) {
 			case EmftaPackage.GATE__TYPE:
+			case EmftaPackage.GATE__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EmftaPackage.GATE__EVENTS:

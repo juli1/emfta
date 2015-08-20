@@ -18,13 +18,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link edu.cmu.emfta.impl.FTAModelImpl#getRoot <em>Root</em>}</li>
  *   <li>{@link edu.cmu.emfta.impl.FTAModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link edu.cmu.emfta.impl.FTAModelImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link edu.cmu.emfta.impl.FTAModelImpl#getComments <em>Comments</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

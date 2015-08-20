@@ -74,7 +74,15 @@ public enum GateType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PRIORITY_OR(5, "PRIORITY_OR", "PRIORITY_OR");
+	PRIORITY_OR(5, "PRIORITY_OR", "PRIORITY_OR"), /**
+	 * The '<em><b>INTERMEDIATE</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #INTERMEDIATE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	INTERMEDIATE(6, "INTERMEDIATE", "INTERMEDIATE");
 
 	/**
 	 * The '<em><b>OR</b></em>' literal value.
@@ -167,6 +175,21 @@ public enum GateType implements Enumerator {
 	public static final int PRIORITY_OR_VALUE = 5;
 
 	/**
+	 * The '<em><b>INTERMEDIATE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>INTERMEDIATE</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #INTERMEDIATE
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int INTERMEDIATE_VALUE = 6;
+
+	/**
 	 * An array of all the '<em><b>Gate Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -180,6 +203,7 @@ public enum GateType implements Enumerator {
 			PRIORITY_AND,
 			INHIBIT,
 			PRIORITY_OR,
+			INTERMEDIATE,
 		};
 
 	/**
@@ -194,6 +218,8 @@ public enum GateType implements Enumerator {
 	 * Returns the '<em><b>Gate Type</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static GateType get(String literal) {
@@ -210,6 +236,8 @@ public enum GateType implements Enumerator {
 	 * Returns the '<em><b>Gate Type</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static GateType getByName(String name) {
@@ -226,6 +254,8 @@ public enum GateType implements Enumerator {
 	 * Returns the '<em><b>Gate Type</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static GateType get(int value) {
@@ -236,6 +266,7 @@ public enum GateType implements Enumerator {
 			case PRIORITY_AND_VALUE: return PRIORITY_AND;
 			case INHIBIT_VALUE: return INHIBIT;
 			case PRIORITY_OR_VALUE: return PRIORITY_OR;
+			case INTERMEDIATE_VALUE: return INTERMEDIATE;
 		}
 		return null;
 	}

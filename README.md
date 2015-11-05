@@ -55,7 +55,7 @@ it consists of a big zip file to unzip on your machine.
 
 ### Start OSATE and install EMFTA inside your installation
 Once you start OSATE, go in the install menu again and enter the 
-following update site: https://raw.githubusercontent.com/juli1/emfta/luna/edu.cmu.emfta.updatesite/
+following update site: https://raw.githubusercontent.com/juli1/emfta/master/edu.cmu.emfta.updatesite/
 
 Select to install EMFTA and complete the installation.
 ![EMFTA Installation](https://raw.githubusercontent.com/juli1/emfta/master/doc/pics/emfta-install.png "Installation of EMFTA")

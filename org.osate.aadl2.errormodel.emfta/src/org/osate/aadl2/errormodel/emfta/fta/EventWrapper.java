@@ -1,6 +1,7 @@
 package org.osate.aadl2.errormodel.emfta.fta;
 
 import org.osate.aadl2.errormodel.analysis.fta.EventType;
+import org.osate.aadl2.util.OsateDebug;
 
 import edu.cmu.emfta.EmftaFactory;
 import edu.cmu.emfta.GateType;
@@ -26,18 +27,33 @@ public class EventWrapper {
 				edu.cmu.emfta.Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
 				emftaEvent.setGate(emftaGate);
 
-				if (subEvent.getType() == EventType.OR) {
-					if (subEvent.getSubEvents().size() == 1) {
-						return toEmftaEvent(subEvent.getSubEvents().get(0));
+				switch (subEvent.getType())
+				{
+					case OR:
+					{
+						if (subEvent.getSubEvents().size() == 1) {
+							return toEmftaEvent(subEvent.getSubEvents().get(0));
+						}
+						emftaGate.setType(GateType.OR);
+						break;
 					}
-					emftaGate.setType(GateType.OR);
-				}
-				if (subEvent.getType() == EventType.AND) {
-					if (subEvent.getSubEvents().size() == 1) {
-						return toEmftaEvent(subEvent.getSubEvents().get(0));
+					
+					case AND:
+					{
+						if (subEvent.getSubEvents().size() == 1) {
+							return toEmftaEvent(subEvent.getSubEvents().get(0));
+						}
+						emftaGate.setType(GateType.AND);
+						break;
 					}
-					emftaGate.setType(GateType.AND);
+					
+					default:
+					{
+						OsateDebug.osateDebug("unhandled type");
+						break;
+					}
 				}
+
 
 				/**
 				 * This is to handle a buggy case: if the gate has no child,
@@ -51,7 +67,7 @@ public class EventWrapper {
 					emftaGate.getEvents().add(toEmftaEvent(e));
 				}
 			} else {
-				System.out.println("[EventWrapper] not handled now");
+				throw new UnsupportedOperationException("EMFTA - not handled now");
 			}
 
 			break;

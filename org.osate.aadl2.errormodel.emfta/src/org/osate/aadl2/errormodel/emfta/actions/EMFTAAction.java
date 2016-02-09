@@ -38,9 +38,6 @@ import java.io.FileOutputStream;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IWorkspace;
-import org.eclipse.core.resources.IWorkspaceRoot;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -143,7 +140,7 @@ public final class EMFTAAction extends AaxlReadOnlyActionAsJob {
 			errorType = null;
 
 			org.osate.aadl2.errormodel.analysis.fta.FTAUtils.init(si);
-
+			org.osate.aadl2.errormodel.analysis.fta.Event.init();
 			if (ERROR_STATE_NAME.contains(" ")) {
 				errorStateName = ERROR_STATE_NAME.substring(0, ERROR_STATE_NAME.indexOf(" "));
 				errorStateTypeName = ERROR_STATE_NAME.substring(ERROR_STATE_NAME.indexOf(" "),
@@ -207,7 +204,7 @@ public final class EMFTAAction extends AaxlReadOnlyActionAsJob {
 			res.getContents().add(emftaModel);
 
 			FileOutputStream fos = new FileOutputStream(newFile.getRawLocation().toFile());
-			res.save(fos, null); 
+			res.save(fos, null);
 //			IWorkspaceRoot ws = ResourcesPlugin.getWorkspace().getRoot();
 			OsateDebug.osateDebug("[EMFTAAction]", "activeproject=" + activeProject.getName());
 

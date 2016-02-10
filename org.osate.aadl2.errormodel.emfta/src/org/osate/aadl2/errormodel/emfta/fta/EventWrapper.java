@@ -1,8 +1,5 @@
 package org.osate.aadl2.errormodel.emfta.fta;
 
-import org.osate.aadl2.errormodel.analysis.fta.EventType;
-import org.osate.aadl2.util.OsateDebug;
-
 import edu.cmu.emfta.EmftaFactory;
 import edu.cmu.emfta.GateType;
 
@@ -23,49 +20,40 @@ public class EventWrapper {
 			if (event.getSubEvents().size() == 1) {
 				org.osate.aadl2.errormodel.analysis.fta.Event subEvent = event.getSubEvents().get(0);
 				emftaEvent.setName(event.getName());
+				emftaEvent.setType(edu.cmu.emfta.EventType.BASIC);
 				emftaEvent.setDescription(event.getDescription());
-				edu.cmu.emfta.Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
-				emftaEvent.setGate(emftaGate);
+//				edu.cmu.emfta.Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
+				emftaEvent.setGate(null);
 
-				switch (subEvent.getType())
-				{
-					case OR:
-					{
-						if (subEvent.getSubEvents().size() == 1) {
-							return toEmftaEvent(subEvent.getSubEvents().get(0));
-						}
-						emftaGate.setType(GateType.OR);
-						break;
-					}
-					
-					case AND:
-					{
-						if (subEvent.getSubEvents().size() == 1) {
-							return toEmftaEvent(subEvent.getSubEvents().get(0));
-						}
-						emftaGate.setType(GateType.AND);
-						break;
-					}
-					
-					default:
-					{
-						OsateDebug.osateDebug("unhandled type");
-						break;
-					}
-				}
+//				switch (subEvent.getType())
+//				{
+//					case OR:
+//					{
+//						if (subEvent.getSubEvents().size() == 1) {
+//							return toEmftaEvent(subEvent.getSubEvents().get(0));
+//						}
+//						emftaGate.setType(GateType.OR);
+//						break;
+//					}
+//
+//					case AND:
+//					{
+//
+//						emftaGate.setType(GateType.AND);
+//						break;
+//					}
+//
+//					default:
+//					{
+//						OsateDebug.osateDebug("unhandled type");
+//						break;
+//					}
+//				}
+
+				edu.cmu.emfta.Event gateEvent = toEmftaEvent(subEvent);
+				emftaEvent.setGate(gateEvent.getGate());
 
 
-				/**
-				 * This is to handle a buggy case: if the gate has no child,
-				 * we do not add this. This avoid a bad/erroneous FTA.
-				 */
-				if (subEvent.getSubEvents().size() == 0) {
-					emftaEvent.setGate(null);
-				}
-
-				for (org.osate.aadl2.errormodel.analysis.fta.Event e : subEvent.getSubEvents()) {
-					emftaGate.getEvents().add(toEmftaEvent(e));
-				}
 			} else {
 				throw new UnsupportedOperationException("EMFTA - not handled now");
 			}

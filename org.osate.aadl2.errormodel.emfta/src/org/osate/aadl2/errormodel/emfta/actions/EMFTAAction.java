@@ -42,10 +42,12 @@ import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Display;
@@ -179,9 +181,21 @@ public final class EMFTAAction extends AaxlReadOnlyActionAsJob {
 			}
 
 			if (ftaEvent != null) {
+				URI newURI = EcoreUtil.getURI(si).trimSegments(2).appendSegment(si.getName().toLowerCase() + ".emfta");
+				String uriString = newURI.toString();
+				
+				String fileString = newURI.toPlatformString(true);
+				
+//				OsateDebug.osateDebug("[EMFTAAction]", "string=" + uriString);
+//				OsateDebug.osateDebug("[EMFTAAction]", "filestring=" + fileString);
+//ResourcesPlugin.getWorkspace().
+//				var IPath ipath = new Path(uri.toPlatformString(true));
+//				IFile file = ResourcesPlugin.getWorkspace().getRoot().
+//				var String path = file.getRawLocation().removeLastSegments(1).toOSString();
+//				IFile iFile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(newURI.toPlatformString(true)));
 
-				serializeEmftaModel(EventWrapper.toEmftaModel(ftaEvent), ResourceUtil.getFile(si.eResource())
-						.getProject(), si.getName().toLowerCase() + ".emfta");
+				serializeEmftaModel(EventWrapper.toEmftaModel(ftaEvent), newURI, ResourceUtil.getFile(si.eResource())
+						.getProject());
 
 			} else {
 				Dialog.showInfo("Fault Tree Analysis",
@@ -192,16 +206,18 @@ public final class EMFTAAction extends AaxlReadOnlyActionAsJob {
 		monitor.done();
 	}
 
-	public static void serializeEmftaModel(edu.cmu.emfta.FTAModel emftaModel, IProject activeProject, String filename) {
+	public static void serializeEmftaModel(edu.cmu.emfta.FTAModel emftaModel, URI newURI, IProject activeProject) {
 
 //		OsateDebug.osateDebug("[EMFTAAction]", "serializeReqSpecModel activeProject=" + activeProject);
 
-		IFile newFile = activeProject.getFile(filename);
+//		IFile newFile = activeProject.getFile(filename);
 //		OsateDebug.osateDebug("[EMFTAAction]", "save in file=" + newFile.getName());
+		IFile newFile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(newURI.toPlatformString(true)));
 
 		try {
 
 			ResourceSet set = new ResourceSetImpl();
+			
 			Resource res = set.createResource(URI.createURI(newFile.toString()));
 
 			res.getContents().add(emftaModel);
@@ -209,7 +225,7 @@ public final class EMFTAAction extends AaxlReadOnlyActionAsJob {
 			FileOutputStream fos = new FileOutputStream(newFile.getRawLocation().toFile());
 			res.save(fos, null); 
 //			IWorkspaceRoot ws = ResourcesPlugin.getWorkspace().getRoot();
-			OsateDebug.osateDebug("[EMFTAAction]", "activeproject=" + activeProject.getName());
+//			OsateDebug.osateDebug("[EMFTAAction]", "activeproject=" + activeProject.getName());
 
 			activeProject.refreshLocal(IResource.DEPTH_INFINITE, null);
 

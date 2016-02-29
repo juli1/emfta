@@ -171,14 +171,14 @@ public final class EMFTAAction extends AaxlReadOnlyActionAsJob {
 				}
 			}
 
-			ftaEvent = null;
+//			ftaEvent = null;
+
+//			if (errorState != null) {
+//				ftaEvent = org.osate.aadl2.errormodel.analysis.fta.FTAUtils
+//						.processErrorState(si, errorState, errorType);
+//			}
 
 			if (errorState != null) {
-				ftaEvent = org.osate.aadl2.errormodel.analysis.fta.FTAUtils
-						.processErrorState(si, errorState, errorType);
-			}
-
-			if (ftaEvent != null) {
 				URI newURI = EcoreUtil.getURI(si).trimSegments(2).appendSegment(si.getName().toLowerCase() + ".emfta");
 				String uriString = newURI.toString();
 				
@@ -191,7 +191,7 @@ public final class EMFTAAction extends AaxlReadOnlyActionAsJob {
 //				IFile file = ResourcesPlugin.getWorkspace().getRoot().
 //				var String path = file.getRawLocation().removeLastSegments(1).toOSString();
 //				IFile iFile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(newURI.toPlatformString(true)));
-				EmftaWrapper wrapper = new EmftaWrapper(ftaEvent);
+				EmftaWrapper wrapper = new EmftaWrapper(si, errorState, errorType);
 				
 				serializeEmftaModel(wrapper.getEmftaModel(), newURI, ResourceUtil.getFile(si.eResource())
 						.getProject());

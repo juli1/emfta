@@ -54,7 +54,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.xtext.ui.util.ResourceUtil;
 import org.osate.aadl2.Element;
-import org.osate.aadl2.errormodel.emfta.fta.EventWrapper;
+import org.osate.aadl2.errormodel.emfta.fta.EmftaWrapper;
 import org.osate.aadl2.instance.InstanceObject;
 import org.osate.aadl2.instance.SystemInstance;
 import org.osate.aadl2.util.OsateDebug;
@@ -191,8 +191,9 @@ public final class EMFTAAction extends AaxlReadOnlyActionAsJob {
 //				IFile file = ResourcesPlugin.getWorkspace().getRoot().
 //				var String path = file.getRawLocation().removeLastSegments(1).toOSString();
 //				IFile iFile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(newURI.toPlatformString(true)));
-
-				serializeEmftaModel(EventWrapper.toEmftaModel(ftaEvent), newURI, ResourceUtil.getFile(si.eResource())
+				EmftaWrapper wrapper = new EmftaWrapper(ftaEvent);
+				
+				serializeEmftaModel(wrapper.getEmftaModel(), newURI, ResourceUtil.getFile(si.eResource())
 						.getProject());
 
 			} else {

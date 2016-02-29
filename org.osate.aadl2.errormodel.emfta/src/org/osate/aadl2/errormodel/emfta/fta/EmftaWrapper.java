@@ -1,14 +1,54 @@
 package org.osate.aadl2.errormodel.emfta.fta;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import edu.cmu.emfta.EmftaFactory;
 import edu.cmu.emfta.GateType;
 
-public class EventWrapper {
+public class EmftaWrapper {
+	org.osate.aadl2.errormodel.analysis.fta.Event rootEvent;
+	edu.cmu.emfta.FTAModel emftaModel;
+	
+	public Map<String,edu.cmu.emfta.Event> cache;
+	
+	private String getIdentifierString (org.osate.aadl2.errormodel.analysis.fta.Event event)
+	{
+		return event.getDescription() + event.getType().toString();
+	}
+	
+	private void save (org.osate.aadl2.errormodel.analysis.fta.Event generic, edu.cmu.emfta.Event emfta)
+	{
+		if (cache.containsKey(getIdentifierString(generic)))
+		{
+			return;
+		}
+		
+		emftaModel.getEvents().add(emfta);
+		cache.put(getIdentifierString(generic), emfta);
+	}
+	
+	private edu.cmu.emfta.Event get (org.osate.aadl2.errormodel.analysis.fta.Event event)
+	{
+		return cache.get(getIdentifierString(event));
+	}
+	
+	public EmftaWrapper (org.osate.aadl2.errormodel.analysis.fta.Event root)
+	{
+		rootEvent = root;
+		emftaModel = null;
+		cache = new HashMap<String, edu.cmu.emfta.Event>();
+	}
 
-	public static edu.cmu.emfta.Event toEmftaEvent(org.osate.aadl2.errormodel.analysis.fta.Event event, edu.cmu.emfta.FTAModel emftaModel) {
+	public edu.cmu.emfta.Event toEmftaEvent(org.osate.aadl2.errormodel.analysis.fta.Event event) {
 		edu.cmu.emfta.Event emftaEvent;
-
-		emftaEvent = null;
+		
+		emftaEvent = get(event);
+		
+		if (emftaEvent != null)
+		{
+			return emftaEvent;
+		}
 
 		emftaEvent = EmftaFactory.eINSTANCE.createEvent();
 		emftaEvent.setName(event.getName());
@@ -50,9 +90,11 @@ public class EventWrapper {
 //					}
 //				}
 
-				edu.cmu.emfta.Event gateEvent = toEmftaEvent(subEvent, emftaModel);
+				edu.cmu.emfta.Event gateEvent = toEmftaEvent(subEvent);
 				emftaEvent.setGate(gateEvent.getGate());
-				emftaModel.getEvents().add(emftaEvent);
+
+				save (event, emftaEvent);
+//				emftaModel.getEvents().add(emftaEvent);
 
 
 			} else {
@@ -64,7 +106,8 @@ public class EventWrapper {
 
 		case EVENT: {
 			emftaEvent.setType(edu.cmu.emfta.EventType.BASIC);
-			emftaModel.getEvents().add(emftaEvent);
+//			emftaModel.getEvents().add(emftaEvent);
+			save (event, emftaEvent);
 
 			break;
 		}
@@ -75,10 +118,12 @@ public class EventWrapper {
 			emftaGate.setType(GateType.OR);
 			emftaEvent.setGate(emftaGate);
 			for (org.osate.aadl2.errormodel.analysis.fta.Event e : event.getSubEvents()) {
-				edu.cmu.emfta.Event tmpEmftaEvent = toEmftaEvent(e, emftaModel);
+				edu.cmu.emfta.Event tmpEmftaEvent = toEmftaEvent(e);
 
 				emftaGate.getEvents().add(tmpEmftaEvent);
-				emftaModel.getEvents().add(tmpEmftaEvent);
+//				emftaModel.getEvents().add(tmpEmftaEvent);
+				save (e, tmpEmftaEvent);
+				
 
 			}
 			break;
@@ -90,9 +135,10 @@ public class EventWrapper {
 			emftaGate.setType(GateType.AND);
 			emftaEvent.setGate(emftaGate);
 			for (org.osate.aadl2.errormodel.analysis.fta.Event e : event.getSubEvents()) {
-				edu.cmu.emfta.Event tmpEmftaEvent = toEmftaEvent(e, emftaModel);
-				emftaModel.getEvents().add(tmpEmftaEvent);
+				edu.cmu.emfta.Event tmpEmftaEvent = toEmftaEvent(e);
+				save (e, tmpEmftaEvent);
 
+//				emftaModel.getEvents().add(tmpEmftaEvent);
 				emftaGate.getEvents().add(tmpEmftaEvent);
 			}
 			break;
@@ -103,12 +149,19 @@ public class EventWrapper {
 		return emftaEvent;
 	}
 
-	public static edu.cmu.emfta.FTAModel toEmftaModel(org.osate.aadl2.errormodel.analysis.fta.Event event) {
-		edu.cmu.emfta.FTAModel emftaModel;
-		emftaModel = EmftaFactory.eINSTANCE.createFTAModel();
-		emftaModel.setName(event.getName());
-		emftaModel.setDescription(event.getDescription());
-		emftaModel.setRoot(toEmftaEvent(event,emftaModel));
+	public edu.cmu.emfta.FTAModel getEmftaModel() {
+		if (emftaModel == null)
+		{
+			edu.cmu.emfta.Event emftaRootEvent;
+			
+			emftaModel = EmftaFactory.eINSTANCE.createFTAModel();
+			emftaModel.setName(rootEvent.getName());
+			emftaModel.setDescription(rootEvent.getDescription());
+			emftaRootEvent = toEmftaEvent(rootEvent);
+			emftaModel.getEvents().add(emftaRootEvent);
+			emftaModel.setRoot(emftaRootEvent);
+		}
+		
 
 		return emftaModel;
 	}

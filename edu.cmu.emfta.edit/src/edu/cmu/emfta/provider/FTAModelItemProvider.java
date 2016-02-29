@@ -63,11 +63,34 @@ public class FTAModelItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addRootPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addCommentsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Root feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRootPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FTAModel_root_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FTAModel_root_feature", "_UI_FTAModel_type"),
+				 EmftaPackage.Literals.FTA_MODEL__ROOT,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -148,7 +171,7 @@ public class FTAModelItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EmftaPackage.Literals.FTA_MODEL__ROOT);
+			childrenFeatures.add(EmftaPackage.Literals.FTA_MODEL__EVENTS);
 		}
 		return childrenFeatures;
 	}
@@ -209,7 +232,7 @@ public class FTAModelItemProvider
 			case EmftaPackage.FTA_MODEL__COMMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case EmftaPackage.FTA_MODEL__ROOT:
+			case EmftaPackage.FTA_MODEL__EVENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -229,7 +252,7 @@ public class FTAModelItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EmftaPackage.Literals.FTA_MODEL__ROOT,
+				(EmftaPackage.Literals.FTA_MODEL__EVENTS,
 				 EmftaFactory.eINSTANCE.createEvent()));
 	}
 

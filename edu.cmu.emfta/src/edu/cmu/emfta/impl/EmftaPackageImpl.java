@@ -196,8 +196,8 @@ public class EmftaPackageImpl extends EPackageImpl implements EmftaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGate_Events() {
-		return (EReference)gateEClass.getEStructuralFeatures().get(1);
+	public EAttribute getGate_Description() {
+		return (EAttribute)gateEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -205,8 +205,8 @@ public class EmftaPackageImpl extends EPackageImpl implements EmftaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGate_Description() {
-		return (EAttribute)gateEClass.getEStructuralFeatures().get(2);
+	public EReference getGate_Events() {
+		return (EReference)gateEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -252,6 +252,15 @@ public class EmftaPackageImpl extends EPackageImpl implements EmftaPackage {
 	 */
 	public EAttribute getFTAModel_Comments() {
 		return (EAttribute)ftaModelEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFTAModel_Events() {
+		return (EReference)ftaModelEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -309,14 +318,15 @@ public class EmftaPackageImpl extends EPackageImpl implements EmftaPackage {
 
 		gateEClass = createEClass(GATE);
 		createEAttribute(gateEClass, GATE__TYPE);
-		createEReference(gateEClass, GATE__EVENTS);
 		createEAttribute(gateEClass, GATE__DESCRIPTION);
+		createEReference(gateEClass, GATE__EVENTS);
 
 		ftaModelEClass = createEClass(FTA_MODEL);
 		createEReference(ftaModelEClass, FTA_MODEL__ROOT);
 		createEAttribute(ftaModelEClass, FTA_MODEL__NAME);
 		createEAttribute(ftaModelEClass, FTA_MODEL__DESCRIPTION);
 		createEAttribute(ftaModelEClass, FTA_MODEL__COMMENTS);
+		createEReference(ftaModelEClass, FTA_MODEL__EVENTS);
 
 		// Create enums
 		eventTypeEEnum = createEEnum(EVENT_TYPE);
@@ -362,14 +372,15 @@ public class EmftaPackageImpl extends EPackageImpl implements EmftaPackage {
 
 		initEClass(gateEClass, Gate.class, "Gate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGate_Type(), this.getGateType(), "type", null, 0, 1, Gate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGate_Events(), this.getEvent(), null, "events", null, 0, -1, Gate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGate_Description(), ecorePackage.getEString(), "description", null, 0, 1, Gate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGate_Events(), this.getEvent(), null, "events", null, 0, -1, Gate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ftaModelEClass, FTAModel.class, "FTAModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFTAModel_Root(), this.getEvent(), null, "root", null, 0, 1, FTAModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFTAModel_Root(), this.getEvent(), null, "root", null, 0, 1, FTAModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFTAModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, FTAModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFTAModel_Description(), ecorePackage.getEString(), "description", null, 0, 1, FTAModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFTAModel_Comments(), ecorePackage.getEString(), "comments", null, 0, 1, FTAModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFTAModel_Events(), this.getEvent(), null, "events", null, 0, -1, FTAModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(eventTypeEEnum, EventType.class, "EventType");

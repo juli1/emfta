@@ -150,22 +150,22 @@ public interface EmftaPackage extends EPackage {
 	int GATE__TYPE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Events</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GATE__EVENTS = 1;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GATE__DESCRIPTION = 2;
+	int GATE__DESCRIPTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Events</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GATE__EVENTS = 2;
 
 	/**
 	 * The number of structural features of the '<em>Gate</em>' class.
@@ -196,7 +196,7 @@ public interface EmftaPackage extends EPackage {
 	int FTA_MODEL = 2;
 
 	/**
-	 * The feature id for the '<em><b>Root</b></em>' containment reference.
+	 * The feature id for the '<em><b>Root</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -232,13 +232,22 @@ public interface EmftaPackage extends EPackage {
 	int FTA_MODEL__COMMENTS = 3;
 
 	/**
+	 * The feature id for the '<em><b>Events</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FTA_MODEL__EVENTS = 4;
+
+	/**
 	 * The number of structural features of the '<em>FTA Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FTA_MODEL_FEATURE_COUNT = 4;
+	int FTA_MODEL_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>FTA Model</em>' class.
@@ -357,17 +366,6 @@ public interface EmftaPackage extends EPackage {
 	EAttribute getGate_Type();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.cmu.emfta.Gate#getEvents <em>Events</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Events</em>'.
-	 * @see edu.cmu.emfta.Gate#getEvents()
-	 * @see #getGate()
-	 * @generated
-	 */
-	EReference getGate_Events();
-
-	/**
 	 * Returns the meta object for the attribute '{@link edu.cmu.emfta.Gate#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -377,6 +375,17 @@ public interface EmftaPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGate_Description();
+
+	/**
+	 * Returns the meta object for the reference list '{@link edu.cmu.emfta.Gate#getEvents <em>Events</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Events</em>'.
+	 * @see edu.cmu.emfta.Gate#getEvents()
+	 * @see #getGate()
+	 * @generated
+	 */
+	EReference getGate_Events();
 
 	/**
 	 * Returns the meta object for class '{@link edu.cmu.emfta.FTAModel <em>FTA Model</em>}'.
@@ -389,10 +398,10 @@ public interface EmftaPackage extends EPackage {
 	EClass getFTAModel();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link edu.cmu.emfta.FTAModel#getRoot <em>Root</em>}'.
+	 * Returns the meta object for the reference '{@link edu.cmu.emfta.FTAModel#getRoot <em>Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Root</em>'.
+	 * @return the meta object for the reference '<em>Root</em>'.
 	 * @see edu.cmu.emfta.FTAModel#getRoot()
 	 * @see #getFTAModel()
 	 * @generated
@@ -431,6 +440,17 @@ public interface EmftaPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getFTAModel_Comments();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link edu.cmu.emfta.FTAModel#getEvents <em>Events</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Events</em>'.
+	 * @see edu.cmu.emfta.FTAModel#getEvents()
+	 * @see #getFTAModel()
+	 * @generated
+	 */
+	EReference getFTAModel_Events();
 
 	/**
 	 * Returns the meta object for enum '{@link edu.cmu.emfta.EventType <em>Event Type</em>}'.
@@ -544,20 +564,20 @@ public interface EmftaPackage extends EPackage {
 		EAttribute GATE__TYPE = eINSTANCE.getGate_Type();
 
 		/**
-		 * The meta object literal for the '<em><b>Events</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GATE__EVENTS = eINSTANCE.getGate_Events();
-
-		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute GATE__DESCRIPTION = eINSTANCE.getGate_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Events</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GATE__EVENTS = eINSTANCE.getGate_Events();
 
 		/**
 		 * The meta object literal for the '{@link edu.cmu.emfta.impl.FTAModelImpl <em>FTA Model</em>}' class.
@@ -570,7 +590,7 @@ public interface EmftaPackage extends EPackage {
 		EClass FTA_MODEL = eINSTANCE.getFTAModel();
 
 		/**
-		 * The meta object literal for the '<em><b>Root</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Root</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -600,6 +620,14 @@ public interface EmftaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FTA_MODEL__COMMENTS = eINSTANCE.getFTAModel_Comments();
+
+		/**
+		 * The meta object literal for the '<em><b>Events</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FTA_MODEL__EVENTS = eINSTANCE.getFTAModel_Events();
 
 		/**
 		 * The meta object literal for the '{@link edu.cmu.emfta.EventType <em>Event Type</em>}' enum.

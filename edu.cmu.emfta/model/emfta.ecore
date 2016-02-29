@@ -18,9 +18,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Gate">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//GateType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
-        eType="#//Event" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
+        eType="#//Event"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="GateType">
     <eLiterals name="OR"/>
@@ -32,10 +32,11 @@
     <eLiterals name="INTERMEDIATE" value="6" literal="INTERMEDIATE"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FTAModel">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="root" eType="#//Event"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="root" eType="#//Event"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="comments" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
+        eType="#//Event" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

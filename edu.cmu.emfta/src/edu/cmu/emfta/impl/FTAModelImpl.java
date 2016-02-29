@@ -5,12 +5,16 @@ package edu.cmu.emfta.impl;
 import edu.cmu.emfta.EmftaPackage;
 import edu.cmu.emfta.Event;
 import edu.cmu.emfta.FTAModel;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,13 +28,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link edu.cmu.emfta.impl.FTAModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link edu.cmu.emfta.impl.FTAModelImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link edu.cmu.emfta.impl.FTAModelImpl#getComments <em>Comments</em>}</li>
+ *   <li>{@link edu.cmu.emfta.impl.FTAModelImpl#getEvents <em>Events</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class FTAModelImpl extends MinimalEObjectImpl.Container implements FTAModel {
 	/**
-	 * The cached value of the '{@link #getRoot() <em>Root</em>}' containment reference.
+	 * The cached value of the '{@link #getRoot() <em>Root</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRoot()
@@ -100,6 +105,16 @@ public class FTAModelImpl extends MinimalEObjectImpl.Container implements FTAMod
 	protected String comments = COMMENTS_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getEvents() <em>Events</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEvents()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Event> events;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -124,6 +139,14 @@ public class FTAModelImpl extends MinimalEObjectImpl.Container implements FTAMod
 	 * @generated
 	 */
 	public Event getRoot() {
+		if (root != null && root.eIsProxy()) {
+			InternalEObject oldRoot = (InternalEObject)root;
+			root = (Event)eResolveProxy(oldRoot);
+			if (root != oldRoot) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EmftaPackage.FTA_MODEL__ROOT, oldRoot, root));
+			}
+		}
 		return root;
 	}
 
@@ -132,14 +155,8 @@ public class FTAModelImpl extends MinimalEObjectImpl.Container implements FTAMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRoot(Event newRoot, NotificationChain msgs) {
-		Event oldRoot = root;
-		root = newRoot;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EmftaPackage.FTA_MODEL__ROOT, oldRoot, newRoot);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public Event basicGetRoot() {
+		return root;
 	}
 
 	/**
@@ -148,17 +165,10 @@ public class FTAModelImpl extends MinimalEObjectImpl.Container implements FTAMod
 	 * @generated
 	 */
 	public void setRoot(Event newRoot) {
-		if (newRoot != root) {
-			NotificationChain msgs = null;
-			if (root != null)
-				msgs = ((InternalEObject)root).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EmftaPackage.FTA_MODEL__ROOT, null, msgs);
-			if (newRoot != null)
-				msgs = ((InternalEObject)newRoot).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EmftaPackage.FTA_MODEL__ROOT, null, msgs);
-			msgs = basicSetRoot(newRoot, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EmftaPackage.FTA_MODEL__ROOT, newRoot, newRoot));
+		Event oldRoot = root;
+		root = newRoot;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EmftaPackage.FTA_MODEL__ROOT, oldRoot, root));
 	}
 
 	/**
@@ -229,11 +239,23 @@ public class FTAModelImpl extends MinimalEObjectImpl.Container implements FTAMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Event> getEvents() {
+		if (events == null) {
+			events = new EObjectContainmentEList<Event>(Event.class, this, EmftaPackage.FTA_MODEL__EVENTS);
+		}
+		return events;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EmftaPackage.FTA_MODEL__ROOT:
-				return basicSetRoot(null, msgs);
+			case EmftaPackage.FTA_MODEL__EVENTS:
+				return ((InternalEList<?>)getEvents()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -247,13 +269,16 @@ public class FTAModelImpl extends MinimalEObjectImpl.Container implements FTAMod
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EmftaPackage.FTA_MODEL__ROOT:
-				return getRoot();
+				if (resolve) return getRoot();
+				return basicGetRoot();
 			case EmftaPackage.FTA_MODEL__NAME:
 				return getName();
 			case EmftaPackage.FTA_MODEL__DESCRIPTION:
 				return getDescription();
 			case EmftaPackage.FTA_MODEL__COMMENTS:
 				return getComments();
+			case EmftaPackage.FTA_MODEL__EVENTS:
+				return getEvents();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -263,6 +288,7 @@ public class FTAModelImpl extends MinimalEObjectImpl.Container implements FTAMod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -277,6 +303,10 @@ public class FTAModelImpl extends MinimalEObjectImpl.Container implements FTAMod
 				return;
 			case EmftaPackage.FTA_MODEL__COMMENTS:
 				setComments((String)newValue);
+				return;
+			case EmftaPackage.FTA_MODEL__EVENTS:
+				getEvents().clear();
+				getEvents().addAll((Collection<? extends Event>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -302,6 +332,9 @@ public class FTAModelImpl extends MinimalEObjectImpl.Container implements FTAMod
 			case EmftaPackage.FTA_MODEL__COMMENTS:
 				setComments(COMMENTS_EDEFAULT);
 				return;
+			case EmftaPackage.FTA_MODEL__EVENTS:
+				getEvents().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -322,6 +355,8 @@ public class FTAModelImpl extends MinimalEObjectImpl.Container implements FTAMod
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case EmftaPackage.FTA_MODEL__COMMENTS:
 				return COMMENTS_EDEFAULT == null ? comments != null : !COMMENTS_EDEFAULT.equals(comments);
+			case EmftaPackage.FTA_MODEL__EVENTS:
+				return events != null && !events.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

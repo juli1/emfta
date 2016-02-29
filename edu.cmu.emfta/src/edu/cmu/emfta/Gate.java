@@ -3,7 +3,6 @@
 package edu.cmu.emfta;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,8 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link edu.cmu.emfta.Gate#getType <em>Type</em>}</li>
- *   <li>{@link edu.cmu.emfta.Gate#getEvents <em>Events</em>}</li>
  *   <li>{@link edu.cmu.emfta.Gate#getDescription <em>Description</em>}</li>
+ *   <li>{@link edu.cmu.emfta.Gate#getEvents <em>Events</em>}</li>
  * </ul>
  *
  * @see edu.cmu.emfta.EmftaPackage#getGate()
@@ -55,22 +54,6 @@ public interface Gate extends EObject {
 	void setType(GateType value);
 
 	/**
-	 * Returns the value of the '<em><b>Events</b></em>' containment reference list.
-	 * The list contents are of type {@link edu.cmu.emfta.Event}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Events</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Events</em>' containment reference list.
-	 * @see edu.cmu.emfta.EmftaPackage#getGate_Events()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Event> getEvents();
-
-	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -95,5 +78,21 @@ public interface Gate extends EObject {
 	 * @generated
 	 */
 	void setDescription(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Events</b></em>' reference list.
+	 * The list contents are of type {@link edu.cmu.emfta.Event}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Events</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Events</em>' reference list.
+	 * @see edu.cmu.emfta.EmftaPackage#getGate_Events()
+	 * @model
+	 * @generated
+	 */
+	EList<Event> getEvents();
 
 } // Gate

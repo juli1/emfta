@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<emfta:FTAModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:emfta="http://cmu.edu/emfta" name="No light model" description="We do not have light">
-  <root name="nolight" description="Suddenly, there is no more light in the room">
-    <gate>
-      <events name="nopower" description="There is no more power available"/>
-      <events name="bulbbroken" probability="2.0" description="The bulb is broken"/>
-    </gate>
-  </root>
+<emfta:FTAModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:emfta="http://cmu.edu/emfta" root="//@events.0" name="" description="" comments="">
+  <events name="Nolight" description="Suddenly, we have no more light">
+    <gate events="//@events.2 //@events.1"/>
+  </events>
+  <events name="Bulb Broken" description="The bulb is broken"/>
+  <events name="No Power" description="No Power Available"/>
 </emfta:FTAModel>

@@ -47,14 +47,16 @@ public class EmftaWrapper {
 
 	public Map<String, edu.cmu.emfta.Event> cache;
 	
-	private String buildIdentifier (ComponentInstance component, NamedElement namedElement, TypeSet typeSet)
+	private String buildName (ComponentInstance component, NamedElement namedElement, TypeSet typeSet)
 	{
-		String identifier = eventIdentifier + "-" + buildName (component,namedElement, typeSet);
-		identifier = identifier.replaceAll("\\{", "").replaceAll("\\}", "").toLowerCase();
-		return identifier;
+		String name = eventIdentifier + "-" + buildIdentifier (component,namedElement, typeSet);
+		name = name.replaceAll("\\{", "").replaceAll("\\}", "").toLowerCase();
+
+		eventIdentifier = eventIdentifier + 1;
+		return name;
 	}
 	
-	private String buildName (ComponentInstance component, NamedElement namedElement, TypeSet typeSet)
+	private String buildIdentifier (ComponentInstance component, NamedElement namedElement, TypeSet typeSet)
 	{
 		String identifier;
 		
@@ -110,9 +112,10 @@ public class EmftaWrapper {
 	
 	private Event getFromCache (ComponentInstance component, NamedElement namedElement, TypeSet typeSet)
 	{
-		if (cache.containsKey(buildName(component, namedElement, typeSet)))
+		String id = buildIdentifier (component, namedElement, typeSet);
+		if (cache.containsKey(id))
 		{
-			return cache.get(buildName(component, namedElement, typeSet));
+			return cache.get(id);
 		}
 		return null;
 	}
@@ -121,15 +124,17 @@ public class EmftaWrapper {
 	private Event createEvent (ComponentInstance component, NamedElement namedElement, TypeSet typeSet, boolean putInCache)
 	{
 		Event newEvent = EmftaFactory.eINSTANCE.createEvent();
+		String name = buildName( component, namedElement, typeSet);
 		String identifier = buildIdentifier(component, namedElement, typeSet);
+		
 		emftaModel.getEvents().add(newEvent);
-		newEvent.setName(identifier);
+		newEvent.setName(name);
 		newEvent.setGate(null);
-		eventIdentifier = eventIdentifier + 1;
+		
 		
 		if (putInCache)
 		{
-			cache.put(buildName(component, namedElement, typeSet), newEvent);
+			cache.put(identifier, newEvent);
 		}
 		
 		return newEvent;
@@ -330,7 +335,7 @@ public class EmftaWrapper {
 							newEvent = getFromCache(componentSource, errorSource, ef.getTypeTokenConstraint());
 							if (newEvent == null)
 							{
-								newEvent = this.createEvent(componentSource, errorSource, ef.getTypeTokenConstraint(), false);
+								newEvent = this.createEvent(componentSource, errorSource, ef.getTypeTokenConstraint(), true);
 								newEvent.setType(EventType.EXTERNAL);
 								Utils.fillProperties(newEvent, componentSource, errorSource, ef.getTypeTokenConstraint());
 							}
@@ -498,7 +503,7 @@ public class EmftaWrapper {
 					
 					if (emftaEvent == null)
 					{
-						emftaEvent = this.createEvent(component, errorEvent, errorEvent.getTypeSet(), false);
+						emftaEvent = this.createEvent(component, errorEvent, errorEvent.getTypeSet(), true);
 						emftaEvent.setType(EventType.BASIC);
 
 						errorEvent = (ErrorEvent) conditionElement.getIncoming();
@@ -533,7 +538,7 @@ public class EmftaWrapper {
 						
 						if (emftaEvent == null)
 						{
-							emftaEvent = this.createEvent(component, errorPropagation, errorPropagation.getTypeSet(), false);
+							emftaEvent = this.createEvent(component, errorPropagation, errorPropagation.getTypeSet(), true);
 							emftaEvent.setType(EventType.EXTERNAL);
 							Utils.fillProperties(emftaEvent, component, errorPropagation, errorPropagation.getTypeSet());
 

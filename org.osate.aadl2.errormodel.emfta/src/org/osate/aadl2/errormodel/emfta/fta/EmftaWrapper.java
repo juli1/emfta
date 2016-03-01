@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Stack;
 
-import org.osate.aadl2.NamedElement;
 import org.osate.aadl2.Subcomponent;
 import org.osate.aadl2.instance.ComponentInstance;
 import org.osate.aadl2.util.OsateDebug;
@@ -22,14 +21,11 @@ import org.osate.xtext.aadl2.errormodel.errorModel.ErrorPath;
 import org.osate.xtext.aadl2.errormodel.errorModel.ErrorPropagation;
 import org.osate.xtext.aadl2.errormodel.errorModel.ErrorSource;
 import org.osate.xtext.aadl2.errormodel.errorModel.ErrorTypes;
-import org.osate.xtext.aadl2.errormodel.errorModel.FeatureorPPReference;
 import org.osate.xtext.aadl2.errormodel.errorModel.OrExpression;
 import org.osate.xtext.aadl2.errormodel.errorModel.SubcomponentElement;
-import org.osate.xtext.aadl2.errormodel.errorModel.TypeSet;
 import org.osate.xtext.aadl2.errormodel.errorModel.TypeToken;
 import org.osate.xtext.aadl2.errormodel.util.AnalysisModel;
 import org.osate.xtext.aadl2.errormodel.util.EM2TypeSetUtil;
-import org.osate.xtext.aadl2.errormodel.util.EMV2Properties;
 import org.osate.xtext.aadl2.errormodel.util.EMV2Util;
 import org.osate.xtext.aadl2.errormodel.util.PropagationPathEnd;
 
@@ -38,7 +34,6 @@ import edu.cmu.emfta.Event;
 import edu.cmu.emfta.EventType;
 import edu.cmu.emfta.Gate;
 import edu.cmu.emfta.GateType;
-import edu.cmu.emfta.impl.EmftaFactoryImpl;
 
 public class EmftaWrapper {
 	private edu.cmu.emfta.FTAModel emftaModel;
@@ -46,7 +41,7 @@ public class EmftaWrapper {
 	private ComponentInstance rootComponent;
 	private ErrorBehaviorState rootComponentState;
 	private ErrorTypes rootComponentTypes;
-	
+	private int eventIdentifier;
 
 	public Map<String, edu.cmu.emfta.Event> cache;
 
@@ -54,10 +49,13 @@ public class EmftaWrapper {
 	{
 		Event newEvent = EmftaFactory.eINSTANCE.createEvent();
 		emftaModel.getEvents().add(newEvent);
+		newEvent.setName("unknown-event-" + eventIdentifier);
+		newEvent.setGate(null);
+		eventIdentifier = eventIdentifier + 1;
 		return newEvent;
 	}
-	
-	
+
+
 	// private void save (org.osate.aadl2.errormodel.analysis.fta.Event generic,
 	// edu.cmu.emfta.Event emfta)
 	// {
@@ -86,6 +84,7 @@ public class EmftaWrapper {
 		rootComponentTypes = errorTypes;
 		rootComponentState = errorState;
 		rootComponent = root;
+		eventIdentifier = 0;
 		currentAnalysisModel = new AnalysisModel(rootComponent);
 	}
 
@@ -107,7 +106,7 @@ public class EmftaWrapper {
 	/**
 	 * For one incoming error propagation and one component, returns all the
 	 * potential errors contributors.
-	 * 
+	 *
 	 * @param component
 	 *            - the component that has the incoming error propagation
 	 * @param errorPropagation
@@ -246,6 +245,7 @@ public class EmftaWrapper {
 					if (Utils.propagationEndsMatches(propagationSource, errorSource.getOutgoing())) {
 						if (EM2TypeSetUtil.contains(errorSource.getTypeTokenConstraint(), typeToken)) {
 							Event newEvent = this.createEvent();
+
 							newEvent.setType(EventType.EXTERNAL);
 							Utils.fillProperties(newEvent, componentSource, errorSource, ef.getTypeTokenConstraint());
 							subEvents.add(newEvent);
@@ -277,19 +277,11 @@ public class EmftaWrapper {
 			break;
 		}
 		default: {
-			Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
-			emftaGate.setType(GateType.OR);
-			
-			for (Event se : subEvents)
-			{
-				emftaGate.getEvents().add(se);
-			}
-			
+
+
 			result = this.createEvent();
 			result.setType(EventType.BASIC);
-			result.setGate(emftaGate);
-			
-			
+
 			String desc = "Events from component " + component.getName() + " on "
 					+ EMV2Util.getPrintName(errorPropagation);
 			if (typeToken != null) {
@@ -297,6 +289,15 @@ public class EmftaWrapper {
 			}
 			result.setDescription(desc);
 
+
+			Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
+			emftaGate.setType(GateType.OR);
+
+			for (Event se : subEvents)
+			{
+				emftaGate.getEvents().add(se);
+			}
+			result.setGate(emftaGate);
 		}
 		}
 
@@ -308,7 +309,7 @@ public class EmftaWrapper {
 	/**
 	 * Process a condition, either from a component error behavior or a
 	 * composite error behavior.
-	 * 
+	 *
 	 * @param component
 	 *            - the component that contains the condition
 	 * @param condition
@@ -316,8 +317,7 @@ public class EmftaWrapper {
 	 * @return a list of events related to the condition
 	 */
 	public Event processCondition(ComponentInstance component, ConditionExpression condition) {
-		Event emftaEvent = this.createEvent();
-		emftaEvent.setType(EventType.BASIC);
+
 		// OsateDebug.osateDebug("[FTAUtils] condition=" + condition);
 
 		/**
@@ -325,6 +325,8 @@ public class EmftaWrapper {
 		 */
 		if (condition instanceof AndExpression) {
 			AndExpression expression;
+			Event emftaEvent = this.createEvent();
+			emftaEvent.setType(EventType.BASIC);
 			Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
 			emftaGate.setType(GateType.AND);
 			emftaEvent.setGate(emftaGate);
@@ -336,24 +338,28 @@ public class EmftaWrapper {
 
 				emftaGate.getEvents().add(processCondition(component, ce));
 			}
+			return emftaEvent;
 		}
 
 
 
 		if (condition instanceof OrExpression) {
 			OrExpression expression;
+			Event emftaEvent = this.createEvent();
+			emftaEvent.setType(EventType.BASIC);
+
 			Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
 			emftaGate.setType(GateType.OR);
 			emftaEvent.setGate(emftaGate);
 
 
-			emftaEvent.setDescription("Occurrence of all the following events");
+			emftaEvent.setDescription("Occurrence of at least one the following events");
 
 			expression = (OrExpression) condition;
 			for (ConditionExpression ce : expression.getOperands()) {
 				emftaGate.getEvents().add( processCondition(component, ce));
-
 			}
+			return emftaEvent;
 		}
 
 
@@ -373,12 +379,14 @@ public class EmftaWrapper {
 				 */
 				if (conditionElement.getIncoming() instanceof ErrorEvent) {
 					ErrorEvent errorEvent;
-
+					Event emftaEvent = this.createEvent();
+					emftaEvent.setType(EventType.BASIC);
 
 					errorEvent = (ErrorEvent) conditionElement.getIncoming();
 					emftaEvent.setType(EventType.BASIC);
 
 					Utils.fillProperties(emftaEvent, component, errorEvent, errorEvent.getTypeSet());
+					return emftaEvent;
 				}
 
 				/**
@@ -387,11 +395,9 @@ public class EmftaWrapper {
 				 */
 				if (conditionElement.getIncoming() instanceof ErrorPropagation) {
 					ErrorPropagation errorPropagation;
-					Event newEvent;
+
+
 					errorPropagation = (ErrorPropagation) conditionElement.getIncoming();
-
-
-					emftaEvent.setType(EventType.EXTERNAL);
 
 
 					List<Event> contributors = new ArrayList<Event>();
@@ -400,7 +406,19 @@ public class EmftaWrapper {
 								getAllEventsFromPropagationSource(component, errorPropagation, tt, new Stack<Event>()));
 					}
 
-					if (contributors.size() > 0) {
+					if (contributors.size() == 0) {
+						Event emftaEvent = this.createEvent();
+						emftaEvent.setType(EventType.EXTERNAL);
+						Utils.fillProperties(emftaEvent, component, errorPropagation, errorPropagation.getTypeSet());
+					}
+
+					if (contributors.size() == 1) {
+						return contributors.get(0);
+					}
+
+					if (contributors.size() > 1) {
+						Event emftaEvent = this.createEvent();
+						emftaEvent.setType(EventType.BASIC);
 						Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
 						emftaEvent.setGate(emftaGate);
 
@@ -410,7 +428,11 @@ public class EmftaWrapper {
 						{
 							emftaGate.getEvents().add(contributor);
 						}
+						return emftaEvent;
 					}
+
+
+					return null;
 				}
 			}
 
@@ -459,18 +481,18 @@ public class EmftaWrapper {
 					// OsateDebug.osateDebug("[FTAUtils] referenced type=" +
 					// referencedErrorType);
 
-					emftaEvent =  processErrorState(referencedInstance, EMV2Util.getState(conditionElement),
+					return  processErrorState(referencedInstance, EMV2Util.getState(conditionElement),
 							referencedErrorType);
 				}
 			}
 
-			return emftaEvent;
+			return null;
 		}
 
 		/**
 		 * Process a component error behavior, analyze its transition and produces a
 		 * list of all events that could then be added in a fault-tree.
-		 * 
+		 *
 		 * @param component
 		 *            - The component under analysis (the one that contains the
 		 *            error behavior)
@@ -481,29 +503,51 @@ public class EmftaWrapper {
 		 * @return - list of events that are related to the target state in this
 		 *         component.
 		 */
-		public List<Event> processComponentErrorBehavior(ComponentInstance component, ErrorBehaviorState state,
+		public Event processComponentErrorBehavior(ComponentInstance component, ErrorBehaviorState state,
 				ErrorTypes type) {
 			/**
 			 * Depending on the condition, it returns either a single element, an
 			 * AND or an OR.
 			 */
-			List<Event> returnedEvents;
+			List<Event> subEvents;
 
-			returnedEvents = new ArrayList<Event>();
+			subEvents = new ArrayList<Event>();
 
 			for (ErrorBehaviorTransition transition : EMV2Util.getAllErrorBehaviorTransitions(component)) {
 				if (transition.getTarget() == state) {
-					returnedEvents.add(processCondition(component, transition.getCondition()));
+					subEvents.add(processCondition(component, transition.getCondition()));
 				}
 			}
 
-			return returnedEvents;
+			if (subEvents.size() == 1)
+			{
+				return subEvents.get(0);
+			}
+			if (subEvents.size() > 1)
+			{
+				Event combined = this.createEvent();
+				combined.setType(EventType.BASIC);
+				Utils.fillProperties(combined, component, state, null);
+				Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
+				emftaGate.setType(GateType.OR);
+
+				combined.setGate(emftaGate);
+
+				for (Event se : subEvents)
+				{
+					emftaGate.getEvents().add(se);
+				}
+
+				return combined;
+			}
+
+			return null;
 		}
 
 		/**
 		 * Process a composite error behavior for a component and try to get all
 		 * related potential events to add in a FTA
-		 * 
+		 *
 		 * @param component
 		 *            - the component under analysis
 		 * @param state
@@ -527,29 +571,31 @@ public class EmftaWrapper {
 					subEvents.add(processCondition(component, cs.getCondition()));
 				}
 			}
-			
+
+
 			if (subEvents.size() == 1)
 			{
 				return subEvents.get(0);
 			}
-			else
+			if (subEvents.size() > 1)
 			{
 				Event combined = this.createEvent();
 				combined.setType(EventType.BASIC);
 				Utils.fillProperties(combined, component, state, null);
 				Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
 				emftaGate.setType(GateType.OR);
-				
+
 				combined.setGate(emftaGate);
-				
+
 				for (Event se : subEvents)
 				{
 					emftaGate.getEvents().add(se);
 				}
-				
+
 				return combined;
 			}
-			
+			return null;
+
 		}
 
 		/**
@@ -567,17 +613,43 @@ public class EmftaWrapper {
 		 *         AND- or OR- nodes if several.
 		 */
 		public Event processErrorState(ComponentInstance component, ErrorBehaviorState state, ErrorTypes type) {
-			Event errorStateEvent = this.createEvent();
-			errorStateEvent.setType(EventType.BASIC);
 
-			Utils.fillProperties(errorStateEvent, component, state, state.getTypeSet());
+			Event compositeBehaviorEvent;
+			Event componentBehaviorEvent;
+
 
 			List<Event> subEvents = new ArrayList<Event>();
 
-			subEvents.addAll(processComponentErrorBehavior(component, state, type));
-			subEvents.add(processCompositeErrorBehavior(component, state, type));
+			componentBehaviorEvent = processComponentErrorBehavior(component, state, type);
+			if (componentBehaviorEvent != null)
+			{
+				subEvents.add(componentBehaviorEvent);
+			}
+
+			compositeBehaviorEvent = processCompositeErrorBehavior(component, state, type);
+			if (compositeBehaviorEvent != null)
+			{
+				subEvents.add(compositeBehaviorEvent);
+			}
+
+			if (subEvents.size() == 0)
+			{
+				Event errorStateEvent = this.createEvent();
+				errorStateEvent.setType(EventType.BASIC);
+				Utils.fillProperties(errorStateEvent, component, state, state.getTypeSet());
+				errorStateEvent.setGate(null);
+				return errorStateEvent;
+			}
+
+			if(subEvents.size() == 1)
+			{
+				return subEvents.get(0);
+			}
 
 			if (subEvents.size() > 0) {
+				Event errorStateEvent = this.createEvent();
+				errorStateEvent.setType(EventType.BASIC);
+				Utils.fillProperties(errorStateEvent, component, state, state.getTypeSet());
 				Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
 				emftaGate.setType(GateType.OR);
 				errorStateEvent.setGate(emftaGate);
@@ -585,55 +657,10 @@ public class EmftaWrapper {
 				for (Event e : subEvents) {
 					emftaGate.getEvents().add(e);
 				}
+				return errorStateEvent;
 			}
 
-			// /**
-			// * If we have only one subevent, we directly attach it to the main
-			// * event.
-			// */
-			// if (subEvents.size() == 1) {
-			// return subEvents.get(0);
-			//
-			// // The following code is commented. When we have only one sub event,
-			// // it does
-			// // not seem to make sense to continue and try to process more
-			// // events.
-			//
-			// // if (subEvents.get(0).getEventType() == EventType.NORMAL) {
-			// // /**
-			// // * If the subevent is also a normal event, we directly return
-			// // * it and bypass the other one.
-			// // */
-			// // return subEvents.get(0);
-			// // } else {
-			// // /**
-			// // * In that case, here, we have an event. We add it directly.
-			// // */
-			// // returnedEvent.addSubEvent(subEvents.get(0));
-			// // }
-			// }
-			//
-			// /**
-			// * If we have several intermediate subevents, we consider that each
-			// one
-			// * is independent. So, we make an OR gate to connect all these events
-			// * altogether.
-			// */
-			// if (subEvents.size() > 1) {
-			// // OsateDebug.osateDebug("FTAUtils", "More than one event, needs to
-			// // make an or");
-			// Event intermediateEvent = new Event();
-			// intermediateEvent.setEventType(EventType.OR);
-			// intermediateEvent.setDescription("Composition of one of the following
-			// events on " + component.getName());
-			//
-			// for (Event ev : subEvents) {
-			// intermediateEvent.addSubEvent(ev);
-			// }
-			// returnedEvent.addSubEvent(intermediateEvent);
-			// }
-
-			return errorStateEvent;
+			return null;
 
 		}
 

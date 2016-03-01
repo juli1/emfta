@@ -472,8 +472,24 @@ public class EmftaWrapper {
 			emftaEvent.setDescription("Occurrence of at least one the following events");
 
 			expression = (OrExpression) condition;
-			for (ConditionExpression ce : expression.getOperands()) {
-				emftaGate.getEvents().add( processCondition(component, ce));
+			for (ConditionExpression ce : expression.getOperands())
+			{
+				Event tmpEvent = processCondition (component, ce);
+				
+				if ((tmpEvent.getGate() != null) && (tmpEvent.getGate().getType() == GateType.OR))
+				{
+					emftaModel.getEvents().remove(tmpEvent);
+					for (Event e : tmpEvent.getGate().getEvents())
+					{
+						emftaGate.getEvents().add(e);
+					}
+				}
+				else
+				{
+					emftaGate.getEvents().add(tmpEvent);
+				}
+				// Pre-optimization code
+//				emftaGate.getEvents().add(processCondition(component, ce));
 			}
 			return emftaEvent;
 		}

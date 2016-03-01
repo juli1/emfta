@@ -118,15 +118,19 @@ public class EmftaWrapper {
 	}
 	
 	
-	private Event createEvent (ComponentInstance component, NamedElement namedElement, TypeSet typeSet)
+	private Event createEvent (ComponentInstance component, NamedElement namedElement, TypeSet typeSet, boolean putInCache)
 	{
 		Event newEvent = EmftaFactory.eINSTANCE.createEvent();
+		String identifier = buildIdentifier(component, namedElement, typeSet);
 		emftaModel.getEvents().add(newEvent);
-		newEvent.setName(buildIdentifier(component, namedElement, typeSet));
+		newEvent.setName(identifier);
 		newEvent.setGate(null);
 		eventIdentifier = eventIdentifier + 1;
 		
-		cache.put(buildName(component, namedElement, typeSet), newEvent);
+		if (putInCache)
+		{
+			cache.put(buildName(component, namedElement, typeSet), newEvent);
+		}
 		
 		return newEvent;
 	}
@@ -326,7 +330,7 @@ public class EmftaWrapper {
 							newEvent = getFromCache(componentSource, errorSource, ef.getTypeTokenConstraint());
 							if (newEvent == null)
 							{
-								newEvent = this.createEvent(componentSource, errorSource, ef.getTypeTokenConstraint());
+								newEvent = this.createEvent(componentSource, errorSource, ef.getTypeTokenConstraint(), false);
 								newEvent.setType(EventType.EXTERNAL);
 								Utils.fillProperties(newEvent, componentSource, errorSource, ef.getTypeTokenConstraint());
 							}
@@ -341,13 +345,12 @@ public class EmftaWrapper {
 		/**
 		 * Then, we build the final tree.
 		 */
-		switch (subEvents.size()) {
-		case 0: {
-			
+		if (subEvents.size() == 0)
+		{
 			result = getFromCache(component, errorPropagation, null);
 			if (result == null)
 			{
-				result = this.createEvent(component, errorPropagation, null);
+				result = this.createEvent(component, errorPropagation, null, false);
 				
 				String desc = "Events from component " + component.getName() + " on "
 						+ EMV2Util.getPrintName(errorPropagation);
@@ -359,17 +362,20 @@ public class EmftaWrapper {
 				result.setDescription(desc);
 				result.setType(EventType.BASIC);
 			}
-			break;
+			return result;
 		}
-		case 1: {
-			result = subEvents.get(0);
-			break;
+		
+		if (subEvents.size() == 1) {
+			return subEvents.get(0);
 		}
-		default: {
+		
+		if (subEvents.size() > 1)
+		{
+	
 			result = getFromCache(component, errorPropagation, null);
 			if (result == null)
 			{
-				result = this.createEvent(component, errorPropagation, null);
+				result = this.createEvent(component, errorPropagation, null, false);
 
 				
 				result.setType(EventType.BASIC);
@@ -391,10 +397,11 @@ public class EmftaWrapper {
 				}
 				result.setGate(emftaGate);
 			}
-		}
+			return result;
+		
 		}
 
-		return result;
+		return null;
 	}
 
 
@@ -430,9 +437,15 @@ public class EmftaWrapper {
 			emftaEvent.setDescription("Occurrence of all the following events");
 
 			expression = (AndExpression) condition;
+			List<Event> subEvents = new ArrayList<Event>();
+			
 			for (ConditionExpression ce : expression.getOperands()) {
-
-				emftaGate.getEvents().add(processCondition(component, ce));
+				subEvents.add(processCondition(component,ce));
+			}
+			
+			for (Event e : subEvents)
+			{
+				emftaGate.getEvents().add(e);
 			}
 			return emftaEvent;
 		}
@@ -485,7 +498,7 @@ public class EmftaWrapper {
 					
 					if (emftaEvent == null)
 					{
-						emftaEvent = this.createEvent(component, errorEvent, errorEvent.getTypeSet());
+						emftaEvent = this.createEvent(component, errorEvent, errorEvent.getTypeSet(), false);
 						emftaEvent.setType(EventType.BASIC);
 
 						errorEvent = (ErrorEvent) conditionElement.getIncoming();
@@ -520,7 +533,7 @@ public class EmftaWrapper {
 						
 						if (emftaEvent == null)
 						{
-							emftaEvent = this.createEvent(component, errorPropagation, errorPropagation.getTypeSet());
+							emftaEvent = this.createEvent(component, errorPropagation, errorPropagation.getTypeSet(), false);
 							emftaEvent.setType(EventType.EXTERNAL);
 							Utils.fillProperties(emftaEvent, component, errorPropagation, errorPropagation.getTypeSet());
 
@@ -539,7 +552,7 @@ public class EmftaWrapper {
 						
 						if (emftaEvent == null)
 						{
-							emftaEvent = this.createEvent(component, errorPropagation, errorPropagation.getTypeSet());
+							emftaEvent = this.createEvent(component, errorPropagation, errorPropagation.getTypeSet(), false);
 							emftaEvent.setType(EventType.BASIC);
 							Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
 							emftaEvent.setGate(emftaGate);
@@ -654,7 +667,7 @@ public class EmftaWrapper {
 				
 				if (combined == null)
 				{
-					combined = this.createEvent(component, state, state.getTypeSet());
+					combined = this.createEvent(component, state, state.getTypeSet(), false);
 					combined.setType(EventType.BASIC);
 					Utils.fillProperties(combined, component, state, null);
 					Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
@@ -709,7 +722,7 @@ public class EmftaWrapper {
 			}
 			if (subEvents.size() > 1)
 			{
-				Event combined = this.createEvent(component, state, state.getTypeSet());
+				Event combined = this.createEvent(component, state, state.getTypeSet(), false);
 				combined.setType(EventType.BASIC);
 				Utils.fillProperties(combined, component, state, null);
 				Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
@@ -764,7 +777,7 @@ public class EmftaWrapper {
 
 			if (subEvents.size() == 0)
 			{
-				Event errorStateEvent = this.createEvent(component, state, state.getTypeSet());
+				Event errorStateEvent = this.createEvent(component, state, state.getTypeSet(), false);
 				errorStateEvent.setType(EventType.BASIC);
 				Utils.fillProperties(errorStateEvent, component, state, state.getTypeSet());
 				errorStateEvent.setGate(null);
@@ -777,7 +790,7 @@ public class EmftaWrapper {
 			}
 
 			if (subEvents.size() > 0) {
-				Event errorStateEvent = this.createEvent(component, state, state.getTypeSet());
+				Event errorStateEvent = this.createEvent(component, state, state.getTypeSet(), false);
 				errorStateEvent.setType(EventType.BASIC);
 				Utils.fillProperties(errorStateEvent, component, state, state.getTypeSet());
 				Gate emftaGate = EmftaFactory.eINSTANCE.createGate();

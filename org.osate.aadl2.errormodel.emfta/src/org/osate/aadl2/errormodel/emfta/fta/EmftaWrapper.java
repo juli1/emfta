@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Stack;
 
+import org.osate.aadl2.NamedElement;
 import org.osate.aadl2.Subcomponent;
 import org.osate.aadl2.instance.ComponentInstance;
 import org.osate.aadl2.util.OsateDebug;
@@ -23,6 +24,7 @@ import org.osate.xtext.aadl2.errormodel.errorModel.ErrorSource;
 import org.osate.xtext.aadl2.errormodel.errorModel.ErrorTypes;
 import org.osate.xtext.aadl2.errormodel.errorModel.OrExpression;
 import org.osate.xtext.aadl2.errormodel.errorModel.SubcomponentElement;
+import org.osate.xtext.aadl2.errormodel.errorModel.TypeSet;
 import org.osate.xtext.aadl2.errormodel.errorModel.TypeToken;
 import org.osate.xtext.aadl2.errormodel.util.AnalysisModel;
 import org.osate.xtext.aadl2.errormodel.util.EM2TypeSetUtil;
@@ -44,14 +46,88 @@ public class EmftaWrapper {
 	private int eventIdentifier;
 
 	public Map<String, edu.cmu.emfta.Event> cache;
-
-	private Event createEvent ()
+	
+	private String buildIdentifier (ComponentInstance component, NamedElement namedElement, TypeSet typeSet)
+	{
+		String identifier = eventIdentifier + "-" + buildName (component,namedElement, typeSet);
+		identifier = identifier.replaceAll("\\{", "").replaceAll("\\}", "").toLowerCase();
+		return identifier;
+	}
+	
+	private String buildName (ComponentInstance component, NamedElement namedElement, TypeSet typeSet)
+	{
+		String identifier;
+		
+		identifier = component.getName();
+		identifier += "-";
+		
+		if (namedElement == null)
+		{
+			identifier += "unidentified";
+			
+		}
+		else
+		{
+			if (namedElement instanceof ErrorPropagation)
+			{
+				ErrorPropagation ep = (ErrorPropagation) namedElement;
+				identifier += ep.getName();
+			}
+			else if (namedElement instanceof ErrorEvent)
+			{
+				ErrorEvent ev = (ErrorEvent) namedElement;
+				identifier += ev.getName();
+			}
+			else if (namedElement instanceof ErrorBehaviorState)
+			{
+				ErrorBehaviorState ebs = (ErrorBehaviorState) namedElement;
+				identifier += ebs.getName();
+			}
+			else if (namedElement instanceof ErrorSource)
+			{
+				ErrorSource es = (ErrorSource) namedElement;
+				identifier += es.getName();
+			}
+			else
+			{
+				identifier += "unknown";
+			}
+		}
+		
+		identifier += "-";
+		
+		if (typeSet == null)
+		{
+			identifier += "notypes";
+		}
+		else
+		{
+			identifier += EMV2Util.getPrintName(typeSet);
+		}
+		
+		return identifier;
+	}
+	
+	private Event getFromCache (ComponentInstance component, NamedElement namedElement, TypeSet typeSet)
+	{
+		if (cache.containsKey(buildName(component, namedElement, typeSet)))
+		{
+			return cache.get(buildName(component, namedElement, typeSet));
+		}
+		return null;
+	}
+	
+	
+	private Event createEvent (ComponentInstance component, NamedElement namedElement, TypeSet typeSet)
 	{
 		Event newEvent = EmftaFactory.eINSTANCE.createEvent();
 		emftaModel.getEvents().add(newEvent);
-		newEvent.setName("unknown-event-" + eventIdentifier);
+		newEvent.setName(buildIdentifier(component, namedElement, typeSet));
 		newEvent.setGate(null);
 		eventIdentifier = eventIdentifier + 1;
+		
+		cache.put(buildName(component, namedElement, typeSet), newEvent);
+		
 		return newEvent;
 	}
 
@@ -244,10 +320,17 @@ public class EmftaWrapper {
 
 					if (Utils.propagationEndsMatches(propagationSource, errorSource.getOutgoing())) {
 						if (EM2TypeSetUtil.contains(errorSource.getTypeTokenConstraint(), typeToken)) {
-							Event newEvent = this.createEvent();
+							
+							Event newEvent;
+							
+							newEvent = getFromCache(componentSource, errorSource, ef.getTypeTokenConstraint());
+							if (newEvent == null)
+							{
+								newEvent = this.createEvent(componentSource, errorSource, ef.getTypeTokenConstraint());
+								newEvent.setType(EventType.EXTERNAL);
+								Utils.fillProperties(newEvent, componentSource, errorSource, ef.getTypeTokenConstraint());
+							}
 
-							newEvent.setType(EventType.EXTERNAL);
-							Utils.fillProperties(newEvent, componentSource, errorSource, ef.getTypeTokenConstraint());
 							subEvents.add(newEvent);
 						}
 					}
@@ -260,16 +343,22 @@ public class EmftaWrapper {
 		 */
 		switch (subEvents.size()) {
 		case 0: {
-			result = this.createEvent();
-			String desc = "Events from component " + component.getName() + " on "
-					+ EMV2Util.getPrintName(errorPropagation);
-			if (typeToken != null) {
-				desc += " with types " + EMV2Util.getPrintName(typeToken);
+			
+			result = getFromCache(component, errorPropagation, null);
+			if (result == null)
+			{
+				result = this.createEvent(component, errorPropagation, null);
+				
+				String desc = "Events from component " + component.getName() + " on "
+						+ EMV2Util.getPrintName(errorPropagation);
+				if (typeToken != null) {
+					desc += " with types " + EMV2Util.getPrintName(typeToken);
+				}
+				desc += " (no error source found)";
+	
+				result.setDescription(desc);
+				result.setType(EventType.BASIC);
 			}
-			desc += " (no error source found)";
-
-			result.setDescription(desc);
-			result.setType(EventType.BASIC);
 			break;
 		}
 		case 1: {
@@ -277,27 +366,31 @@ public class EmftaWrapper {
 			break;
 		}
 		default: {
-
-
-			result = this.createEvent();
-			result.setType(EventType.BASIC);
-
-			String desc = "Events from component " + component.getName() + " on "
-					+ EMV2Util.getPrintName(errorPropagation);
-			if (typeToken != null) {
-				desc += " with types " + EMV2Util.getPrintName(typeToken);
-			}
-			result.setDescription(desc);
-
-
-			Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
-			emftaGate.setType(GateType.OR);
-
-			for (Event se : subEvents)
+			result = getFromCache(component, errorPropagation, null);
+			if (result == null)
 			{
-				emftaGate.getEvents().add(se);
+				result = this.createEvent(component, errorPropagation, null);
+
+				
+				result.setType(EventType.BASIC);
+	
+				String desc = "Events from component " + component.getName() + " on "
+						+ EMV2Util.getPrintName(errorPropagation);
+				if (typeToken != null) {
+					desc += " with types " + EMV2Util.getPrintName(typeToken);
+				}
+				result.setDescription(desc);
+	
+	
+				Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
+				emftaGate.setType(GateType.OR);
+	
+				for (Event se : subEvents)
+				{
+					emftaGate.getEvents().add(se);
+				}
+				result.setGate(emftaGate);
 			}
-			result.setGate(emftaGate);
 		}
 		}
 
@@ -325,7 +418,10 @@ public class EmftaWrapper {
 		 */
 		if (condition instanceof AndExpression) {
 			AndExpression expression;
-			Event emftaEvent = this.createEvent();
+			Event emftaEvent = EmftaFactory.eINSTANCE.createEvent();
+			emftaModel.getEvents().add(emftaEvent);
+			
+			
 			emftaEvent.setType(EventType.BASIC);
 			Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
 			emftaGate.setType(GateType.AND);
@@ -345,7 +441,9 @@ public class EmftaWrapper {
 
 		if (condition instanceof OrExpression) {
 			OrExpression expression;
-			Event emftaEvent = this.createEvent();
+			Event emftaEvent = EmftaFactory.eINSTANCE.createEvent();
+			emftaModel.getEvents().add(emftaEvent);
+			
 			emftaEvent.setType(EventType.BASIC);
 
 			Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
@@ -379,13 +477,23 @@ public class EmftaWrapper {
 				 */
 				if (conditionElement.getIncoming() instanceof ErrorEvent) {
 					ErrorEvent errorEvent;
-					Event emftaEvent = this.createEvent();
-					emftaEvent.setType(EventType.BASIC);
-
+					Event emftaEvent;
+					
 					errorEvent = (ErrorEvent) conditionElement.getIncoming();
-					emftaEvent.setType(EventType.BASIC);
+					
+					emftaEvent = getFromCache(component, errorEvent, errorEvent.getTypeSet());
+					
+					if (emftaEvent == null)
+					{
+						emftaEvent = this.createEvent(component, errorEvent, errorEvent.getTypeSet());
+						emftaEvent.setType(EventType.BASIC);
 
-					Utils.fillProperties(emftaEvent, component, errorEvent, errorEvent.getTypeSet());
+						errorEvent = (ErrorEvent) conditionElement.getIncoming();
+						emftaEvent.setType(EventType.BASIC);
+
+						Utils.fillProperties(emftaEvent, component, errorEvent, errorEvent.getTypeSet());
+					}
+					
 					return emftaEvent;
 				}
 
@@ -407,9 +515,17 @@ public class EmftaWrapper {
 					}
 
 					if (contributors.size() == 0) {
-						Event emftaEvent = this.createEvent();
-						emftaEvent.setType(EventType.EXTERNAL);
-						Utils.fillProperties(emftaEvent, component, errorPropagation, errorPropagation.getTypeSet());
+						Event emftaEvent;
+						emftaEvent = getFromCache(component, errorPropagation, errorPropagation.getTypeSet());
+						
+						if (emftaEvent == null)
+						{
+							emftaEvent = this.createEvent(component, errorPropagation, errorPropagation.getTypeSet());
+							emftaEvent.setType(EventType.EXTERNAL);
+							Utils.fillProperties(emftaEvent, component, errorPropagation, errorPropagation.getTypeSet());
+
+						}
+						return emftaEvent;
 					}
 
 					if (contributors.size() == 1) {
@@ -417,16 +533,23 @@ public class EmftaWrapper {
 					}
 
 					if (contributors.size() > 1) {
-						Event emftaEvent = this.createEvent();
-						emftaEvent.setType(EventType.BASIC);
-						Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
-						emftaEvent.setGate(emftaGate);
-
-						emftaGate.setType(GateType.OR);
-
-						for (Event contributor : contributors)
+						
+						Event emftaEvent;
+						emftaEvent = getFromCache(component, errorPropagation, errorPropagation.getTypeSet());
+						
+						if (emftaEvent == null)
 						{
-							emftaGate.getEvents().add(contributor);
+							emftaEvent = this.createEvent(component, errorPropagation, errorPropagation.getTypeSet());
+							emftaEvent.setType(EventType.BASIC);
+							Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
+							emftaEvent.setGate(emftaGate);
+	
+							emftaGate.setType(GateType.OR);
+	
+							for (Event contributor : contributors)
+							{
+								emftaGate.getEvents().add(contributor);
+							}
 						}
 						return emftaEvent;
 					}
@@ -525,19 +648,26 @@ public class EmftaWrapper {
 			}
 			if (subEvents.size() > 1)
 			{
-				Event combined = this.createEvent();
-				combined.setType(EventType.BASIC);
-				Utils.fillProperties(combined, component, state, null);
-				Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
-				emftaGate.setType(GateType.OR);
-
-				combined.setGate(emftaGate);
-
-				for (Event se : subEvents)
+				
+				Event combined;
+				combined = getFromCache(component, state, state.getTypeSet());
+				
+				if (combined == null)
 				{
-					emftaGate.getEvents().add(se);
-				}
+					combined = this.createEvent(component, state, state.getTypeSet());
+					combined.setType(EventType.BASIC);
+					Utils.fillProperties(combined, component, state, null);
+					Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
+					emftaGate.setType(GateType.OR);
 
+					combined.setGate(emftaGate);
+
+					for (Event se : subEvents)
+					{
+						emftaGate.getEvents().add(se);
+					}
+				}
+			
 				return combined;
 			}
 
@@ -579,7 +709,7 @@ public class EmftaWrapper {
 			}
 			if (subEvents.size() > 1)
 			{
-				Event combined = this.createEvent();
+				Event combined = this.createEvent(component, state, state.getTypeSet());
 				combined.setType(EventType.BASIC);
 				Utils.fillProperties(combined, component, state, null);
 				Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
@@ -634,7 +764,7 @@ public class EmftaWrapper {
 
 			if (subEvents.size() == 0)
 			{
-				Event errorStateEvent = this.createEvent();
+				Event errorStateEvent = this.createEvent(component, state, state.getTypeSet());
 				errorStateEvent.setType(EventType.BASIC);
 				Utils.fillProperties(errorStateEvent, component, state, state.getTypeSet());
 				errorStateEvent.setGate(null);
@@ -647,7 +777,7 @@ public class EmftaWrapper {
 			}
 
 			if (subEvents.size() > 0) {
-				Event errorStateEvent = this.createEvent();
+				Event errorStateEvent = this.createEvent(component, state, state.getTypeSet());
 				errorStateEvent.setType(EventType.BASIC);
 				Utils.fillProperties(errorStateEvent, component, state, state.getTypeSet());
 				Gate emftaGate = EmftaFactory.eINSTANCE.createGate();

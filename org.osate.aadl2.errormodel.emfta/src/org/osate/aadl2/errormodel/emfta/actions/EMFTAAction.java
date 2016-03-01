@@ -34,6 +34,8 @@
 package org.osate.aadl2.errormodel.emfta.actions;
 
 import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -46,8 +48,6 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.jface.dialogs.InputDialog;
-import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -57,7 +57,6 @@ import org.osate.aadl2.Element;
 import org.osate.aadl2.errormodel.emfta.fta.EmftaWrapper;
 import org.osate.aadl2.instance.InstanceObject;
 import org.osate.aadl2.instance.SystemInstance;
-import org.osate.aadl2.util.OsateDebug;
 import org.osate.ui.actions.AaxlReadOnlyActionAsJob;
 import org.osate.ui.dialogs.Dialog;
 import org.osate.xtext.aadl2.errormodel.errorModel.ErrorBehaviorState;
@@ -68,7 +67,7 @@ import org.osate.xtext.aadl2.errormodel.util.EMV2Util;
 public final class EMFTAAction extends AaxlReadOnlyActionAsJob {
 
 	private static String ERROR_STATE_NAME = null;
-
+	SystemInstance si;
 	private org.osate.aadl2.errormodel.analysis.fta.Event ftaEvent;
 
 	@Override
@@ -83,7 +82,7 @@ public final class EMFTAAction extends AaxlReadOnlyActionAsJob {
 
 	@Override
 	public void doAaxlAction(IProgressMonitor monitor, Element obj) {
-		SystemInstance si;
+
 
 		monitor.beginTask("Fault Tree Analysis", IProgressMonitor.UNKNOWN);
 
@@ -110,20 +109,30 @@ public final class EMFTAAction extends AaxlReadOnlyActionAsJob {
 			public void run() {
 				IWorkbenchWindow window;
 				Shell sh;
+				List<String> stateNames = new ArrayList<String> ();
 
 				window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
 				sh = window.getShell();
 
-				InputDialog fd = new InputDialog(
-						sh,
-						"Error State name",
-						"Please specify the name of the error state name\n(with the optional error type separated by a space)",
-						"failed", null);
-				if (fd.open() == Window.OK) {
-					ERROR_STATE_NAME = fd.getValue();
-				} else {
-					ERROR_STATE_NAME = null;
+				for (ErrorBehaviorState ebs : EMV2Util.getAllErrorBehaviorStates(si)) {
+					stateNames.add(ebs.getName());
 				}
+
+//				InputDialog fd = new InputDialog(
+//						sh,
+//						"Error State name",
+//						"Please specify the name of the error state name\n(with the optional error type separated by a space)",
+//						"failed", null);
+//				if (fd.open() == Window.OK) {
+//					ERROR_STATE_NAME = fd.getValue();
+//				} else {
+//					ERROR_STATE_NAME = null;
+//				}
+
+				FTADialog diag = new FTADialog(sh);
+				diag.setValues(stateNames);
+				diag.open();
+				ERROR_STATE_NAME = diag.getValue();
 
 			}
 		});
@@ -181,9 +190,9 @@ public final class EMFTAAction extends AaxlReadOnlyActionAsJob {
 			if (errorState != null) {
 				URI newURI = EcoreUtil.getURI(si).trimSegments(2).appendSegment(si.getName().toLowerCase() + ".emfta");
 				String uriString = newURI.toString();
-				
+
 				String fileString = newURI.toPlatformString(true);
-				
+
 //				OsateDebug.osateDebug("[EMFTAAction]", "string=" + uriString);
 //				OsateDebug.osateDebug("[EMFTAAction]", "filestring=" + fileString);
 //ResourcesPlugin.getWorkspace().
@@ -192,7 +201,7 @@ public final class EMFTAAction extends AaxlReadOnlyActionAsJob {
 //				var String path = file.getRawLocation().removeLastSegments(1).toOSString();
 //				IFile iFile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(newURI.toPlatformString(true)));
 				EmftaWrapper wrapper = new EmftaWrapper(si, errorState, errorType);
-				
+
 				serializeEmftaModel(wrapper.getEmftaModel(), newURI, ResourceUtil.getFile(si.eResource())
 						.getProject());
 
@@ -216,7 +225,7 @@ public final class EMFTAAction extends AaxlReadOnlyActionAsJob {
 		try {
 
 			ResourceSet set = new ResourceSetImpl();
-			
+
 			Resource res = set.createResource(URI.createURI(newFile.toString()));
 
 			res.getContents().add(emftaModel);

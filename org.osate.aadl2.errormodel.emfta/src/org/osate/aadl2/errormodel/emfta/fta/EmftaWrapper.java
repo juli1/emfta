@@ -356,7 +356,7 @@ public class EmftaWrapper {
 			result = getFromCache(component, errorPropagation, null);
 			if (result == null)
 			{
-				result = this.createEvent(component, errorPropagation, null, false);
+				result = this.createEvent(component, errorPropagation, null, true);
 
 				String desc = "Events from component " + component.getName() + " on "
 						+ EMV2Util.getPrintName(errorPropagation);
@@ -367,6 +367,7 @@ public class EmftaWrapper {
 
 				result.setDescription(desc);
 				result.setType(EventType.BASIC);
+				Utils.fillProperties(result, component, errorPropagation, errorPropagation.getTypeSet());
 			}
 			return result;
 		}

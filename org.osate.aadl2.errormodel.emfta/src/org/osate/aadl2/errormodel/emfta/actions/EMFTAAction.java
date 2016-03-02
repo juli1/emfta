@@ -54,19 +54,24 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.xtext.ui.util.ResourceUtil;
 import org.osate.aadl2.Element;
+import org.osate.aadl2.Feature;
 import org.osate.aadl2.errormodel.emfta.fta.EmftaWrapper;
 import org.osate.aadl2.instance.InstanceObject;
 import org.osate.aadl2.instance.SystemInstance;
+import org.osate.aadl2.util.OsateDebug;
 import org.osate.ui.actions.AaxlReadOnlyActionAsJob;
 import org.osate.ui.dialogs.Dialog;
 import org.osate.xtext.aadl2.errormodel.errorModel.ErrorBehaviorState;
+import org.osate.xtext.aadl2.errormodel.errorModel.ErrorPropagation;
 import org.osate.xtext.aadl2.errormodel.errorModel.ErrorTypes;
-import org.osate.xtext.aadl2.errormodel.errorModel.TypeToken;
+import org.osate.xtext.aadl2.errormodel.errorModel.OutgoingPropagationCondition;
 import org.osate.xtext.aadl2.errormodel.util.EMV2Util;
 
 public final class EMFTAAction extends AaxlReadOnlyActionAsJob {
 
 	private static String ERROR_STATE_NAME = null;
+	private static final String prefixState = "state ";
+	private static final String prefixOutgoingPropagation = "outgoing propagation on ";
 	SystemInstance si;
 	private org.osate.aadl2.errormodel.analysis.fta.Event ftaEvent;
 
@@ -115,19 +120,20 @@ public final class EMFTAAction extends AaxlReadOnlyActionAsJob {
 				sh = window.getShell();
 
 				for (ErrorBehaviorState ebs : EMV2Util.getAllErrorBehaviorStates(si)) {
-					stateNames.add(ebs.getName());
+					stateNames.add(prefixState + ebs.getName());
 				}
 
-//				InputDialog fd = new InputDialog(
-//						sh,
-//						"Error State name",
-//						"Please specify the name of the error state name\n(with the optional error type separated by a space)",
-//						"failed", null);
-//				if (fd.open() == Window.OK) {
-//					ERROR_STATE_NAME = fd.getValue();
-//				} else {
-//					ERROR_STATE_NAME = null;
-//				}
+				for (OutgoingPropagationCondition opc : EMV2Util.getAllOutgoingPropagationConditions(si))
+				{
+					if ( ! (opc.getOutgoing().getFeatureorPPRef().getFeatureorPP() instanceof Feature))
+					{
+						continue;
+					}
+					Feature feat = (Feature) opc.getOutgoing().getFeatureorPPRef().getFeatureorPP();
+					stateNames.add (prefixOutgoingPropagation + feat.getName());
+				}
+
+
 
 				FTADialog diag = new FTADialog(sh);
 				diag.setValues(stateNames);
@@ -142,65 +148,75 @@ public final class EMFTAAction extends AaxlReadOnlyActionAsJob {
 			String errorStateTypeName;
 			ErrorBehaviorState errorState;
 			ErrorTypes errorType;
+			ErrorPropagation errorPropagation;
+			String toProcess;
 
-			/**
-			 * Init variables and environment
-			 */
-			errorStateName = null;
-			errorStateTypeName = null;
 			errorState = null;
 			errorType = null;
+			errorPropagation = null;
 
-			org.osate.aadl2.errormodel.analysis.fta.FTAUtils.init(si);
-			org.osate.aadl2.errormodel.analysis.fta.Event.init();
-			if (ERROR_STATE_NAME.contains(" ")) {
-				errorStateName = ERROR_STATE_NAME.substring(0, ERROR_STATE_NAME.indexOf(" "));
-				errorStateTypeName = ERROR_STATE_NAME.substring(ERROR_STATE_NAME.indexOf(" "),
-						ERROR_STATE_NAME.length());
-			} else {
-				errorStateName = ERROR_STATE_NAME;
+			boolean processState;
+
+			if (ERROR_STATE_NAME.startsWith(prefixState))
+			{
+				toProcess = ERROR_STATE_NAME.replace(prefixState, "");
+				processState = true;
+				OsateDebug.osateDebug("Will process a state" + toProcess);
+
+				for (ErrorBehaviorState ebs : EMV2Util.getAllErrorBehaviorStates(si)) {
+					if (ebs.getName().equalsIgnoreCase(toProcess)) {
+						errorState = ebs;
+
+//						if (errorStateTypeName != null) {
+//							for (TypeToken tt : ebs.getTypeSet().getTypeTokens()) {
+//								for (ErrorTypes et : tt.getType()) {
+//									if (et.getName().equalsIgnoreCase(errorStateTypeName)) {
+//										errorType = et;
+//									}
+//								}
+//							}
+//						}
+					}
+				}
+
+
 			}
 
-//			OsateDebug
-//					.osateDebug("[EMFTAAction] error state=" + errorStateName + "|related type=" + errorStateTypeName);
+			if (ERROR_STATE_NAME.startsWith(prefixOutgoingPropagation))
+			{
+				toProcess = ERROR_STATE_NAME.replace(prefixOutgoingPropagation, "");
+				processState = false;
+				OsateDebug.osateDebug("Will process an outgoing propagation" + toProcess);
 
-			for (ErrorBehaviorState ebs : EMV2Util.getAllErrorBehaviorStates(si)) {
-				if (ebs.getName().equalsIgnoreCase(errorStateName)) {
-					errorState = ebs;
+				for (OutgoingPropagationCondition opc : EMV2Util.getAllOutgoingPropagationConditions(si)) {
+					if (! (opc.getOutgoing().getFeatureorPPRef().getFeatureorPP() instanceof Feature))
+					{
+						continue;
+					}
 
-					if (errorStateTypeName != null) {
-						for (TypeToken tt : ebs.getTypeSet().getTypeTokens()) {
-							for (ErrorTypes et : tt.getType()) {
-								if (et.getName().equalsIgnoreCase(errorStateTypeName)) {
-									errorType = et;
-								}
-							}
-						}
+					Feature feat = (Feature) opc.getOutgoing().getFeatureorPPRef().getFeatureorPP();
+					if (feat.getName().equalsIgnoreCase(toProcess))
+					{
+						errorPropagation = opc.getOutgoing();
 					}
 				}
 			}
 
-//			ftaEvent = null;
+			EmftaWrapper wrapper;
+			wrapper = null;
 
-//			if (errorState != null) {
-//				ftaEvent = org.osate.aadl2.errormodel.analysis.fta.FTAUtils
-//						.processErrorState(si, errorState, errorType);
-//			}
+			if ((errorState != null) || (errorPropagation != null)) {
 
-			if (errorState != null) {
+				if (errorState != null)
+				{
+					wrapper = new EmftaWrapper(si, errorState, errorType);
+				}
+				if (errorPropagation != null)
+				{
+					wrapper = new EmftaWrapper(si, errorPropagation, errorType);
+				}
+
 				URI newURI = EcoreUtil.getURI(si).trimSegments(2).appendSegment(si.getName().toLowerCase() + ".emfta");
-				String uriString = newURI.toString();
-
-				String fileString = newURI.toPlatformString(true);
-
-//				OsateDebug.osateDebug("[EMFTAAction]", "string=" + uriString);
-//				OsateDebug.osateDebug("[EMFTAAction]", "filestring=" + fileString);
-//ResourcesPlugin.getWorkspace().
-//				var IPath ipath = new Path(uri.toPlatformString(true));
-//				IFile file = ResourcesPlugin.getWorkspace().getRoot().
-//				var String path = file.getRawLocation().removeLastSegments(1).toOSString();
-//				IFile iFile = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(newURI.toPlatformString(true)));
-				EmftaWrapper wrapper = new EmftaWrapper(si, errorState, errorType);
 
 				serializeEmftaModel(wrapper.getEmftaModel(), newURI, ResourceUtil.getFile(si.eResource())
 						.getProject());

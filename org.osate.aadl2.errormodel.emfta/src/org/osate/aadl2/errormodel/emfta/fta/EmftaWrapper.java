@@ -565,10 +565,12 @@ public class EmftaWrapper {
 				EMV2PathElement pe = path.getEmv2Target();
 				NamedElement emvElement = pe.getNamedElement();
 //				XXX: Wait for Peter new methods
-//				NamedElement errorModelElement;
-//				NamedElement relatedComponent;
+				ComponentInstance errorModelElement = EMV2Util.getLastComponentInstance (path, component);
+				NamedElement relatedComponent = EMV2Util.getErrorModelElement(path);
 				
-				
+				OsateDebug.osateDebug("errorModelElement"+ errorModelElement);
+				OsateDebug.osateDebug("relatedComponent=" + relatedComponent);
+			
 				
 //				OsateDebug.osateDebug("emv el = " + EMV2Util.getErrorModelElement(path));
 //				OsateDebug.osateDebug("path" + path);

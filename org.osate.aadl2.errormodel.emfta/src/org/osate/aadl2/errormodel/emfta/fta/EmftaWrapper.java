@@ -554,6 +554,7 @@ public class EmftaWrapper {
 					return  processErrorState(referencedInstance, EMV2Util.getState(sconditionElement),
 							referencedErrorType);
 				}
+
 			}
 
 
@@ -563,10 +564,17 @@ public class EmftaWrapper {
 				EMV2Path path = conditionElement.getQualifiedErrorPropagationReference();
 				EMV2PathElement pe = path.getEmv2Target();
 				NamedElement emvElement = pe.getNamedElement();
-
-				OsateDebug.osateDebug("path" + path);
-				OsateDebug.osateDebug("ne=" + pe.getNamedElement());
-				OsateDebug.osateDebug("kind=" + pe.getEmv2PropagationKind());
+//				XXX: Wait for Peter new methods
+//				NamedElement errorModelElement;
+//				NamedElement relatedComponent;
+				
+				
+				
+//				OsateDebug.osateDebug("emv el = " + EMV2Util.getErrorModelElement(path));
+//				OsateDebug.osateDebug("path" + path);
+//				OsateDebug.osateDebug("ne=" + pe.getNamedElement());
+//				OsateDebug.osateDebug("me2"+ path.getElementRoot());
+//				OsateDebug.osateDebug("kind=" + pe.getEmv2PropagationKind());
 
 				if (emvElement != null) {
 					// OsateDebug.osateDebug("[FTAUtils] processCondition incoming="
@@ -657,6 +665,12 @@ public class EmftaWrapper {
 				}
 			}
 		}
+		
+		if(true)
+		{
+			throw new UnsupportedOperationException("condition must be handled and returns something");
+		}
+		
 		return null;
 
 		}

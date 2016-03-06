@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Stack;
 
+import org.osate.aadl2.DirectionType;
 import org.osate.aadl2.NamedElement;
 import org.osate.aadl2.Subcomponent;
 import org.osate.aadl2.instance.ComponentInstance;
@@ -15,7 +16,6 @@ import org.osate.xtext.aadl2.errormodel.errorModel.CompositeState;
 import org.osate.xtext.aadl2.errormodel.errorModel.ConditionElement;
 import org.osate.xtext.aadl2.errormodel.errorModel.ConditionExpression;
 import org.osate.xtext.aadl2.errormodel.errorModel.EMV2Path;
-import org.osate.xtext.aadl2.errormodel.errorModel.EMV2PathElement;
 import org.osate.xtext.aadl2.errormodel.errorModel.ErrorBehaviorState;
 import org.osate.xtext.aadl2.errormodel.errorModel.ErrorBehaviorTransition;
 import org.osate.xtext.aadl2.errormodel.errorModel.ErrorEvent;
@@ -42,6 +42,12 @@ import edu.cmu.emfta.Gate;
 import edu.cmu.emfta.GateType;
 
 public class EmftaWrapper {
+	class PropagationRecord
+	{
+		ErrorPropagation ep;
+		TypeSet constraint;
+	}
+
 	private edu.cmu.emfta.FTAModel emftaModel;
 	private AnalysisModel currentAnalysisModel;
 	private ComponentInstance rootComponent;
@@ -78,7 +84,31 @@ public class EmftaWrapper {
 			if (namedElement instanceof ErrorPropagation)
 			{
 				ErrorPropagation ep = (ErrorPropagation) namedElement;
-				identifier += ep.getName();
+				if (ep.getName() != null)
+				{
+					identifier += ep.getName();
+				}
+				else
+				{
+					if (ep.getKind() != null)
+					{
+						identifier += ep.getKind();
+					}
+					else
+					{
+
+						if ( (ep.getFeatureorPPRef() != null) && (ep.getFeatureorPPRef().getFeatureorPP() != null))
+						{
+							NamedElement ref = ep.getFeatureorPPRef().getFeatureorPP();
+							identifier += "-" + "propagation-from-" + ref.getName();
+						}
+						else
+						{
+							identifier += "unknwon-epkind";
+						}
+					}
+				}
+
 			}
 			else if (namedElement instanceof ErrorEvent)
 			{
@@ -124,6 +154,7 @@ public class EmftaWrapper {
 		}
 		return null;
 	}
+
 
 
 	private Event createEvent (ComponentInstance component, NamedElement namedElement, TypeSet typeSet, boolean putInCache)
@@ -192,6 +223,31 @@ public class EmftaWrapper {
 		return emftaModel;
 	}
 
+
+
+	private List<PropagationRecord> findCorrespondingErrorPropagation (ComponentInstance component, ErrorPropagation propagation, final TypeToken typeToken)
+	{
+		List <PropagationRecord> result = new ArrayList<PropagationRecord>();
+
+		for (ErrorFlow ef : EMV2Util.getAllErrorFlows(component))
+		{
+			if (ef instanceof ErrorPath)
+			{
+				ErrorPath ep = (ErrorPath) ef;
+				if ( (ep.getOutgoing() == propagation) && (EM2TypeSetUtil.contains(typeToken,ep.getTargetToken())))
+				{
+					PropagationRecord rc = new PropagationRecord();
+					rc.constraint = ep.getTypeTokenConstraint();
+					rc.ep = ep.getIncoming();
+
+					result.add(rc);
+				}
+			}
+		}
+
+		return result;
+	}
+
 	/**
 	 * For one incoming error propagation and one component, returns all the
 	 * potential errors contributors.
@@ -230,127 +286,151 @@ public class EmftaWrapper {
 		// throw new UnsupportedOperationException("special kind");
 		// }
 
-		// OsateDebug.osateDebug("FTAUtils", "propagation=" +
+		// OsateDebug.osateDebug("EmftaWrapper", "propagation=" +
 		// EMV2Util.getPrintName(errorPropagation));
-		// OsateDebug.osateDebug("FTAUtils", "types=" +
+		// OsateDebug.osateDebug("EmftaWrapper", "types=" +
 		// EMV2Util.getPrintName(typeToken));
 
-		propagationSources = currentAnalysisModel.getAllPropagationSourceEnds(component, errorPropagation);
+		if (errorPropagation.getDirection() == DirectionType.OUT)
+		{
 
-		for (PropagationPathEnd ppe : propagationSources) {
-			ComponentInstance componentSource = ppe.getComponentInstance();
-			ErrorPropagation propagationSource = ppe.getErrorPropagation();
-			ComponentInstance componentDestination = component;
-			ErrorPropagation propagationDestination = errorPropagation;
+			for (ErrorFlow ef : EMV2Util.getAllErrorFlows(component))
+			{
+				if (ef instanceof ErrorPath)
+				{
+					ErrorPath ep = (ErrorPath) ef;
+					if ( (ep.getOutgoing() == errorPropagation) && (EM2TypeSetUtil.contains(typeToken,ep.getTargetToken())))
+					{
+						for (TypeToken tt : ep.getTypeTokenConstraint().getTypeTokens())
+						{
+						// XXX JD had to work on types
+							subEvents.add(getAllEventsFromPropagationSource(component, ep.getIncoming(),
+									tt, history));
+						}
+					}
+				}
+			}
 
-			/**
-			 * Compute the correct type to search for
-			 */
+		}
+		else
+		{
 
-			for (ErrorFlow ef : EMV2Util.getAllErrorFlows(componentSource)) {
+			propagationSources = currentAnalysisModel.getAllPropagationSourceEnds(component, errorPropagation);
+
+			for (PropagationPathEnd ppe : propagationSources) {
+				ComponentInstance componentSource = ppe.getComponentInstance();
+				ErrorPropagation propagationSource = ppe.getErrorPropagation();
+				ComponentInstance componentDestination = component;
+				ErrorPropagation propagationDestination = errorPropagation;
+
 				/**
-				 * Let's walk through all error path and see which one to browse
+				 * Compute the correct type to search for
 				 */
-				if (ef instanceof ErrorPath) {
-					ErrorPath errorPath = (ErrorPath) ef;
-					// OsateDebug.osateDebug("FTAUtils",
-					// "==========================");
-					// OsateDebug.osateDebug("FTAUtils",
-					// "Analyzing propagation: " +
-					// EMV2Util.getPrintName(propagationSource));
-					// OsateDebug.osateDebug("FTAUtils", "Analyzing typetoken :
-					// " + EMV2Util.getPrintName(typeToken));
-					//
-					// OsateDebug.osateDebug("FTAUtils", "Error Path: " +
-					// errorPath.getName());
-					// OsateDebug.osateDebug("FTAUtils", "source=" +
-					// EMV2Util.getPrintName(errorPath.getIncoming()));
-					// OsateDebug.osateDebug("FTAUtils", "dest =" +
-					// EMV2Util.getPrintName(errorPath.getOutgoing()));
-					// OsateDebug.osateDebug("FTAUtils",
-					// "constraint type=" +
-					// EMV2Util.getPrintName(errorPath.getTypeTokenConstraint()));
-					// OsateDebug.osateDebug("FTAUtils",
-					// "target token=" +
-					// EMV2Util.getPrintName(errorPath.getTargetToken()));
 
-					if (Utils.propagationEndsMatches(errorPath.getOutgoing(), propagationSource) == false) {
-						OsateDebug.osateDebug("FTAUtils",
-								"ends do not match on path" + errorPath.getName() + "source="
-										+ EMV2Util.getPropagationName(propagationSource) + ";types2="
-										+ EMV2Util.getPropagationName(propagationDestination));
-						continue;
+				for (ErrorFlow ef : EMV2Util.getAllErrorFlows(componentSource)) {
+					/**
+					 * Let's walk through all error path and see which one to browse
+					 */
+					if (ef instanceof ErrorPath) {
+						ErrorPath errorPath = (ErrorPath) ef;
+						// OsateDebug.osateDebug("EmftaWrapper",
+						// "==========================");
+						// OsateDebug.osateDebug("EmftaWrapper",
+						// "Analyzing propagation: " +
+						// EMV2Util.getPrintName(propagationSource));
+						// OsateDebug.osateDebug("EmftaWrapper", "Analyzing typetoken :
+						// " + EMV2Util.getPrintName(typeToken));
+						//
+						// OsateDebug.osateDebug("EmftaWrapper", "Error Path: " +
+						// errorPath.getName());
+						// OsateDebug.osateDebug("EmftaWrapper", "source=" +
+						// EMV2Util.getPrintName(errorPath.getIncoming()));
+						// OsateDebug.osateDebug("EmftaWrapper", "dest =" +
+						// EMV2Util.getPrintName(errorPath.getOutgoing()));
+						// OsateDebug.osateDebug("EmftaWrapper",
+						// "constraint type=" +
+						// EMV2Util.getPrintName(errorPath.getTypeTokenConstraint()));
+						// OsateDebug.osateDebug("EmftaWrapper",
+						// "target token=" +
+						// EMV2Util.getPrintName(errorPath.getTargetToken()));
+
+						if (Utils.propagationEndsMatches(errorPath.getOutgoing(), propagationSource) == false) {
+							OsateDebug.osateDebug("EmftaWrapper",
+									"ends do not match on path" + errorPath.getName() + "source="
+											+ EMV2Util.getPropagationName(propagationSource) + ";types2="
+											+ EMV2Util.getPropagationName(propagationDestination));
+							continue;
+						}
+
+						/**
+						 * If in the path the
+						 */
+						if (errorPath.getTargetToken() != null) {
+							if (!EM2TypeSetUtil.contains(errorPath.getTargetToken(), typeToken)) {
+								OsateDebug.osateDebug("EmftaWrapper",
+										"types do not match on path " + errorPath.getName() + ";types1="
+												+ EMV2Util.getPrintName(errorPath.getTargetToken()) + ";types2="
+												+ EMV2Util.getPrintName(typeToken));
+								continue;
+							}
+
+							if (errorPath.getTypeTokenConstraint() == null) {
+								subEvents.add(getAllEventsFromPropagationSource(componentSource, errorPath.getIncoming(),
+										null, history));
+							} else {
+								for (TypeToken tt : errorPath.getTypeTokenConstraint().getTypeTokens()) {
+									subEvents.add(getAllEventsFromPropagationSource(componentSource,
+											errorPath.getIncoming(), tt, history));
+								}
+							}
+						} else {
+							if (!EM2TypeSetUtil.contains(errorPath.getTypeTokenConstraint(), typeToken)) {
+								OsateDebug.osateDebug("EmftaWrapper",
+										"types do not match on path " + errorPath.getName() + ";types1="
+												+ EMV2Util.getPrintName(errorPath.getTypeTokenConstraint()) + ";types2="
+												+ EMV2Util.getPrintName(typeToken));
+								continue;
+							}
+							if (errorPath.getTypeTokenConstraint() == null) {
+								subEvents.add(getAllEventsFromPropagationSource(componentSource, errorPath.getIncoming(),
+										null, history));
+							} else {
+								for (TypeToken tt : errorPath.getTypeTokenConstraint().getTypeTokens()) {
+									subEvents.add(getAllEventsFromPropagationSource(componentSource,
+											errorPath.getIncoming(), tt, history));
+								}
+							}
+
+						}
 					}
 
 					/**
-					 * If in the path the
+					 * If the error source is actually the source of the error
+					 * propagation.
 					 */
-					if (errorPath.getTargetToken() != null) {
-						if (!EM2TypeSetUtil.contains(errorPath.getTargetToken(), typeToken)) {
-							OsateDebug.osateDebug("FTAUtils",
-									"types do not match on path " + errorPath.getName() + ";types1="
-											+ EMV2Util.getPrintName(errorPath.getTargetToken()) + ";types2="
-											+ EMV2Util.getPrintName(typeToken));
-							continue;
-						}
+					if (ef instanceof ErrorSource) {
+						ErrorSource errorSource = (ErrorSource) ef;
 
-						if (errorPath.getTypeTokenConstraint() == null) {
-							subEvents.add(getAllEventsFromPropagationSource(componentSource, errorPath.getIncoming(),
-									null, history));
-						} else {
-							for (TypeToken tt : errorPath.getTypeTokenConstraint().getTypeTokens()) {
-								subEvents.add(getAllEventsFromPropagationSource(componentSource,
-										errorPath.getIncoming(), tt, history));
+						if (Utils.propagationEndsMatches(propagationSource, errorSource.getOutgoing())) {
+							if (EM2TypeSetUtil.contains(errorSource.getTypeTokenConstraint(), typeToken)) {
+
+								Event newEvent;
+
+								newEvent = getFromCache(componentSource, errorSource, ef.getTypeTokenConstraint());
+								if (newEvent == null)
+								{
+									newEvent = this.createEvent(componentSource, errorSource, ef.getTypeTokenConstraint(), true);
+									newEvent.setType(EventType.EXTERNAL);
+									Utils.fillProperties(newEvent, componentSource, errorSource, ef.getTypeTokenConstraint());
+								}
+
+								subEvents.add(newEvent);
 							}
-						}
-					} else {
-						if (!EM2TypeSetUtil.contains(errorPath.getTypeTokenConstraint(), typeToken)) {
-							OsateDebug.osateDebug("FTAUtils",
-									"types do not match on path " + errorPath.getName() + ";types1="
-											+ EMV2Util.getPrintName(errorPath.getTypeTokenConstraint()) + ";types2="
-											+ EMV2Util.getPrintName(typeToken));
-							continue;
-						}
-						if (errorPath.getTypeTokenConstraint() == null) {
-							subEvents.add(getAllEventsFromPropagationSource(componentSource, errorPath.getIncoming(),
-									null, history));
-						} else {
-							for (TypeToken tt : errorPath.getTypeTokenConstraint().getTypeTokens()) {
-								subEvents.add(getAllEventsFromPropagationSource(componentSource,
-										errorPath.getIncoming(), tt, history));
-							}
-						}
-
-					}
-				}
-
-				/**
-				 * If the error source is actually the source of the error
-				 * propagation.
-				 */
-				if (ef instanceof ErrorSource) {
-					ErrorSource errorSource = (ErrorSource) ef;
-
-					if (Utils.propagationEndsMatches(propagationSource, errorSource.getOutgoing())) {
-						if (EM2TypeSetUtil.contains(errorSource.getTypeTokenConstraint(), typeToken)) {
-
-							Event newEvent;
-
-							newEvent = getFromCache(componentSource, errorSource, ef.getTypeTokenConstraint());
-							if (newEvent == null)
-							{
-								newEvent = this.createEvent(componentSource, errorSource, ef.getTypeTokenConstraint(), true);
-								newEvent.setType(EventType.EXTERNAL);
-								Utils.fillProperties(newEvent, componentSource, errorSource, ef.getTypeTokenConstraint());
-							}
-
-							subEvents.add(newEvent);
 						}
 					}
 				}
 			}
 		}
-
 		/**
 		 * Then, we build the final tree.
 		 */
@@ -428,7 +508,7 @@ public class EmftaWrapper {
 	 */
 	public Event processCondition(ComponentInstance component, ConditionExpression condition) {
 
-		// OsateDebug.osateDebug("[FTAUtils] condition=" + condition);
+		// OsateDebug.osateDebug("[EmftaWrapper] condition=" + condition);
 
 		/**
 		 * We have an AND expression, so, we create an EVENT to AND' sub events.
@@ -521,7 +601,7 @@ public class EmftaWrapper {
 					 * hierarchy and add all its contributors to the returned
 					 * events.
 					 */
-					// OsateDebug.osateDebug("[FTAUtils] processCondition
+					// OsateDebug.osateDebug("[EmftaWrapper] processCondition
 					// subcomponents are present, size=" +
 					// conditionElement.getSubcomponents().size());
 					SubcomponentElement subcomponentElement = sconditionElement.getQualifiedState().getSubcomponent();
@@ -530,11 +610,11 @@ public class EmftaWrapper {
 					ErrorTypes referencedErrorType;
 					referencedInstance = null;
 					referencedErrorType = null;
-					// OsateDebug.osateDebug("[FTAUtils] subcomponent=" +
+					// OsateDebug.osateDebug("[EmftaWrapper] subcomponent=" +
 					// subcomponent);
 
 					for (ComponentInstance sub : component.getComponentInstances()) {
-						// OsateDebug.osateDebug("[FTAUtils] sub=" +
+						// OsateDebug.osateDebug("[EmftaWrapper] sub=" +
 						// sub.getSubcomponent());
 						if (sub.getSubcomponent().getName().equalsIgnoreCase(subcomponent.getName())) {
 							referencedInstance = sub;
@@ -546,9 +626,9 @@ public class EmftaWrapper {
 						referencedErrorType = sconditionElement.getConstraint().getTypeTokens().get(0).getType().get(0);
 					}
 
-					// OsateDebug.osateDebug("[FTAUtils] referenced component
+					// OsateDebug.osateDebug("[EmftaWrapper] referenced component
 					// instance=" + referencedInstance);
-					// OsateDebug.osateDebug("[FTAUtils] referenced type=" +
+					// OsateDebug.osateDebug("[EmftaWrapper] referenced type=" +
 					// referencedErrorType);
 
 					return  processErrorState(referencedInstance, EMV2Util.getState(sconditionElement),
@@ -562,268 +642,163 @@ public class EmftaWrapper {
 			{
 				OsateDebug.osateDebug("conditionElement" + conditionElement.getQualifiedErrorPropagationReference());
 				EMV2Path path = conditionElement.getQualifiedErrorPropagationReference();
-				EMV2PathElement pe = path.getEmv2Target();
-				NamedElement emvElement = pe.getNamedElement();
-//				XXX: Wait for Peter new methods
-				ComponentInstance errorModelElement = EMV2Util.getLastComponentInstance (path, component);
-				NamedElement relatedComponent = EMV2Util.getErrorModelElement(path);
-				
-				OsateDebug.osateDebug("errorModelElement"+ errorModelElement);
-				OsateDebug.osateDebug("relatedComponent=" + relatedComponent);
-			
-				
-//				OsateDebug.osateDebug("emv el = " + EMV2Util.getErrorModelElement(path));
-//				OsateDebug.osateDebug("path" + path);
-//				OsateDebug.osateDebug("ne=" + pe.getNamedElement());
-//				OsateDebug.osateDebug("me2"+ path.getElementRoot());
-//				OsateDebug.osateDebug("kind=" + pe.getEmv2PropagationKind());
 
-				if (emvElement != null) {
-					// OsateDebug.osateDebug("[FTAUtils] processCondition incoming="
-					// + conditionElement.getIncoming());
+				ComponentInstance relatedComponent = EMV2Util.getLastComponentInstance (path, component);
+				NamedElement errorModelElement = EMV2Util.getErrorModelElement(path);
+				OsateDebug.osateDebug("actualComponent   =" + component);
+				OsateDebug.osateDebug("errorModelElement ="+ errorModelElement);
+				OsateDebug.osateDebug("relatedComponent  =" + relatedComponent);
 
-					/**
-					 * Here, we have an error event. Likely, this is something we
-					 * can get when we are analyzing error component behavior.
-					 */
-					if (emvElement instanceof ErrorEvent) {
-						ErrorEvent errorEvent;
+
+				//				OsateDebug.osateDebug("emv el = " + EMV2Util.getErrorModelElement(path));
+				//				OsateDebug.osateDebug("path" + path);
+				//				OsateDebug.osateDebug("ne=" + pe.getNamedElement());
+				//				OsateDebug.osateDebug("me2"+ path.getElementRoot());
+				//				OsateDebug.osateDebug("kind=" + pe.getEmv2PropagationKind());
+
+
+				// OsateDebug.osateDebug("[EmftaWrapper] processCondition incoming="
+				// + conditionElement.getIncoming());
+
+				/**
+				 * Here, we have an error event. Likely, this is something we
+				 * can get when we are analyzing error component behavior.
+				 */
+				if (errorModelElement instanceof ErrorEvent) {
+					ErrorEvent errorEvent;
+					Event emftaEvent;
+
+					errorEvent = (ErrorEvent) errorModelElement;
+
+					emftaEvent = getFromCache(relatedComponent, errorEvent, errorEvent.getTypeSet());
+
+					if (emftaEvent == null)
+					{
+						emftaEvent = this.createEvent(relatedComponent, errorEvent, errorEvent.getTypeSet(), true);
+						emftaEvent.setType(EventType.BASIC);
+						emftaEvent.setType(EventType.BASIC);
+
+						Utils.fillProperties(emftaEvent, relatedComponent, errorEvent, errorEvent.getTypeSet());
+					}
+
+					return emftaEvent;
+				}
+
+				/**
+				 * Here, we have an error propagation. This is notified with the
+				 * in propagation within a composite error model.
+				 */
+				if (errorModelElement instanceof ErrorPropagation) {
+					ErrorPropagation errorPropagation;
+
+
+					errorPropagation = (ErrorPropagation) errorModelElement;
+
+
+					List<Event> contributors = new ArrayList<Event>();
+					for (TypeToken tt : conditionElement.getConstraint().getTypeTokens()) {
+						OsateDebug.osateDebug("EmftaWrapper", EMV2Util.getPrintName(tt));
+						contributors.add(
+								getAllEventsFromPropagationSource(relatedComponent, errorPropagation, tt, new Stack<Event>()));
+					}
+
+					if (contributors.size() == 0) {
 						Event emftaEvent;
-
-						errorEvent = (ErrorEvent) emvElement;
-
-						emftaEvent = getFromCache(component, errorEvent, errorEvent.getTypeSet());
+						emftaEvent = getFromCache(relatedComponent, errorPropagation, errorPropagation.getTypeSet());
 
 						if (emftaEvent == null)
 						{
-							emftaEvent = this.createEvent(component, errorEvent, errorEvent.getTypeSet(), true);
-							emftaEvent.setType(EventType.BASIC);
-							emftaEvent.setType(EventType.BASIC);
+							emftaEvent = this.createEvent(relatedComponent, errorPropagation, errorPropagation.getTypeSet(), true);
+							emftaEvent.setType(EventType.EXTERNAL);
+							Utils.fillProperties(emftaEvent, relatedComponent, errorPropagation, errorPropagation.getTypeSet());
 
-							Utils.fillProperties(emftaEvent, component, errorEvent, errorEvent.getTypeSet());
 						}
-
 						return emftaEvent;
 					}
 
-					/**
-					 * Here, we have an error propagation. This is notified with the
-					 * in propagation within a composite error model.
-					 */
-					if (emvElement instanceof ErrorPropagation) {
-						ErrorPropagation errorPropagation;
-
-
-						errorPropagation = (ErrorPropagation) emvElement;
-
-
-						List<Event> contributors = new ArrayList<Event>();
-						for (TypeToken tt : conditionElement.getConstraint().getTypeTokens()) {
-							contributors.add(
-									getAllEventsFromPropagationSource(component, errorPropagation, tt, new Stack<Event>()));
-						}
-
-						if (contributors.size() == 0) {
-							Event emftaEvent;
-							emftaEvent = getFromCache(component, errorPropagation, errorPropagation.getTypeSet());
-
-							if (emftaEvent == null)
-							{
-								emftaEvent = this.createEvent(component, errorPropagation, errorPropagation.getTypeSet(), true);
-								emftaEvent.setType(EventType.EXTERNAL);
-								Utils.fillProperties(emftaEvent, component, errorPropagation, errorPropagation.getTypeSet());
-
-							}
-							return emftaEvent;
-						}
-
-						if (contributors.size() == 1) {
-							return contributors.get(0);
-						}
-
-						if (contributors.size() > 1) {
-
-							Event emftaEvent;
-							emftaEvent = getFromCache(component, errorPropagation, errorPropagation.getTypeSet());
-
-							if (emftaEvent == null)
-							{
-								emftaEvent = this.createEvent(component, errorPropagation, errorPropagation.getTypeSet(), false);
-								emftaEvent.setType(EventType.BASIC);
-								Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
-								emftaEvent.setGate(emftaGate);
-
-								emftaGate.setType(GateType.OR);
-
-								for (Event contributor : contributors)
-								{
-									emftaGate.getEvents().add(contributor);
-								}
-							}
-							return emftaEvent;
-						}
-						return null;
+					if (contributors.size() == 1) {
+						return contributors.get(0);
 					}
+
+					if (contributors.size() > 1) {
+
+						Event emftaEvent;
+						emftaEvent = getFromCache(relatedComponent, errorPropagation, errorPropagation.getTypeSet());
+
+						if (emftaEvent == null)
+						{
+							emftaEvent = this.createEvent(relatedComponent, errorPropagation, errorPropagation.getTypeSet(), false);
+							emftaEvent.setType(EventType.BASIC);
+							Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
+							emftaEvent.setGate(emftaGate);
+
+							emftaGate.setType(GateType.OR);
+
+							for (Event contributor : contributors)
+							{
+								emftaGate.getEvents().add(contributor);
+							}
+						}
+						return emftaEvent;
+					}
+					return null;
 				}
+
 			}
 		}
-		
+
 		if(true)
 		{
 			throw new UnsupportedOperationException("condition must be handled and returns something");
 		}
-		
+
 		return null;
 
-		}
+	}
 
+	/**
+	 * Process a component error behavior, analyze its transition and produces a
+	 * list of all events that could then be added in a fault-tree.
+	 *
+	 * @param component
+	 *            - The component under analysis (the one that contains the
+	 *            error behavior)
+	 * @param state
+	 *            - The target states of the transitions under analysis
+	 * @param type
+	 *            - The type associated with the target state
+	 * @return - list of events that are related to the target state in this
+	 *         component.
+	 */
+	public Event processComponentErrorBehavior(ComponentInstance component, ErrorBehaviorState state,
+			ErrorTypes type) {
 		/**
-		 * Process a component error behavior, analyze its transition and produces a
-		 * list of all events that could then be added in a fault-tree.
-		 *
-		 * @param component
-		 *            - The component under analysis (the one that contains the
-		 *            error behavior)
-		 * @param state
-		 *            - The target states of the transitions under analysis
-		 * @param type
-		 *            - The type associated with the target state
-		 * @return - list of events that are related to the target state in this
-		 *         component.
+		 * Depending on the condition, it returns either a single element, an
+		 * AND or an OR.
 		 */
-		public Event processComponentErrorBehavior(ComponentInstance component, ErrorBehaviorState state,
-				ErrorTypes type) {
-			/**
-			 * Depending on the condition, it returns either a single element, an
-			 * AND or an OR.
-			 */
-			List<Event> subEvents;
+		List<Event> subEvents;
 
-			subEvents = new ArrayList<Event>();
+		subEvents = new ArrayList<Event>();
 
-			for (ErrorBehaviorTransition transition : EMV2Util.getAllErrorBehaviorTransitions(component)) {
-				if (transition.getTarget() == state) {
-					subEvents.add(processCondition(component, transition.getCondition()));
-				}
+		for (ErrorBehaviorTransition transition : EMV2Util.getAllErrorBehaviorTransitions(component)) {
+			if (transition.getTarget() == state) {
+				subEvents.add(processCondition(component, transition.getCondition()));
 			}
-
-			if (subEvents.size() == 1)
-			{
-				return subEvents.get(0);
-			}
-			if (subEvents.size() > 1)
-			{
-
-				Event combined;
-				combined = getFromCache(component, state, state.getTypeSet());
-
-				if (combined == null)
-				{
-					combined = this.createEvent(component, state, state.getTypeSet(), false);
-					combined.setType(EventType.BASIC);
-					Utils.fillProperties(combined, component, state, null);
-					Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
-					emftaGate.setType(GateType.OR);
-
-					combined.setGate(emftaGate);
-
-					for (Event se : subEvents)
-					{
-						emftaGate.getEvents().add(se);
-					}
-				}
-
-				return combined;
-			}
-
-			return null;
 		}
 
-		public Event processComponentErrorBehavior(ComponentInstance component, ErrorPropagation propagation,
-				ErrorTypes type) {
-
-
-			List<Event> subEvents;
-
-			subEvents = new ArrayList<Event>();
-
-			for (OutgoingPropagationCondition opc : EMV2Util.getAllOutgoingPropagationConditions(component) ) {
-				if (opc.getOutgoing() == propagation)
-				{
-					ConditionExpression conditionExpression = opc.getCondition();
-					OsateDebug.osateDebug("condition expression" + conditionExpression);
-					subEvents.add(processCondition(component, conditionExpression));
-				}
-			}
-
-			if (subEvents.size() == 1)
-			{
-				return subEvents.get(0);
-			}
-			if (subEvents.size() > 1)
-			{
-
-				Event combined;
-				combined = getFromCache(component, propagation, propagation.getTypeSet());
-
-				if (combined == null)
-				{
-					combined = this.createEvent(component, propagation, propagation.getTypeSet(), false);
-					combined.setType(EventType.BASIC);
-					Utils.fillProperties(combined, component, propagation, null);
-					Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
-					emftaGate.setType(GateType.OR);
-
-					combined.setGate(emftaGate);
-
-					for (Event se : subEvents)
-					{
-						emftaGate.getEvents().add(se);
-					}
-				}
-
-				return combined;
-			}
-
-			return null;
+		if (subEvents.size() == 1)
+		{
+			return subEvents.get(0);
 		}
+		if (subEvents.size() > 1)
+		{
 
-		/**
-		 * Process a composite error behavior for a component and try to get all
-		 * related potential events to add in a FTA
-		 *
-		 * @param component
-		 *            - the component under analysis
-		 * @param state
-		 *            - the target state under analysis
-		 * @param type
-		 *            - the type associated to the target state (if any)
-		 * @return - the list of all potential related FTA events
-		 */
-		public Event processCompositeErrorBehavior(ComponentInstance component, ErrorBehaviorState state,
-				ErrorTypes type) {
-			/**
-			 * Depending on the condition, it returns either a single element, an
-			 * AND or an OR.
-			 */
-			List<Event> subEvents;
+			Event combined;
+			combined = getFromCache(component, state, state.getTypeSet());
 
-			subEvents = new ArrayList<Event>();
-
-			for (CompositeState cs : EMV2Util.getAllCompositeStates(component)) {
-				if (cs.getState() == state) {
-					subEvents.add(processCondition(component, cs.getCondition()));
-				}
-			}
-
-
-			if (subEvents.size() == 1)
+			if (combined == null)
 			{
-				return subEvents.get(0);
-			}
-			if (subEvents.size() > 1)
-			{
-				Event combined = this.createEvent(component, state, state.getTypeSet(), false);
+				combined = this.createEvent(component, state, state.getTypeSet(), false);
 				combined.setType(EventType.BASIC);
 				Utils.fillProperties(combined, component, state, null);
 				Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
@@ -835,77 +810,181 @@ public class EmftaWrapper {
 				{
 					emftaGate.getEvents().add(se);
 				}
-
-				return combined;
 			}
-			return null;
 
+			return combined;
 		}
 
-		/**
-		 * Process a particular error behavior state and try to get all potential
-		 * error contributors, either from the component error behavior or the
-		 * composite error behavior.
-		 *
-		 * @param component
-		 *            - the component under analysis
-		 * @param state
-		 *            - the failure mode under analysis
-		 * @param type
-		 *            - the type related to the failure mode (null if not useful)
-		 * @return - a node that represents either the single failure state or an
-		 *         AND- or OR- nodes if several.
-		 */
-		public Event processErrorState(ComponentInstance component, ErrorBehaviorState state, ErrorTypes type) {
+		return null;
+	}
 
-			Event compositeBehaviorEvent;
-			Event componentBehaviorEvent;
+	public Event processComponentErrorBehavior(ComponentInstance component, ErrorPropagation propagation,
+			ErrorTypes type) {
 
 
-			List<Event> subEvents = new ArrayList<Event>();
+		List<Event> subEvents;
 
-			componentBehaviorEvent = processComponentErrorBehavior(component, state, type);
-			if (componentBehaviorEvent != null)
+		subEvents = new ArrayList<Event>();
+
+		for (OutgoingPropagationCondition opc : EMV2Util.getAllOutgoingPropagationConditions(component) ) {
+			if (opc.getOutgoing() == propagation)
 			{
-				subEvents.add(componentBehaviorEvent);
+				ConditionExpression conditionExpression = opc.getCondition();
+				OsateDebug.osateDebug("condition expression" + conditionExpression);
+				subEvents.add(processCondition(component, conditionExpression));
 			}
+		}
 
-			compositeBehaviorEvent = processCompositeErrorBehavior(component, state, type);
-			if (compositeBehaviorEvent != null)
+		if (subEvents.size() == 1)
+		{
+			return subEvents.get(0);
+		}
+		if (subEvents.size() > 1)
+		{
+
+			Event combined;
+			combined = getFromCache(component, propagation, propagation.getTypeSet());
+
+			if (combined == null)
 			{
-				subEvents.add(compositeBehaviorEvent);
-			}
-
-			if (subEvents.size() == 0)
-			{
-				Event errorStateEvent = this.createEvent(component, state, state.getTypeSet(), false);
-				errorStateEvent.setType(EventType.BASIC);
-				Utils.fillProperties(errorStateEvent, component, state, state.getTypeSet());
-				errorStateEvent.setGate(null);
-				return errorStateEvent;
-			}
-
-			if(subEvents.size() == 1)
-			{
-				return subEvents.get(0);
-			}
-
-			if (subEvents.size() > 0) {
-				Event errorStateEvent = this.createEvent(component, state, state.getTypeSet(), false);
-				errorStateEvent.setType(EventType.BASIC);
-				Utils.fillProperties(errorStateEvent, component, state, state.getTypeSet());
+				combined = this.createEvent(component, propagation, propagation.getTypeSet(), false);
+				combined.setType(EventType.BASIC);
+				Utils.fillProperties(combined, component, propagation, null);
 				Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
 				emftaGate.setType(GateType.OR);
-				errorStateEvent.setGate(emftaGate);
 
-				for (Event e : subEvents) {
-					emftaGate.getEvents().add(e);
+				combined.setGate(emftaGate);
+
+				for (Event se : subEvents)
+				{
+					emftaGate.getEvents().add(se);
 				}
-				return errorStateEvent;
 			}
 
-			return null;
-
+			return combined;
 		}
 
+		return null;
 	}
+
+	/**
+	 * Process a composite error behavior for a component and try to get all
+	 * related potential events to add in a FTA
+	 *
+	 * @param component
+	 *            - the component under analysis
+	 * @param state
+	 *            - the target state under analysis
+	 * @param type
+	 *            - the type associated to the target state (if any)
+	 * @return - the list of all potential related FTA events
+	 */
+	public Event processCompositeErrorBehavior(ComponentInstance component, ErrorBehaviorState state,
+			ErrorTypes type) {
+		/**
+		 * Depending on the condition, it returns either a single element, an
+		 * AND or an OR.
+		 */
+		List<Event> subEvents;
+
+		subEvents = new ArrayList<Event>();
+
+		for (CompositeState cs : EMV2Util.getAllCompositeStates(component)) {
+			if (cs.getState() == state) {
+				subEvents.add(processCondition(component, cs.getCondition()));
+			}
+		}
+
+
+		if (subEvents.size() == 1)
+		{
+			return subEvents.get(0);
+		}
+		if (subEvents.size() > 1)
+		{
+			Event combined = this.createEvent(component, state, state.getTypeSet(), false);
+			combined.setType(EventType.BASIC);
+			Utils.fillProperties(combined, component, state, null);
+			Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
+			emftaGate.setType(GateType.OR);
+
+			combined.setGate(emftaGate);
+
+			for (Event se : subEvents)
+			{
+				emftaGate.getEvents().add(se);
+			}
+
+			return combined;
+		}
+		return null;
+
+	}
+
+	/**
+	 * Process a particular error behavior state and try to get all potential
+	 * error contributors, either from the component error behavior or the
+	 * composite error behavior.
+	 *
+	 * @param component
+	 *            - the component under analysis
+	 * @param state
+	 *            - the failure mode under analysis
+	 * @param type
+	 *            - the type related to the failure mode (null if not useful)
+	 * @return - a node that represents either the single failure state or an
+	 *         AND- or OR- nodes if several.
+	 */
+	public Event processErrorState(ComponentInstance component, ErrorBehaviorState state, ErrorTypes type) {
+
+		Event compositeBehaviorEvent;
+		Event componentBehaviorEvent;
+
+
+		List<Event> subEvents = new ArrayList<Event>();
+
+		componentBehaviorEvent = processComponentErrorBehavior(component, state, type);
+		if (componentBehaviorEvent != null)
+		{
+			subEvents.add(componentBehaviorEvent);
+		}
+
+		compositeBehaviorEvent = processCompositeErrorBehavior(component, state, type);
+		if (compositeBehaviorEvent != null)
+		{
+			subEvents.add(compositeBehaviorEvent);
+		}
+
+		if (subEvents.size() == 0)
+		{
+			Event errorStateEvent = this.createEvent(component, state, state.getTypeSet(), false);
+			errorStateEvent.setType(EventType.BASIC);
+			Utils.fillProperties(errorStateEvent, component, state, state.getTypeSet());
+			errorStateEvent.setGate(null);
+			return errorStateEvent;
+		}
+
+		if(subEvents.size() == 1)
+		{
+			return subEvents.get(0);
+		}
+
+		if (subEvents.size() > 0) {
+			Event errorStateEvent = this.createEvent(component, state, state.getTypeSet(), false);
+			errorStateEvent.setType(EventType.BASIC);
+			Utils.fillProperties(errorStateEvent, component, state, state.getTypeSet());
+			Gate emftaGate = EmftaFactory.eINSTANCE.createGate();
+			emftaGate.setType(GateType.OR);
+			errorStateEvent.setGate(emftaGate);
+
+			for (Event e : subEvents) {
+				emftaGate.getEvents().add(e);
+			}
+			return errorStateEvent;
+		}
+
+		return null;
+
+	}
+
+}

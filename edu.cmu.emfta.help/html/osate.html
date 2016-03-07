@@ -31,17 +31,32 @@ To generate the EMFTA model from the AADL model, proceed as follow:
 </p>
 <ol>
 	<li>Select the instance model you would like to use to generate the EMFTA model</li>
-	<li>Right click and select the OSATE analysis submenu and finally select the EMFTA export</li>
-	<li>Enter the name of the AADL error state that is the top-level error state of your FTA</li>
+	<li>Right click and select the OSATE analysis submenu and finally select the EMFTA export (figure 1)</li>
+	<li>Select the failure mode to process (figure 2). Two kind of failure modes can be selected: AADL <em>error state</em> or <em>outgoing error propagation</em></li>
 </ol>
 <p>
-Once complete, a file with the <em>emfta</em> is generated at the root of
-the Eclipse project. You can then open it with EMFTA. Do not forget to 
-switch to the <em>Sirius</em> perspective in your environment, convert
+Once complete, a file with the <em>emfta</em> is generated in the project, as shown in figure 3. You can then open it with EMFTA. Do not forget to 
+switch to the <em>Modeling (or Sitius)</em> perspective in your environment, convert
 the project to a modeling project but also use the appropriate representation.
 </p>
 
 <img src="pics/emfta-osate.png"/>
+<p style="text-align: center;">
+<em>Figure 1: Selection of EMFTA export function</em>
+<p>
+
+
+
+<img src="pics/bridge-selection.png"/>
+<p style="text-align: center;">
+<em>Figure 2: Selection of the Failure Mode to process</em>
+<p>
+
+
+<img src="pics/files.png"/>
+<p style="text-align: center;">
+<em>Figure 3: EMFTA file created</em>
+<p>
 
 </body>
 </html>

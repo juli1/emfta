@@ -5,7 +5,7 @@
       version="1.0.0.qualifier"
       provider-name="SEI/CMU">
 
-   <description url="https://github.com/juli1/emfta">
+   <description>
       EMFTA Fault-Tree Analysis Tool Bridge with OSATE
    </description>
 
@@ -13,8 +13,22 @@
       Copyright (c) 2015 Julien Delange
    </copyright>
 
-   <license url="https://www.eclipse.org/legal/epl-v10.html">
-      Eclipse Public License (EPL1)
+   <license url="">
+      Copyright (c) 2015 Carnegie Mellon University.
+All Rights Reserved.
+ 
+THIS SOFTWARE IS PROVIDED &quot;AS IS,&quot; WITH NO WARRANTIES WHATSOEVER.
+CARNEGIE MELLON UNIVERSITY EXPRESSLY DISCLAIMS TO THE FULLEST 
+EXTENT PERMITTEDBY LAW ALL EXPRESS, IMPLIED, AND STATUTORY 
+WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE WARRANTIES OF 
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND 
+NON-INFRINGEMENT OF PROPRIETARY RIGHTS.
+
+This Program is distributed under a BSD license.  
+Please see license.txt file or permission@sei.cmu.edu for more
+information. 
+ 
+DM-0003411
    </license>
 
    <url>

@@ -1,3 +1,21 @@
+/**
+ * Copyright (c) 2015 Carnegie Mellon University.
+ * All Rights Reserved.
+ * 
+ * THIS SOFTWARE IS PROVIDED "AS IS," WITH NO WARRANTIES WHATSOEVER.
+ * CARNEGIE MELLON UNIVERSITY EXPRESSLY DISCLAIMS TO THE FULLEST 
+ * EXTENT PERMITTEDBY LAW ALL EXPRESS, IMPLIED, AND STATUTORY 
+ * WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE WARRANTIES OF 
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND 
+ * NON-INFRINGEMENT OF PROPRIETARY RIGHTS.
+
+ * This Program is distributed under a BSD license.  
+ * Please see license.txt file or permission@sei.cmu.edu for more
+ * information. 
+ * 
+ * DM-0003411
+ */
+
 package org.osate.aadl2.errormodel.emfta.fta;
 
 import org.osate.aadl2.NamedElement;
